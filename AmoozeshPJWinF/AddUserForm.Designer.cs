@@ -236,6 +236,7 @@
             Fieldbox.Name = "Fieldbox";
             Fieldbox.Size = new Size(125, 27);
             Fieldbox.TabIndex = 6;
+            Fieldbox.KeyPress += Fieldbox_KeyPress;
             // 
             // WAnumberbox
             // 
@@ -269,6 +270,7 @@
             Lnamebox.Name = "Lnamebox";
             Lnamebox.Size = new Size(125, 27);
             Lnamebox.TabIndex = 2;
+            Lnamebox.KeyPress += Lnamebox_KeyPress;
             // 
             // Fnamebox
             // 
@@ -276,6 +278,7 @@
             Fnamebox.Name = "Fnamebox";
             Fnamebox.Size = new Size(125, 27);
             Fnamebox.TabIndex = 1;
+            Fnamebox.KeyPress += Fnamebox_KeyPress;
             // 
             // Idbox
             // 
@@ -358,6 +361,7 @@
             Jobbox.Name = "Jobbox";
             Jobbox.Size = new Size(125, 27);
             Jobbox.TabIndex = 2;
+            Jobbox.KeyPress += Jobbox_KeyPress;
             // 
             // Citybox
             // 
@@ -365,6 +369,7 @@
             Citybox.Name = "Citybox";
             Citybox.Size = new Size(125, 27);
             Citybox.TabIndex = 1;
+            Citybox.KeyPress += Citybox_KeyPress;
             // 
             // MaritalCbox
             // 

@@ -369,5 +369,30 @@ namespace AmoozeshPJWinF
                 e.Handled = true;
             }
         }
+
+        private void Fnamebox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void Lnamebox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void Fieldbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void Citybox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void Jobbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
     }
 }
