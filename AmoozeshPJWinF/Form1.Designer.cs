@@ -70,7 +70,6 @@
             day29 = new Button();
             day30 = new Button();
             day31 = new Button();
-            button3 = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -453,22 +452,11 @@
             day31.Text = "31";
             day31.UseVisualStyleBackColor = true;
             // 
-            // button3
-            // 
-            button3.Location = new Point(471, 245);
-            button3.Name = "button3";
-            button3.Size = new Size(94, 29);
-            button3.TabIndex = 39;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(903, 483);
-            Controls.Add(button3);
             Controls.Add(day31);
             Controls.Add(day30);
             Controls.Add(day29);
@@ -554,6 +542,5 @@
         private Button day29;
         private Button day30;
         private Button day31;
-        private Button button3;
     }
 }
