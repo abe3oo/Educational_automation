@@ -2,6 +2,8 @@
 using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -175,6 +177,13 @@ namespace AmoozeshPJWinF
 
                 }
             }
+        }
+
+        public string cul_converter(DateTime d1)
+        {
+            PersianCalendar pc = new PersianCalendar();
+            StringBuilder sb = new StringBuilder();
+            return sb.ToString();
         }
 
 

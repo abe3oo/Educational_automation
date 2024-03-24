@@ -32,7 +32,14 @@
             button1 = new Button();
             button2 = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
-            clocklbl = new Label();
+            yearlabelpr = new Label();
+            monthlabelpr = new Label();
+            daylabelpr = new Label();
+            label1 = new Label();
+            label2 = new Label();
+            groupBox1 = new GroupBox();
+            clocklabel = new Label();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // button1
@@ -59,28 +66,94 @@
             // 
             timer1.Tick += timer1_Tick;
             // 
-            // clocklbl
+            // yearlabelpr
             // 
-            clocklbl.AutoSize = true;
-            clocklbl.Location = new Point(361, 9);
-            clocklbl.Name = "clocklbl";
-            clocklbl.Size = new Size(113, 20);
-            clocklbl.TabIndex = 2;
-            clocklbl.Text = "Loading Time ...";
-            clocklbl.TextAlign = ContentAlignment.TopCenter;
+            yearlabelpr.AutoSize = true;
+            yearlabelpr.Font = new Font("Segoe UI", 11F);
+            yearlabelpr.Location = new Point(49, 16);
+            yearlabelpr.Name = "yearlabelpr";
+            yearlabelpr.Size = new Size(52, 25);
+            yearlabelpr.TabIndex = 2;
+            yearlabelpr.Text = "0000";
+            // 
+            // monthlabelpr
+            // 
+            monthlabelpr.AutoSize = true;
+            monthlabelpr.Font = new Font("Segoe UI", 11F);
+            monthlabelpr.Location = new Point(118, 16);
+            monthlabelpr.Name = "monthlabelpr";
+            monthlabelpr.Size = new Size(32, 25);
+            monthlabelpr.TabIndex = 3;
+            monthlabelpr.Text = "00";
+            // 
+            // daylabelpr
+            // 
+            daylabelpr.AutoSize = true;
+            daylabelpr.Font = new Font("Segoe UI", 11F);
+            daylabelpr.Location = new Point(169, 16);
+            daylabelpr.Name = "daylabelpr";
+            daylabelpr.Size = new Size(32, 25);
+            daylabelpr.TabIndex = 4;
+            daylabelpr.Text = "00";
+            daylabelpr.Click += daylabelpr_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 11F);
+            label1.Location = new Point(103, 15);
+            label1.Name = "label1";
+            label1.Size = new Size(19, 25);
+            label1.TabIndex = 5;
+            label1.Text = "/";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11F);
+            label2.Location = new Point(147, 15);
+            label2.Name = "label2";
+            label2.Size = new Size(19, 25);
+            label2.TabIndex = 6;
+            label2.Text = "/";
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(clocklabel);
+            groupBox1.Controls.Add(yearlabelpr);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(monthlabelpr);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(daylabelpr);
+            groupBox1.Location = new Point(238, 1);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(349, 50);
+            groupBox1.TabIndex = 7;
+            groupBox1.TabStop = false;
+            // 
+            // clocklabel
+            // 
+            clocklabel.AutoSize = true;
+            clocklabel.Font = new Font("Segoe UI", 11F);
+            clocklabel.Location = new Point(230, 17);
+            clocklabel.Name = "clocklabel";
+            clocklabel.Size = new Size(80, 25);
+            clocklabel.TabIndex = 8;
+            clocklabel.Text = "00:00:00";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(839, 483);
-            Controls.Add(clocklbl);
+            Controls.Add(groupBox1);
             Controls.Add(button2);
             Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -88,6 +161,12 @@
         private Button button1;
         private Button button2;
         private System.Windows.Forms.Timer timer1;
-        private Label clocklbl;
+        private Label yearlabelpr;
+        private Label monthlabelpr;
+        private Label daylabelpr;
+        private Label label1;
+        private Label label2;
+        private GroupBox groupBox1;
+        private Label clocklabel;
     }
 }
