@@ -70,14 +70,16 @@
             day29 = new Button();
             day30 = new Button();
             day31 = new Button();
+            AddCourse = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(770, 346);
+            button1.Location = new Point(674, 260);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(112, 29);
+            button1.Size = new Size(98, 22);
             button1.TabIndex = 0;
             button1.Text = "AddUser";
             button1.UseVisualStyleBackColor = true;
@@ -85,9 +87,10 @@
             // 
             // button2
             // 
-            button2.Location = new Point(770, 391);
+            button2.Location = new Point(674, 293);
+            button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(112, 29);
+            button2.Size = new Size(98, 22);
             button2.TabIndex = 1;
             button2.Text = "pay";
             button2.UseVisualStyleBackColor = true;
@@ -101,9 +104,9 @@
             // 
             yearlabelpr.AutoSize = true;
             yearlabelpr.Font = new Font("Segoe UI", 11F);
-            yearlabelpr.Location = new Point(58, 16);
+            yearlabelpr.Location = new Point(51, 12);
             yearlabelpr.Name = "yearlabelpr";
-            yearlabelpr.Size = new Size(52, 25);
+            yearlabelpr.Size = new Size(41, 20);
             yearlabelpr.TabIndex = 2;
             yearlabelpr.Text = "0000";
             // 
@@ -111,9 +114,9 @@
             // 
             monthlabelpr.AutoSize = true;
             monthlabelpr.Font = new Font("Segoe UI", 11F);
-            monthlabelpr.Location = new Point(117, 16);
+            monthlabelpr.Location = new Point(102, 12);
             monthlabelpr.Name = "monthlabelpr";
-            monthlabelpr.Size = new Size(32, 25);
+            monthlabelpr.Size = new Size(25, 20);
             monthlabelpr.TabIndex = 3;
             monthlabelpr.Text = "00";
             // 
@@ -121,9 +124,9 @@
             // 
             daylabelpr.AutoSize = true;
             daylabelpr.Font = new Font("Segoe UI", 11F);
-            daylabelpr.Location = new Point(156, 16);
+            daylabelpr.Location = new Point(136, 12);
             daylabelpr.Name = "daylabelpr";
-            daylabelpr.Size = new Size(32, 25);
+            daylabelpr.Size = new Size(25, 20);
             daylabelpr.TabIndex = 4;
             daylabelpr.Text = "00";
             daylabelpr.TextChanged += daylabelpr_TextChanged;
@@ -133,9 +136,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11F);
-            label1.Location = new Point(103, 15);
+            label1.Location = new Point(90, 11);
             label1.Name = "label1";
-            label1.Size = new Size(19, 25);
+            label1.Size = new Size(15, 20);
             label1.TabIndex = 5;
             label1.Text = "/";
             // 
@@ -143,9 +146,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F);
-            label2.Location = new Point(142, 15);
+            label2.Location = new Point(124, 11);
             label2.Name = "label2";
-            label2.Size = new Size(19, 25);
+            label2.Size = new Size(15, 20);
             label2.TabIndex = 6;
             label2.Text = "/";
             // 
@@ -157,9 +160,11 @@
             groupBox1.Controls.Add(yearlabelpr);
             groupBox1.Controls.Add(monthlabelpr);
             groupBox1.Controls.Add(daylabelpr);
-            groupBox1.Location = new Point(272, 3);
+            groupBox1.Location = new Point(238, 2);
+            groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(349, 50);
+            groupBox1.Padding = new Padding(3, 2, 3, 2);
+            groupBox1.Size = new Size(305, 38);
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
             // 
@@ -167,296 +172,337 @@
             // 
             clocklabel.AutoSize = true;
             clocklabel.Font = new Font("Segoe UI", 11F);
-            clocklabel.Location = new Point(230, 17);
+            clocklabel.Location = new Point(201, 13);
             clocklabel.Name = "clocklabel";
-            clocklabel.Size = new Size(80, 25);
+            clocklabel.Size = new Size(63, 20);
             clocklabel.TabIndex = 8;
             clocklabel.Text = "00:00:00";
             // 
             // day1
             // 
-            day1.Location = new Point(12, 147);
+            day1.Location = new Point(10, 110);
+            day1.Margin = new Padding(3, 2, 3, 2);
             day1.Name = "day1";
-            day1.Size = new Size(33, 26);
+            day1.Size = new Size(29, 20);
             day1.TabIndex = 8;
             day1.Text = "01";
             day1.UseVisualStyleBackColor = true;
             // 
             // day2
             // 
-            day2.Location = new Point(51, 147);
+            day2.Location = new Point(45, 110);
+            day2.Margin = new Padding(3, 2, 3, 2);
             day2.Name = "day2";
-            day2.Size = new Size(33, 26);
+            day2.Size = new Size(29, 20);
             day2.TabIndex = 9;
             day2.Text = "02";
             day2.UseVisualStyleBackColor = true;
             // 
             // day3
             // 
-            day3.Location = new Point(90, 147);
+            day3.Location = new Point(79, 110);
+            day3.Margin = new Padding(3, 2, 3, 2);
             day3.Name = "day3";
-            day3.Size = new Size(33, 26);
+            day3.Size = new Size(29, 20);
             day3.TabIndex = 10;
             day3.Text = "03";
             day3.UseVisualStyleBackColor = true;
             // 
             // day4
             // 
-            day4.Location = new Point(129, 147);
+            day4.Location = new Point(113, 110);
+            day4.Margin = new Padding(3, 2, 3, 2);
             day4.Name = "day4";
-            day4.Size = new Size(33, 26);
+            day4.Size = new Size(29, 20);
             day4.TabIndex = 11;
             day4.Text = "04";
             day4.UseVisualStyleBackColor = true;
             // 
             // day5
             // 
-            day5.Location = new Point(168, 147);
+            day5.Location = new Point(147, 110);
+            day5.Margin = new Padding(3, 2, 3, 2);
             day5.Name = "day5";
-            day5.Size = new Size(33, 26);
+            day5.Size = new Size(29, 20);
             day5.TabIndex = 12;
             day5.Text = "05";
             day5.UseVisualStyleBackColor = true;
             // 
             // day6
             // 
-            day6.Location = new Point(207, 147);
+            day6.Location = new Point(181, 110);
+            day6.Margin = new Padding(3, 2, 3, 2);
             day6.Name = "day6";
-            day6.Size = new Size(33, 26);
+            day6.Size = new Size(29, 20);
             day6.TabIndex = 13;
             day6.Text = "06";
             day6.UseVisualStyleBackColor = true;
             // 
             // day7
             // 
-            day7.Location = new Point(12, 179);
+            day7.Location = new Point(10, 134);
+            day7.Margin = new Padding(3, 2, 3, 2);
             day7.Name = "day7";
-            day7.Size = new Size(33, 26);
+            day7.Size = new Size(29, 20);
             day7.TabIndex = 14;
             day7.Text = "07";
             day7.UseVisualStyleBackColor = true;
             // 
             // day8
             // 
-            day8.Location = new Point(51, 179);
+            day8.Location = new Point(45, 134);
+            day8.Margin = new Padding(3, 2, 3, 2);
             day8.Name = "day8";
-            day8.Size = new Size(33, 26);
+            day8.Size = new Size(29, 20);
             day8.TabIndex = 15;
             day8.Text = "08";
             day8.UseVisualStyleBackColor = true;
             // 
             // day9
             // 
-            day9.Location = new Point(90, 179);
+            day9.Location = new Point(79, 134);
+            day9.Margin = new Padding(3, 2, 3, 2);
             day9.Name = "day9";
-            day9.Size = new Size(33, 26);
+            day9.Size = new Size(29, 20);
             day9.TabIndex = 16;
             day9.Text = "09";
             day9.UseVisualStyleBackColor = true;
             // 
             // day10
             // 
-            day10.Location = new Point(129, 179);
+            day10.Location = new Point(113, 134);
+            day10.Margin = new Padding(3, 2, 3, 2);
             day10.Name = "day10";
-            day10.Size = new Size(33, 26);
+            day10.Size = new Size(29, 20);
             day10.TabIndex = 17;
             day10.Text = "10";
             day10.UseVisualStyleBackColor = true;
             // 
             // day11
             // 
-            day11.Location = new Point(168, 179);
+            day11.Location = new Point(147, 134);
+            day11.Margin = new Padding(3, 2, 3, 2);
             day11.Name = "day11";
-            day11.Size = new Size(33, 26);
+            day11.Size = new Size(29, 20);
             day11.TabIndex = 18;
             day11.Text = "11";
             day11.UseVisualStyleBackColor = true;
             // 
             // day12
             // 
-            day12.Location = new Point(207, 179);
+            day12.Location = new Point(181, 134);
+            day12.Margin = new Padding(3, 2, 3, 2);
             day12.Name = "day12";
-            day12.Size = new Size(33, 26);
+            day12.Size = new Size(29, 20);
             day12.TabIndex = 19;
             day12.Text = "12";
             day12.UseVisualStyleBackColor = true;
             // 
             // day13
             // 
-            day13.Location = new Point(12, 211);
+            day13.Location = new Point(10, 158);
+            day13.Margin = new Padding(3, 2, 3, 2);
             day13.Name = "day13";
-            day13.Size = new Size(33, 26);
+            day13.Size = new Size(29, 20);
             day13.TabIndex = 20;
             day13.Text = "13";
             day13.UseVisualStyleBackColor = true;
             // 
             // day14
             // 
-            day14.Location = new Point(52, 211);
+            day14.Location = new Point(46, 158);
+            day14.Margin = new Padding(3, 2, 3, 2);
             day14.Name = "day14";
-            day14.Size = new Size(33, 26);
+            day14.Size = new Size(29, 20);
             day14.TabIndex = 21;
             day14.Text = "14";
             day14.UseVisualStyleBackColor = true;
             // 
             // day15
             // 
-            day15.Location = new Point(89, 211);
+            day15.Location = new Point(78, 158);
+            day15.Margin = new Padding(3, 2, 3, 2);
             day15.Name = "day15";
-            day15.Size = new Size(34, 26);
+            day15.Size = new Size(30, 20);
             day15.TabIndex = 22;
             day15.Text = "15";
             day15.UseVisualStyleBackColor = true;
             // 
             // day16
             // 
-            day16.Location = new Point(129, 210);
+            day16.Location = new Point(113, 158);
+            day16.Margin = new Padding(3, 2, 3, 2);
             day16.Name = "day16";
-            day16.Size = new Size(33, 27);
+            day16.Size = new Size(29, 20);
             day16.TabIndex = 23;
             day16.Text = "16";
             day16.UseVisualStyleBackColor = true;
             // 
             // day17
             // 
-            day17.Location = new Point(168, 210);
+            day17.Location = new Point(147, 158);
+            day17.Margin = new Padding(3, 2, 3, 2);
             day17.Name = "day17";
-            day17.Size = new Size(33, 26);
+            day17.Size = new Size(29, 20);
             day17.TabIndex = 24;
             day17.Text = "17";
             day17.UseVisualStyleBackColor = true;
             // 
             // day18
             // 
-            day18.Location = new Point(207, 209);
+            day18.Location = new Point(181, 157);
+            day18.Margin = new Padding(3, 2, 3, 2);
             day18.Name = "day18";
-            day18.Size = new Size(33, 27);
+            day18.Size = new Size(29, 20);
             day18.TabIndex = 25;
             day18.Text = "18";
             day18.UseVisualStyleBackColor = true;
             // 
             // day19
             // 
-            day19.Location = new Point(12, 243);
+            day19.Location = new Point(10, 182);
+            day19.Margin = new Padding(3, 2, 3, 2);
             day19.Name = "day19";
-            day19.Size = new Size(33, 26);
+            day19.Size = new Size(29, 20);
             day19.TabIndex = 26;
             day19.Text = "19";
             day19.UseVisualStyleBackColor = true;
             // 
             // day20
             // 
-            day20.Location = new Point(52, 243);
+            day20.Location = new Point(46, 182);
+            day20.Margin = new Padding(3, 2, 3, 2);
             day20.Name = "day20";
-            day20.Size = new Size(33, 26);
+            day20.Size = new Size(29, 20);
             day20.TabIndex = 27;
             day20.Text = "20";
             day20.UseVisualStyleBackColor = true;
             // 
             // day21
             // 
-            day21.Location = new Point(89, 243);
+            day21.Location = new Point(78, 182);
+            day21.Margin = new Padding(3, 2, 3, 2);
             day21.Name = "day21";
-            day21.Size = new Size(34, 26);
+            day21.Size = new Size(30, 20);
             day21.TabIndex = 28;
             day21.Text = "21";
             day21.UseVisualStyleBackColor = true;
             // 
             // day22
             // 
-            day22.Location = new Point(129, 242);
+            day22.Location = new Point(113, 182);
+            day22.Margin = new Padding(3, 2, 3, 2);
             day22.Name = "day22";
-            day22.Size = new Size(33, 27);
+            day22.Size = new Size(29, 20);
             day22.TabIndex = 29;
             day22.Text = "22";
             day22.UseVisualStyleBackColor = true;
             // 
             // day23
             // 
-            day23.Location = new Point(168, 243);
+            day23.Location = new Point(147, 182);
+            day23.Margin = new Padding(3, 2, 3, 2);
             day23.Name = "day23";
-            day23.Size = new Size(33, 26);
+            day23.Size = new Size(29, 20);
             day23.TabIndex = 30;
             day23.Text = "23";
             day23.UseVisualStyleBackColor = true;
             // 
             // day24
             // 
-            day24.Location = new Point(207, 243);
+            day24.Location = new Point(181, 182);
+            day24.Margin = new Padding(3, 2, 3, 2);
             day24.Name = "day24";
-            day24.Size = new Size(33, 26);
+            day24.Size = new Size(29, 20);
             day24.TabIndex = 31;
             day24.Text = "24";
             day24.UseVisualStyleBackColor = true;
             // 
             // day25
             // 
-            day25.Location = new Point(12, 275);
+            day25.Location = new Point(10, 206);
+            day25.Margin = new Padding(3, 2, 3, 2);
             day25.Name = "day25";
-            day25.Size = new Size(33, 26);
+            day25.Size = new Size(29, 20);
             day25.TabIndex = 32;
             day25.Text = "25";
             day25.UseVisualStyleBackColor = true;
             // 
             // day26
             // 
-            day26.Location = new Point(52, 275);
+            day26.Location = new Point(46, 206);
+            day26.Margin = new Padding(3, 2, 3, 2);
             day26.Name = "day26";
-            day26.Size = new Size(33, 26);
+            day26.Size = new Size(29, 20);
             day26.TabIndex = 33;
             day26.Text = "26";
             day26.UseVisualStyleBackColor = true;
             // 
             // day27
             // 
-            day27.Location = new Point(89, 275);
+            day27.Location = new Point(78, 206);
+            day27.Margin = new Padding(3, 2, 3, 2);
             day27.Name = "day27";
-            day27.Size = new Size(34, 26);
+            day27.Size = new Size(30, 20);
             day27.TabIndex = 34;
             day27.Text = "27";
             day27.UseVisualStyleBackColor = true;
             // 
             // day28
             // 
-            day28.Location = new Point(129, 275);
+            day28.Location = new Point(113, 206);
+            day28.Margin = new Padding(3, 2, 3, 2);
             day28.Name = "day28";
-            day28.Size = new Size(33, 26);
+            day28.Size = new Size(29, 20);
             day28.TabIndex = 35;
             day28.Text = "28";
             day28.UseVisualStyleBackColor = true;
             // 
             // day29
             // 
-            day29.Location = new Point(168, 274);
+            day29.Location = new Point(147, 206);
+            day29.Margin = new Padding(3, 2, 3, 2);
             day29.Name = "day29";
-            day29.Size = new Size(33, 27);
+            day29.Size = new Size(29, 20);
             day29.TabIndex = 36;
             day29.Text = "29";
             day29.UseVisualStyleBackColor = true;
             // 
             // day30
             // 
-            day30.Location = new Point(207, 275);
+            day30.Location = new Point(181, 206);
+            day30.Margin = new Padding(3, 2, 3, 2);
             day30.Name = "day30";
-            day30.Size = new Size(33, 26);
+            day30.Size = new Size(29, 20);
             day30.TabIndex = 37;
             day30.Text = "30";
             day30.UseVisualStyleBackColor = true;
             // 
             // day31
             // 
-            day31.Location = new Point(12, 307);
+            day31.Location = new Point(10, 230);
+            day31.Margin = new Padding(3, 2, 3, 2);
             day31.Name = "day31";
-            day31.Size = new Size(33, 26);
+            day31.Size = new Size(29, 20);
             day31.TabIndex = 38;
             day31.Text = "31";
             day31.UseVisualStyleBackColor = true;
             // 
+            // AddCourse
+            // 
+            AddCourse.Location = new Point(674, 327);
+            AddCourse.Name = "AddCourse";
+            AddCourse.Size = new Size(98, 23);
+            AddCourse.TabIndex = 39;
+            AddCourse.Text = "Add Course";
+            AddCourse.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(903, 483);
+            ClientSize = new Size(790, 362);
+            Controls.Add(AddCourse);
             Controls.Add(day31);
             Controls.Add(day30);
             Controls.Add(day29);
@@ -491,6 +537,7 @@
             Controls.Add(groupBox1);
             Controls.Add(button2);
             Controls.Add(button1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
@@ -542,5 +589,6 @@
         private Button day29;
         private Button day30;
         private Button day31;
+        private Button AddCourse;
     }
 }

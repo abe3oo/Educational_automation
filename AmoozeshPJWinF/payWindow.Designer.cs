@@ -64,157 +64,175 @@ namespace AmoozeshPJWinF
             // 
             // userID
             // 
-            userID.Location = new Point(744, 51);
+            userID.Location = new Point(663, 38);
+            userID.Margin = new Padding(4, 0, 4, 0);
             userID.Name = "userID";
             userID.RightToLeft = RightToLeft.Yes;
-            userID.Size = new Size(71, 20);
+            userID.Size = new Size(62, 15);
             userID.TabIndex = 0;
             userID.Text = "کد ملی:";
+            userID.TextAlign = ContentAlignment.MiddleRight;
+            userID.Click += userID_Click;
             // 
             // amount
             // 
-            amount.Location = new Point(744, 192);
+            amount.Location = new Point(663, 144);
+            amount.Margin = new Padding(4, 0, 4, 0);
             amount.Name = "amount";
             amount.RightToLeft = RightToLeft.Yes;
-            amount.Size = new Size(103, 27);
+            amount.Size = new Size(77, 20);
             amount.TabIndex = 1;
             amount.Text = "مقدار تراکنش:";
+            amount.TextAlign = ContentAlignment.MiddleRight;
+            amount.Click += amount_Click;
             // 
             // term
             // 
-            term.Location = new Point(744, 140);
+            term.Location = new Point(663, 106);
+            term.Margin = new Padding(4, 0, 4, 0);
             term.Name = "term";
             term.RightToLeft = RightToLeft.Yes;
-            term.Size = new Size(45, 20);
+            term.Size = new Size(28, 20);
             term.TabIndex = 2;
             term.Text = "ترم:";
+            term.TextAlign = ContentAlignment.MiddleRight;
             // 
             // timepay
             // 
-            timepay.Location = new Point(735, 313);
+            timepay.Location = new Point(663, 231);
+            timepay.Margin = new Padding(4, 0, 4, 0);
             timepay.Name = "timepay";
             timepay.RightToLeft = RightToLeft.Yes;
-            timepay.Size = new Size(94, 41);
+            timepay.Size = new Size(74, 23);
             timepay.TabIndex = 4;
             timepay.Text = "زمان تراکنش:";
+            timepay.TextAlign = ContentAlignment.MiddleRight;
             // 
             // typePay
             // 
-            typePay.Location = new Point(735, 250);
+            typePay.Location = new Point(663, 185);
+            typePay.Margin = new Padding(4, 0, 4, 0);
             typePay.Name = "typePay";
             typePay.RightToLeft = RightToLeft.Yes;
-            typePay.Size = new Size(94, 32);
+            typePay.Size = new Size(74, 24);
             typePay.TabIndex = 5;
             typePay.Text = "نوع تراکنش:";
+            typePay.TextAlign = ContentAlignment.MiddleRight;
+            typePay.Click += typePay_Click;
             // 
             // datepay
             // 
-            datepay.Location = new Point(744, 96);
+            datepay.Location = new Point(663, 70);
+            datepay.Margin = new Padding(4, 0, 4, 0);
             datepay.Name = "datepay";
             datepay.RightToLeft = RightToLeft.Yes;
-            datepay.Size = new Size(94, 32);
+            datepay.Size = new Size(82, 24);
             datepay.TabIndex = 6;
             datepay.Text = "تاریخ پرداخت:";
+            datepay.TextAlign = ContentAlignment.MiddleRight;
             // 
             // status
             // 
-            status.Location = new Point(361, 47);
+            status.Location = new Point(316, 35);
+            status.Margin = new Padding(4, 0, 4, 0);
             status.Name = "status";
             status.RightToLeft = RightToLeft.Yes;
-            status.Size = new Size(94, 41);
+            status.Size = new Size(82, 31);
             status.TabIndex = 7;
             status.Text = "توضیحات:";
             // 
             // tarncCode
             // 
-            tarncCode.Location = new Point(744, 365);
+            tarncCode.Location = new Point(663, 273);
+            tarncCode.Margin = new Padding(4, 0, 4, 0);
             tarncCode.Name = "tarncCode";
             tarncCode.RightToLeft = RightToLeft.Yes;
-            tarncCode.Size = new Size(71, 41);
+            tarncCode.Size = new Size(62, 31);
             tarncCode.TabIndex = 8;
             tarncCode.Text = "کد پیگیری:";
+            tarncCode.TextAlign = ContentAlignment.MiddleRight;
             // 
             // useridtbx
             // 
-            useridtbx.Location = new Point(575, 47);
-            useridtbx.Margin = new Padding(3, 4, 3, 4);
+            useridtbx.Location = new Point(503, 35);
+            useridtbx.Margin = new Padding(4, 3, 4, 3);
             useridtbx.MaxLength = 10;
             useridtbx.Name = "useridtbx";
-            useridtbx.Size = new Size(149, 27);
+            useridtbx.Size = new Size(131, 23);
             useridtbx.TabIndex = 9;
             useridtbx.TextChanged += useridtbx_TextChanged;
             useridtbx.KeyPress += useridtbx_KeyPress;
             // 
             // tractimetxbM
             // 
-            tractimetxbM.Location = new Point(689, 309);
-            tractimetxbM.Margin = new Padding(3, 4, 3, 4);
+            tractimetxbM.Location = new Point(603, 232);
+            tractimetxbM.Margin = new Padding(4, 3, 4, 3);
             tractimetxbM.Name = "tractimetxbM";
-            tractimetxbM.Size = new Size(35, 27);
+            tractimetxbM.Size = new Size(31, 23);
             tractimetxbM.TabIndex = 10;
             tractimetxbM.KeyPress += tractimetxbM_KeyPress;
             // 
             // tracCodetxb
             // 
-            tracCodetxb.Location = new Point(575, 365);
-            tracCodetxb.Margin = new Padding(3, 4, 3, 4);
+            tracCodetxb.Location = new Point(503, 273);
+            tracCodetxb.Margin = new Padding(4, 3, 4, 3);
             tracCodetxb.Name = "tracCodetxb";
-            tracCodetxb.Size = new Size(149, 27);
+            tracCodetxb.Size = new Size(131, 23);
             tracCodetxb.TabIndex = 12;
             tracCodetxb.KeyPress += tracCodetxb_KeyPress;
             // 
             // amounttxb
             // 
-            amounttxb.Location = new Point(575, 192);
-            amounttxb.Margin = new Padding(3, 4, 3, 4);
+            amounttxb.Location = new Point(503, 144);
+            amounttxb.Margin = new Padding(4, 3, 4, 3);
             amounttxb.Name = "amounttxb";
-            amounttxb.Size = new Size(149, 27);
+            amounttxb.Size = new Size(131, 23);
             amounttxb.TabIndex = 13;
             amounttxb.KeyPress += amounttxb_KeyPress;
             // 
             // datetxbd
             // 
-            datetxbd.Location = new Point(689, 92);
-            datetxbd.Margin = new Padding(3, 4, 3, 4);
+            datetxbd.Location = new Point(603, 69);
+            datetxbd.Margin = new Padding(4, 3, 4, 3);
             datetxbd.Name = "datetxbd";
-            datetxbd.Size = new Size(35, 27);
+            datetxbd.Size = new Size(31, 23);
             datetxbd.TabIndex = 15;
             datetxbd.KeyPress += datetxbd_KeyPress;
             // 
             // statustxb
             // 
-            statustxb.Location = new Point(97, 47);
-            statustxb.Margin = new Padding(3, 4, 3, 4);
+            statustxb.Location = new Point(85, 35);
+            statustxb.Margin = new Padding(4, 3, 4, 3);
             statustxb.Multiline = true;
             statustxb.Name = "statustxb";
-            statustxb.Size = new Size(267, 119);
+            statustxb.Size = new Size(234, 91);
             statustxb.TabIndex = 16;
             // 
             // datetxby
             // 
-            datetxby.Location = new Point(546, 89);
-            datetxby.Margin = new Padding(3, 4, 3, 4);
+            datetxby.Location = new Point(478, 67);
+            datetxby.Margin = new Padding(4, 3, 4, 3);
             datetxby.Name = "datetxby";
-            datetxby.Size = new Size(52, 27);
+            datetxby.Size = new Size(46, 23);
             datetxby.TabIndex = 17;
             datetxby.TextAlign = HorizontalAlignment.Center;
             datetxby.KeyPress += datetxby_KeyPress;
             // 
             // datetxbm
             // 
-            datetxbm.Location = new Point(630, 89);
-            datetxbm.Margin = new Padding(3, 4, 3, 4);
+            datetxbm.Location = new Point(551, 67);
+            datetxbm.Margin = new Padding(4, 3, 4, 3);
             datetxbm.Name = "datetxbm";
-            datetxbm.Size = new Size(35, 27);
+            datetxbm.Size = new Size(31, 23);
             datetxbm.TabIndex = 18;
             datetxbm.KeyPress += datetxbm_KeyPress;
             // 
             // tractimetxbH
             // 
-            tractimetxbH.Location = new Point(630, 309);
-            tractimetxbH.Margin = new Padding(3, 4, 3, 4);
+            tractimetxbH.Location = new Point(551, 232);
+            tractimetxbH.Margin = new Padding(4, 3, 4, 3);
             tractimetxbH.Name = "tractimetxbH";
-            tractimetxbH.Size = new Size(35, 27);
+            tractimetxbH.Size = new Size(31, 23);
             tractimetxbH.TabIndex = 19;
             tractimetxbH.TextChanged += tractimetxbH_TextChanged;
             tractimetxbH.KeyPress += tractimetxbH_KeyPress;
@@ -222,40 +240,43 @@ namespace AmoozeshPJWinF
             // label1
             // 
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(606, 89);
+            label1.Location = new Point(530, 67);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.RightToLeft = RightToLeft.Yes;
-            label1.Size = new Size(17, 33);
+            label1.Size = new Size(15, 25);
             label1.TabIndex = 20;
             label1.Text = "/";
             // 
             // label2
             // 
             label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(672, 89);
+            label2.Location = new Point(588, 67);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.RightToLeft = RightToLeft.Yes;
-            label2.Size = new Size(17, 33);
+            label2.Size = new Size(15, 25);
             label2.TabIndex = 21;
             label2.Text = "/";
             // 
             // label3
             // 
             label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(672, 307);
+            label3.Location = new Point(588, 230);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.RightToLeft = RightToLeft.Yes;
-            label3.Size = new Size(17, 33);
+            label3.Size = new Size(15, 25);
             label3.TabIndex = 22;
             label3.Text = ":";
             // 
             // sabtbutton
             // 
             sabtbutton.Enabled = false;
-            sabtbutton.Location = new Point(279, 336);
-            sabtbutton.Margin = new Padding(3, 4, 3, 4);
+            sabtbutton.Location = new Point(244, 252);
+            sabtbutton.Margin = new Padding(4, 3, 4, 3);
             sabtbutton.Name = "sabtbutton";
-            sabtbutton.Size = new Size(86, 40);
+            sabtbutton.Size = new Size(75, 30);
             sabtbutton.TabIndex = 23;
             sabtbutton.Text = "ثبت";
             sabtbutton.UseVisualStyleBackColor = true;
@@ -265,9 +286,10 @@ namespace AmoozeshPJWinF
             // 
             tracTypeCbox.FormattingEnabled = true;
             tracTypeCbox.Items.AddRange(new object[] { "پرداخت", "دریافت" });
-            tracTypeCbox.Location = new Point(573, 247);
+            tracTypeCbox.Location = new Point(500, 185);
+            tracTypeCbox.Margin = new Padding(4, 2, 4, 2);
             tracTypeCbox.Name = "tracTypeCbox";
-            tracTypeCbox.Size = new Size(151, 28);
+            tracTypeCbox.Size = new Size(134, 23);
             tracTypeCbox.TabIndex = 24;
             tracTypeCbox.SelectedIndexChanged += tracTypeCbox_SelectedIndexChanged;
             // 
@@ -275,16 +297,17 @@ namespace AmoozeshPJWinF
             // 
             termCobox.FormattingEnabled = true;
             termCobox.Items.AddRange(new object[] { "بهار", "تابستان", "پاییز", "زمستان" });
-            termCobox.Location = new Point(573, 140);
+            termCobox.Location = new Point(500, 105);
+            termCobox.Margin = new Padding(4, 2, 4, 2);
             termCobox.Name = "termCobox";
-            termCobox.Size = new Size(151, 28);
+            termCobox.Size = new Size(134, 23);
             termCobox.TabIndex = 25;
             // 
             // payWindow
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(927, 600);
+            ClientSize = new Size(811, 450);
             Controls.Add(termCobox);
             Controls.Add(tracTypeCbox);
             Controls.Add(sabtbutton);
@@ -308,7 +331,7 @@ namespace AmoozeshPJWinF
             Controls.Add(term);
             Controls.Add(amount);
             Controls.Add(userID);
-            Margin = new Padding(3, 4, 3, 4);
+            Margin = new Padding(4, 3, 4, 3);
             Name = "payWindow";
             Text = "Form2";
             Load += payWindow_Load;

@@ -105,5 +105,20 @@ namespace AmoozeshPJWinF
                 e.Handled = true;
             }
         }
+
+        private void userID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void typePay_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void amount_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
