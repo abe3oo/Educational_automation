@@ -188,6 +188,7 @@ namespace AmoozeshPJWinF
             amounttxb.Name = "amounttxb";
             amounttxb.Size = new Size(131, 23);
             amounttxb.TabIndex = 13;
+            amounttxb.TextChanged += amounttxb_TextChanged;
             amounttxb.KeyPress += amounttxb_KeyPress;
             // 
             // datetxbd

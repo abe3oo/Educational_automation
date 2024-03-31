@@ -496,6 +496,7 @@
             AddCourse.TabIndex = 39;
             AddCourse.Text = "Add Course";
             AddCourse.UseVisualStyleBackColor = true;
+            AddCourse.Click += AddCourse_Click;
             // 
             // Form1
             // 

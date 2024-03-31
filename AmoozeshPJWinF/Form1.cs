@@ -66,5 +66,11 @@ namespace AmoozeshPJWinF
                 }
             }
         }
+
+        private void AddCourse_Click(object sender, EventArgs e)
+        {
+            AddCourseForm c1 = new AddCourseForm();
+            c1.ShowDialog();
+        }
     }
 }

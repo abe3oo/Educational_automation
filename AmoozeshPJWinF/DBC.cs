@@ -44,6 +44,32 @@ namespace AmoozeshPJWinF
             return msg;
         }
 
+        public bool teacherid_check(string thisid)
+        {
+
+            var con = new NpgsqlConnection(connectionString: globalcon);
+            con.Open();
+            //-----
+            using var cmd = new NpgsqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = $"SELECT * FROM teacher WHERE id = {thisid};";
+            bool msg;
+            using (var reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    msg = true;
+                }
+                else
+                {
+                    msg = false;
+                }
+            }
+            cmd.ExecuteNonQueryAsync();
+            return msg;
+        }
+
+
         public void st_set(student s1)
         {
             var con = new NpgsqlConnection(
@@ -101,7 +127,7 @@ namespace AmoozeshPJWinF
             con.Open();
             using var cmd = new NpgsqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = $"INSERT INTO course(id,teacher_id, course_name, cost, date_of_start) VALUES ({c1.courseid}, {c1.teacherid}, '{c1.coursename}', {c1.cost}, {c1.dateofstart});";
+            cmd.CommandText = $"INSERT INTO course(id,teacher_id, course_name, cost, date_of_start) VALUES ({c1.courseid}, {c1.teacherid}, '{c1.coursename}', {c1.cost}, '{c1.dateofstart}');";
             cmd.ExecuteNonQueryAsync();
             Thread.Sleep(500);
 

@@ -120,5 +120,10 @@ namespace AmoozeshPJWinF
         {
 
         }
+
+        private void amounttxb_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -34,11 +34,15 @@
             teacher_id = new Label();
             date_of_start = new Label();
             courseIDtxb = new TextBox();
-            datetxb = new TextBox();
+            datetxby = new TextBox();
             costtxb = new TextBox();
             courseNametxb = new TextBox();
             teacherIDtxb = new TextBox();
             acceptButton = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            datetxbm = new TextBox();
+            datetxbd = new TextBox();
             SuspendLayout();
             // 
             // courseID
@@ -83,7 +87,7 @@
             // 
             // date_of_start
             // 
-            date_of_start.Location = new Point(256, 218);
+            date_of_start.Location = new Point(256, 215);
             date_of_start.Name = "date_of_start";
             date_of_start.RightToLeft = RightToLeft.Yes;
             date_of_start.Size = new Size(85, 26);
@@ -97,13 +101,17 @@
             courseIDtxb.Name = "courseIDtxb";
             courseIDtxb.Size = new Size(126, 23);
             courseIDtxb.TabIndex = 6;
+            courseIDtxb.TextChanged += courseIDtxb_TextChanged;
+            courseIDtxb.KeyPress += courseIDtxb_KeyPress;
             // 
-            // datetxb
+            // datetxby
             // 
-            datetxb.Location = new Point(109, 218);
-            datetxb.Name = "datetxb";
-            datetxb.Size = new Size(126, 23);
-            datetxb.TabIndex = 7;
+            datetxby.Location = new Point(64, 215);
+            datetxby.Name = "datetxby";
+            datetxby.Size = new Size(56, 23);
+            datetxby.TabIndex = 7;
+            datetxby.TextChanged += datetxby_TextChanged;
+            datetxby.KeyPress += datetxby_KeyPress;
             // 
             // costtxb
             // 
@@ -111,6 +119,8 @@
             costtxb.Name = "costtxb";
             costtxb.Size = new Size(126, 23);
             costtxb.TabIndex = 8;
+            costtxb.TextChanged += costtxb_TextChanged;
+            costtxb.KeyPress += costtxb_KeyPress;
             // 
             // courseNametxb
             // 
@@ -125,6 +135,8 @@
             teacherIDtxb.Name = "teacherIDtxb";
             teacherIDtxb.Size = new Size(126, 23);
             teacherIDtxb.TabIndex = 10;
+            teacherIDtxb.TextChanged += teacherIDtxb_TextChanged;
+            teacherIDtxb.KeyPress += teacherIDtxb_KeyPress;
             // 
             // acceptButton
             // 
@@ -134,17 +146,64 @@
             acceptButton.TabIndex = 11;
             acceptButton.Text = "ثبت";
             acceptButton.UseVisualStyleBackColor = true;
+            acceptButton.Click += acceptButton_Click;
+            // 
+            // label1
+            // 
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(127, 213);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.RightToLeft = RightToLeft.Yes;
+            label1.Size = new Size(15, 25);
+            label1.TabIndex = 21;
+            label1.Text = "/";
+            // 
+            // label2
+            // 
+            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(189, 213);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.RightToLeft = RightToLeft.Yes;
+            label2.Size = new Size(15, 25);
+            label2.TabIndex = 22;
+            label2.Text = "/";
+            // 
+            // datetxbm
+            // 
+            datetxbm.Location = new Point(150, 215);
+            datetxbm.Margin = new Padding(4, 3, 4, 3);
+            datetxbm.Name = "datetxbm";
+            datetxbm.Size = new Size(31, 23);
+            datetxbm.TabIndex = 24;
+            datetxbm.TextChanged += datetxbm_TextChanged;
+            datetxbm.KeyPress += datetxbm_KeyPress;
+            // 
+            // datetxbd
+            // 
+            datetxbd.Location = new Point(204, 216);
+            datetxbd.Margin = new Padding(4, 3, 4, 3);
+            datetxbd.Name = "datetxbd";
+            datetxbd.Size = new Size(31, 23);
+            datetxbd.TabIndex = 25;
+            datetxbd.TextChanged += datetxbd_TextChanged;
+            datetxbd.KeyPress += datetxbd_KeyPress;
             // 
             // AddCourseForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(421, 352);
+            Controls.Add(datetxbd);
+            Controls.Add(datetxbm);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(acceptButton);
             Controls.Add(teacherIDtxb);
             Controls.Add(courseNametxb);
             Controls.Add(costtxb);
-            Controls.Add(datetxb);
+            Controls.Add(datetxby);
             Controls.Add(courseIDtxb);
             Controls.Add(date_of_start);
             Controls.Add(teacher_id);
@@ -165,10 +224,14 @@
         private Label teacher_id;
         private Label date_of_start;
         private TextBox courseIDtxb;
-        private TextBox datetxb;
+        private TextBox datetxby;
         private TextBox costtxb;
         private TextBox courseNametxb;
         private TextBox teacherIDtxb;
         private Button acceptButton;
+        private Label label1;
+        private Label label2;
+        private TextBox datetxbm;
+        private TextBox datetxbd;
     }
 }
