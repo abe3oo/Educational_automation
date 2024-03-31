@@ -140,6 +140,7 @@
             // 
             // acceptButton
             // 
+            acceptButton.Enabled = false;
             acceptButton.Location = new Point(37, 284);
             acceptButton.Name = "acceptButton";
             acceptButton.Size = new Size(81, 27);
