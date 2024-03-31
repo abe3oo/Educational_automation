@@ -94,6 +94,19 @@ namespace AmoozeshPJWinF
 
         }
 
+        public void course_set(Course c1)
+        {
+            var con = new NpgsqlConnection(
+            connectionString: "Host=localhost; Port=5432; Username=postgres; password=nazanin1381; database=test");
+            con.Open();
+            using var cmd = new NpgsqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = $"INSERT INTO course(id,teacher_id, course_name, cost, date_of_start) VALUES ({c1.courseid}, {c1.teacherid}, '{c1.coursename}', {c1.cost}, {c1.dateofstart});";
+            cmd.ExecuteNonQueryAsync();
+            Thread.Sleep(500);
+
+        }
+
         public string Id_Reader(string thisid, int ind)
         {
             var con = new NpgsqlConnection(
