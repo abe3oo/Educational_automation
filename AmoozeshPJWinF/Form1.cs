@@ -165,7 +165,7 @@ namespace AmoozeshPJWinF
                     month2 = month.ToString();
                 }
             }
-            
+
             monthlabelcul.Text = month2;
         }
 
@@ -216,8 +216,26 @@ namespace AmoozeshPJWinF
                     month2 = month.ToString();
                 }
             }
-            
+
             monthlabelcul.Text = month2;
+        }
+
+        private void todaybot_Click(object sender, EventArgs e)
+        {
+            monthlabelcul.Text = monthlabelpr.Text;
+            yearlabelcul.Text = yearlabelpr.Text;
+            foreach (Button b1 in buttons1)
+            {
+                if (daylabelpr.Text == b1.Text)
+                {
+                    b1.BackColor = Color.DeepSkyBlue;
+                    
+                }
+                else
+                {
+                    b1.BackColor = Color.White;
+                }
+            }
         }
     }
 }

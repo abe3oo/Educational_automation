@@ -76,6 +76,7 @@
             label3 = new Label();
             button3 = new Button();
             button4 = new Button();
+            todaybot = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -521,11 +522,22 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
+            // todaybot
+            // 
+            todaybot.Location = new Point(178, 307);
+            todaybot.Name = "todaybot";
+            todaybot.Size = new Size(64, 33);
+            todaybot.TabIndex = 43;
+            todaybot.Text = "امروز";
+            todaybot.UseVisualStyleBackColor = true;
+            todaybot.Click += todaybot_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(903, 483);
+            Controls.Add(todaybot);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(label3);
@@ -624,5 +636,6 @@
         private Label label3;
         private Button button3;
         private Button button4;
+        private Button todaybot;
     }
 }
