@@ -44,6 +44,19 @@ namespace AmoozeshPJWinF
             monthlabelpr.Text = pc.GetMonth(d1).ToString("00");
             daylabelpr.Text = pc.GetDayOfMonth(d1).ToString("00");
             clocklabel.Text = d1.Hour.ToString() + ":" + d1.Minute.ToString() + ":" + d1.Second.ToString();
+            if (monthlabelpr.Text == "01" && monthlabelpr.Text == "02" && monthlabelpr.Text == "03" && monthlabelpr.Text == "04" && monthlabelpr.Text == "05" && monthlabelpr.Text == "06")
+            {
+                day31.Visible = true;
+            }
+            else
+            {
+                day31.Visible = false;
+            }
+            if (yearlabelcul.Text == "0000")
+            {
+                yearlabelcul.Text = yearlabelpr.Text;
+                monthlabelcul.Text = monthlabelpr.Text;
+            }
         }
 
         private void daylabelpr_Click(object sender, EventArgs e)
@@ -58,11 +71,18 @@ namespace AmoozeshPJWinF
 
         private void daylabelpr_TextChanged(object sender, EventArgs e)
         {
+
             foreach (Button b1 in buttons1)
             {
                 if (daylabelpr.Text == b1.Text)
                 {
                     b1.BackColor = Color.DeepSkyBlue;
+                    yearlabelcul.Text = yearlabelpr.Text;
+                    monthlabelcul.Text = monthlabelpr.Text;
+                }
+                else
+                {
+                    b1.BackColor = Color.White;
                 }
             }
         }
@@ -71,6 +91,133 @@ namespace AmoozeshPJWinF
         {
             AddCourseForm c1 = new AddCourseForm();
             c1.ShowDialog();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void monthlabelcul_TextChanged(object sender, EventArgs e)
+        {
+            foreach (Button b1 in buttons1)
+            {
+                if (monthlabelpr.Text == monthlabelcul.Text && yearlabelpr.Text == yearlabelcul.Text)
+                {
+                    if (daylabelpr.Text == b1.Text)
+                    {
+                        b1.BackColor = Color.DeepSkyBlue;
+                    }
+
+
+                }
+                else
+                {
+                    b1.BackColor = Color.White;
+                }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int month = Convert.ToInt16(monthlabelcul.Text);
+            int year = Convert.ToInt32(yearlabelcul.Text);
+            string month2;
+
+            month += 1;
+            month2 = month.ToString();
+            if (month > 12)
+            {
+                month = 1;
+                year += 1;
+                if (month >= 1 && month <= 9)
+                {
+                    month2 = "0" + month.ToString();
+                }
+                else
+                {
+                    month2 = month.ToString();
+                }
+                yearlabelcul.Text = year.ToString();
+            }
+            else if (month < 1)
+            {
+                month = 12;
+                year -= 1;
+                if (month >= 1 && month <= 9)
+                {
+                    month2 = "0" + month.ToString();
+                }
+                else
+                {
+                    month2 = month.ToString();
+                }
+                yearlabelcul.Text = year.ToString();
+            }
+            else
+            {
+                if (month >= 1 && month <= 9)
+                {
+                    month2 = "0" + month.ToString();
+                }
+                else
+                {
+                    month2 = month.ToString();
+                }
+            }
+            
+            monthlabelcul.Text = month2;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int month = Convert.ToInt16(monthlabelcul.Text);
+            int year = Convert.ToInt32(yearlabelcul.Text);
+            string month2;
+
+            month -= 1;
+            month2 = month.ToString();
+            if (month > 12)
+            {
+                month = 1;
+                year += 1;
+                if (month >= 1 && month <= 9)
+                {
+                    month2 = "0" + month.ToString();
+                }
+                else
+                {
+                    month2 = month.ToString();
+                }
+                yearlabelcul.Text = year.ToString();
+            }
+            else if (month < 1)
+            {
+                month = 12;
+                year -= 1;
+                if (month >= 1 && month <= 9)
+                {
+                    month2 = "0" + month.ToString();
+                }
+                else
+                {
+                    month2 = month.ToString();
+                }
+                yearlabelcul.Text = year.ToString();
+            }
+            else
+            {
+                if (month >= 1 && month <= 9)
+                {
+                    month2 = "0" + month.ToString();
+                }
+                else
+                {
+                    month2 = month.ToString();
+                }
+            }
+            
+            monthlabelcul.Text = month2;
         }
     }
 }

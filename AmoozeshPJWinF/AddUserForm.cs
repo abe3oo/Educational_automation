@@ -394,5 +394,10 @@ namespace AmoozeshPJWinF
         {
             e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
         }
+
+        private void AddUserForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

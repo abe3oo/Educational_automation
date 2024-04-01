@@ -470,6 +470,7 @@
             Controls.Add(TypeCbox);
             Name = "AddUserForm";
             Text = "AddUserForm";
+            Load += AddUserForm_Load;
             groupBoxsame.ResumeLayout(false);
             groupBoxsame.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
