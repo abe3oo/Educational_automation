@@ -71,12 +71,7 @@ namespace AmoozeshPJWinF
 
         private void courseIDtxb_TextChanged(object sender, EventArgs e)
         {
-            if (courseIDtxb.Text == "")
-            {
-                acceptButton.Enabled = false;
-            }
-            else
-            { acceptButton.Enabled = true; }
+          
         }
 
         private void teacherIDtxb_TextChanged(object sender, EventArgs e)
