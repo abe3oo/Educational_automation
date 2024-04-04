@@ -39,6 +39,7 @@ namespace AmoozeshPJWinF
         {
             PersianCalendar pc = new PersianCalendar();
             DateTime d1 = DateTime.Now;
+            
             string s1 = "clocklbl";
             yearlabelpr.Text = pc.GetYear(d1).ToString("0000");
             monthlabelpr.Text = pc.GetMonth(d1).ToString("00");
