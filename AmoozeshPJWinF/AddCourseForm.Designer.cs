@@ -47,98 +47,93 @@
             // 
             // courseID
             // 
-            courseID.Location = new Point(293, 79);
+            courseID.Location = new Point(256, 59);
             courseID.Name = "courseID";
             courseID.RightToLeft = RightToLeft.Yes;
-            courseID.Size = new Size(71, 43);
+            courseID.Size = new Size(62, 32);
             courseID.TabIndex = 1;
             courseID.Text = "کد درس:";
             courseID.TextAlign = ContentAlignment.MiddleRight;
             // 
             // cost
             // 
-            cost.Location = new Point(293, 236);
+            cost.Location = new Point(256, 177);
             cost.Name = "cost";
             cost.RightToLeft = RightToLeft.Yes;
-            cost.Size = new Size(97, 28);
+            cost.Size = new Size(85, 21);
             cost.TabIndex = 2;
             cost.Text = "هزینه کلاس:";
             cost.TextAlign = ContentAlignment.MiddleRight;
             // 
             // course_name
             // 
-            course_name.Location = new Point(293, 189);
+            course_name.Location = new Point(256, 142);
             course_name.Name = "course_name";
             course_name.RightToLeft = RightToLeft.Yes;
-            course_name.Size = new Size(71, 20);
+            course_name.Size = new Size(62, 15);
             course_name.TabIndex = 3;
             course_name.Text = "نام درس:";
             course_name.TextAlign = ContentAlignment.MiddleRight;
             // 
             // teacher_id
             // 
-            teacher_id.Location = new Point(293, 133);
+            teacher_id.Location = new Point(256, 100);
             teacher_id.Name = "teacher_id";
             teacher_id.RightToLeft = RightToLeft.Yes;
-            teacher_id.Size = new Size(109, 31);
+            teacher_id.Size = new Size(95, 23);
             teacher_id.TabIndex = 4;
             teacher_id.Text = "کد  ملی استاد:";
             teacher_id.TextAlign = ContentAlignment.MiddleRight;
             // 
             // date_of_start
             // 
-            date_of_start.Location = new Point(293, 287);
+            date_of_start.Location = new Point(256, 215);
             date_of_start.Name = "date_of_start";
             date_of_start.RightToLeft = RightToLeft.Yes;
-            date_of_start.Size = new Size(97, 35);
+            date_of_start.Size = new Size(85, 26);
             date_of_start.TabIndex = 5;
             date_of_start.Text = "تاریخ شروع:";
             date_of_start.TextAlign = ContentAlignment.MiddleRight;
             // 
             // courseIDtxb
             // 
-            courseIDtxb.Location = new Point(125, 87);
-            courseIDtxb.Margin = new Padding(3, 4, 3, 4);
+            courseIDtxb.Location = new Point(109, 65);
             courseIDtxb.Name = "courseIDtxb";
-            courseIDtxb.Size = new Size(143, 27);
+            courseIDtxb.Size = new Size(126, 23);
             courseIDtxb.TabIndex = 6;
             courseIDtxb.TextChanged += courseIDtxb_TextChanged;
             courseIDtxb.KeyPress += courseIDtxb_KeyPress;
             // 
             // datetxby
             // 
-            datetxby.Location = new Point(73, 287);
-            datetxby.Margin = new Padding(3, 4, 3, 4);
+            datetxby.Location = new Point(64, 215);
             datetxby.Name = "datetxby";
-            datetxby.Size = new Size(63, 27);
+            datetxby.Size = new Size(56, 23);
             datetxby.TabIndex = 7;
             datetxby.TextChanged += datetxby_TextChanged;
             datetxby.KeyPress += datetxby_KeyPress;
             // 
             // costtxb
             // 
-            costtxb.Location = new Point(125, 236);
-            costtxb.Margin = new Padding(3, 4, 3, 4);
+            costtxb.Location = new Point(109, 177);
             costtxb.Name = "costtxb";
-            costtxb.Size = new Size(143, 27);
+            costtxb.Size = new Size(126, 23);
             costtxb.TabIndex = 8;
             costtxb.TextChanged += costtxb_TextChanged;
             costtxb.KeyPress += costtxb_KeyPress;
             // 
             // courseNametxb
             // 
-            courseNametxb.Location = new Point(125, 185);
-            courseNametxb.Margin = new Padding(3, 4, 3, 4);
+            courseNametxb.Location = new Point(109, 139);
             courseNametxb.Name = "courseNametxb";
-            courseNametxb.Size = new Size(143, 27);
+            courseNametxb.Size = new Size(126, 23);
             courseNametxb.TabIndex = 9;
             // 
             // teacherIDtxb
             // 
-            teacherIDtxb.Location = new Point(125, 135);
-            teacherIDtxb.Margin = new Padding(3, 4, 3, 4);
+            teacherIDtxb.Location = new Point(109, 101);
             teacherIDtxb.Name = "teacherIDtxb";
-            teacherIDtxb.Size = new Size(143, 27);
+            teacherIDtxb.Size = new Size(126, 23);
             teacherIDtxb.TabIndex = 10;
             teacherIDtxb.TextChanged += teacherIDtxb_TextChanged;
             teacherIDtxb.KeyPress += teacherIDtxb_KeyPress;
@@ -146,10 +141,9 @@
             // acceptButton
             // 
             acceptButton.Enabled = false;
-            acceptButton.Location = new Point(42, 379);
-            acceptButton.Margin = new Padding(3, 4, 3, 4);
+            acceptButton.Location = new Point(37, 284);
             acceptButton.Name = "acceptButton";
-            acceptButton.Size = new Size(93, 36);
+            acceptButton.Size = new Size(81, 27);
             acceptButton.TabIndex = 11;
             acceptButton.Text = "ثبت";
             acceptButton.UseVisualStyleBackColor = true;
@@ -158,50 +152,50 @@
             // label1
             // 
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(145, 284);
-            label1.Margin = new Padding(5, 0, 5, 0);
+            label1.Location = new Point(127, 213);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.RightToLeft = RightToLeft.Yes;
-            label1.Size = new Size(17, 33);
+            label1.Size = new Size(15, 25);
             label1.TabIndex = 21;
             label1.Text = "/";
             // 
             // label2
             // 
             label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(216, 284);
-            label2.Margin = new Padding(5, 0, 5, 0);
+            label2.Location = new Point(189, 213);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.RightToLeft = RightToLeft.Yes;
-            label2.Size = new Size(17, 33);
+            label2.Size = new Size(15, 25);
             label2.TabIndex = 22;
             label2.Text = "/";
             // 
             // datetxbm
             // 
-            datetxbm.Location = new Point(171, 287);
-            datetxbm.Margin = new Padding(5, 4, 5, 4);
+            datetxbm.Location = new Point(150, 215);
+            datetxbm.Margin = new Padding(4, 3, 4, 3);
             datetxbm.Name = "datetxbm";
-            datetxbm.Size = new Size(35, 27);
+            datetxbm.Size = new Size(31, 23);
             datetxbm.TabIndex = 24;
             datetxbm.TextChanged += datetxbm_TextChanged;
             datetxbm.KeyPress += datetxbm_KeyPress;
             // 
             // datetxbd
             // 
-            datetxbd.Location = new Point(233, 288);
-            datetxbd.Margin = new Padding(5, 4, 5, 4);
+            datetxbd.Location = new Point(204, 216);
+            datetxbd.Margin = new Padding(4, 3, 4, 3);
             datetxbd.Name = "datetxbd";
-            datetxbd.Size = new Size(35, 27);
+            datetxbd.Size = new Size(31, 23);
             datetxbd.TabIndex = 25;
             datetxbd.TextChanged += datetxbd_TextChanged;
             datetxbd.KeyPress += datetxbd_KeyPress;
             // 
             // AddCourseForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(481, 469);
+            ClientSize = new Size(421, 352);
             Controls.Add(datetxbd);
             Controls.Add(datetxbm);
             Controls.Add(label2);
@@ -217,7 +211,6 @@
             Controls.Add(course_name);
             Controls.Add(cost);
             Controls.Add(courseID);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "AddCourseForm";
             Text = "AddCourseForm";
             Load += AddCourseForm_Load;
