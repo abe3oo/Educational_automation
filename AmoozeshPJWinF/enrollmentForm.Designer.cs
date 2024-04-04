@@ -174,7 +174,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(463, 384);
+            ClientSize = new Size(444, 388);
             Controls.Add(sabtEnorollmetButton);
             Controls.Add(teacherIDtxb);
             Controls.Add(this.courseIDtxb);
