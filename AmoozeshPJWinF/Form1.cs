@@ -229,13 +229,19 @@ namespace AmoozeshPJWinF
                 if (daylabelpr.Text == b1.Text)
                 {
                     b1.BackColor = Color.DeepSkyBlue;
-                    
+
                 }
                 else
                 {
                     b1.BackColor = Color.White;
                 }
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            enrollmentForm e1 = new enrollmentForm();
+            e1.ShowDialog();
         }
     }
 }

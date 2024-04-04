@@ -16,5 +16,75 @@ namespace AmoozeshPJWinF
         {
             InitializeComponent();
         }
+
+        private void WAgptxb_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void courseIDtxb_TextChanged(object sender, EventArgs e)
+        {
+            if (studentIDtxb.Text == "")
+            {
+                sabtEnorollmetButton.Enabled = false;
+            }
+            else
+            {
+                sabtEnorollmetButton.Enabled = true;
+            }
+        }
+
+        private void studentIDtxb_TextChanged(object sender, EventArgs e)
+        {
+
+            if (studentIDtxb.Text == "")
+            {
+                sabtEnorollmetButton.Enabled = false;
+            }
+            else
+            {
+                sabtEnorollmetButton.Enabled = true;
+            }
+        }
+
+        private void courseIDtxb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void studentIDtxb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void datetxby_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void datetxbm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void datetxbd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

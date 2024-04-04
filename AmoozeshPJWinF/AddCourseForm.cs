@@ -33,7 +33,7 @@ namespace AmoozeshPJWinF
 
             if (dcourse.teacherid_check(teacherIDtxb.Text) == true)
             {
-                if (courseIDtxb.Text != "" && teacherIDtxb.Text != "" && courseNametxb.Text != "" && costtxb.Text != "" && datetxby.Text != "")
+                if (courseIDtxb.Text != "" && teacherIDtxb.Text != "" && courseNametxb.Text != "" && costtxb.Text != "" && datetxbd.Text != "" && datetxbm.Text != "" && datetxby.Text != "")
                 {
                     Course c1 = new Course();
 

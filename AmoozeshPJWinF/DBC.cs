@@ -70,6 +70,56 @@ namespace AmoozeshPJWinF
         }
 
 
+        public bool courseid_check(string thisid)
+        {
+
+            var con = new NpgsqlConnection(connectionString: globalcon);
+            con.Open();
+            //-----
+            using var cmd = new NpgsqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = $"SELECT * FROM course WHERE id = {thisid};";
+            bool msg;
+            using (var reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    msg = true;
+                }
+                else
+                {
+                    msg = false;
+                }
+            }
+            cmd.ExecuteNonQueryAsync();
+            return msg;
+        }
+        public bool studentid_check(string thisid)
+        {
+
+            var con = new NpgsqlConnection(connectionString: globalcon);
+            con.Open();
+            //-----
+            using var cmd = new NpgsqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = $"SELECT * FROM student WHERE id = {thisid};";
+            bool msg;
+            using (var reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    msg = true;
+                }
+                else
+                {
+                    msg = false;
+                }
+            }
+            cmd.ExecuteNonQueryAsync();
+            return msg;
+        }
+
+
         public void st_set(student s1)
         {
             var con = new NpgsqlConnection(
@@ -140,7 +190,7 @@ namespace AmoozeshPJWinF
             con.Open();
             using var cmd = new NpgsqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = $"INSERT INTO enrollment(course_id,teacher_id, whatsapp_gp, date_of_enrollment) VALUES ({e1.courseid}, {e1.teacherid}, '{e1.whatsappgp}','{e1.dateofenrollment}');";
+            cmd.CommandText = $"INSERT INTO enrollment(course_id,student_id, whatsapp_gp, date_of_enrollment) VALUES ({e1.courseid}, {e1.studentid}, '{e1.whatsappgp}','{e1.dateofenrollment}');";
             cmd.ExecuteNonQueryAsync();
             Thread.Sleep(500);
 
