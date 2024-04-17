@@ -25,7 +25,7 @@ namespace AmoozeshPJWinF
         public string firstname { get { return Firstname; } set { Firstname = value; } }
         public string lastname { get { return Lastname; } set { Lastname = value; } }
         public int age { get { return Age; } set { Age = value; } }
-        public string fieled_of_study { get { return Fieled_of_study; } set { Fieled_of_study = value; } }
+        public string? fieled_of_study { get { return Fieled_of_study; } set { Fieled_of_study = value; } }
         public long number { get { return Number; } set { Number = value; } }
 
         public long whatsappnumber { get { return WhatsAppNumber; } set { WhatsAppNumber = value; } }

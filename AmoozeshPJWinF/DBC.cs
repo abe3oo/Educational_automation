@@ -196,10 +196,11 @@ namespace AmoozeshPJWinF
 
         }
 
-        public string Id_Reader(string thisid, int ind)
+        public student St_Reader(string thisid)
         {
             var con = new NpgsqlConnection(
             connectionString: globalcon);
+            student s1 = new student();
             con.Open();
             //-----
             using var cmd = new NpgsqlCommand();
@@ -210,8 +211,67 @@ namespace AmoozeshPJWinF
             using (var reader = cmd.ExecuteReader())
             {
                 reader.Read();
-                return Convert.ToString(reader[ind]);
+                s1.personalcode = Convert.ToInt32(reader[0]);
+                s1.firstname = Convert.ToString(reader[1]);
+                s1.lastname = Convert.ToString(reader[2]);
+                s1.age = Convert.ToInt32(reader[3]);
+                s1.number = Convert.ToInt32(reader[4]);
+                s1.whatsappnumber = Convert.ToInt32(reader[5]);
             }
+            using var cmd2 = new NpgsqlCommand();
+            cmd2.Connection = con;
+            cmd2.CommandText = $"SELECT * FROM student WHERE id = {thisid};";
+            using (var reader = cmd2.ExecuteReader())
+            {
+                reader.Read();
+                s1.education = Convert.ToInt32(reader[1]);
+                s1.fieled_of_study = Convert.ToString(reader[2]);
+                s1.maritalstatus = Convert.ToBoolean(reader[3]);
+                s1.job = Convert.ToString(reader[4]);
+                s1.city = Convert.ToString(reader[5]);
+                s1.maritalstatus = Convert.ToBoolean(reader[6]);
+            }
+
+            return s1;
+            //cmd.ExecuteNonQueryAsync();
+        }
+
+        public teacher Pr_Reader(string thisid)
+        {
+            var con = new NpgsqlConnection(
+            connectionString: globalcon);
+            teacher p1 = new teacher();
+            con.Open();
+            //-----
+            using var cmd = new NpgsqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = $"SELECT * FROM users WHERE id = {thisid};";
+
+
+            using (var reader = cmd.ExecuteReader())
+            {
+                reader.Read();
+                p1.personalcode = Convert.ToInt32(reader[0]);
+                p1.firstname = Convert.ToString(reader[1]);
+                p1.lastname = Convert.ToString(reader[2]);
+                p1.age = Convert.ToInt32(reader[3]);
+                p1.number = Convert.ToInt32(reader[4]);
+                p1.whatsappnumber = Convert.ToInt32(reader[5]);
+            }
+            using var cmd2 = new NpgsqlCommand();
+            cmd2.Connection = con;
+            cmd2.CommandText = $"SELECT * FROM teacher WHERE id = {thisid};";
+            using (var reader = cmd2.ExecuteReader())
+            {
+                reader.Read();
+                
+                p1.fieled_of_study = Convert.ToString(reader[1]);
+                p1.degree_of_education = Convert.ToInt32(reader[2]);
+                p1.presence_record = Convert.ToInt32(reader[3]);
+                p1.date_of_entry = Convert.ToDateTime(reader[4]);
+            }
+
+            return p1;
             //cmd.ExecuteNonQueryAsync();
         }
 
@@ -288,6 +348,24 @@ namespace AmoozeshPJWinF
             return sb.ToString();
         }
 
+        public List<DateTime> data_course_creator(DateTime d1, int d)
+        {
+            List<DateTime> list = new List<DateTime>();
+            DateTime dateTime = d1;
+            for (int i = 0; i < d; i++)
+            {
+                if (i != 0)
+                {
+                    dateTime = dateTime.AddDays(7);
 
+                    list.Add(dateTime);
+                }
+                else
+                {
+                    list.Add(dateTime);
+                }
+            }
+            return list;
+        }
     }
 }
