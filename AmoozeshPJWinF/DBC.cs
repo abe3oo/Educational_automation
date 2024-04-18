@@ -275,6 +275,45 @@ namespace AmoozeshPJWinF
             //cmd.ExecuteNonQueryAsync();
         }
 
+        public List<GetCourse> Course_Reader(DateTime tod)
+        {
+            var con = new NpgsqlConnection(
+            connectionString: globalcon);
+            List<GetCourse> list = new List<GetCourse>();
+            GetCourse course = new GetCourse();
+            con.Open();
+            //-----
+            using var cmd = new NpgsqlCommand();
+            using var cmd2 = new NpgsqlCommand();
+            cmd.Connection = con;
+            cmd2.Connection = con;
+            cmd.CommandText = $"SELECT * FROM course_holding WHERE date_of_sections = {tod};";
+            
+            string t1 = "a";
+
+            using (var reader = cmd.ExecuteReader())
+            {
+
+                while (reader.Read())
+                {
+                    long id = Convert.ToInt64(reader.GetInt64(0));
+                    cmd2.CommandText = $"SELECT * FROM course WHERE id = {id};";
+                    course.courseid = id;
+                    course.teacherid = Convert.ToInt64(reader.GetInt64(2));
+                    course.holding_status = Convert.ToBoolean(reader.GetBoolean(3));
+                    using(var reader2 = cmd2.ExecuteReader())
+                    {
+                        reader2.Read();
+                        course.coursename = reader2.GetString(2);
+                    }
+                    list.Add(course);
+                }
+            }
+
+            return list;
+            //cmd.ExecuteNonQueryAsync();
+        }
+
         public byte[] ImageToByteArray(System.Drawing.Image img)
         {
             
