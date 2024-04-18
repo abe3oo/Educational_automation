@@ -12,8 +12,10 @@ namespace AmoozeshPJWinF
 {
     internal class DBC
     {
-        private string globalcon = "Host=localhost; Port=5432; Username=postgres; password=nazanin1381; database=test";
+        private string globalcon = "Host=localhost; Port=1148; Username=postgres; password=Ara41148; database=test";
         public Image returnImage;
+        //"Host=localhost; Port=5432; Username=postgres; password=nazanin1381; database=test"
+        //"Host=localhost; Port=1148; Username=postgres; password=Ara41148; database=test"
         public DBC()
         {
 
@@ -160,7 +162,7 @@ namespace AmoozeshPJWinF
         public void pay_set(Payment p1)
         {
             var con = new NpgsqlConnection(
-            connectionString: "Host=localhost; Port=5432; Username=postgres; password=nazanin1381; database=test");
+            connectionString: globalcon);
             con.Open();
             using var cmd = new NpgsqlCommand();
             cmd.Connection = con;
@@ -173,7 +175,7 @@ namespace AmoozeshPJWinF
         public void course_set(Course c1)
         {
             var con = new NpgsqlConnection(
-            connectionString: "Host=localhost; Port=5432; Username=postgres; password=nazanin1381; database=test");
+            connectionString: globalcon);
             con.Open();
             using var cmd = new NpgsqlCommand();
             cmd.Connection = con;
@@ -186,7 +188,7 @@ namespace AmoozeshPJWinF
         public void enrollment_set(Enrollment e1)
         {
             var con = new NpgsqlConnection(
-            connectionString: "Host=localhost; Port=5432; Username=postgres; password=nazanin1381; database=test");
+            connectionString: globalcon);
             con.Open();
             using var cmd = new NpgsqlCommand();
             cmd.Connection = con;
@@ -275,42 +277,55 @@ namespace AmoozeshPJWinF
             //cmd.ExecuteNonQueryAsync();
         }
 
-        public List<GetCourse> Course_Reader(DateTime tod)
+        public List<long> Course_holding_id_Reader_by_date(DateTime tod)
         {
             var con = new NpgsqlConnection(
             connectionString: globalcon);
-            List<GetCourse> list = new List<GetCourse>();
-            GetCourse course = new GetCourse();
+            List<long> list = new List<long>();
+
             con.Open();
             //-----
             using var cmd = new NpgsqlCommand();
-            using var cmd2 = new NpgsqlCommand();
-            cmd.Connection = con;
-            cmd2.Connection = con;
-            cmd.CommandText = $"SELECT * FROM course_holding WHERE date_of_sections = {tod};";
-            
-            string t1 = "a";
 
+            cmd.Connection = con;
+
+            cmd.CommandText = $"SELECT course_id FROM course_holding WHERE date_of_sections = '{tod.Year}-{tod.Month}-{tod.Day}';";
             using (var reader = cmd.ExecuteReader())
             {
 
                 while (reader.Read())
                 {
                     long id = Convert.ToInt64(reader.GetInt64(0));
-                    cmd2.CommandText = $"SELECT * FROM course WHERE id = {id};";
-                    course.courseid = id;
-                    course.teacherid = Convert.ToInt64(reader.GetInt64(2));
-                    course.holding_status = Convert.ToBoolean(reader.GetBoolean(3));
-                    using(var reader2 = cmd2.ExecuteReader())
-                    {
-                        reader2.Read();
-                        course.coursename = reader2.GetString(2);
-                    }
-                    list.Add(course);
+                    list.Add(id);
                 }
             }
-
             return list;
+            //cmd.ExecuteNonQueryAsync();
+        }
+
+        public GetCourse GetCourse_Reader_by_id(long id)
+        {
+            var con = new NpgsqlConnection(
+            connectionString: globalcon);
+            
+            GetCourse g1 = new GetCourse();
+            con.Open();
+            //-----
+            using var cmd = new NpgsqlCommand();
+
+            cmd.Connection = con;
+
+            cmd.CommandText = $"SELECT * FROM course WHERE id = {id};";
+            using (var reader = cmd.ExecuteReader())
+            {
+                reader.Read();
+                
+                g1.courseid = Convert.ToInt64(reader.GetInt64(0));
+                g1.teacherid = Convert.ToInt64(reader.GetInt64(1));
+                g1.coursename = Convert.ToString(reader.GetString(2));
+                
+            }
+            return g1;
             //cmd.ExecuteNonQueryAsync();
         }
 

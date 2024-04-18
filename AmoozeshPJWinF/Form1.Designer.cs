@@ -78,7 +78,10 @@
             button4 = new Button();
             todaybot = new Button();
             enrollment = new Button();
+            coursetodayGridView = new DataGridView();
+            todayclasslabel = new Label();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)coursetodayGridView).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -544,11 +547,32 @@
             enrollment.UseVisualStyleBackColor = true;
             enrollment.Click += button5_Click;
             // 
+            // coursetodayGridView
+            // 
+            coursetodayGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            coursetodayGridView.Location = new Point(272, 105);
+            coursetodayGridView.Name = "coursetodayGridView";
+            coursetodayGridView.RowHeadersWidth = 51;
+            coursetodayGridView.Size = new Size(452, 229);
+            coursetodayGridView.TabIndex = 45;
+            // 
+            // todayclasslabel
+            // 
+            todayclasslabel.AutoSize = true;
+            todayclasslabel.Location = new Point(770, 105);
+            todayclasslabel.Name = "todayclasslabel";
+            todayclasslabel.RightToLeft = RightToLeft.Yes;
+            todayclasslabel.Size = new Size(112, 20);
+            todayclasslabel.TabIndex = 46;
+            todayclasslabel.Text = "کلاس های امروز:";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(910, 533);
+            Controls.Add(todayclasslabel);
+            Controls.Add(coursetodayGridView);
             Controls.Add(enrollment);
             Controls.Add(todaybot);
             Controls.Add(button4);
@@ -596,6 +620,7 @@
             Load += Form1_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)coursetodayGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -651,5 +676,7 @@
         private Button button4;
         private Button todaybot;
         private Button enrollment;
+        private DataGridView coursetodayGridView;
+        private Label todayclasslabel;
     }
 }

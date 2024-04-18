@@ -16,12 +16,14 @@ namespace AmoozeshPJWinF
         private long CourseID;
         private long TeacherID;
         private string CourseName;
-        private bool Holding_status;
+        private bool? Holding_status;
 
         public long courseid { get { return CourseID; } set { CourseID = value; } }
         public long teacherid { get { return TeacherID; } set { TeacherID = value; } }
         public string coursename { get { return CourseName; } set { CourseName = value; } }
-        public bool holding_status {  get { return Holding_status; } set { Holding_status = value; } }
+        public bool? holding_status {  get { return Holding_status; } set { Holding_status = value; } }
+
+
 
     }
 }

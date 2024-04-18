@@ -1,3 +1,4 @@
+﻿using System;
 using System.Globalization;
 
 namespace AmoozeshPJWinF
@@ -6,7 +7,7 @@ namespace AmoozeshPJWinF
     {
         System.Windows.Forms.Timer t = null;
         public List<Button> buttons1;
-
+        DBC dbc = new DBC();
         public Form1()
         {
             InitializeComponent();
@@ -61,6 +62,23 @@ namespace AmoozeshPJWinF
         private void Form1_Load(object sender, EventArgs e)
         {
 
+            DateTime da = DateTime.Now;
+            List<long> idtoday = dbc.Course_holding_id_Reader_by_date(da);
+            List<GetCourse> coursetoday = new List<GetCourse>();
+            foreach (long id in idtoday)
+            {
+                coursetoday.Add(dbc.GetCourse_Reader_by_id(id));
+            }
+            if (idtoday.Count > 0)
+            {
+                todayclasslabel.Text = "کلاس های امروز:";
+                coursetodayGridView.DataSource = coursetoday;
+            }
+            else
+            {
+                todayclasslabel.Text = "امروز کلاسی ندارید.";
+                
+            }
         }
 
         private void daylabelpr_TextChanged(object sender, EventArgs e)
