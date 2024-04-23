@@ -43,6 +43,12 @@
             label2 = new Label();
             datetxbm = new TextBox();
             datetxbd = new TextBox();
+            clocklabel = new Label();
+            hourUpDown = new NumericUpDown();
+            minUpDown = new NumericUpDown();
+            label3 = new Label();
+            ((System.ComponentModel.ISupportInitialize)hourUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)minUpDown).BeginInit();
             SuspendLayout();
             // 
             // courseID
@@ -200,11 +206,50 @@
             datetxbd.TextChanged += datetxbd_TextChanged;
             datetxbd.KeyPress += datetxbd_KeyPress;
             // 
+            // clocklabel
+            // 
+            clocklabel.Location = new Point(293, 340);
+            clocklabel.Name = "clocklabel";
+            clocklabel.RightToLeft = RightToLeft.Yes;
+            clocklabel.Size = new Size(97, 35);
+            clocklabel.TabIndex = 26;
+            clocklabel.Text = "ساعت:";
+            clocklabel.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // hourUpDown
+            // 
+            hourUpDown.Location = new Point(171, 345);
+            hourUpDown.Name = "hourUpDown";
+            hourUpDown.Size = new Size(37, 27);
+            hourUpDown.TabIndex = 27;
+            // 
+            // minUpDown
+            // 
+            minUpDown.Location = new Point(233, 345);
+            minUpDown.Maximum = new decimal(new int[] { 59, 0, 0, 0 });
+            minUpDown.Name = "minUpDown";
+            minUpDown.Size = new Size(35, 27);
+            minUpDown.TabIndex = 28;
+            // 
+            // label3
+            // 
+            label3.Location = new Point(214, 340);
+            label3.Name = "label3";
+            label3.RightToLeft = RightToLeft.Yes;
+            label3.Size = new Size(10, 35);
+            label3.TabIndex = 29;
+            label3.Text = ":";
+            label3.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // AddCourseForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(481, 469);
+            Controls.Add(label3);
+            Controls.Add(minUpDown);
+            Controls.Add(hourUpDown);
+            Controls.Add(clocklabel);
             Controls.Add(datetxbd);
             Controls.Add(datetxbm);
             Controls.Add(label2);
@@ -224,6 +269,8 @@
             Name = "AddCourseForm";
             Text = "AddCourseForm";
             Load += AddCourseForm_Load;
+            ((System.ComponentModel.ISupportInitialize)hourUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)minUpDown).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -244,5 +291,9 @@
         private Label label2;
         private TextBox datetxbm;
         private TextBox datetxbd;
+        private Label clocklabel;
+        private NumericUpDown hourUpDown;
+        private NumericUpDown minUpDown;
+        private Label label3;
     }
 }
