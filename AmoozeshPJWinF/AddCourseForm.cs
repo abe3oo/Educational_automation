@@ -33,28 +33,39 @@ namespace AmoozeshPJWinF
 
             if (dcourse.teacherid_check(teacherIDtxb.Text) == true)
             {
-                if (courseIDtxb.Text != "" && teacherIDtxb.Text != "" && courseNametxb.Text != "" && costtxb.Text != "" && datetxbd.Text != "" && datetxbm.Text != "" && datetxby.Text != "")
+                if (termcombobox.Text != "" && teacherIDtxb.Text != "" && courseNametxb.Text != "" && costtxb.Text != "" && datetxbd.Text != "" && datetxbm.Text != "" && datetxby.Text != "")
                 {
+                    
                     Course c1 = new Course();
-
-                    c1.courseid = Convert.ToInt64(courseIDtxb.Text);
+                    
+                    
                     c1.teacherid = Convert.ToInt64(teacherIDtxb.Text);
                     c1.coursename = courseNametxb.Text;
                     c1.cost = Convert.ToInt64(costtxb.Text);
                     DateTime date2 = new DateTime(Convert.ToInt16(datetxby.Text), Convert.ToInt16(datetxbm.Text), Convert.ToInt16(datetxbd.Text));
                     c1.dateofstart = date2;
+                    string id = datetxby.Text.Substring(2, 2) + (termcombobox.SelectedIndex + 1).ToString() + ((uint)date2.DayOfWeek).ToString() + hourUpDown.Value.ToString() + minUpDown.Value.ToString();
+                    c1.courseid = id;
+                    if (dcourse.courseid_check(id) == false)
+                    {
+                        dcourse.course_set(c1);
 
-                    dcourse.course_set(c1);
+                        MessageBox.Show($"کلاس با کد {id} ثبت شد.");
 
-                    MessageBox.Show("ثبت با موفقیت انجام شد");
-
-                    clear_textbox(courseIDtxb);
-                    clear_textbox(teacherIDtxb);
-                    clear_textbox(datetxby);
-                    clear_textbox(datetxbm);
-                    clear_textbox(datetxbd);
-                    clear_textbox(costtxb);
-                    clear_textbox(courseNametxb);
+                        
+                        clear_textbox(teacherIDtxb);
+                        clear_textbox(datetxby);
+                        clear_textbox(datetxbm);
+                        clear_textbox(datetxbd);
+                        clear_textbox(costtxb);
+                        clear_textbox(courseNametxb);
+                        termcombobox.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("این کلاس قبلا ثبت شده!");
+                    }
+                    
 
                 }
                 else
@@ -64,7 +75,7 @@ namespace AmoozeshPJWinF
             }
             else
             {
-                MessageBox.Show("کد ملی موجود نیست!!!");
+                MessageBox.Show("کد ملی استاد موجود نیست!!!");
             }
 
         }

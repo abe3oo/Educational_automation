@@ -74,6 +74,7 @@
             // 
             // TypeCbox
             // 
+            TypeCbox.DropDownStyle = ComboBoxStyle.DropDownList;
             TypeCbox.FormattingEnabled = true;
             TypeCbox.Items.AddRange(new object[] { "استاد", "دانشجو" });
             TypeCbox.Location = new Point(585, 33);
@@ -223,6 +224,7 @@
             // 
             // educationCbox
             // 
+            educationCbox.DropDownStyle = ComboBoxStyle.DropDownList;
             educationCbox.FormattingEnabled = true;
             educationCbox.Items.AddRange(new object[] { "دانش آموز", "سیکل", "دیپلم", "فوق دیپلم", "لیسانس", "فوق لیسانس", "دکترا" });
             educationCbox.Location = new Point(22, 257);
@@ -348,6 +350,7 @@
             // 
             // ClasstypeCbox
             // 
+            ClasstypeCbox.DropDownStyle = ComboBoxStyle.DropDownList;
             ClasstypeCbox.FormattingEnabled = true;
             ClasstypeCbox.Items.AddRange(new object[] { "حضوری", "مجازی" });
             ClasstypeCbox.Location = new Point(22, 116);
@@ -373,6 +376,7 @@
             // 
             // MaritalCbox
             // 
+            MaritalCbox.DropDownStyle = ComboBoxStyle.DropDownList;
             MaritalCbox.FormattingEnabled = true;
             MaritalCbox.Items.AddRange(new object[] { "مجرد", "متاهل" });
             MaritalCbox.Location = new Point(22, 16);

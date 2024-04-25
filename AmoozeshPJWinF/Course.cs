@@ -16,13 +16,13 @@ namespace Amozesh
         {
 
         }
-        private long CourseID;
+        private string CourseID;
         private DateTime DateOfStart;
         private long Cost;
         private long TeacherID;
         private string CourseName;
 
-        public long courseid { get { return CourseID; } set { CourseID = value; } }
+        public string courseid { get { return CourseID; } set { CourseID = value; } }
         public DateTime dateofstart { get { return DateOfStart; } set { DateOfStart = value; } }
         public long cost { get { return Cost; } set { Cost = value; } }
         public long teacherid { get { return TeacherID; } set { TeacherID = value; } }

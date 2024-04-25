@@ -33,7 +33,6 @@
             course_name = new Label();
             teacher_id = new Label();
             date_of_start = new Label();
-            courseIDtxb = new TextBox();
             datetxby = new TextBox();
             costtxb = new TextBox();
             courseNametxb = new TextBox();
@@ -47,6 +46,7 @@
             hourUpDown = new NumericUpDown();
             minUpDown = new NumericUpDown();
             label3 = new Label();
+            termcombobox = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)hourUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)minUpDown).BeginInit();
             SuspendLayout();
@@ -58,7 +58,7 @@
             courseID.RightToLeft = RightToLeft.Yes;
             courseID.Size = new Size(71, 43);
             courseID.TabIndex = 1;
-            courseID.Text = "کد درس:";
+            courseID.Text = "ترم:";
             courseID.TextAlign = ContentAlignment.MiddleRight;
             // 
             // cost
@@ -100,16 +100,6 @@
             date_of_start.TabIndex = 5;
             date_of_start.Text = "تاریخ شروع:";
             date_of_start.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // courseIDtxb
-            // 
-            courseIDtxb.Location = new Point(125, 87);
-            courseIDtxb.Margin = new Padding(3, 4, 3, 4);
-            courseIDtxb.Name = "courseIDtxb";
-            courseIDtxb.Size = new Size(143, 27);
-            courseIDtxb.TabIndex = 6;
-            courseIDtxb.TextChanged += courseIDtxb_TextChanged;
-            courseIDtxb.KeyPress += courseIDtxb_KeyPress;
             // 
             // datetxby
             // 
@@ -247,11 +237,22 @@
             label3.Text = ":";
             label3.TextAlign = ContentAlignment.MiddleRight;
             // 
+            // termcombobox
+            // 
+            termcombobox.DropDownStyle = ComboBoxStyle.DropDownList;
+            termcombobox.FormattingEnabled = true;
+            termcombobox.Items.AddRange(new object[] { "بهار", "تابستان", "پاییز", "زمستان" });
+            termcombobox.Location = new Point(125, 87);
+            termcombobox.Name = "termcombobox";
+            termcombobox.Size = new Size(143, 28);
+            termcombobox.TabIndex = 30;
+            // 
             // AddCourseForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(481, 469);
+            Controls.Add(termcombobox);
             Controls.Add(label3);
             Controls.Add(minUpDown);
             Controls.Add(hourUpDown);
@@ -265,7 +266,6 @@
             Controls.Add(courseNametxb);
             Controls.Add(costtxb);
             Controls.Add(datetxby);
-            Controls.Add(courseIDtxb);
             Controls.Add(date_of_start);
             Controls.Add(teacher_id);
             Controls.Add(course_name);
@@ -287,7 +287,6 @@
         private Label course_name;
         private Label teacher_id;
         private Label date_of_start;
-        private TextBox courseIDtxb;
         private TextBox datetxby;
         private TextBox costtxb;
         private TextBox courseNametxb;
@@ -301,5 +300,6 @@
         private NumericUpDown hourUpDown;
         private NumericUpDown minUpDown;
         private Label label3;
+        private ComboBox termcombobox;
     }
 }
