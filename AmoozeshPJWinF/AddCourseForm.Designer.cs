@@ -218,18 +218,24 @@
             // 
             // hourUpDown
             // 
-            hourUpDown.Location = new Point(171, 345);
+            hourUpDown.Location = new Point(164, 345);
+            hourUpDown.Maximum = new decimal(new int[] { 24, 0, 0, 0 });
+            hourUpDown.Minimum = new decimal(new int[] { 1, 0, 0, int.MinValue });
             hourUpDown.Name = "hourUpDown";
-            hourUpDown.Size = new Size(37, 27);
+            hourUpDown.Size = new Size(44, 27);
             hourUpDown.TabIndex = 27;
+            hourUpDown.ValueChanged += hourUpDown_ValueChanged;
             // 
             // minUpDown
             // 
+            minUpDown.Increment = new decimal(new int[] { 15, 0, 0, 0 });
             minUpDown.Location = new Point(233, 345);
-            minUpDown.Maximum = new decimal(new int[] { 59, 0, 0, 0 });
+            minUpDown.Maximum = new decimal(new int[] { 60, 0, 0, 0 });
+            minUpDown.Minimum = new decimal(new int[] { 1, 0, 0, int.MinValue });
             minUpDown.Name = "minUpDown";
-            minUpDown.Size = new Size(35, 27);
+            minUpDown.Size = new Size(42, 27);
             minUpDown.TabIndex = 28;
+            minUpDown.ValueChanged += minUpDown_ValueChanged;
             // 
             // label3
             // 

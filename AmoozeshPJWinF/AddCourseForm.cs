@@ -71,7 +71,7 @@ namespace AmoozeshPJWinF
 
         private void courseIDtxb_TextChanged(object sender, EventArgs e)
         {
-          
+
         }
 
         private void teacherIDtxb_TextChanged(object sender, EventArgs e)
@@ -148,6 +148,30 @@ namespace AmoozeshPJWinF
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void minUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (minUpDown.Value < 0)
+            {
+                minUpDown.Value = 45;
+            }
+            else if (minUpDown.Value >= 60)
+            {
+                minUpDown.Value = 0;
+            }
+        }
+
+        private void hourUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if(hourUpDown.Value < 0)
+            {
+                hourUpDown.Value = 23;
+            }
+            else if(hourUpDown.Value >= 24)
+            {
+                hourUpDown.Value = 0;
             }
         }
     }
