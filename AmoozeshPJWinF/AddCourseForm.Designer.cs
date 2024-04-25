@@ -47,6 +47,7 @@
             minUpDown = new NumericUpDown();
             label3 = new Label();
             termcombobox = new ComboBox();
+            teacherscombo = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)hourUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)minUpDown).BeginInit();
             SuspendLayout();
@@ -247,11 +248,20 @@
             termcombobox.Size = new Size(143, 28);
             termcombobox.TabIndex = 30;
             // 
+            // teacherscombo
+            // 
+            teacherscombo.FormattingEnabled = true;
+            teacherscombo.Location = new Point(11, 135);
+            teacherscombo.Name = "teacherscombo";
+            teacherscombo.Size = new Size(108, 28);
+            teacherscombo.TabIndex = 31;
+            // 
             // AddCourseForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(481, 469);
+            Controls.Add(teacherscombo);
             Controls.Add(termcombobox);
             Controls.Add(label3);
             Controls.Add(minUpDown);
@@ -301,5 +311,6 @@
         private NumericUpDown minUpDown;
         private Label label3;
         private ComboBox termcombobox;
+        private ComboBox teacherscombo;
     }
 }

@@ -24,7 +24,13 @@ namespace AmoozeshPJWinF
         }
         private void AddCourseForm_Load(object sender, EventArgs e)
         {
-
+            DBC d1 = new DBC();
+            List<GetTeacher> result = d1.All_teacher_reader();
+            
+            foreach (GetTeacher t in result)
+            {
+                teacherscombo.Items.Add(t.personalcode+ " "+ t.firstname+" "+ t.lastname);
+            }
         }
 
         private void acceptButton_Click(object sender, EventArgs e)
@@ -44,7 +50,7 @@ namespace AmoozeshPJWinF
                     c1.cost = Convert.ToInt64(costtxb.Text);
                     DateTime date2 = new DateTime(Convert.ToInt16(datetxby.Text), Convert.ToInt16(datetxbm.Text), Convert.ToInt16(datetxbd.Text));
                     c1.dateofstart = date2;
-                    string id = datetxby.Text.Substring(2, 2) + (termcombobox.SelectedIndex + 1).ToString() + ((uint)date2.DayOfWeek).ToString() + hourUpDown.Value.ToString() + minUpDown.Value.ToString();
+                    string id = datetxby.Text.Substring(2, 2) + (termcombobox.SelectedIndex + 1).ToString() + ((uint)date2.DayOfWeek+2).ToString() + hourUpDown.Value.ToString() + minUpDown.Value.ToString();
                     c1.courseid = id;
                     if (dcourse.courseid_check(id) == false)
                     {
@@ -63,7 +69,7 @@ namespace AmoozeshPJWinF
                     }
                     else
                     {
-                        MessageBox.Show("این کلاس قبلا ثبت شده!");
+                        MessageBox.Show($"این کلاس با کد {id} قبلا ثبت شده!");
                     }
                     
 

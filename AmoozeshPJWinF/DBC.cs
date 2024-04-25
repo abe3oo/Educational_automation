@@ -329,6 +329,55 @@ namespace AmoozeshPJWinF
             //cmd.ExecuteNonQueryAsync();
         }
 
+        public List<GetTeacher> All_teacher_reader()
+        {
+            var con = new NpgsqlConnection(
+            connectionString: globalcon);
+            List<GetTeacher> list = new List<GetTeacher>();
+            List<long> ids = new List<long>();
+            GetTeacher g1 = new GetTeacher();
+            con.Open();
+            //-----
+            using var cmd = new NpgsqlCommand();
+
+            cmd.Connection = con;
+
+            cmd.CommandText = $"SELECT * FROM teacher;";
+            using (var reader = cmd.ExecuteReader())
+            {
+
+                while (reader.Read())
+                {
+                    
+                    
+                    ids.Add(Convert.ToInt64(reader.GetInt64(0)));
+                }
+            }
+
+            using var cmd2 = new NpgsqlCommand();
+            cmd2.Connection = con;
+            foreach (var id in ids)
+            {
+                cmd2.CommandText = $"SELECT * FROM users WHERE id = {id};";
+                using (var reader = cmd2.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        g1.personalcode = id;
+                        g1.firstname = Convert.ToString(reader.GetString(1));
+                        g1.lastname = Convert.ToString(reader.GetString(2));
+                    }
+
+                    list.Add(g1);
+                    
+                }
+            }
+            
+            
+            return list;
+        }
+
+
         public byte[] ImageToByteArray(System.Drawing.Image img)
         {
             
