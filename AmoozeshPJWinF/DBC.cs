@@ -21,6 +21,17 @@ namespace AmoozeshPJWinF
 
 
         }
+
+        public void clear_textbox(TextBox t1)
+        {
+            t1.Text = string.Empty;
+        }
+
+        public void DisplayAutoCompleteSuggestions(List<string> suggestions, TextBox t1)
+        {
+            t1.AutoCompleteCustomSource.Clear();
+            t1.AutoCompleteCustomSource.AddRange(suggestions.ToArray());
+        }
         public bool id_check(string thisid)
         {
             
@@ -335,7 +346,7 @@ namespace AmoozeshPJWinF
             connectionString: globalcon);
             List<GetTeacher> list = new List<GetTeacher>();
             List<long> ids = new List<long>();
-            GetTeacher g1 = new GetTeacher();
+            
             con.Open();
             //-----
             using var cmd = new NpgsqlCommand();
@@ -363,13 +374,12 @@ namespace AmoozeshPJWinF
                 {
                     while (reader.Read())
                     {
-                        g1.personalcode = id;
+                        GetTeacher g1 = new GetTeacher();
+                        g1.personalcode = id.ToString();
                         g1.firstname = Convert.ToString(reader.GetString(1));
                         g1.lastname = Convert.ToString(reader.GetString(2));
+                        list.Add(g1);
                     }
-
-                    list.Add(g1);
-                    
                 }
             }
             

@@ -12,7 +12,7 @@ namespace AmoozeshPJWinF
         {
 
         }
-        private long? PersonalCode;
+        private string? PersonalCode;
         private string? Firstname;
         private string? Lastname;
         private int? Age;
@@ -21,7 +21,7 @@ namespace AmoozeshPJWinF
         private long? WhatsAppNumber;
         private byte[]? ProfilePicture;
 
-        public long? personalcode { get { return PersonalCode; } set { PersonalCode = value; } }
+        public string? personalcode { get { return PersonalCode; } set { PersonalCode = value; } }
         public string? firstname { get { return Firstname; } set { Firstname = value; } }
         public string? lastname { get { return Lastname; } set { Lastname = value; } }
         public int? age { get { return Age; } set { Age = value; } }
