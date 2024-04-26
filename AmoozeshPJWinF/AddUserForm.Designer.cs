@@ -285,6 +285,7 @@
             // Idbox
             // 
             Idbox.Location = new Point(22, 27);
+            Idbox.MaxLength = 10;
             Idbox.Name = "Idbox";
             Idbox.Size = new Size(125, 27);
             Idbox.TabIndex = 0;
