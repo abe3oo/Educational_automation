@@ -302,7 +302,7 @@
             groupBoxSt.Controls.Add(Jobbox);
             groupBoxSt.Controls.Add(Citybox);
             groupBoxSt.Controls.Add(MaritalCbox);
-            groupBoxSt.Location = new Point(432, 319);
+            groupBoxSt.Location = new Point(405, 369);
             groupBoxSt.Name = "groupBoxSt";
             groupBoxSt.Size = new Size(331, 156);
             groupBoxSt.TabIndex = 2;
@@ -393,7 +393,7 @@
             groupBoxTch.Controls.Add(entrylabel);
             groupBoxTch.Controls.Add(Presencerecordbox);
             groupBoxTch.Controls.Add(Presencerecordlabel);
-            groupBoxTch.Location = new Point(37, 349);
+            groupBoxTch.Location = new Point(37, 369);
             groupBoxTch.Name = "groupBoxTch";
             groupBoxTch.Size = new Size(331, 125);
             groupBoxTch.TabIndex = 3;
@@ -467,10 +467,10 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 497);
+            ClientSize = new Size(823, 554);
+            Controls.Add(groupBoxSt);
             Controls.Add(Setbutton);
             Controls.Add(groupBoxTch);
-            Controls.Add(groupBoxSt);
             Controls.Add(groupBoxsame);
             Controls.Add(TypeCbox);
             Name = "AddUserForm";

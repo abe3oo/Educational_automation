@@ -406,7 +406,13 @@ namespace AmoozeshPJWinF
 
         private void AddUserForm_Load(object sender, EventArgs e)
         {
-
+            TypeCbox.SelectedIndex = 1;
+            
+            groupBoxsame.Visible = true;
+            groupBoxTch.Visible = false;
+            groupBoxSt.Visible = true;
+            educationlabel.Text = "سطح تحصیلات :";
+            
         }
     }
 }

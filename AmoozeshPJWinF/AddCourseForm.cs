@@ -148,10 +148,10 @@ namespace AmoozeshPJWinF
 
         private void teacherIDtxb_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            //{
-            //    e.Handled = true;
-            //}
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private void costtxb_KeyPress(object sender, KeyPressEventArgs e)
