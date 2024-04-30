@@ -30,6 +30,7 @@
         {
             TypeCbox = new ComboBox();
             groupBoxsame = new GroupBox();
+            checkbot = new Button();
             picturebot = new Button();
             pictureBox1 = new PictureBox();
             checkBoxWA = new CheckBox();
@@ -66,6 +67,8 @@
             Presencerecordbox = new TextBox();
             Presencerecordlabel = new Label();
             Setbutton = new Button();
+            addradioButton = new RadioButton();
+            editradioButton = new RadioButton();
             groupBoxsame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBoxSt.SuspendLayout();
@@ -85,6 +88,7 @@
             // 
             // groupBoxsame
             // 
+            groupBoxsame.Controls.Add(checkbot);
             groupBoxsame.Controls.Add(picturebot);
             groupBoxsame.Controls.Add(pictureBox1);
             groupBoxsame.Controls.Add(checkBoxWA);
@@ -110,6 +114,18 @@
             groupBoxsame.TabIndex = 1;
             groupBoxsame.TabStop = false;
             groupBoxsame.Visible = false;
+            // 
+            // checkbot
+            // 
+            checkbot.Enabled = false;
+            checkbot.Location = new Point(267, 25);
+            checkbot.Name = "checkbot";
+            checkbot.Size = new Size(61, 29);
+            checkbot.TabIndex = 17;
+            checkbot.Text = "check";
+            checkbot.UseVisualStyleBackColor = true;
+            checkbot.Visible = false;
+            checkbot.Click += checkbot_Click;
             // 
             // picturebot
             // 
@@ -463,11 +479,37 @@
             Setbutton.UseVisualStyleBackColor = true;
             Setbutton.Click += Setbutton_Click;
             // 
+            // addradioButton
+            // 
+            addradioButton.AutoSize = true;
+            addradioButton.Location = new Point(688, 103);
+            addradioButton.Name = "addradioButton";
+            addradioButton.Size = new Size(104, 24);
+            addradioButton.TabIndex = 5;
+            addradioButton.TabStop = true;
+            addradioButton.Text = "اضافه کردن";
+            addradioButton.UseVisualStyleBackColor = true;
+            addradioButton.CheckedChanged += addradioButton_CheckedChanged;
+            // 
+            // editradioButton
+            // 
+            editradioButton.AutoSize = true;
+            editradioButton.Location = new Point(688, 133);
+            editradioButton.Name = "editradioButton";
+            editradioButton.Size = new Size(111, 24);
+            editradioButton.TabIndex = 6;
+            editradioButton.TabStop = true;
+            editradioButton.Text = "ویرایش کردن";
+            editradioButton.UseVisualStyleBackColor = true;
+            editradioButton.CheckedChanged += editradioButton_CheckedChanged;
+            // 
             // AddUserForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(823, 554);
+            Controls.Add(editradioButton);
+            Controls.Add(addradioButton);
             Controls.Add(groupBoxSt);
             Controls.Add(Setbutton);
             Controls.Add(groupBoxTch);
@@ -484,6 +526,7 @@
             groupBoxTch.ResumeLayout(false);
             groupBoxTch.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -526,5 +569,8 @@
         private Button Setbutton;
         private Button picturebot;
         private PictureBox pictureBox1;
+        private RadioButton addradioButton;
+        private RadioButton editradioButton;
+        private Button checkbot;
     }
 }
