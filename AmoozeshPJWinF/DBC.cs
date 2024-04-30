@@ -237,7 +237,7 @@ namespace AmoozeshPJWinF
             using (var reader = cmd2.ExecuteReader())
             {
                 reader.Read();
-                s1.education = Convert.ToInt32(reader[1]);
+                s1.education = Convert.ToInt16(reader.GetInt16(1));
                 s1.fieled_of_study = Convert.ToString(reader[2]);
                 s1.maritalstatus = Convert.ToBoolean(reader[3]);
                 s1.job = Convert.ToString(reader[4]);

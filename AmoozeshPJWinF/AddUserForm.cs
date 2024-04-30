@@ -487,13 +487,40 @@ namespace AmoozeshPJWinF
                     Lnamebox.Text= s1.lastname;
                     Agebox.Text = s1.age.ToString();
                     Numberbox.Text = s1.number.ToString();
+                    Citybox.Text = s1.city;
+                    Jobbox.Text = s1.job;
                     if(s1.whatsappnumber != null)
                     {
                         WAnumberbox.Text = s1.whatsappnumber.ToString();
                         checkBoxWA.Checked = true;
                     }
                     Fieldbox.Text = s1.fieled_of_study;
-                    
+                    if (s1.education == null)
+                    {
+                        educationCbox.SelectedIndex = -1;
+                    }
+                    else
+                    {
+                        educationCbox.SelectedIndex= Convert.ToInt16(s1.education);
+                    }
+
+                    if (s1.maritalstatus == false)
+                    {
+                        MaritalCbox.SelectedIndex = 0;
+                    }
+                    else if (s1.maritalstatus == true)
+                    {
+                        MaritalCbox.SelectedIndex = 1;
+                    }
+
+                    if ( s1.classtype == true)
+                    {
+                        ClasstypeCbox.SelectedIndex = 0;
+                    }
+                    else if ( s1.classtype == false)
+                    {
+                        ClasstypeCbox.SelectedIndex = 1;
+                    }
                 }
                 else if(TypeCbox.SelectedIndex == 0)
                 {
