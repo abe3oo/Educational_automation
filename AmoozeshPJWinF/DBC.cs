@@ -284,8 +284,8 @@ namespace AmoozeshPJWinF
                 p1.firstname = Convert.ToString(reader[1]);
                 p1.lastname = Convert.ToString(reader[2]);
                 p1.age = Convert.ToInt32(reader[3]);
-                p1.number = Convert.ToInt32(reader[4]);
-                p1.whatsappnumber = Convert.ToInt32(reader[5]);
+                p1.number = Convert.ToInt64(reader[4]);
+                p1.whatsappnumber = Convert.ToInt64(reader[5]);
             }
             using var cmd2 = new NpgsqlCommand();
             cmd2.Connection = con;
