@@ -265,11 +265,11 @@ namespace AmoozeshPJWinF
             //cmd.ExecuteNonQueryAsync();
         }
 
-        public teacher Pr_Reader(string thisid)
+        public GetTeacher Pr_Reader(string thisid)
         {
             var con = new NpgsqlConnection(
             connectionString: globalcon);
-            teacher p1 = new teacher();
+            GetTeacher p1 = new GetTeacher();
             con.Open();
             //-----
             using var cmd = new NpgsqlCommand();
@@ -280,7 +280,7 @@ namespace AmoozeshPJWinF
             using (var reader = cmd.ExecuteReader())
             {
                 reader.Read();
-                p1.personalcode = Convert.ToInt32(reader[0]);
+                p1.personalcode = Convert.ToString(reader[0]);
                 p1.firstname = Convert.ToString(reader[1]);
                 p1.lastname = Convert.ToString(reader[2]);
                 p1.age = Convert.ToInt32(reader[3]);
