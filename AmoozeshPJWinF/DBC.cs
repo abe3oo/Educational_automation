@@ -159,22 +159,30 @@ namespace AmoozeshPJWinF
             return g1 + g2;
         }
 
-        public void pr_set(teacher p1)
+        public string pr_set(teacher p1)
         {
             var con = new NpgsqlConnection(
             connectionString: globalcon);
+
+            string g1;
+            string g2;
             con.Open();
+            //-----
             using var cmd = new NpgsqlCommand();
+            using var cmd2 = new NpgsqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = $"INSERT INTO users(id, firstname, lastname, age, phone_num, whatsapp_num) VALUES ({p1.personalcode}, '{p1.firstname}', '{p1.lastname}', {p1.age}, {p1.number}, {p1.whatsappnumber});";
-            cmd.CommandText += $"INSERT INTO teacher VALUES ({p1.personalcode}, '{p1.fieled_of_study}', {p1.degree_of_education}, {p1.presence_record}, '{p1.date_of_entry.Year}-{p1.date_of_entry.Month}-{p1.date_of_entry.Day}',@Image);";
+            cmd2.Connection = con;
+            cmd.CommandText = $"INSERT INTO users(id, firstname, lastname, age, phone_num, whatsapp_num, pict) VALUES ({p1.personalcode}, '{p1.firstname}', '{p1.lastname}', {p1.age}, {p1.number}, {p1.whatsappnumber}, @Image);";
+            cmd2.CommandText = $"INSERT INTO teacher VALUES ({p1.personalcode}, '{p1.fieled_of_study}', {p1.degree_of_education}, {p1.presence_record}, '{p1.date_of_entry.Year}-{p1.date_of_entry.Month}-{p1.date_of_entry.Day}');";
             NpgsqlParameter param = cmd.CreateParameter();
             param.ParameterName = "@Image";
             param.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Bytea;
             param.Value = p1.profilepicture;
             cmd.Parameters.Add(param);
-            cmd.ExecuteNonQueryAsync();
-            Thread.Sleep(500);
+            g1 = cmd.ExecuteNonQuery().ToString();
+            g2 = cmd2.ExecuteNonQuery().ToString();
+            con.Close();
+            return g1 + g2;
         }
 
         public void pay_set(Payment p1)

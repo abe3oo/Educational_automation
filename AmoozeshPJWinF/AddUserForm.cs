@@ -268,8 +268,8 @@ namespace AmoozeshPJWinF
                                 DateTime data1 = new DateTime(Convert.ToInt16(Yearenterybox.Text), Convert.ToInt16(Monthenterybox.Text), Convert.ToInt16(Dayenterybox.Text));
                                 p1.date_of_entry = data1;
                                 p1.profilepicture = d1.ImageToByteArray(pictureBox1.Image);
-                                d1.pr_set(p1);
-                                if (d1.id_check(Idbox.Text) == true)
+                                string result = d1.pr_set(p1);
+                                if (result == "11")
                                 {
                                     MessageBox.Show("ثبت با موفقیت انجام شد");
                                     clear_textbox(Idbox);
