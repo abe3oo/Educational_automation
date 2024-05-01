@@ -243,8 +243,9 @@ namespace AmoozeshPJWinF
                 s1.firstname = Convert.ToString(reader[1]);
                 s1.lastname = Convert.ToString(reader[2]);
                 s1.age = Convert.ToInt32(reader[3]);
-                s1.number = Convert.ToInt32(reader[4]);
-                s1.whatsappnumber = Convert.ToInt32(reader[5]);
+                s1.number = Convert.ToInt64(reader[4]);
+                s1.whatsappnumber = Convert.ToInt64(reader[5]);
+                
             }
             using var cmd2 = new NpgsqlCommand();
             cmd2.Connection = con;
@@ -252,12 +253,12 @@ namespace AmoozeshPJWinF
             using (var reader = cmd2.ExecuteReader())
             {
                 reader.Read();
-                s1.education = Convert.ToInt16(reader.GetInt16(1));
+                s1.education = Convert.ToInt16(reader[1]);
                 s1.fieled_of_study = Convert.ToString(reader[2]);
                 s1.maritalstatus = Convert.ToBoolean(reader[3]);
                 s1.job = Convert.ToString(reader[4]);
                 s1.city = Convert.ToString(reader[5]);
-                s1.maritalstatus = Convert.ToBoolean(reader[6]);
+                s1.classtype = Convert.ToBoolean(reader[6]);
             }
 
             return s1;
@@ -441,11 +442,11 @@ namespace AmoozeshPJWinF
         //        }
         //    }
         //}
-        public Image pic_reader(int id)
+        public Image pic_reader(string id)
         {
             using (var conn = new NpgsqlConnection(globalcon))
             {
-                string sQL = $"SELECT pic FROM users WHERE id = {id};";
+                string sQL = $"SELECT pict FROM users WHERE id = {id};";
                 using (var command = new NpgsqlCommand(sQL, conn))
                 {
                     byte[] productImageByte = null;

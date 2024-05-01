@@ -477,7 +477,7 @@ namespace AmoozeshPJWinF
         private void checkbot_Click(object sender, EventArgs e)
         {
             DBC d1 = new DBC();
-            if (d1.id_check(Idbox.Text))
+            if (d1.id_check(Idbox.Text) == true)
             {
                 if(TypeCbox.SelectedIndex == 1)
                 {
@@ -489,11 +489,12 @@ namespace AmoozeshPJWinF
                     Numberbox.Text = s1.number.ToString();
                     Citybox.Text = s1.city;
                     Jobbox.Text = s1.job;
-                    if(s1.whatsappnumber != null)
+                    if(s1.whatsappnumber != s1.number)
                     {
                         WAnumberbox.Text = s1.whatsappnumber.ToString();
                         checkBoxWA.Checked = true;
                     }
+                    
                     Fieldbox.Text = s1.fieled_of_study;
                     if (s1.education == null)
                     {
@@ -513,7 +514,7 @@ namespace AmoozeshPJWinF
                         MaritalCbox.SelectedIndex = 1;
                     }
 
-                    if ( s1.classtype == true)
+                    if (s1.classtype == true)
                     {
                         ClasstypeCbox.SelectedIndex = 0;
                     }
@@ -521,6 +522,7 @@ namespace AmoozeshPJWinF
                     {
                         ClasstypeCbox.SelectedIndex = 1;
                     }
+                    pictureBox1.Image = d1.pic_reader(Idbox.Text);
                 }
                 else if(TypeCbox.SelectedIndex == 0)
                 {
