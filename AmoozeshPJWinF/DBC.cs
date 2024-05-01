@@ -133,23 +133,30 @@ namespace AmoozeshPJWinF
         }
 
 
-        public void st_set(student s1)
+        public string st_set(student s1)
         {
             var con = new NpgsqlConnection(
             connectionString: globalcon);
+
+            string g1;
+            string g2;
             con.Open();
-            var cmd = new NpgsqlCommand();
+            //-----
+            using var cmd = new NpgsqlCommand();
+            using var cmd2 = new NpgsqlCommand();
             cmd.Connection = con;
-            
-            cmd.CommandText = $"INSERT INTO users(id, firstname, lastname, age, phone_num, whatsapp_num, pic) VALUES ({s1.personalcode}, '{s1.firstname}', '{s1.lastname}', {s1.age}, {s1.number}, {s1.whatsappnumber},@Image);";
-            cmd.CommandText += $"INSERT INTO student VALUES ({s1.personalcode}, {s1.education}, '{s1.fieled_of_study}', {s1.maritalstatus}, '{s1.job}', '{s1.city}', {s1.classtype});";
+            cmd2.Connection = con;
+            cmd.CommandText = $"INSERT INTO users(id, firstname, lastname, age, phone_num, whatsapp_num, pict) VALUES ({s1.personalcode}, '{s1.firstname}', '{s1.lastname}', {s1.age}, {s1.number}, {s1.whatsappnumber},@Image);";
+            cmd2.CommandText = $"INSERT INTO student(id, level_of_education, fieled_of_study, marital_status, job, city, class_type) VALUES ({s1.personalcode}, {s1.education}, '{s1.fieled_of_study}', {s1.maritalstatus}, '{s1.job}', '{s1.city}', {s1.classtype});";
             NpgsqlParameter param = cmd.CreateParameter();
             param.ParameterName = "@Image";
             param.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Bytea;
             param.Value = s1.profilepicture;
             cmd.Parameters.Add(param);
-            cmd.ExecuteNonQueryAsync();
-            Thread.Sleep(500);
+            g1 = cmd.ExecuteNonQuery().ToString();
+            g2 = cmd2.ExecuteNonQuery().ToString();
+            con.Close();
+            return g1 + g2;
         }
 
         public void pr_set(teacher p1)

@@ -168,8 +168,8 @@ namespace AmoozeshPJWinF
 
 
 
-                            d1.st_set(s1);
-                            if (d1.id_check(Idbox.Text) == true)
+                            string result = d1.st_set(s1);
+                            if (result == "11")
                             {
                                 MessageBox.Show("ثبت با موفقیت انجام شد");
                                 clear_textbox(Idbox);
