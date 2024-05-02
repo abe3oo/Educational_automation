@@ -30,6 +30,8 @@
         {
             TypeCbox = new ComboBox();
             groupBoxsame = new GroupBox();
+            usereditlabel = new Label();
+            userlabel = new Label();
             checkbot = new Button();
             picturebot = new Button();
             pictureBox1 = new PictureBox();
@@ -88,6 +90,8 @@
             // 
             // groupBoxsame
             // 
+            groupBoxsame.Controls.Add(usereditlabel);
+            groupBoxsame.Controls.Add(userlabel);
             groupBoxsame.Controls.Add(checkbot);
             groupBoxsame.Controls.Add(picturebot);
             groupBoxsame.Controls.Add(pictureBox1);
@@ -115,6 +119,29 @@
             groupBoxsame.TabStop = false;
             groupBoxsame.Visible = false;
             // 
+            // usereditlabel
+            // 
+            usereditlabel.AutoSize = true;
+            usereditlabel.Location = new Point(368, 34);
+            usereditlabel.Name = "usereditlabel";
+            usereditlabel.Size = new Size(18, 20);
+            usereditlabel.TabIndex = 19;
+            usereditlabel.Text = "...";
+            usereditlabel.Visible = false;
+            usereditlabel.TextChanged += usereditlabel_TextChanged;
+            usereditlabel.Click += usereditlabel_Click;
+            // 
+            // userlabel
+            // 
+            userlabel.AutoSize = true;
+            userlabel.Location = new Point(470, 34);
+            userlabel.Name = "userlabel";
+            userlabel.RightToLeft = RightToLeft.Yes;
+            userlabel.Size = new Size(45, 20);
+            userlabel.TabIndex = 18;
+            userlabel.Text = "کاربر :";
+            userlabel.Visible = false;
+            // 
             // checkbot
             // 
             checkbot.Enabled = false;
@@ -129,7 +156,7 @@
             // 
             // picturebot
             // 
-            picturebot.Location = new Point(417, 196);
+            picturebot.Location = new Point(405, 227);
             picturebot.Name = "picturebot";
             picturebot.Size = new Size(101, 29);
             picturebot.TabIndex = 5;
@@ -140,7 +167,7 @@
             // pictureBox1
             // 
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox1.Location = new Point(395, 52);
+            pictureBox1.Location = new Point(390, 82);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(125, 129);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -572,5 +599,7 @@
         private RadioButton addradioButton;
         private RadioButton editradioButton;
         private Button checkbot;
+        private Label userlabel;
+        private Label usereditlabel;
     }
 }

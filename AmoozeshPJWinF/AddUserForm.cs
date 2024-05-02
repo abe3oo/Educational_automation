@@ -181,9 +181,9 @@ namespace AmoozeshPJWinF
                                 clear_textbox(Numberbox);
                                 clear_textbox(WAnumberbox);
                                 clear_textbox(Fieldbox);
-                                educationCbox.Text = string.Empty;
-                                MaritalCbox.Text = string.Empty;
-                                ClasstypeCbox.Text = string.Empty;
+                                educationCbox.SelectedIndex = -1;
+                                MaritalCbox.SelectedIndex = -1;
+                                ClasstypeCbox.SelectedIndex = -1;
                                 pictureBox1.Image = null;
 
                             }
@@ -285,7 +285,7 @@ namespace AmoozeshPJWinF
                                     clear_textbox(Yearenterybox);
                                     clear_textbox(Monthenterybox);
                                     clear_textbox(Dayenterybox);
-                                    educationCbox.Text = string.Empty;
+                                    educationCbox.SelectedIndex = -1;
                                     pictureBox1.Image = null;
 
                                 }
@@ -308,6 +308,127 @@ namespace AmoozeshPJWinF
                     MessageBox.Show("نوع کاربر را انتخاب کنید");
                 }
             }
+            else if (editradioButton.Checked == true)
+            {
+                if (TypeCbox.SelectedIndex == 1)
+                {
+                    if (2 < 1)
+                    {
+                        MessageBox.Show("کاربر مورد نظر وجود ندارد");
+                    }
+                    else
+                    {
+                        if (Idbox.Text != "" && Fnamebox.Text != "" && Lnamebox.Text != "" && Agebox.Text != "" && Numberbox.Text != ""
+                             && educationCbox.Text != "" && MaritalCbox.Text != "" && Citybox.Text != "" &&
+                            ClasstypeCbox.Text != "" && TypeCbox.Text != "" && pictureBox1.Image != null)
+                        {
+
+
+                            student s1 = new student();
+
+                            s1.personalcode = Convert.ToInt64(Idbox.Text);
+                            s1.lastname = Lnamebox.Text;
+                            s1.firstname = Fnamebox.Text;
+                            s1.age = Convert.ToInt32(Agebox.Text);
+                            s1.number = Convert.ToInt64(Numberbox.Text);
+                            if (WAnumberbox.Text == "")
+                            {
+                                s1.whatsappnumber = Convert.ToInt64(Numberbox.Text);
+                            }
+                            else
+                            {
+                                s1.whatsappnumber = Convert.ToInt64(WAnumberbox.Text);
+                            }
+                            s1.fieled_of_study = Fieldbox.Text;
+                            if (educationCbox.SelectedIndex == 0)
+                            {
+                                s1.education = 0;
+                            }
+                            else if (educationCbox.SelectedIndex == 1)
+                            {
+                                s1.education = 1;
+                            }
+                            else if (educationCbox.SelectedIndex == 2)
+                            {
+                                s1.education = 2;
+                            }
+                            else if (educationCbox.SelectedIndex == 3)
+                            {
+                                s1.education = 3;
+                            }
+                            else if (educationCbox.SelectedIndex == 4)
+                            {
+                                s1.education = 4;
+                            }
+                            else if (educationCbox.SelectedIndex == 5)
+                            {
+                                s1.education = 5;
+                            }
+                            else if (educationCbox.SelectedIndex == 6)
+                            {
+                                s1.education = 6;
+                            }
+                            if (MaritalCbox.SelectedIndex == 0)
+                            {
+                                s1.maritalstatus = false;
+                            }
+                            else if (MaritalCbox.SelectedIndex == 1)
+                            {
+                                s1.maritalstatus = true;
+                            }
+                            s1.city = Citybox.Text;
+                            s1.job = Jobbox.Text;
+                            if (ClasstypeCbox.SelectedIndex == 0)
+                            {
+                                s1.classtype = true;
+                            }
+                            else if (ClasstypeCbox.SelectedIndex == 1)
+                            {
+                                s1.classtype = false;
+                            }
+                            //picture
+
+                            s1.profilepicture = d1.ImageToByteArray(pictureBox1.Image);
+
+
+
+
+                            string result = d1.st_edit(s1, usereditlabel.Text);
+                            if (result == "11")
+                            {
+                                MessageBox.Show($"کاربر با کد ملی {usereditlabel.Text} ویرایش شد.");
+                                clear_textbox(Idbox);
+                                clear_textbox(Fnamebox);
+                                clear_textbox(Lnamebox);
+                                clear_textbox(Agebox);
+                                clear_textbox(Citybox);
+                                clear_textbox(Jobbox);
+                                clear_textbox(Numberbox);
+                                clear_textbox(WAnumberbox);
+                                clear_textbox(Fieldbox);
+                                educationCbox.SelectedIndex = -1;
+                                MaritalCbox.SelectedIndex = -1;
+                                ClasstypeCbox.SelectedIndex = -1;
+                                pictureBox1.Image = null;
+                                usereditlabel.Text = "...";
+                                userlabel.Visible = false;
+                                usereditlabel.Visible = false;
+                                
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("ویرایش انجام نشد!!!");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("فیلد های مورد نیاز را پر کنید");
+                        }
+
+                    }
+                }
+            }
         }
 
         private void Idbox_TextChanged(object sender, EventArgs e)
@@ -328,7 +449,7 @@ namespace AmoozeshPJWinF
                     Setbutton.Enabled = false;
                     checkbot.Enabled = false;
                 }
-                else { Setbutton.Enabled = false; checkbot.Enabled = true; }
+                else { checkbot.Enabled = true; }
             }
         }
 
@@ -460,6 +581,9 @@ namespace AmoozeshPJWinF
             {
                 clear_all();
                 checkbot.Visible = false;
+                userlabel.Visible = false;
+                usereditlabel.Visible = false;
+                usereditlabel.Text = "...";
             }
             else
             {
@@ -479,22 +603,25 @@ namespace AmoozeshPJWinF
             DBC d1 = new DBC();
             if (d1.id_check(Idbox.Text) == true)
             {
-                if(TypeCbox.SelectedIndex == 1)
+                usereditlabel.Text = Idbox.Text;
+                userlabel.Visible = true;
+                usereditlabel.Visible = true;
+                if (TypeCbox.SelectedIndex == 1)
                 {
                     GetStudent s1 = new GetStudent();
                     s1 = d1.St_Reader(Idbox.Text);
                     Fnamebox.Text = s1.firstname;
-                    Lnamebox.Text= s1.lastname;
+                    Lnamebox.Text = s1.lastname;
                     Agebox.Text = s1.age.ToString();
                     Numberbox.Text = s1.number.ToString();
                     Citybox.Text = s1.city;
                     Jobbox.Text = s1.job;
-                    if(s1.whatsappnumber != s1.number)
+                    if (s1.whatsappnumber != s1.number)
                     {
                         WAnumberbox.Text = s1.whatsappnumber.ToString();
                         checkBoxWA.Checked = true;
                     }
-                    
+
                     Fieldbox.Text = s1.fieled_of_study;
                     if (s1.education == null)
                     {
@@ -502,7 +629,7 @@ namespace AmoozeshPJWinF
                     }
                     else
                     {
-                        educationCbox.SelectedIndex= Convert.ToInt16(s1.education);
+                        educationCbox.SelectedIndex = Convert.ToInt16(s1.education);
                     }
 
                     if (s1.maritalstatus == false)
@@ -518,22 +645,45 @@ namespace AmoozeshPJWinF
                     {
                         ClasstypeCbox.SelectedIndex = 0;
                     }
-                    else if ( s1.classtype == false)
+                    else if (s1.classtype == false)
                     {
                         ClasstypeCbox.SelectedIndex = 1;
                     }
                     pictureBox1.Image = d1.pic_reader(Idbox.Text);
                 }
-                else if(TypeCbox.SelectedIndex == 0)
+                else if (TypeCbox.SelectedIndex == 0)
                 {
                     GetTeacher p1 = new GetTeacher();
 
                 }
-                
+
             }
             else
             {
                 MessageBox.Show("کاربر وجود ندارد!");
+                userlabel.Visible = false;
+                usereditlabel.Visible = false;
+                usereditlabel.Text = "...";
+            }
+        }
+
+        private void usereditlabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usereditlabel_TextChanged(object sender, EventArgs e)
+        {
+            if(editradioButton.Checked == true)
+            {
+                if (usereditlabel.Text.Length == 10)
+                {
+                    Setbutton.Enabled = true;
+                }
+            }
+            else
+            {
+                Setbutton.Enabled = false;
             }
         }
     }
