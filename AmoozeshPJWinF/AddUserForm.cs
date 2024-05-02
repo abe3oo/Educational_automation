@@ -526,6 +526,7 @@ namespace AmoozeshPJWinF
                 }
                 else if(TypeCbox.SelectedIndex == 0)
                 {
+                    GetTeacher p1 = new GetTeacher();
 
                 }
                 

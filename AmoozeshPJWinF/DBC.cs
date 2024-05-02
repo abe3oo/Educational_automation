@@ -159,6 +159,32 @@ namespace AmoozeshPJWinF
             return g1 + g2;
         }
 
+        public string st_edit(GetStudent s1, string id)
+        {
+            var con = new NpgsqlConnection(
+            connectionString: globalcon);
+
+            string g1 = "";
+            string g2 = "";
+            con.Open();
+            //-----
+            using var cmd = new NpgsqlCommand();
+            using var cmd2 = new NpgsqlCommand();
+            cmd.Connection = con;
+            cmd2.Connection = con;
+            cmd.CommandText = $"UPDATE users SET id = {s1.personalcode},firstname = '{s1.firstname}',lastname = '{s1.lastname}',age = {s1.age},phone_num = {s1.number},whatsapp_num = {s1.whatsappnumber},pict = @Image WHERE id = {id};";
+            cmd2.CommandText = $"UPDATE student SET id = {s1.personalcode},level_of_education = {s1.education},fieled_of_study = '{s1.fieled_of_study}',marital_status = {s1.maritalstatus},job = '{s1.job}',city = '{s1.city}',class_type = {s1.classtype} WHERE id = {id};";
+            NpgsqlParameter param = cmd.CreateParameter();
+            param.ParameterName = "@Image";
+            param.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Bytea;
+            param.Value = s1.profilepicture;
+            cmd.Parameters.Add(param);
+            g1 = cmd.ExecuteNonQuery().ToString();
+            g2 = cmd2.ExecuteNonQuery().ToString();
+            con.Close();
+            return g1 + g2;
+        }
+
         public string pr_set(teacher p1)
         {
             var con = new NpgsqlConnection(

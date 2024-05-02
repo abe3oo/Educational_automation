@@ -475,7 +475,7 @@
             Setbutton.Name = "Setbutton";
             Setbutton.Size = new Size(94, 29);
             Setbutton.TabIndex = 4;
-            Setbutton.Text = "ثبت";
+            Setbutton.Text = "تایید";
             Setbutton.UseVisualStyleBackColor = true;
             Setbutton.Click += Setbutton_Click;
             // 
