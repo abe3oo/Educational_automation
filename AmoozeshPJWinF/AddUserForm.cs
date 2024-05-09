@@ -43,6 +43,7 @@ namespace AmoozeshPJWinF
             ClasstypeCbox.SelectedIndex = -1;
             clear_textbox(Jobbox);
             clear_textbox(Citybox);
+            usereditlabel.Text = "...";
             pictureBox1.Image = null;
         }
 
@@ -428,6 +429,59 @@ namespace AmoozeshPJWinF
 
                     }
                 }
+                else if(TypeCbox.SelectedIndex == 0)
+                {
+                    if (Idbox.Text != "" && Fnamebox.Text != "" && Lnamebox.Text != "" && Agebox.Text != "" && Numberbox.Text != ""
+                             && educationCbox.Text != "" && Presencerecordbox.Text != "" && Yearenterybox.Text != "" &&
+                             Monthenterybox.Text != "" && Dayenterybox.Text != "" &&
+                             TypeCbox.Text != "" && pictureBox1.Image != null)
+                    {
+
+
+                        teacher t1 = new teacher();
+
+                        t1.personalcode = Convert.ToInt64(Idbox.Text);
+                        t1.lastname = Lnamebox.Text;
+                        t1.firstname = Fnamebox.Text;
+                        t1.age = Convert.ToInt32(Agebox.Text);
+                        t1.number = Convert.ToInt64(Numberbox.Text);
+                        if (WAnumberbox.Text == "")
+                        {
+                            t1.whatsappnumber = Convert.ToInt64(Numberbox.Text);
+                        }
+                        else
+                        {
+                            t1.whatsappnumber = Convert.ToInt64(WAnumberbox.Text);
+                        }
+                        t1.fieled_of_study = Fieldbox.Text;
+                        educationCbox.SelectedIndex = t1.degree_of_education;
+                        t1.presence_record = Convert.ToInt32(Presencerecordbox.Text);
+                        
+                        
+                        
+                        //picture
+
+                        t1.profilepicture = d1.ImageToByteArray(pictureBox1.Image);
+
+
+
+
+                        string result = d1.pr_edit(t1, usereditlabel.Text);
+                        if (result == "11")
+                        {
+                            MessageBox.Show($"کاربر با کد ملی {usereditlabel.Text} ویرایش شد.");
+                            clear_all();
+                            userlabel.Visible = false;
+                            usereditlabel.Visible = false;
+
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("ویرایش انجام نشد!!!");
+                        }
+                    }
+                }
             }
         }
 
@@ -654,7 +708,31 @@ namespace AmoozeshPJWinF
                 else if (TypeCbox.SelectedIndex == 0)
                 {
                     GetTeacher p1 = new GetTeacher();
-
+                    p1 = d1.Pr_Reader(Idbox.Text);
+                    Fnamebox.Text = p1.firstname;
+                    Lnamebox.Text = p1.lastname;
+                    Agebox.Text = p1.age.ToString();
+                    Numberbox.Text = p1.number.ToString();
+                    
+                    if (p1.whatsappnumber != p1.number)
+                    {
+                        WAnumberbox.Text = p1.whatsappnumber.ToString();
+                        checkBoxWA.Checked = true;
+                    }
+                    Fieldbox.Text = p1.fieled_of_study;
+                    if (p1.degree_of_education == null)
+                    {
+                        educationCbox.SelectedIndex = -1;
+                    }
+                    else
+                    {
+                        educationCbox.SelectedIndex = Convert.ToInt16(p1.degree_of_education);
+                    }
+                    Presencerecordbox.Text = p1.presence_record.ToString();
+                    Yearenterybox.Text = p1.date_of_entry.Year.ToString();
+                    Monthenterybox.Text = p1.date_of_entry.Month.ToString();
+                    Dayenterybox.Text = p1.date_of_entry.Day.ToString();
+                    pictureBox1.Image = d1.pic_reader(Idbox.Text);
                 }
 
             }
