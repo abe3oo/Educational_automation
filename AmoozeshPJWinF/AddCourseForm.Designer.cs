@@ -47,13 +47,15 @@
             minUpDown = new NumericUpDown();
             label3 = new Label();
             termcombobox = new ComboBox();
+            numberofcoursebox = new TextBox();
+            numberofcourselbl = new Label();
             ((System.ComponentModel.ISupportInitialize)hourUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)minUpDown).BeginInit();
             SuspendLayout();
             // 
             // courseID
             // 
-            courseID.Location = new Point(293, 79);
+            courseID.Location = new Point(293, 56);
             courseID.Name = "courseID";
             courseID.RightToLeft = RightToLeft.Yes;
             courseID.Size = new Size(71, 43);
@@ -63,7 +65,7 @@
             // 
             // cost
             // 
-            cost.Location = new Point(293, 236);
+            cost.Location = new Point(293, 212);
             cost.Name = "cost";
             cost.RightToLeft = RightToLeft.Yes;
             cost.Size = new Size(97, 28);
@@ -73,7 +75,7 @@
             // 
             // course_name
             // 
-            course_name.Location = new Point(293, 189);
+            course_name.Location = new Point(293, 164);
             course_name.Name = "course_name";
             course_name.RightToLeft = RightToLeft.Yes;
             course_name.Size = new Size(71, 20);
@@ -83,7 +85,7 @@
             // 
             // teacher_id
             // 
-            teacher_id.Location = new Point(293, 133);
+            teacher_id.Location = new Point(293, 109);
             teacher_id.Name = "teacher_id";
             teacher_id.RightToLeft = RightToLeft.Yes;
             teacher_id.Size = new Size(109, 31);
@@ -93,7 +95,7 @@
             // 
             // date_of_start
             // 
-            date_of_start.Location = new Point(293, 287);
+            date_of_start.Location = new Point(293, 258);
             date_of_start.Name = "date_of_start";
             date_of_start.RightToLeft = RightToLeft.Yes;
             date_of_start.Size = new Size(97, 35);
@@ -103,7 +105,7 @@
             // 
             // datetxby
             // 
-            datetxby.Location = new Point(73, 287);
+            datetxby.Location = new Point(74, 262);
             datetxby.Margin = new Padding(3, 4, 3, 4);
             datetxby.MaxLength = 4;
             datetxby.Name = "datetxby";
@@ -114,7 +116,7 @@
             // 
             // costtxb
             // 
-            costtxb.Location = new Point(125, 236);
+            costtxb.Location = new Point(125, 213);
             costtxb.Margin = new Padding(3, 4, 3, 4);
             costtxb.Name = "costtxb";
             costtxb.Size = new Size(143, 27);
@@ -124,7 +126,7 @@
             // 
             // courseNametxb
             // 
-            courseNametxb.Location = new Point(125, 185);
+            courseNametxb.Location = new Point(125, 161);
             courseNametxb.Margin = new Padding(3, 4, 3, 4);
             courseNametxb.Name = "courseNametxb";
             courseNametxb.Size = new Size(143, 27);
@@ -132,7 +134,7 @@
             // 
             // teacherIDtxb
             // 
-            teacherIDtxb.Location = new Point(42, 135);
+            teacherIDtxb.Location = new Point(42, 111);
             teacherIDtxb.Margin = new Padding(3, 4, 3, 4);
             teacherIDtxb.Name = "teacherIDtxb";
             teacherIDtxb.Size = new Size(226, 27);
@@ -155,7 +157,7 @@
             // label1
             // 
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(145, 284);
+            label1.Location = new Point(145, 263);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
             label1.RightToLeft = RightToLeft.Yes;
@@ -166,7 +168,7 @@
             // label2
             // 
             label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(216, 284);
+            label2.Location = new Point(216, 263);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
             label2.RightToLeft = RightToLeft.Yes;
@@ -176,7 +178,7 @@
             // 
             // datetxbm
             // 
-            datetxbm.Location = new Point(171, 287);
+            datetxbm.Location = new Point(171, 262);
             datetxbm.Margin = new Padding(5, 4, 5, 4);
             datetxbm.MaxLength = 2;
             datetxbm.Name = "datetxbm";
@@ -187,7 +189,7 @@
             // 
             // datetxbd
             // 
-            datetxbd.Location = new Point(233, 288);
+            datetxbd.Location = new Point(233, 262);
             datetxbd.Margin = new Padding(5, 4, 5, 4);
             datetxbd.MaxLength = 2;
             datetxbd.Name = "datetxbd";
@@ -198,7 +200,7 @@
             // 
             // clocklabel
             // 
-            clocklabel.Location = new Point(293, 340);
+            clocklabel.Location = new Point(293, 362);
             clocklabel.Name = "clocklabel";
             clocklabel.RightToLeft = RightToLeft.Yes;
             clocklabel.Size = new Size(97, 35);
@@ -208,7 +210,7 @@
             // 
             // hourUpDown
             // 
-            hourUpDown.Location = new Point(164, 345);
+            hourUpDown.Location = new Point(164, 367);
             hourUpDown.Maximum = new decimal(new int[] { 24, 0, 0, 0 });
             hourUpDown.Minimum = new decimal(new int[] { 1, 0, 0, int.MinValue });
             hourUpDown.Name = "hourUpDown";
@@ -219,7 +221,7 @@
             // minUpDown
             // 
             minUpDown.Increment = new decimal(new int[] { 15, 0, 0, 0 });
-            minUpDown.Location = new Point(233, 345);
+            minUpDown.Location = new Point(233, 367);
             minUpDown.Maximum = new decimal(new int[] { 60, 0, 0, 0 });
             minUpDown.Minimum = new decimal(new int[] { 1, 0, 0, int.MinValue });
             minUpDown.Name = "minUpDown";
@@ -229,7 +231,7 @@
             // 
             // label3
             // 
-            label3.Location = new Point(214, 340);
+            label3.Location = new Point(214, 362);
             label3.Name = "label3";
             label3.RightToLeft = RightToLeft.Yes;
             label3.Size = new Size(10, 35);
@@ -242,16 +244,37 @@
             termcombobox.DropDownStyle = ComboBoxStyle.DropDownList;
             termcombobox.FormattingEnabled = true;
             termcombobox.Items.AddRange(new object[] { "بهار", "تابستان", "پاییز", "زمستان" });
-            termcombobox.Location = new Point(125, 87);
+            termcombobox.Location = new Point(125, 64);
             termcombobox.Name = "termcombobox";
             termcombobox.Size = new Size(143, 28);
             termcombobox.TabIndex = 30;
+            // 
+            // numberofcoursebox
+            // 
+            numberofcoursebox.Location = new Point(125, 313);
+            numberofcoursebox.Name = "numberofcoursebox";
+            numberofcoursebox.Size = new Size(143, 27);
+            numberofcoursebox.TabIndex = 31;
+            numberofcoursebox.TextChanged += numberofcoursebox_TextChanged;
+            numberofcoursebox.KeyPress += numberofcoursebox_KeyPress;
+            // 
+            // numberofcourselbl
+            // 
+            numberofcourselbl.Location = new Point(293, 309);
+            numberofcourselbl.Name = "numberofcourselbl";
+            numberofcourselbl.RightToLeft = RightToLeft.Yes;
+            numberofcourselbl.Size = new Size(97, 35);
+            numberofcourselbl.TabIndex = 32;
+            numberofcourselbl.Text = "تعداد جلسات:";
+            numberofcourselbl.TextAlign = ContentAlignment.MiddleRight;
             // 
             // AddCourseForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(481, 469);
+            Controls.Add(numberofcourselbl);
+            Controls.Add(numberofcoursebox);
             Controls.Add(termcombobox);
             Controls.Add(label3);
             Controls.Add(minUpDown);
@@ -301,5 +324,7 @@
         private NumericUpDown minUpDown;
         private Label label3;
         private ComboBox termcombobox;
+        private TextBox numberofcoursebox;
+        private Label numberofcourselbl;
     }
 }

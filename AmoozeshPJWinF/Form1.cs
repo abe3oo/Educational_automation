@@ -16,6 +16,31 @@ namespace AmoozeshPJWinF
             day14, day15, day16, day17, day18, day19, day20, day21, day22, day23, day24, day25, day26, day27, day28, day29, day30, day31};
         }
 
+        public void get_classes(DateTime date)
+        {
+            List<long> idtoday = dbc.Course_holding_id_Reader_by_date(date);
+            List<GetCourse> coursetoday = new List<GetCourse>();
+            foreach (long id in idtoday)
+            {
+                coursetoday.Add(dbc.GetCourse_Reader_by_id(id));
+            }
+            if (coursetoday.Count > 0)
+            {
+                todayclasslabel.Text = "کلاس های امروز:";
+                coursetodayGridView.DataSource = coursetoday;
+            }
+            else
+            {
+                todayclasslabel.Text = "امروز کلاسی ندارید.";
+
+            }
+        }
+
+        public void show_class_withbott(Button b1)
+        {
+            DateTime date = new DateTime(Convert.ToInt16(yearlabelcul.Text),Convert.ToInt16(monthlabelcul.Text),Convert.ToInt16(b1.Text));
+            get_classes(date);
+        }
         private void StartTimer()
         {
             t = new System.Windows.Forms.Timer();
@@ -62,23 +87,8 @@ namespace AmoozeshPJWinF
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            DateTime da = DateTime.Now;
-            List<long> idtoday = dbc.Course_holding_id_Reader_by_date(da);
-            List<GetCourse> coursetoday = new List<GetCourse>();
-            foreach (long id in idtoday)
-            {
-                coursetoday.Add(dbc.GetCourse_Reader_by_id(id));
-            }
-            if (idtoday.Count > 0)
-            {
-                todayclasslabel.Text = "کلاس های امروز:";
-                coursetodayGridView.DataSource = coursetoday;
-            }
-            else
-            {
-                todayclasslabel.Text = "امروز کلاسی ندارید.";
-                
-            }
+            DateTime da = dbc.cul_converter(DateTime.Now);
+            get_classes(da);
         }
 
         private void daylabelpr_TextChanged(object sender, EventArgs e)

@@ -37,15 +37,15 @@ namespace AmoozeshPJWinF
 
         private void AddCourseForm_Load(object sender, EventArgs e)
         {
-            
-            
+
+
         }
 
         private void acceptButton_Click(object sender, EventArgs e)
         {
             DBC dcourse = new DBC();
 
-            if (dcourse.teacherid_check(teacherIDtxb.Text.Substring(0,10)) == true)
+            if (dcourse.teacherid_check(teacherIDtxb.Text.Substring(0, 10)) == true)
             {
                 if (termcombobox.Text != "" && teacherIDtxb.Text != "" && courseNametxb.Text != "" && costtxb.Text != "" && datetxbd.Text != "" && datetxbm.Text != "" && datetxby.Text != "")
                 {
@@ -68,20 +68,36 @@ namespace AmoozeshPJWinF
                     c1.courseid = id;
                     if (dcourse.courseid_check(id) == false)
                     {
-                        dcourse.course_set(c1);
-
-                        MessageBox.Show($"کلاس با کد {id} ثبت شد.");
-
-
-                        dcourse.clear_textbox(teacherIDtxb);
-                        dcourse.clear_textbox(datetxby);
-                        dcourse.clear_textbox(datetxbm);
-                        dcourse.clear_textbox(datetxbd);
-                        dcourse.clear_textbox(costtxb);
-                        dcourse.clear_textbox(courseNametxb);
-                        termcombobox.SelectedValue = -1;
-                        hourUpDown.Value = 0;
-                        minUpDown.Value = 0;
+                        string s = dcourse.course_set(c1);
+                        
+                        List<DateTime> l1 = dcourse.data_course_creator(date2, Convert.ToInt32(numberofcoursebox.Text));
+                        foreach (DateTime dt in l1)
+                        {
+                            Course_holding c2 = new Course_holding();
+                            c2.courseid = id;
+                            c2.dateOfsection = dt;
+                            c2.teacherid = c1.teacherid = Convert.ToInt64(teacherIDtxb.Text.Substring(0, 10));
+                            c2.holding_state = true;
+                            dcourse.course_holding_set(c2);
+                        }
+                        if (s == "1")
+                        {
+                            MessageBox.Show($"کلاس با کد {id} ثبت شد.");
+                            dcourse.clear_textbox(teacherIDtxb);
+                            dcourse.clear_textbox(datetxby);
+                            dcourse.clear_textbox(datetxbm);
+                            dcourse.clear_textbox(datetxbd);
+                            dcourse.clear_textbox(costtxb);
+                            dcourse.clear_textbox(courseNametxb);
+                            dcourse.clear_textbox(numberofcoursebox);
+                            termcombobox.SelectedIndex = -1;
+                            hourUpDown.Value = 0;
+                            minUpDown.Value = 0;
+                        }
+                        else
+                        {
+                            MessageBox.Show("ثبت انجام نشد!!!");
+                        }
                     }
                     else
                     {
@@ -115,7 +131,7 @@ namespace AmoozeshPJWinF
             }
             else
             { acceptButton.Enabled = true; }
-            
+
 
         }
 
@@ -210,6 +226,17 @@ namespace AmoozeshPJWinF
             }
         }
 
-        
+        private void numberofcoursebox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numberofcoursebox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

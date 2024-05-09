@@ -250,19 +250,32 @@ namespace AmoozeshPJWinF
 
         }
 
-        public void course_set(Course c1)
+        public string course_set(Course c1)
         {
             var con = new NpgsqlConnection(
             connectionString: globalcon);
             con.Open();
             using var cmd = new NpgsqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = $"INSERT INTO course(id,teacher_id, course_name, cost, date_of_start) VALUES ({c1.courseid}, {c1.teacherid}, '{c1.coursename}', {c1.cost}, '{c1.dateofstart}');";
-            cmd.ExecuteNonQueryAsync();
-            Thread.Sleep(500);
+            cmd.CommandText = $"INSERT INTO course(id,teacher_id, course_name, cost, date_of_start) VALUES ({c1.courseid}, {c1.teacherid}, '{c1.coursename}', {c1.cost}, '{c1.dateofstart.Year}-{c1.dateofstart.Month}-{c1.dateofstart.Day}');";
+            string result = "";
+            result = cmd.ExecuteNonQuery().ToString();
+            return result;
 
         }
 
+        public string course_holding_set(Course_holding c1)
+        {
+            var con = new NpgsqlConnection(
+            connectionString: globalcon);
+            con.Open();
+            using var cmd = new NpgsqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = $"INSERT INTO course_holding(course_id, date_of_sections, teacher_id, holding_status) VALUES ({c1.courseid}, '{c1.dateOfsection}', {c1.teacherid}, {c1.holding_state});";
+            string result = "";
+            result = cmd.ExecuteNonQuery().ToString();
+            return result;
+        }
         public void enrollment_set(Enrollment e1)
         {
             var con = new NpgsqlConnection(
@@ -522,11 +535,12 @@ namespace AmoozeshPJWinF
             }
         }
 
-        public string cul_converter(DateTime d1)
+        public DateTime cul_converter(DateTime d1)
         {
             PersianCalendar pc = new PersianCalendar();
-            StringBuilder sb = new StringBuilder();
-            return sb.ToString();
+            DateTime result = new DateTime(pc.GetYear(d1), pc.GetMonth(d1), pc.GetDayOfMonth(d1));
+
+            return result;
         }
 
         public List<DateTime> data_course_creator(DateTime d1, int d)
