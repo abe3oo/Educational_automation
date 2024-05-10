@@ -30,6 +30,9 @@
         {
             TypeCbox = new ComboBox();
             groupBoxsame = new GroupBox();
+            usereditlabel = new Label();
+            userlabel = new Label();
+            checkbot = new Button();
             picturebot = new Button();
             pictureBox1 = new PictureBox();
             checkBoxWA = new CheckBox();
@@ -66,6 +69,8 @@
             Presencerecordbox = new TextBox();
             Presencerecordlabel = new Label();
             Setbutton = new Button();
+            addradioButton = new RadioButton();
+            editradioButton = new RadioButton();
             groupBoxsame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBoxSt.SuspendLayout();
@@ -74,6 +79,7 @@
             // 
             // TypeCbox
             // 
+            TypeCbox.DropDownStyle = ComboBoxStyle.DropDownList;
             TypeCbox.FormattingEnabled = true;
             TypeCbox.Items.AddRange(new object[] { "استاد", "دانشجو" });
             TypeCbox.Location = new Point(585, 33);
@@ -84,6 +90,9 @@
             // 
             // groupBoxsame
             // 
+            groupBoxsame.Controls.Add(usereditlabel);
+            groupBoxsame.Controls.Add(userlabel);
+            groupBoxsame.Controls.Add(checkbot);
             groupBoxsame.Controls.Add(picturebot);
             groupBoxsame.Controls.Add(pictureBox1);
             groupBoxsame.Controls.Add(checkBoxWA);
@@ -110,9 +119,44 @@
             groupBoxsame.TabStop = false;
             groupBoxsame.Visible = false;
             // 
+            // usereditlabel
+            // 
+            usereditlabel.AutoSize = true;
+            usereditlabel.Location = new Point(368, 34);
+            usereditlabel.Name = "usereditlabel";
+            usereditlabel.Size = new Size(18, 20);
+            usereditlabel.TabIndex = 19;
+            usereditlabel.Text = "...";
+            usereditlabel.Visible = false;
+            usereditlabel.TextChanged += usereditlabel_TextChanged;
+            usereditlabel.Click += usereditlabel_Click;
+            // 
+            // userlabel
+            // 
+            userlabel.AutoSize = true;
+            userlabel.Location = new Point(470, 34);
+            userlabel.Name = "userlabel";
+            userlabel.RightToLeft = RightToLeft.Yes;
+            userlabel.Size = new Size(45, 20);
+            userlabel.TabIndex = 18;
+            userlabel.Text = "کاربر :";
+            userlabel.Visible = false;
+            // 
+            // checkbot
+            // 
+            checkbot.Enabled = false;
+            checkbot.Location = new Point(267, 25);
+            checkbot.Name = "checkbot";
+            checkbot.Size = new Size(61, 29);
+            checkbot.TabIndex = 17;
+            checkbot.Text = "check";
+            checkbot.UseVisualStyleBackColor = true;
+            checkbot.Visible = false;
+            checkbot.Click += checkbot_Click;
+            // 
             // picturebot
             // 
-            picturebot.Location = new Point(417, 196);
+            picturebot.Location = new Point(405, 227);
             picturebot.Name = "picturebot";
             picturebot.Size = new Size(101, 29);
             picturebot.TabIndex = 5;
@@ -123,7 +167,7 @@
             // pictureBox1
             // 
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox1.Location = new Point(395, 52);
+            pictureBox1.Location = new Point(390, 82);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(125, 129);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -223,6 +267,7 @@
             // 
             // educationCbox
             // 
+            educationCbox.DropDownStyle = ComboBoxStyle.DropDownList;
             educationCbox.FormattingEnabled = true;
             educationCbox.Items.AddRange(new object[] { "دانش آموز", "سیکل", "دیپلم", "فوق دیپلم", "لیسانس", "فوق لیسانس", "دکترا" });
             educationCbox.Location = new Point(22, 257);
@@ -283,6 +328,7 @@
             // Idbox
             // 
             Idbox.Location = new Point(22, 27);
+            Idbox.MaxLength = 10;
             Idbox.Name = "Idbox";
             Idbox.Size = new Size(125, 27);
             Idbox.TabIndex = 0;
@@ -299,7 +345,7 @@
             groupBoxSt.Controls.Add(Jobbox);
             groupBoxSt.Controls.Add(Citybox);
             groupBoxSt.Controls.Add(MaritalCbox);
-            groupBoxSt.Location = new Point(432, 319);
+            groupBoxSt.Location = new Point(405, 369);
             groupBoxSt.Name = "groupBoxSt";
             groupBoxSt.Size = new Size(331, 156);
             groupBoxSt.TabIndex = 2;
@@ -348,6 +394,7 @@
             // 
             // ClasstypeCbox
             // 
+            ClasstypeCbox.DropDownStyle = ComboBoxStyle.DropDownList;
             ClasstypeCbox.FormattingEnabled = true;
             ClasstypeCbox.Items.AddRange(new object[] { "حضوری", "مجازی" });
             ClasstypeCbox.Location = new Point(22, 116);
@@ -373,6 +420,7 @@
             // 
             // MaritalCbox
             // 
+            MaritalCbox.DropDownStyle = ComboBoxStyle.DropDownList;
             MaritalCbox.FormattingEnabled = true;
             MaritalCbox.Items.AddRange(new object[] { "مجرد", "متاهل" });
             MaritalCbox.Location = new Point(22, 16);
@@ -388,7 +436,7 @@
             groupBoxTch.Controls.Add(entrylabel);
             groupBoxTch.Controls.Add(Presencerecordbox);
             groupBoxTch.Controls.Add(Presencerecordlabel);
-            groupBoxTch.Location = new Point(37, 349);
+            groupBoxTch.Location = new Point(37, 369);
             groupBoxTch.Name = "groupBoxTch";
             groupBoxTch.Size = new Size(331, 125);
             groupBoxTch.TabIndex = 3;
@@ -454,18 +502,44 @@
             Setbutton.Name = "Setbutton";
             Setbutton.Size = new Size(94, 29);
             Setbutton.TabIndex = 4;
-            Setbutton.Text = "ثبت";
+            Setbutton.Text = "تایید";
             Setbutton.UseVisualStyleBackColor = true;
             Setbutton.Click += Setbutton_Click;
+            // 
+            // addradioButton
+            // 
+            addradioButton.AutoSize = true;
+            addradioButton.Location = new Point(688, 103);
+            addradioButton.Name = "addradioButton";
+            addradioButton.Size = new Size(104, 24);
+            addradioButton.TabIndex = 5;
+            addradioButton.TabStop = true;
+            addradioButton.Text = "اضافه کردن";
+            addradioButton.UseVisualStyleBackColor = true;
+            addradioButton.CheckedChanged += addradioButton_CheckedChanged;
+            // 
+            // editradioButton
+            // 
+            editradioButton.AutoSize = true;
+            editradioButton.Location = new Point(688, 133);
+            editradioButton.Name = "editradioButton";
+            editradioButton.Size = new Size(111, 24);
+            editradioButton.TabIndex = 6;
+            editradioButton.TabStop = true;
+            editradioButton.Text = "ویرایش کردن";
+            editradioButton.UseVisualStyleBackColor = true;
+            editradioButton.CheckedChanged += editradioButton_CheckedChanged;
             // 
             // AddUserForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 497);
+            ClientSize = new Size(823, 554);
+            Controls.Add(editradioButton);
+            Controls.Add(addradioButton);
+            Controls.Add(groupBoxSt);
             Controls.Add(Setbutton);
             Controls.Add(groupBoxTch);
-            Controls.Add(groupBoxSt);
             Controls.Add(groupBoxsame);
             Controls.Add(TypeCbox);
             Name = "AddUserForm";
@@ -479,6 +553,7 @@
             groupBoxTch.ResumeLayout(false);
             groupBoxTch.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -521,5 +596,10 @@
         private Button Setbutton;
         private Button picturebot;
         private PictureBox pictureBox1;
+        private RadioButton addradioButton;
+        private RadioButton editradioButton;
+        private Button checkbot;
+        private Label userlabel;
+        private Label usereditlabel;
     }
 }
