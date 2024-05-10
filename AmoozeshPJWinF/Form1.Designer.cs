@@ -193,6 +193,7 @@
             day1.TabIndex = 8;
             day1.Text = "01";
             day1.UseVisualStyleBackColor = true;
+            day1.Click += day1_Click;
             // 
             // day2
             // 
@@ -202,6 +203,7 @@
             day2.TabIndex = 9;
             day2.Text = "02";
             day2.UseVisualStyleBackColor = true;
+            day2.Click += day2_Click;
             // 
             // day3
             // 
@@ -211,6 +213,7 @@
             day3.TabIndex = 10;
             day3.Text = "03";
             day3.UseVisualStyleBackColor = true;
+            day3.Click += day3_Click;
             // 
             // day4
             // 
@@ -220,6 +223,7 @@
             day4.TabIndex = 11;
             day4.Text = "04";
             day4.UseVisualStyleBackColor = true;
+            day4.Click += day4_Click;
             // 
             // day5
             // 
@@ -229,6 +233,7 @@
             day5.TabIndex = 12;
             day5.Text = "05";
             day5.UseVisualStyleBackColor = true;
+            day5.Click += day5_Click;
             // 
             // day6
             // 
@@ -238,6 +243,7 @@
             day6.TabIndex = 13;
             day6.Text = "06";
             day6.UseVisualStyleBackColor = true;
+            day6.Click += day6_Click;
             // 
             // day7
             // 
@@ -247,6 +253,7 @@
             day7.TabIndex = 14;
             day7.Text = "07";
             day7.UseVisualStyleBackColor = true;
+            day7.Click += day7_Click;
             // 
             // day8
             // 
@@ -256,6 +263,7 @@
             day8.TabIndex = 15;
             day8.Text = "08";
             day8.UseVisualStyleBackColor = true;
+            day8.Click += day8_Click;
             // 
             // day9
             // 
@@ -265,6 +273,7 @@
             day9.TabIndex = 16;
             day9.Text = "09";
             day9.UseVisualStyleBackColor = true;
+            day9.Click += day9_Click;
             // 
             // day10
             // 
@@ -274,6 +283,7 @@
             day10.TabIndex = 17;
             day10.Text = "10";
             day10.UseVisualStyleBackColor = true;
+            day10.Click += day10_Click;
             // 
             // day11
             // 
@@ -283,6 +293,7 @@
             day11.TabIndex = 18;
             day11.Text = "11";
             day11.UseVisualStyleBackColor = true;
+            day11.Click += day11_Click;
             // 
             // day12
             // 
@@ -292,6 +303,7 @@
             day12.TabIndex = 19;
             day12.Text = "12";
             day12.UseVisualStyleBackColor = true;
+            day12.Click += day12_Click;
             // 
             // day13
             // 
@@ -301,6 +313,7 @@
             day13.TabIndex = 20;
             day13.Text = "13";
             day13.UseVisualStyleBackColor = true;
+            day13.Click += day13_Click;
             // 
             // day14
             // 
@@ -310,6 +323,7 @@
             day14.TabIndex = 21;
             day14.Text = "14";
             day14.UseVisualStyleBackColor = true;
+            day14.Click += day14_Click;
             // 
             // day15
             // 
@@ -319,6 +333,7 @@
             day15.TabIndex = 22;
             day15.Text = "15";
             day15.UseVisualStyleBackColor = true;
+            day15.Click += day15_Click;
             // 
             // day16
             // 
@@ -328,6 +343,7 @@
             day16.TabIndex = 23;
             day16.Text = "16";
             day16.UseVisualStyleBackColor = true;
+            day16.Click += day16_Click;
             // 
             // day17
             // 
@@ -337,6 +353,7 @@
             day17.TabIndex = 24;
             day17.Text = "17";
             day17.UseVisualStyleBackColor = true;
+            day17.Click += day17_Click;
             // 
             // day18
             // 
@@ -346,6 +363,7 @@
             day18.TabIndex = 25;
             day18.Text = "18";
             day18.UseVisualStyleBackColor = true;
+            day18.Click += day18_Click;
             // 
             // day19
             // 
@@ -355,6 +373,7 @@
             day19.TabIndex = 26;
             day19.Text = "19";
             day19.UseVisualStyleBackColor = true;
+            day19.Click += day19_Click;
             // 
             // day20
             // 
@@ -364,6 +383,7 @@
             day20.TabIndex = 27;
             day20.Text = "20";
             day20.UseVisualStyleBackColor = true;
+            day20.Click += day20_Click;
             // 
             // day21
             // 
@@ -373,6 +393,7 @@
             day21.TabIndex = 28;
             day21.Text = "21";
             day21.UseVisualStyleBackColor = true;
+            day21.Click += day21_Click;
             // 
             // day22
             // 
@@ -382,6 +403,7 @@
             day22.TabIndex = 29;
             day22.Text = "22";
             day22.UseVisualStyleBackColor = true;
+            day22.Click += day22_Click;
             // 
             // day23
             // 
@@ -391,6 +413,7 @@
             day23.TabIndex = 30;
             day23.Text = "23";
             day23.UseVisualStyleBackColor = true;
+            day23.Click += day23_Click;
             // 
             // day24
             // 
@@ -400,6 +423,7 @@
             day24.TabIndex = 31;
             day24.Text = "24";
             day24.UseVisualStyleBackColor = true;
+            day24.Click += day24_Click;
             // 
             // day25
             // 
@@ -409,6 +433,7 @@
             day25.TabIndex = 32;
             day25.Text = "25";
             day25.UseVisualStyleBackColor = true;
+            day25.Click += day25_Click;
             // 
             // day26
             // 
@@ -418,6 +443,7 @@
             day26.TabIndex = 33;
             day26.Text = "26";
             day26.UseVisualStyleBackColor = true;
+            day26.Click += day26_Click;
             // 
             // day27
             // 
@@ -427,6 +453,7 @@
             day27.TabIndex = 34;
             day27.Text = "27";
             day27.UseVisualStyleBackColor = true;
+            day27.Click += day27_Click;
             // 
             // day28
             // 
@@ -436,6 +463,7 @@
             day28.TabIndex = 35;
             day28.Text = "28";
             day28.UseVisualStyleBackColor = true;
+            day28.Click += day28_Click;
             // 
             // day29
             // 
@@ -445,6 +473,7 @@
             day29.TabIndex = 36;
             day29.Text = "29";
             day29.UseVisualStyleBackColor = true;
+            day29.Click += day29_Click;
             // 
             // day30
             // 
@@ -454,6 +483,7 @@
             day30.TabIndex = 37;
             day30.Text = "30";
             day30.UseVisualStyleBackColor = true;
+            day30.Click += day30_Click;
             // 
             // day31
             // 
@@ -463,6 +493,7 @@
             day31.TabIndex = 38;
             day31.Text = "31";
             day31.UseVisualStyleBackColor = true;
+            day31.Click += day31_Click;
             // 
             // AddCourse
             // 
