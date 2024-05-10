@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
+using System.Security.Cryptography.Pkcs;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,7 +13,7 @@ namespace AmoozeshPJWinF
 {
     internal class DBC
     {
-        private string globalcon = "Host=localhost; Port=1148; Username=postgres; password=Ara41148; database=test";
+        private string globalcon = "Host=localhost; Port=5432; Username=postgres; password=nazanin1381; database=test";
         public Image returnImage;
         //"Host=localhost; Port=5432; Username=postgres; password=nazanin1381; database=test"
         //"Host=localhost; Port=1148; Username=postgres; password=Ara41148; database=test"
@@ -70,6 +71,8 @@ namespace AmoozeshPJWinF
             cmd.ExecuteNonQueryAsync();
             return msg;
         }
+
+       
 
 
         public bool courseid_check(string thisid)
@@ -167,8 +170,9 @@ namespace AmoozeshPJWinF
             using var cmd = new NpgsqlCommand();
             cmd.Connection = con;
             cmd.CommandText = $"INSERT INTO payment(user_id, date_of_payment, term, amount, transaction_status, tracking_code,tracking_time , description) VALUES ({p1.userid}, '{p1.dateofpayment}', '{p1.term}', {p1.amount}, '{p1.transactionstatus}', '{p1.trackingcode}', '{p1.tarckingtime}' , '{p1.description}');";
+            cmd.CommandText = $"UPDATE users SET account_balance = {p1.accountbalance} WHERE id =  {p1.userid};";
             cmd.ExecuteNonQueryAsync();
-            Thread.Sleep(500);
+            Thread.Sleep(500); 
 
         }
 
@@ -275,6 +279,27 @@ namespace AmoozeshPJWinF
 
             return p1;
             //cmd.ExecuteNonQueryAsync();
+        }
+
+        public long acc_bl_reader(string thisid)
+        {
+            var con = new NpgsqlConnection(
+            connectionString: globalcon);
+            Payment p1 = new Payment();
+            con.Open();
+            //-----
+            using var cmd = new NpgsqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = $"SELECT account_balance FROM users WHERE id = {thisid};";
+
+
+            using (var reader = cmd.ExecuteReader())
+            {
+                reader.Read();
+                p1.accountbalance = Convert.ToInt64(reader[0]);
+            }
+             return p1.accountbalance;
+            
         }
 
         public List<long> Course_holding_id_Reader_by_date(DateTime tod)

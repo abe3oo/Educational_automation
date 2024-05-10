@@ -345,6 +345,7 @@ namespace AmoozeshPJWinF
             DBC dpay = new DBC();
             if (dpay.id_check(useridtbx.Text) == true)
             {
+               
                 if (useridtbx.Text != "" && datetxby.Text != "" && datetxbm.Text != "" && datetxbd.Text != "" && termCobox.Text != "" && amounttxb.Text != ""
                        && tracTypeCbox.Text != "" && tractimetxbH.Text != "" && tractimetxbM.Text != "" &&
                       tracCodetxb.Text != "")
@@ -372,13 +373,16 @@ namespace AmoozeshPJWinF
                     }
 
                     p1.amount = Convert.ToInt64(amounttxb.Text);
+                    p1.accountbalance = dpay.acc_bl_reader(useridtbx.Text);
                     if (tracTypeCbox.SelectedIndex == 0)
                     {
                         p1.transactionstatus = false;
+                        p1.accountbalance = p1.accountbalance - p1.amount;
                     }
                     else if (tracTypeCbox.SelectedIndex == 1)
                     {
                         p1.transactionstatus = true;
+                        p1.accountbalance = p1.accountbalance + p1.amount;
                     }
                     TimeSpan time = new TimeSpan(Convert.ToInt16(tractimetxbH.Text), Convert.ToInt16(tractimetxbM.Text), 0);
                     p1.tarckingtime = time;

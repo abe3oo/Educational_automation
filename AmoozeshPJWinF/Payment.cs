@@ -24,7 +24,7 @@ namespace Amozesh
         private bool TransactionStatus;
         private TimeSpan TrackingTime;
         private string Description;
-
+        private long AccountBalance;
         public long userid { get { return UserID; } set { UserID = value; } }
         public DateTime dateofpayment { get { return DateOfPayment; } set { DateOfPayment = value; } }
         public int term { get { return Term; } set { Term = value; } }
@@ -33,5 +33,6 @@ namespace Amozesh
         public TimeSpan tarckingtime { get { return TrackingTime; } set { TrackingTime = value; } }
         public bool transactionstatus { get { return TransactionStatus; } set { TransactionStatus = value; } }
         public string description { get { return Description; } set { Description = value; } }
+        public long accountbalance { get { return AccountBalance; } set { AccountBalance = value; } }
     }
 }
