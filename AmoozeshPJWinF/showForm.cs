@@ -56,6 +56,7 @@ namespace AmoozeshPJWinF
                 {
                     groupBoxsame.Visible = true;
                     groupBoxSt.Visible = true;
+                    groupBoxTch.Visible = false;
                     GetStudent s1 = new GetStudent();
                     s1 = d1.St_Reader(textBox1.Text);
                     idlblshow.Text = s1.personalcode;
@@ -64,7 +65,7 @@ namespace AmoozeshPJWinF
                     lnamelblshow.Text = s1.lastname;
                     agelblshow.Text = s1.age.ToString();
                     numberlblshow.Text = s1.number.ToString();
-                    if(s1.number != s1.whatsappnumber)
+                    if (s1.number != s1.whatsappnumber)
                     {
                         wanumberlblshow.Text = s1.whatsappnumber.ToString();
                     }
@@ -117,9 +118,76 @@ namespace AmoozeshPJWinF
                     {
                         classtypelblshow.Text = "مجازی";
                     }
-
+                    if(s1.account_balance > 0)
+                    {
+                        peymentstlbl.Text = "بستانکار :";
+                        peymentstlblshow.Text = Math.Abs(Convert.ToDecimal(s1.account_balance)).ToString();
+                        
+                    }
+                    else if(s1.account_balance < 0)
+                    {
+                        peymentstlbl.Text = "بدهکار :";
+                        peymentstlblshow.Text = Math.Abs(Convert.ToDecimal(s1.account_balance)).ToString();
+                    }
+                    else
+                    {
+                        peymentstlbl.Text = "پرداختی :";
+                        peymentstlblshow.Text = "0";
+                    }
                     pictureBox1.Image = d1.pic_reader(s1.personalcode);
                 }
+                else
+                {
+                    groupBoxsame.Visible = true;
+                    groupBoxSt.Visible = false;
+                    groupBoxTch.Visible = true;
+                    GetTeacher s1 = new GetTeacher();
+                    s1 = d1.Pr_Reader(textBox1.Text);
+                    idlblshow.Text = s1.personalcode;
+                    typelblshow.Text = "استاد";
+                    fnamelblshow.Text = s1.firstname;
+                    lnamelblshow.Text = s1.lastname;
+                    agelblshow.Text = s1.age.ToString();
+                    numberlblshow.Text = s1.number.ToString();
+                    if (s1.number != s1.whatsappnumber)
+                    {
+                        wanumberlblshow.Text = s1.whatsappnumber.ToString();
+                    }
+                    wanumberlblshow.Text = s1.whatsappnumber.ToString();
+                    Presencerecordlblshow.Text = s1.presence_record.ToString();
+                    string strdate = s1.date_of_entry.Year.ToString() + "/" + s1.date_of_entry.Month.ToString() + "/" + s1.date_of_entry.Day.ToString();
+                    entrylblshow.Text = strdate;
+                    pictureBox1.Image = d1.pic_reader(s1.personalcode);
+                    if (s1.account_balance > 0)
+                    {
+                        peymentlbl.Text = "بستانکار :";
+                        peymentlblshow.Text = Math.Abs(Convert.ToDecimal(s1.account_balance)).ToString();
+
+                    }
+                    else if (s1.account_balance < 0)
+                    {
+                        peymentlbl.Text = "بدهکار :";
+                        peymentlblshow.Text = Math.Abs(Convert.ToDecimal(s1.account_balance)).ToString();
+                    }
+                    else
+                    {
+                        peymentlbl.Text = "پرداختی :";
+                        peymentlblshow.Text = "0";
+                    }
+                }
+            }
+        }
+
+        private void savepicturebot_Click(object sender, EventArgs e)
+        {
+            d1.SaveImage(pictureBox1.Image, idlblshow.Text);
+        }
+
+        private void idlblshow_TextChanged(object sender, EventArgs e)
+        {
+            if(idlblshow.Text.Length == 10)
+            {
+                savepicturebot.Enabled = true;
             }
         }
     }

@@ -35,9 +35,9 @@
             textBox1 = new TextBox();
             showbot = new Button();
             groupBoxsame = new GroupBox();
-            typelblshow = new Label();
-            typelbl = new Label();
             groupBoxSt = new GroupBox();
+            peymentstlblshow = new Label();
+            peymentstlbl = new Label();
             classtypelblshow = new Label();
             joblblshow = new Label();
             citylblshow = new Label();
@@ -46,7 +46,11 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            typelblshow = new Label();
+            typelbl = new Label();
             groupBoxTch = new GroupBox();
+            peymentlblshow = new Label();
+            peymentlbl = new Label();
             entrylblshow = new Label();
             Presencerecordlblshow = new Label();
             entrylabel = new Label();
@@ -140,9 +144,9 @@
             // 
             // groupBoxsame
             // 
+            groupBoxsame.Controls.Add(groupBoxSt);
             groupBoxsame.Controls.Add(typelblshow);
             groupBoxsame.Controls.Add(typelbl);
-            groupBoxsame.Controls.Add(groupBoxSt);
             groupBoxsame.Controls.Add(groupBoxTch);
             groupBoxsame.Controls.Add(eductionlblshow);
             groupBoxsame.Controls.Add(fieldlblshow);
@@ -169,27 +173,10 @@
             groupBoxsame.TabStop = false;
             groupBoxsame.Visible = false;
             // 
-            // typelblshow
-            // 
-            typelblshow.AutoSize = true;
-            typelblshow.Location = new Point(69, 23);
-            typelblshow.Name = "typelblshow";
-            typelblshow.Size = new Size(18, 20);
-            typelblshow.TabIndex = 31;
-            typelblshow.Text = "...";
-            // 
-            // typelbl
-            // 
-            typelbl.AutoSize = true;
-            typelbl.Location = new Point(182, 23);
-            typelbl.Name = "typelbl";
-            typelbl.RightToLeft = RightToLeft.Yes;
-            typelbl.Size = new Size(52, 20);
-            typelbl.TabIndex = 30;
-            typelbl.Text = "سمت :";
-            // 
             // groupBoxSt
             // 
+            groupBoxSt.Controls.Add(peymentstlblshow);
+            groupBoxSt.Controls.Add(peymentstlbl);
             groupBoxSt.Controls.Add(classtypelblshow);
             groupBoxSt.Controls.Add(joblblshow);
             groupBoxSt.Controls.Add(citylblshow);
@@ -198,12 +185,31 @@
             groupBoxSt.Controls.Add(label3);
             groupBoxSt.Controls.Add(label2);
             groupBoxSt.Controls.Add(label1);
-            groupBoxSt.Location = new Point(6, 415);
+            groupBoxSt.Location = new Point(0, 323);
             groupBoxSt.Name = "groupBoxSt";
-            groupBoxSt.Size = new Size(373, 149);
+            groupBoxSt.Size = new Size(373, 200);
             groupBoxSt.TabIndex = 29;
             groupBoxSt.TabStop = false;
             groupBoxSt.Visible = false;
+            // 
+            // peymentstlblshow
+            // 
+            peymentstlblshow.AutoSize = true;
+            peymentstlblshow.Location = new Point(63, 146);
+            peymentstlblshow.Name = "peymentstlblshow";
+            peymentstlblshow.Size = new Size(18, 20);
+            peymentstlblshow.TabIndex = 35;
+            peymentstlblshow.Text = "...";
+            // 
+            // peymentstlbl
+            // 
+            peymentstlbl.AutoSize = true;
+            peymentstlbl.Location = new Point(182, 146);
+            peymentstlbl.Name = "peymentstlbl";
+            peymentstlbl.RightToLeft = RightToLeft.Yes;
+            peymentstlbl.Size = new Size(65, 20);
+            peymentstlbl.TabIndex = 34;
+            peymentstlbl.Text = "پرداختی :";
             // 
             // classtypelblshow
             // 
@@ -281,18 +287,58 @@
             label1.TabIndex = 16;
             label1.Text = "وضعیت تاهل :";
             // 
+            // typelblshow
+            // 
+            typelblshow.AutoSize = true;
+            typelblshow.Location = new Point(69, 23);
+            typelblshow.Name = "typelblshow";
+            typelblshow.Size = new Size(18, 20);
+            typelblshow.TabIndex = 31;
+            typelblshow.Text = "...";
+            // 
+            // typelbl
+            // 
+            typelbl.AutoSize = true;
+            typelbl.Location = new Point(182, 23);
+            typelbl.Name = "typelbl";
+            typelbl.RightToLeft = RightToLeft.Yes;
+            typelbl.Size = new Size(52, 20);
+            typelbl.TabIndex = 30;
+            typelbl.Text = "سمت :";
+            // 
             // groupBoxTch
             // 
+            groupBoxTch.Controls.Add(peymentlblshow);
+            groupBoxTch.Controls.Add(peymentlbl);
             groupBoxTch.Controls.Add(entrylblshow);
             groupBoxTch.Controls.Add(Presencerecordlblshow);
             groupBoxTch.Controls.Add(entrylabel);
             groupBoxTch.Controls.Add(Presencerecordlabel);
-            groupBoxTch.Location = new Point(6, 310);
+            groupBoxTch.Location = new Point(6, 314);
             groupBoxTch.Name = "groupBoxTch";
-            groupBoxTch.Size = new Size(373, 99);
+            groupBoxTch.Size = new Size(373, 135);
             groupBoxTch.TabIndex = 28;
             groupBoxTch.TabStop = false;
             groupBoxTch.Visible = false;
+            // 
+            // peymentlblshow
+            // 
+            peymentlblshow.AutoSize = true;
+            peymentlblshow.Location = new Point(63, 96);
+            peymentlblshow.Name = "peymentlblshow";
+            peymentlblshow.Size = new Size(18, 20);
+            peymentlblshow.TabIndex = 31;
+            peymentlblshow.Text = "...";
+            // 
+            // peymentlbl
+            // 
+            peymentlbl.AutoSize = true;
+            peymentlbl.Location = new Point(176, 96);
+            peymentlbl.Name = "peymentlbl";
+            peymentlbl.RightToLeft = RightToLeft.Yes;
+            peymentlbl.Size = new Size(65, 20);
+            peymentlbl.TabIndex = 30;
+            peymentlbl.Text = "پرداختی :";
             // 
             // entrylblshow
             // 
@@ -403,15 +449,18 @@
             idlblshow.Size = new Size(18, 20);
             idlblshow.TabIndex = 20;
             idlblshow.Text = "...";
+            idlblshow.TextChanged += idlblshow_TextChanged;
             // 
             // savepicturebot
             // 
+            savepicturebot.Enabled = false;
             savepicturebot.Location = new Point(402, 182);
             savepicturebot.Name = "savepicturebot";
             savepicturebot.Size = new Size(101, 29);
             savepicturebot.TabIndex = 5;
             savepicturebot.Text = "ذخیره عکس";
             savepicturebot.UseVisualStyleBackColor = true;
+            savepicturebot.Click += savepicturebot_Click;
             // 
             // pictureBox1
             // 
@@ -575,5 +624,9 @@
         private Label label2;
         private Label label1;
         private Label typelblshow;
+        private Label peymentlblshow;
+        private Label peymentlbl;
+        private Label peymentstlblshow;
+        private Label peymentstlbl;
     }
 }

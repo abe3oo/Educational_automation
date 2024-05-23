@@ -314,6 +314,8 @@ namespace AmoozeshPJWinF
                 s1.age = Convert.ToInt32(reader[3]);
                 s1.number = Convert.ToInt64(reader[4]);
                 s1.whatsappnumber = Convert.ToInt64(reader[5]);
+                s1.account_balance = Convert.ToInt64(reader[7]);
+                
                 
             }
             using var cmd2 = new NpgsqlCommand();
@@ -355,6 +357,7 @@ namespace AmoozeshPJWinF
                 p1.age = Convert.ToInt32(reader[3]);
                 p1.number = Convert.ToInt64(reader[4]);
                 p1.whatsappnumber = Convert.ToInt64(reader[5]);
+                p1.account_balance = Convert.ToInt64(reader[7]);
             }
             using var cmd2 = new NpgsqlCommand();
             cmd2.Connection = con;
@@ -517,6 +520,35 @@ namespace AmoozeshPJWinF
             return returnImage;
         }
 
+        public void SaveImage(Image image, string name)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "JPEG Image|*.jpg|PNG Image|*.png|BMP Image|*.bmp";
+                saveFileDialog.Title = "Save an Image File";
+                saveFileDialog.FileName = $"{name}";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // تشخیص فرمت تصویر از پسوند فایل
+                    switch (saveFileDialog.FilterIndex)
+                    {
+                        case 1:
+                            image.Save(saveFileDialog.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            break;
+                        case 2:
+                            image.Save(saveFileDialog.FileName, System.Drawing.Imaging.ImageFormat.Png);
+                            break;
+                        case 3:
+                            image.Save(saveFileDialog.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
+                            break;
+                    }
+
+                    MessageBox.Show("Image saved successfully!");
+                }
+            }
+        }
+
         //public void testt()
         //{
         //    using (var conn = new NpgsqlConnection(globalcon))
@@ -539,43 +571,56 @@ namespace AmoozeshPJWinF
         {
             using (var conn = new NpgsqlConnection(globalcon))
             {
-                string sQL = $"SELECT pict FROM users WHERE id = {id};";
-                using (var command = new NpgsqlCommand(sQL, conn))
+                try
                 {
-                    byte[] productImageByte = null;
-                    conn.Open();
-                    var rdr = command.ExecuteReader();
-                    if (rdr.Read())
-                    {
-                        productImageByte = (byte[])rdr[0];
-                    }
-                    rdr.Close();
 
 
-                    using (MemoryStream productImageStream = new System.IO.MemoryStream(productImageByte))
+                    string sQL = $"SELECT pict FROM users WHERE id = {id};";
+                    using (var command = new NpgsqlCommand(sQL, conn))
                     {
-                        ImageConverter imageConverter = new System.Drawing.ImageConverter();
-                        try
+                        byte[] productImageByte = null;
+                        conn.Open();
+                        var rdr = command.ExecuteReader();
+                        if (rdr.Read())
                         {
-                            Image a1 = imageConverter.ConvertFrom(productImageByte) as System.Drawing.Image;
-                            if (a1 != null)
+                            productImageByte = (byte[])rdr[0];
+                        }
+                        rdr.Close();
+
+
+                        using (MemoryStream productImageStream = new System.IO.MemoryStream(productImageByte))
+                        {
+                            ImageConverter imageConverter = new System.Drawing.ImageConverter();
+                            try
                             {
-                                return a1;
+                                Image a1 = imageConverter.ConvertFrom(productImageByte) as System.Drawing.Image;
+                                if (a1 != null)
+                                {
+                                    return a1;
+                                }
+                                else
+                                {
+                                    a1 = Properties.Resources.nullimage;
+                                    return a1;
+                                }
                             }
-                            else
+                            catch
                             {
+                                Image a1;
                                 a1 = Properties.Resources.nullimage;
                                 return a1;
                             }
                         }
-                        catch
-                        {
-                            Image a1;
-                            a1 = Properties.Resources.nullimage;
-                            return a1;
-                        }
-                    }
 
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    Image a1;
+                    a1 = Properties.Resources.nullimage;
+                    return a1;
+                    
                 }
             }
         }

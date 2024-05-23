@@ -10,7 +10,7 @@ namespace AmoozeshPJWinF
     {
         public GetUsers()
         {
-
+            account_balance = 0;
         }
         private string? PersonalCode;
         private string? Firstname;
@@ -20,6 +20,7 @@ namespace AmoozeshPJWinF
         private long? Number;
         private long? WhatsAppNumber;
         private byte[]? ProfilePicture;
+        private long Account_balance;
 
         public string? personalcode { get { return PersonalCode; } set { PersonalCode = value; } }
         public string? firstname { get { return Firstname; } set { Firstname = value; } }
@@ -30,5 +31,6 @@ namespace AmoozeshPJWinF
 
         public long? whatsappnumber { get { return WhatsAppNumber; } set { WhatsAppNumber = value; } }
         public byte[]? profilepicture { get { return ProfilePicture; } set { ProfilePicture = value; } }
+        public long account_balance { get { return Account_balance; } set { Account_balance = value; } }
     }
 }
