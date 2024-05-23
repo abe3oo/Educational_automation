@@ -72,6 +72,7 @@ namespace AmoozeshPJWinF
                     wanumberlblshow.Text = s1.whatsappnumber.ToString();
                     fieldlblshow.Text = s1.fieled_of_study;
                     eductionlblshow.Text = s1.education.ToString();
+                    educationlabel.Text = "سطح تحصیلات :";
                     if (s1.education == 0)
                     {
                         eductionlblshow.Text = "دانش آموز";
@@ -154,6 +155,36 @@ namespace AmoozeshPJWinF
                         wanumberlblshow.Text = s1.whatsappnumber.ToString();
                     }
                     wanumberlblshow.Text = s1.whatsappnumber.ToString();
+                    fieldlblshow.Text = s1.fieled_of_study;
+                    educationlabel.Text = "مدرک تحصیلی :";
+                    if (s1.degree_of_education == 0)
+                    {
+                        eductionlblshow.Text = "دانش آموز";
+                    }
+                    else if (s1.degree_of_education == 1)
+                    {
+                        eductionlblshow.Text = "سیکل";
+                    }
+                    else if (s1.degree_of_education == 2)
+                    {
+                        eductionlblshow.Text = "دیپلم";
+                    }
+                    else if (s1.degree_of_education == 3)
+                    {
+                        eductionlblshow.Text = "فوق دیپلم";
+                    }
+                    else if (s1.degree_of_education == 4)
+                    {
+                        eductionlblshow.Text = "لیسانس";
+                    }
+                    else if (s1.degree_of_education == 5)
+                    {
+                        eductionlblshow.Text = "فوق لیسانس";
+                    }
+                    else if (s1.degree_of_education == 6)
+                    {
+                        eductionlblshow.Text = "دکترا";
+                    }
                     Presencerecordlblshow.Text = s1.presence_record.ToString();
                     string strdate = s1.date_of_entry.Year.ToString() + "/" + s1.date_of_entry.Month.ToString() + "/" + s1.date_of_entry.Day.ToString();
                     entrylblshow.Text = strdate;
@@ -174,6 +205,7 @@ namespace AmoozeshPJWinF
                         peymentlbl.Text = "پرداختی :";
                         peymentlblshow.Text = "0";
                     }
+
                 }
             }
         }
