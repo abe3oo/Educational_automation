@@ -13,10 +13,10 @@ namespace AmoozeshPJWinF
 {
     internal class DBC
     {
-        private string globalcon = "Host=localhost; Port=5432; Username=postgres; password=nazanin1381; database=test";
+        private string globalcon = "Host=localhost; Port=5432; Username=postgres; password=Ara41148; database=test";
         public Image returnImage;
         //"Host=localhost; Port=5432; Username=postgres; password=nazanin1381; database=test"
-        //"Host=localhost; Port=1148; Username=postgres; password=Ara41148; database=test"
+        //"Host=localhost; Port=5432; Username=postgres; password=Ara41148; database=test"
         public DBC()
         {
 
@@ -510,7 +510,10 @@ namespace AmoozeshPJWinF
                 ms.Write(byteArrayIn, 0, byteArrayIn.Length);
                 returnImage = Image.FromStream(ms, true);//Exception occurs here
             }
-            catch { }
+            catch
+            {
+                returnImage = Properties.Resources.nullimage;
+            }
             return returnImage;
         }
 
@@ -552,8 +555,25 @@ namespace AmoozeshPJWinF
                     using (MemoryStream productImageStream = new System.IO.MemoryStream(productImageByte))
                     {
                         ImageConverter imageConverter = new System.Drawing.ImageConverter();
-                        Image a1 = imageConverter.ConvertFrom(productImageByte) as System.Drawing.Image;
-                        return a1;
+                        try
+                        {
+                            Image a1 = imageConverter.ConvertFrom(productImageByte) as System.Drawing.Image;
+                            if (a1 != null)
+                            {
+                                return a1;
+                            }
+                            else
+                            {
+                                a1 = Properties.Resources.nullimage;
+                                return a1;
+                            }
+                        }
+                        catch
+                        {
+                            Image a1;
+                            a1 = Properties.Resources.nullimage;
+                            return a1;
+                        }
                     }
 
                 }
@@ -586,6 +606,70 @@ namespace AmoozeshPJWinF
                 }
             }
             return list;
+        }
+        public List<string> get_all_users()
+        {
+            var con = new NpgsqlConnection(
+            connectionString: globalcon);
+            string p1 = "";
+            List<string> p2 = new List<string>();
+            con.Open();
+            //-----
+            using var cmd = new NpgsqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = $"SELECT id FROM users;";
+
+
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+
+                    p1 = Convert.ToString(reader.GetInt64(0));
+
+                    p2.Add(p1);
+                }
+            }
+            return p2;
+        }
+        public List<string> search_user_by_id(string thisid)
+        {
+            var con = new NpgsqlConnection(
+            connectionString: globalcon);
+            string p1 = "";
+            List<string> p2 = new List<string>();
+            con.Open();
+            //-----
+            using var cmd = new NpgsqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = $"SELECT id FROM users WHERE CAST(id AS TEXT) LIKE '%{thisid}%';";
+
+
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+
+                    p1 = Convert.ToString(reader.GetInt64(0));
+                    
+                    p2.Add(p1);
+                }
+            }
+            //using var cmd2 = new NpgsqlCommand();
+            //cmd2.Connection = con;
+            //cmd2.CommandText = $"SELECT * FROM teacher WHERE id = {thisid};";
+            //using (var reader = cmd2.ExecuteReader())
+            //{
+            //    reader.Read();
+
+            //    p1.fieled_of_study = Convert.ToString(reader[1]);
+            //    p1.degree_of_education = Convert.ToInt32(reader[2]);
+            //    p1.presence_record = Convert.ToInt32(reader[3]);
+            //    p1.date_of_entry = Convert.ToDateTime(reader[4]);
+            //}
+
+            return p2;
+            //cmd.ExecuteNonQueryAsync();
         }
     }
 }

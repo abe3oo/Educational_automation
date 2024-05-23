@@ -80,6 +80,7 @@
             enrollment = new Button();
             coursetodayGridView = new DataGridView();
             todayclasslabel = new Label();
+            showbot = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)coursetodayGridView).BeginInit();
             SuspendLayout();
@@ -597,11 +598,22 @@
             todayclasslabel.TabIndex = 46;
             todayclasslabel.Text = "کلاس های امروز:";
             // 
+            // showbot
+            // 
+            showbot.Location = new Point(770, 305);
+            showbot.Name = "showbot";
+            showbot.Size = new Size(112, 29);
+            showbot.TabIndex = 47;
+            showbot.Text = "show";
+            showbot.UseVisualStyleBackColor = true;
+            showbot.Click += showbot_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(910, 533);
+            Controls.Add(showbot);
             Controls.Add(todayclasslabel);
             Controls.Add(coursetodayGridView);
             Controls.Add(enrollment);
@@ -709,5 +721,6 @@
         private Button enrollment;
         private DataGridView coursetodayGridView;
         private Label todayclasslabel;
+        private Button showbot;
     }
 }

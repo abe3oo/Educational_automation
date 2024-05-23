@@ -466,5 +466,11 @@ namespace AmoozeshPJWinF
         {
             get_classes_for_bot(day31);
         }
+
+        private void showbot_Click(object sender, EventArgs e)
+        {
+            showForm s1 = new showForm();
+            s1.ShowDialog();
+        }
     }
 }
