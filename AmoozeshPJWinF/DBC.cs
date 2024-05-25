@@ -677,7 +677,60 @@ namespace AmoozeshPJWinF
             }
             return p2;
         }
-        public List<showcourse> show_all_course()
+        public showcourse show_course(string id)
+        {
+            showcourse s1 = new showcourse();
+            
+            var con = new NpgsqlConnection(
+            connectionString: globalcon);
+            long teacherid = 0;
+            con.Open();
+            using var cmd = new NpgsqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = $"SELECT * FROM course WHERE id = '{id}';";
+            try
+            {
+                using (var reader = cmd.ExecuteReader())
+                {
+                    reader.Read();
+                    string courseid = Convert.ToString(reader.GetString(0));
+                    teacherid = Convert.ToInt64(reader.GetInt64(1));
+                    s1.courseid = courseid;
+                    s1.teacherid = teacherid;
+                    s1.coursename = Convert.ToString(reader.GetString(2));
+                    s1.term = courseid[3].ToString();
+                    s1.start_date = Convert.ToDateTime(reader.GetDateTime(4));
+                    s1.cost = Convert.ToInt64(reader.GetInt64(3));
+                    s1.clock = courseid.Substring(4, 2) + ":" + courseid.Substring(6, 2);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            using var cmd2 = new NpgsqlCommand();
+            cmd2.Connection = con;
+            cmd2.CommandText = $"SELECT firstname, lastname FROM users WHERE id = {teacherid};";
+            try
+            {
+                using (var reader2 = cmd2.ExecuteReader())
+                {
+                    reader2.Read();
+                        
+                    string fname = Convert.ToString(reader2.GetString(0));
+                    string lname = Convert.ToString(reader2.GetString(1));
+                    s1.teachername = fname + " " + lname;
+                        
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        
+            return s1;
+        }
+        public List<showcourse> show_all_courseid_name()
         {
             showcourse s1 = new showcourse();
             List<showcourse> result = new List<showcourse>();
@@ -687,7 +740,7 @@ namespace AmoozeshPJWinF
             con.Open();
             using var cmd = new NpgsqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = $"SELECT * FROM course;";
+            cmd.CommandText = $"SELECT id, course_name FROM course;";
             using (var reader = cmd.ExecuteReader())
             {
                 while (reader.Read())
@@ -695,44 +748,21 @@ namespace AmoozeshPJWinF
                     try
                     {
                         string courseid = Convert.ToString(reader.GetString(0));
-                        teacherid = Convert.ToInt64(reader.GetInt64(1));
                         s1.courseid = courseid;
-                        s1.teacherid = teacherid;
-                        s1.coursename = Convert.ToString(reader.GetString(2));
-                        s1.term = courseid[3].ToString();
-                        s1.start_date = Convert.ToDateTime(reader.GetDateTime(4));
-                        s1.cost = Convert.ToInt64(reader.GetInt64(3));
-                        s1.clock = courseid.Substring(4, 5) + ":" + courseid.Substring(6, 7);
+                        s1.coursename = Convert.ToString(reader.GetString(1));
+                        result.Add(s1);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.ToString());
                     }
-                    finally
-                    {
-                        using var cmd2 = new NpgsqlCommand();
-                        cmd2.Connection = con;
-                        cmd.CommandText = $"SELECT firstname, lastname FROM users WHERE id = {teacherid};";
-                        using (var reader2 = cmd.ExecuteReader())
-                        {
-                            while (reader2.Read())
-                            {
-                                string fname = Convert.ToString(reader2.GetString(0));
-                                string lname = Convert.ToString(reader2.GetString(1));
-                                s1.teachername = fname + " " + lname;
-                            }
-                            result.Add(s1);
-                        }
-
-                    }
-
+                    
                 }
             }
-            
-            
-
             return result;
         }
+
+
         public List<string> search_user_by_id(string thisid)
         {
             var con = new NpgsqlConnection(

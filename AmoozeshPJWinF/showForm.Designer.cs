@@ -588,7 +588,7 @@
             classgroupbox.Controls.Add(course_name);
             classgroupbox.Location = new Point(12, 77);
             classgroupbox.Name = "classgroupbox";
-            classgroupbox.Size = new Size(452, 410);
+            classgroupbox.Size = new Size(65, 36);
             classgroupbox.TabIndex = 8;
             classgroupbox.TabStop = false;
             classgroupbox.Text = "کلاس";
@@ -596,7 +596,7 @@
             // clocklblshow
             // 
             clocklblshow.AutoSize = true;
-            clocklblshow.Location = new Point(63, 286);
+            clocklblshow.Location = new Point(94, 286);
             clocklblshow.Name = "clocklblshow";
             clocklblshow.Size = new Size(18, 20);
             clocklblshow.TabIndex = 34;
@@ -605,7 +605,7 @@
             // costlblshow
             // 
             costlblshow.AutoSize = true;
-            costlblshow.Location = new Point(63, 247);
+            costlblshow.Location = new Point(94, 247);
             costlblshow.Name = "costlblshow";
             costlblshow.Size = new Size(18, 20);
             costlblshow.TabIndex = 33;
@@ -614,7 +614,7 @@
             // dateofstartlblshow
             // 
             dateofstartlblshow.AutoSize = true;
-            dateofstartlblshow.Location = new Point(63, 203);
+            dateofstartlblshow.Location = new Point(94, 203);
             dateofstartlblshow.Name = "dateofstartlblshow";
             dateofstartlblshow.Size = new Size(18, 20);
             dateofstartlblshow.TabIndex = 32;
@@ -623,7 +623,7 @@
             // termlblshow
             // 
             termlblshow.AutoSize = true;
-            termlblshow.Location = new Point(63, 162);
+            termlblshow.Location = new Point(94, 162);
             termlblshow.Name = "termlblshow";
             termlblshow.Size = new Size(18, 20);
             termlblshow.TabIndex = 31;
@@ -632,7 +632,7 @@
             // teacheridlblshow
             // 
             teacheridlblshow.AutoSize = true;
-            teacheridlblshow.Location = new Point(63, 125);
+            teacheridlblshow.Location = new Point(94, 125);
             teacheridlblshow.Name = "teacheridlblshow";
             teacheridlblshow.Size = new Size(18, 20);
             teacheridlblshow.TabIndex = 30;
@@ -641,7 +641,7 @@
             // teachernamelblshow
             // 
             teachernamelblshow.AutoSize = true;
-            teachernamelblshow.Location = new Point(63, 84);
+            teachernamelblshow.Location = new Point(94, 84);
             teachernamelblshow.Name = "teachernamelblshow";
             teachernamelblshow.Size = new Size(18, 20);
             teachernamelblshow.TabIndex = 29;
@@ -650,7 +650,7 @@
             // course_namelblshow
             // 
             course_namelblshow.AutoSize = true;
-            course_namelblshow.Location = new Point(63, 41);
+            course_namelblshow.Location = new Point(94, 41);
             course_namelblshow.Name = "course_namelblshow";
             course_namelblshow.Size = new Size(18, 20);
             course_namelblshow.TabIndex = 28;
@@ -658,7 +658,7 @@
             // 
             // clocklbl
             // 
-            clocklbl.Location = new Point(188, 281);
+            clocklbl.Location = new Point(260, 281);
             clocklbl.Name = "clocklbl";
             clocklbl.RightToLeft = RightToLeft.Yes;
             clocklbl.Size = new Size(106, 35);
@@ -668,7 +668,7 @@
             // 
             // costlbl
             // 
-            costlbl.Location = new Point(188, 243);
+            costlbl.Location = new Point(260, 243);
             costlbl.Name = "costlbl";
             costlbl.RightToLeft = RightToLeft.Yes;
             costlbl.Size = new Size(97, 28);
@@ -678,7 +678,7 @@
             // 
             // dateofstartlbl
             // 
-            dateofstartlbl.Location = new Point(188, 196);
+            dateofstartlbl.Location = new Point(260, 196);
             dateofstartlbl.Name = "dateofstartlbl";
             dateofstartlbl.RightToLeft = RightToLeft.Yes;
             dateofstartlbl.Size = new Size(97, 35);
@@ -688,7 +688,7 @@
             // 
             // termlbl
             // 
-            termlbl.Location = new Point(188, 151);
+            termlbl.Location = new Point(260, 151);
             termlbl.Name = "termlbl";
             termlbl.RightToLeft = RightToLeft.Yes;
             termlbl.Size = new Size(71, 43);
@@ -698,7 +698,7 @@
             // 
             // teachernamelbl
             // 
-            teachernamelbl.Location = new Point(188, 79);
+            teachernamelbl.Location = new Point(260, 79);
             teachernamelbl.Name = "teachernamelbl";
             teachernamelbl.RightToLeft = RightToLeft.Yes;
             teachernamelbl.Size = new Size(109, 31);
@@ -708,7 +708,7 @@
             // 
             // teacheridlbl
             // 
-            teacheridlbl.Location = new Point(188, 120);
+            teacheridlbl.Location = new Point(260, 120);
             teacheridlbl.Name = "teacheridlbl";
             teacheridlbl.RightToLeft = RightToLeft.Yes;
             teacheridlbl.Size = new Size(109, 31);
@@ -718,7 +718,7 @@
             // 
             // course_name
             // 
-            course_name.Location = new Point(188, 41);
+            course_name.Location = new Point(260, 41);
             course_name.Name = "course_name";
             course_name.RightToLeft = RightToLeft.Yes;
             course_name.Size = new Size(71, 20);

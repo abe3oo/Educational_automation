@@ -10,23 +10,23 @@ namespace AmoozeshPJWinF
     {
         public showcourse()
         {
-
+            Start_Date = DateTime.Now;
         }
         
-        private string CourseID;
-        private long TeacherID;
-        private string CourseName;
-        private string TeacherName;
-        private string Term;
+        private string? CourseID;
+        private long? TeacherID;
+        private string? CourseName;
+        private string? TeacherName;
+        private string? Term;
         private DateTime Start_Date;
-        private long Cost;
-        private string Clock;
+        private long? Cost;
+        private string? Clock;
 
-        public string courseid { get { return CourseID; } set { CourseID = value; } }
-        public long teacherid { get { return TeacherID; } set { TeacherID = value; } }
-        public string coursename { get { return CourseName; } set { CourseName = value; } }
-        public string teachername { get {return TeacherName; } set {TeacherName = value; } }
-        public string term
+        public string? courseid { get { return CourseID; } set { CourseID = value; } }
+        public long? teacherid { get { return TeacherID; } set { TeacherID = value; } }
+        public string? coursename { get { return CourseName; } set { CourseName = value; } }
+        public string? teachername { get {return TeacherName; } set {TeacherName = value; } }
+        public string? term
         {
             get { return Term; }
             set
@@ -54,8 +54,8 @@ namespace AmoozeshPJWinF
             }
         }
         public DateTime start_date { get { return Start_Date; } set { Start_Date = value; } }
-        public long cost { get { return Cost; } set { Cost = value; } }
-        public string clock { get { return Clock; } set { Clock = value; } }
+        public long? cost { get { return Cost; } set { Cost = value; } }
+        public string? clock { get { return Clock; } set { Clock = value; } }
 
 
     }
