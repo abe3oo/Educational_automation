@@ -94,7 +94,7 @@ namespace AmoozeshPJWinF
             //-----
             using var cmd = new NpgsqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = $"SELECT * FROM course WHERE id = {thisid};";
+            cmd.CommandText = $"SELECT * FROM course WHERE id = '{thisid}';";
             bool msg;
             using (var reader = cmd.ExecuteReader())
             {
@@ -261,7 +261,7 @@ namespace AmoozeshPJWinF
             con.Open();
             using var cmd = new NpgsqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = $"INSERT INTO course(id,teacher_id, course_name, cost, date_of_start) VALUES ({c1.courseid}, {c1.teacherid}, '{c1.coursename}', {c1.cost}, '{c1.dateofstart.Year}-{c1.dateofstart.Month}-{c1.dateofstart.Day}');";
+            cmd.CommandText = $"INSERT INTO course(id,teacher_id, course_name, cost, date_of_start) VALUES ('{c1.courseid}', {c1.teacherid}, '{c1.coursename}', {c1.cost}, '{c1.dateofstart.Year}-{c1.dateofstart.Month}-{c1.dateofstart.Day}');";
             string result = "";
             result = cmd.ExecuteNonQuery().ToString();
             return result;
@@ -275,7 +275,7 @@ namespace AmoozeshPJWinF
             con.Open();
             using var cmd = new NpgsqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = $"INSERT INTO course_holding(course_id, date_of_sections, teacher_id, holding_status) VALUES ({c1.courseid}, '{c1.dateOfsection}', {c1.teacherid}, {c1.holding_state});";
+            cmd.CommandText = $"INSERT INTO course_holding(course_id, date_of_sections, teacher_id, holding_status) VALUES ('{c1.courseid}', '{c1.dateOfsection}', {c1.teacherid}, {c1.holding_state});";
             string result = "";
             result = cmd.ExecuteNonQuery().ToString();
             return result;
@@ -676,6 +676,33 @@ namespace AmoozeshPJWinF
                 }
             }
             return p2;
+        }
+        public List<showcourse> show_all_course()
+        {
+            showcourse s1 = new showcourse();
+            List<showcourse> result = new List<showcourse>();
+            var con = new NpgsqlConnection(
+            connectionString: globalcon);
+            con.Open();
+            using var cmd = new NpgsqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = $"SELECT * FROM course;";
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    string courseid = Convert.ToString(reader.GetString(0));
+                    s1.courseid = courseid;
+                    s1.teacherid = Convert.ToInt64(reader.GetInt64(1));
+                    s1.coursename = Convert.ToString(reader.GetString(2));
+                    s1.term = courseid[3].ToString();
+                    s1.start_date = Convert.ToDateTime(reader.GetDateTime(4));
+                    s1.cost = Convert.ToInt64(reader.GetInt64(3));
+                    
+                }
+            }
+
+            return result;
         }
         public List<string> search_user_by_id(string thisid)
         {

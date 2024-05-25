@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             userradioButton = new RadioButton();
-            radioButton2 = new RadioButton();
+            balanceradiobot = new RadioButton();
             radioButton3 = new RadioButton();
             classradioButton = new RadioButton();
             textBox1 = new TextBox();
@@ -73,10 +73,26 @@
             Lnamelabel = new Label();
             Fnamelabel = new Label();
             idlabel = new Label();
+            classgroupbox = new GroupBox();
+            clocklblshow = new Label();
+            costlblshow = new Label();
+            dateofstartlblshow = new Label();
+            termlblshow = new Label();
+            teacheridlblshow = new Label();
+            teachernamelblshow = new Label();
+            course_namelblshow = new Label();
+            clocklbl = new Label();
+            costlbl = new Label();
+            dateofstartlbl = new Label();
+            termlbl = new Label();
+            teachernamelbl = new Label();
+            teacheridlbl = new Label();
+            course_name = new Label();
             groupBoxsame.SuspendLayout();
             groupBoxSt.SuspendLayout();
             groupBoxTch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            classgroupbox.SuspendLayout();
             SuspendLayout();
             // 
             // userradioButton
@@ -91,16 +107,16 @@
             userradioButton.UseVisualStyleBackColor = true;
             userradioButton.CheckedChanged += userradioButton_CheckedChanged;
             // 
-            // radioButton2
+            // balanceradiobot
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(917, 156);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(84, 24);
-            radioButton2.TabIndex = 1;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "بدهی ها";
-            radioButton2.UseVisualStyleBackColor = true;
+            balanceradiobot.AutoSize = true;
+            balanceradiobot.Location = new Point(917, 156);
+            balanceradiobot.Name = "balanceradiobot";
+            balanceradiobot.Size = new Size(84, 24);
+            balanceradiobot.TabIndex = 1;
+            balanceradiobot.TabStop = true;
+            balanceradiobot.Text = "بدهی ها";
+            balanceradiobot.UseVisualStyleBackColor = true;
             // 
             // radioButton3
             // 
@@ -123,6 +139,7 @@
             classradioButton.TabStop = true;
             classradioButton.Text = "کلاس";
             classradioButton.UseVisualStyleBackColor = true;
+            classradioButton.CheckedChanged += classradioButton_CheckedChanged;
             // 
             // textBox1
             // 
@@ -168,9 +185,10 @@
             groupBoxsame.Controls.Add(idlabel);
             groupBoxsame.Location = new Point(12, 21);
             groupBoxsame.Name = "groupBoxsame";
-            groupBoxsame.Size = new Size(533, 570);
+            groupBoxsame.Size = new Size(65, 36);
             groupBoxsame.TabIndex = 7;
             groupBoxsame.TabStop = false;
+            groupBoxsame.Text = "کاربر";
             groupBoxsame.Visible = false;
             // 
             // groupBoxSt
@@ -552,17 +570,174 @@
             idlabel.TabIndex = 8;
             idlabel.Text = "کد ملی :";
             // 
+            // classgroupbox
+            // 
+            classgroupbox.Controls.Add(clocklblshow);
+            classgroupbox.Controls.Add(costlblshow);
+            classgroupbox.Controls.Add(dateofstartlblshow);
+            classgroupbox.Controls.Add(termlblshow);
+            classgroupbox.Controls.Add(teacheridlblshow);
+            classgroupbox.Controls.Add(teachernamelblshow);
+            classgroupbox.Controls.Add(course_namelblshow);
+            classgroupbox.Controls.Add(clocklbl);
+            classgroupbox.Controls.Add(costlbl);
+            classgroupbox.Controls.Add(dateofstartlbl);
+            classgroupbox.Controls.Add(termlbl);
+            classgroupbox.Controls.Add(teachernamelbl);
+            classgroupbox.Controls.Add(teacheridlbl);
+            classgroupbox.Controls.Add(course_name);
+            classgroupbox.Location = new Point(12, 77);
+            classgroupbox.Name = "classgroupbox";
+            classgroupbox.Size = new Size(452, 410);
+            classgroupbox.TabIndex = 8;
+            classgroupbox.TabStop = false;
+            classgroupbox.Text = "کلاس";
+            // 
+            // clocklblshow
+            // 
+            clocklblshow.AutoSize = true;
+            clocklblshow.Location = new Point(63, 286);
+            clocklblshow.Name = "clocklblshow";
+            clocklblshow.Size = new Size(18, 20);
+            clocklblshow.TabIndex = 34;
+            clocklblshow.Text = "...";
+            // 
+            // costlblshow
+            // 
+            costlblshow.AutoSize = true;
+            costlblshow.Location = new Point(63, 247);
+            costlblshow.Name = "costlblshow";
+            costlblshow.Size = new Size(18, 20);
+            costlblshow.TabIndex = 33;
+            costlblshow.Text = "...";
+            // 
+            // dateofstartlblshow
+            // 
+            dateofstartlblshow.AutoSize = true;
+            dateofstartlblshow.Location = new Point(63, 203);
+            dateofstartlblshow.Name = "dateofstartlblshow";
+            dateofstartlblshow.Size = new Size(18, 20);
+            dateofstartlblshow.TabIndex = 32;
+            dateofstartlblshow.Text = "...";
+            // 
+            // termlblshow
+            // 
+            termlblshow.AutoSize = true;
+            termlblshow.Location = new Point(63, 162);
+            termlblshow.Name = "termlblshow";
+            termlblshow.Size = new Size(18, 20);
+            termlblshow.TabIndex = 31;
+            termlblshow.Text = "...";
+            // 
+            // teacheridlblshow
+            // 
+            teacheridlblshow.AutoSize = true;
+            teacheridlblshow.Location = new Point(63, 125);
+            teacheridlblshow.Name = "teacheridlblshow";
+            teacheridlblshow.Size = new Size(18, 20);
+            teacheridlblshow.TabIndex = 30;
+            teacheridlblshow.Text = "...";
+            // 
+            // teachernamelblshow
+            // 
+            teachernamelblshow.AutoSize = true;
+            teachernamelblshow.Location = new Point(63, 84);
+            teachernamelblshow.Name = "teachernamelblshow";
+            teachernamelblshow.Size = new Size(18, 20);
+            teachernamelblshow.TabIndex = 29;
+            teachernamelblshow.Text = "...";
+            // 
+            // course_namelblshow
+            // 
+            course_namelblshow.AutoSize = true;
+            course_namelblshow.Location = new Point(63, 41);
+            course_namelblshow.Name = "course_namelblshow";
+            course_namelblshow.Size = new Size(18, 20);
+            course_namelblshow.TabIndex = 28;
+            course_namelblshow.Text = "...";
+            // 
+            // clocklbl
+            // 
+            clocklbl.Location = new Point(188, 281);
+            clocklbl.Name = "clocklbl";
+            clocklbl.RightToLeft = RightToLeft.Yes;
+            clocklbl.Size = new Size(106, 35);
+            clocklbl.TabIndex = 27;
+            clocklbl.Text = "ساعت برگزاری :";
+            clocklbl.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // costlbl
+            // 
+            costlbl.Location = new Point(188, 243);
+            costlbl.Name = "costlbl";
+            costlbl.RightToLeft = RightToLeft.Yes;
+            costlbl.Size = new Size(97, 28);
+            costlbl.TabIndex = 9;
+            costlbl.Text = "هزینه کلاس:";
+            costlbl.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // dateofstartlbl
+            // 
+            dateofstartlbl.Location = new Point(188, 196);
+            dateofstartlbl.Name = "dateofstartlbl";
+            dateofstartlbl.RightToLeft = RightToLeft.Yes;
+            dateofstartlbl.Size = new Size(97, 35);
+            dateofstartlbl.TabIndex = 8;
+            dateofstartlbl.Text = "تاریخ شروع:";
+            dateofstartlbl.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // termlbl
+            // 
+            termlbl.Location = new Point(188, 151);
+            termlbl.Name = "termlbl";
+            termlbl.RightToLeft = RightToLeft.Yes;
+            termlbl.Size = new Size(71, 43);
+            termlbl.TabIndex = 7;
+            termlbl.Text = "ترم :";
+            termlbl.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // teachernamelbl
+            // 
+            teachernamelbl.Location = new Point(188, 79);
+            teachernamelbl.Name = "teachernamelbl";
+            teachernamelbl.RightToLeft = RightToLeft.Yes;
+            teachernamelbl.Size = new Size(109, 31);
+            teachernamelbl.TabIndex = 6;
+            teachernamelbl.Text = "نام استاد :";
+            teachernamelbl.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // teacheridlbl
+            // 
+            teacheridlbl.Location = new Point(188, 120);
+            teacheridlbl.Name = "teacheridlbl";
+            teacheridlbl.RightToLeft = RightToLeft.Yes;
+            teacheridlbl.Size = new Size(109, 31);
+            teacheridlbl.TabIndex = 5;
+            teacheridlbl.Text = "کد  ملی استاد :";
+            teacheridlbl.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // course_name
+            // 
+            course_name.Location = new Point(188, 41);
+            course_name.Name = "course_name";
+            course_name.RightToLeft = RightToLeft.Yes;
+            course_name.Size = new Size(71, 20);
+            course_name.TabIndex = 4;
+            course_name.Text = "نام درس :";
+            course_name.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // showForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1054, 603);
+            Controls.Add(classgroupbox);
             Controls.Add(groupBoxsame);
             Controls.Add(showbot);
             Controls.Add(textBox1);
             Controls.Add(classradioButton);
             Controls.Add(radioButton3);
-            Controls.Add(radioButton2);
+            Controls.Add(balanceradiobot);
             Controls.Add(userradioButton);
             Name = "showForm";
             Text = "showForm";
@@ -574,6 +749,8 @@
             groupBoxTch.ResumeLayout(false);
             groupBoxTch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            classgroupbox.ResumeLayout(false);
+            classgroupbox.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -581,7 +758,7 @@
         #endregion
 
         private RadioButton userradioButton;
-        private RadioButton radioButton2;
+        private RadioButton balanceradiobot;
         private RadioButton radioButton3;
         private RadioButton classradioButton;
         private TextBox textBox1;
@@ -628,5 +805,20 @@
         private Label peymentlbl;
         private Label peymentstlblshow;
         private Label peymentstlbl;
+        private GroupBox classgroupbox;
+        private Label course_name;
+        private Label teachernamelbl;
+        private Label teacheridlbl;
+        private Label termlbl;
+        private Label dateofstartlbl;
+        private Label costlbl;
+        private Label clocklblshow;
+        private Label costlblshow;
+        private Label dateofstartlblshow;
+        private Label termlblshow;
+        private Label teacheridlblshow;
+        private Label teachernamelblshow;
+        private Label course_namelblshow;
+        private Label clocklbl;
     }
 }

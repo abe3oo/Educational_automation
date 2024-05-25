@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace AmoozeshPJWinF
 {
@@ -119,13 +120,13 @@ namespace AmoozeshPJWinF
                     {
                         classtypelblshow.Text = "مجازی";
                     }
-                    if(s1.account_balance > 0)
+                    if (s1.account_balance > 0)
                     {
                         peymentstlbl.Text = "بستانکار :";
                         peymentstlblshow.Text = Math.Abs(Convert.ToDecimal(s1.account_balance)).ToString();
-                        
+
                     }
-                    else if(s1.account_balance < 0)
+                    else if (s1.account_balance < 0)
                     {
                         peymentstlbl.Text = "بدهکار :";
                         peymentstlblshow.Text = Math.Abs(Convert.ToDecimal(s1.account_balance)).ToString();
@@ -217,9 +218,22 @@ namespace AmoozeshPJWinF
 
         private void idlblshow_TextChanged(object sender, EventArgs e)
         {
-            if(idlblshow.Text.Length == 10)
+            if (idlblshow.Text.Length == 10)
             {
                 savepicturebot.Enabled = true;
+            }
+        }
+
+        private void classradioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (classradioButton.Checked == true)
+            {
+                result = d1.get_all_users();
+                textBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                textBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                AutoCompleteStringCollection te = new AutoCompleteStringCollection();
+                te.AddRange(result.ToArray());
+                textBox1.AutoCompleteCustomSource = te;
             }
         }
     }
