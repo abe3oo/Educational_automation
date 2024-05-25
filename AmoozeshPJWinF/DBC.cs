@@ -683,6 +683,7 @@ namespace AmoozeshPJWinF
             List<showcourse> result = new List<showcourse>();
             var con = new NpgsqlConnection(
             connectionString: globalcon);
+            long teacherid = 0;
             con.Open();
             using var cmd = new NpgsqlCommand();
             cmd.Connection = con;
@@ -691,16 +692,44 @@ namespace AmoozeshPJWinF
             {
                 while (reader.Read())
                 {
-                    string courseid = Convert.ToString(reader.GetString(0));
-                    s1.courseid = courseid;
-                    s1.teacherid = Convert.ToInt64(reader.GetInt64(1));
-                    s1.coursename = Convert.ToString(reader.GetString(2));
-                    s1.term = courseid[3].ToString();
-                    s1.start_date = Convert.ToDateTime(reader.GetDateTime(4));
-                    s1.cost = Convert.ToInt64(reader.GetInt64(3));
-                    
+                    try
+                    {
+                        string courseid = Convert.ToString(reader.GetString(0));
+                        teacherid = Convert.ToInt64(reader.GetInt64(1));
+                        s1.courseid = courseid;
+                        s1.teacherid = teacherid;
+                        s1.coursename = Convert.ToString(reader.GetString(2));
+                        s1.term = courseid[3].ToString();
+                        s1.start_date = Convert.ToDateTime(reader.GetDateTime(4));
+                        s1.cost = Convert.ToInt64(reader.GetInt64(3));
+                        s1.clock = courseid.Substring(4, 5) + ":" + courseid.Substring(6, 7);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                    finally
+                    {
+                        using var cmd2 = new NpgsqlCommand();
+                        cmd2.Connection = con;
+                        cmd.CommandText = $"SELECT firstname, lastname FROM users WHERE id = {teacherid};";
+                        using (var reader2 = cmd.ExecuteReader())
+                        {
+                            while (reader2.Read())
+                            {
+                                string fname = Convert.ToString(reader2.GetString(0));
+                                string lname = Convert.ToString(reader2.GetString(1));
+                                s1.teachername = fname + " " + lname;
+                            }
+                            result.Add(s1);
+                        }
+
+                    }
+
                 }
             }
+            
+            
 
             return result;
         }
