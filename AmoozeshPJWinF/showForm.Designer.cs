@@ -88,11 +88,19 @@
             teachernamelbl = new Label();
             teacheridlbl = new Label();
             course_name = new Label();
+            balancegroupbox = new GroupBox();
+            balancelistview = new ListView();
+            id = new ColumnHeader();
+            fname = new ColumnHeader();
+            lname = new ColumnHeader();
+            balance = new ColumnHeader();
+            showbalancebot = new Button();
             groupBoxsame.SuspendLayout();
             groupBoxSt.SuspendLayout();
             groupBoxTch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             classgroupbox.SuspendLayout();
+            balancegroupbox.SuspendLayout();
             SuspendLayout();
             // 
             // userradioButton
@@ -117,6 +125,7 @@
             balanceradiobot.TabStop = true;
             balanceradiobot.Text = "بدهی ها";
             balanceradiobot.UseVisualStyleBackColor = true;
+            balanceradiobot.CheckedChanged += balanceradiobot_CheckedChanged;
             // 
             // radioButton3
             // 
@@ -726,11 +735,64 @@
             course_name.Text = "نام درس :";
             course_name.TextAlign = ContentAlignment.MiddleRight;
             // 
+            // balancegroupbox
+            // 
+            balancegroupbox.Controls.Add(balancelistview);
+            balancegroupbox.Location = new Point(12, 131);
+            balancegroupbox.Name = "balancegroupbox";
+            balancegroupbox.Size = new Size(647, 396);
+            balancegroupbox.TabIndex = 9;
+            balancegroupbox.TabStop = false;
+            balancegroupbox.Text = "بدهی ها";
+            // 
+            // balancelistview
+            // 
+            balancelistview.Columns.AddRange(new ColumnHeader[] { id, fname, lname, balance });
+            balancelistview.Location = new Point(12, 40);
+            balancelistview.Name = "balancelistview";
+            balancelistview.Size = new Size(568, 327);
+            balancelistview.TabIndex = 0;
+            balancelistview.UseCompatibleStateImageBehavior = false;
+            balancelistview.View = View.Details;
+            // 
+            // id
+            // 
+            id.Text = "کد ملی";
+            id.Width = 100;
+            // 
+            // fname
+            // 
+            fname.Text = "نام";
+            fname.Width = 110;
+            // 
+            // lname
+            // 
+            lname.Text = "نام خانوادگی";
+            lname.Width = 120;
+            // 
+            // balance
+            // 
+            balance.Text = "موجودی";
+            balance.Width = 70;
+            // 
+            // showbalancebot
+            // 
+            showbalancebot.Location = new Point(776, 151);
+            showbalancebot.Name = "showbalancebot";
+            showbalancebot.Size = new Size(94, 29);
+            showbalancebot.TabIndex = 10;
+            showbalancebot.Text = "button1";
+            showbalancebot.UseVisualStyleBackColor = true;
+            showbalancebot.Visible = false;
+            showbalancebot.Click += showbalancebot_Click;
+            // 
             // showForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1054, 603);
+            Controls.Add(showbalancebot);
+            Controls.Add(balancegroupbox);
             Controls.Add(classgroupbox);
             Controls.Add(groupBoxsame);
             Controls.Add(showbot);
@@ -751,6 +813,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             classgroupbox.ResumeLayout(false);
             classgroupbox.PerformLayout();
+            balancegroupbox.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -820,5 +883,12 @@
         private Label teachernamelblshow;
         private Label course_namelblshow;
         private Label clocklbl;
+        private GroupBox balancegroupbox;
+        private ListView balancelistview;
+        private ColumnHeader id;
+        private ColumnHeader fname;
+        private ColumnHeader lname;
+        private ColumnHeader balance;
+        private Button showbalancebot;
     }
 }

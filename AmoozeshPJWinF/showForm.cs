@@ -25,7 +25,7 @@ namespace AmoozeshPJWinF
 
         public string ExtractNumber(string input, int numberLength)
         {
-            
+
             string pattern = @"\d{" + numberLength + @"}";
 
             Match match = Regex.Match(input, pattern);
@@ -37,6 +37,21 @@ namespace AmoozeshPJWinF
             else
             {
                 return string.Empty;
+            }
+        }
+
+        public void loadData()
+        {
+            DataTable dt = d1.get_nonzero_balance();
+            balancelistview.Items.Clear();
+            foreach (DataRow row in dt.Rows)
+            {
+                ListViewItem item = new ListViewItem(row["id"].ToString());
+                item.SubItems.Add(row["firstname"].ToString());
+                item.SubItems.Add(row["lastname"].ToString());
+                item.SubItems.Add(row["account_balance"].ToString());
+                balancelistview.Items.Add(item);
+
             }
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -233,7 +248,7 @@ namespace AmoozeshPJWinF
                     }
                 }
             }
-            else if(classradioButton.Checked == true)
+            else if (classradioButton.Checked == true)
             {
                 string thisid = ExtractNumber(textBox1.Text, 8);
                 if (d1.courseid_check(thisid) == true)
@@ -276,7 +291,7 @@ namespace AmoozeshPJWinF
                 textBox1.AutoCompleteCustomSource = null;
                 List<showcourse> s1 = new List<showcourse>();
                 s1 = d1.show_all_courseid_name();
-                foreach(showcourse s in s1)
+                foreach (showcourse s in s1)
                 {
                     string res1 = s.courseid + " " + s.coursename;
                     string res2 = s.coursename + " " + s.courseid;
@@ -289,6 +304,23 @@ namespace AmoozeshPJWinF
                 te.AddRange(courseresult.ToArray());
                 textBox1.AutoCompleteCustomSource = te;
             }
+        }
+
+        private void balanceradiobot_CheckedChanged(object sender, EventArgs e)
+        {
+            if (balanceradiobot.Checked == true)
+            {
+                showbalancebot.Visible = true;
+            }
+            else
+            {
+                showbalancebot.Visible = false;
+            }
+        }
+
+        private void showbalancebot_Click(object sender, EventArgs e)
+        {
+            loadData();
         }
     }
 }

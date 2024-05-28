@@ -1,8 +1,10 @@
 ﻿using Amozesh;
 using Npgsql;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography.Pkcs;
@@ -240,7 +242,7 @@ namespace AmoozeshPJWinF
             return g1 + g2;
         }
 
-        public void pay_set(Payment p1)
+        public string pay_set(Payment p1, string sym="+")
         {
             var con = new NpgsqlConnection(
             connectionString: globalcon);
@@ -248,9 +250,10 @@ namespace AmoozeshPJWinF
             using var cmd = new NpgsqlCommand();
             cmd.Connection = con;
             cmd.CommandText = $"INSERT INTO payment(user_id, date_of_payment, term, amount, transaction_status, tracking_code,tracking_time , description) VALUES ({p1.userid}, '{p1.dateofpayment}', '{p1.term}', {p1.amount}, '{p1.transactionstatus}', '{p1.trackingcode}', '{p1.tarckingtime}' , '{p1.description}');";
-            cmd.CommandText = $"UPDATE users SET account_balance = {p1.accountbalance} WHERE id =  {p1.userid};";
-            cmd.ExecuteNonQueryAsync();
-            Thread.Sleep(500); 
+            cmd.CommandText = $"UPDATE users SET account_balance = account_balance {sym} {p1.accountbalance} WHERE id =  {p1.userid};";
+            string result = cmd.ExecuteNonQuery().ToString();
+            return result;
+            
 
         }
 
@@ -397,11 +400,11 @@ namespace AmoozeshPJWinF
             
         }
 
-        public List<long> Course_holding_id_Reader_by_date(DateTime tod)
+        public List<string> Course_holding_id_Reader_by_date(DateTime tod)
         {
             var con = new NpgsqlConnection(
             connectionString: globalcon);
-            List<long> list = new List<long>();
+            List<string> list = new List<string>();
 
             con.Open();
             //-----
@@ -415,7 +418,7 @@ namespace AmoozeshPJWinF
 
                 while (reader.Read())
                 {
-                    long id = Convert.ToInt64(reader.GetInt64(0));
+                    string id = Convert.ToString(reader.GetString(0));
                     list.Add(id);
                 }
             }
@@ -423,7 +426,7 @@ namespace AmoozeshPJWinF
             //cmd.ExecuteNonQueryAsync();
         }
 
-        public GetCourse GetCourse_Reader_by_id(long id)
+        public GetCourse GetCourse_Reader_by_id(string id)
         {
             var con = new NpgsqlConnection(
             connectionString: globalcon);
@@ -435,12 +438,12 @@ namespace AmoozeshPJWinF
 
             cmd.Connection = con;
 
-            cmd.CommandText = $"SELECT * FROM course WHERE id = {id};";
+            cmd.CommandText = $"SELECT * FROM course WHERE id = '{id}';";
             using (var reader = cmd.ExecuteReader())
             {
                 reader.Read();
                 
-                g1.courseid = Convert.ToInt64(reader.GetInt64(0));
+                g1.courseid = Convert.ToString(reader.GetString(0));
                 g1.teacherid = Convert.ToInt64(reader.GetInt64(1));
                 g1.coursename = Convert.ToString(reader.GetString(2));
                 
@@ -801,6 +804,36 @@ namespace AmoozeshPJWinF
 
             return p2;
             //cmd.ExecuteNonQueryAsync();
+        }
+
+        public DataTable get_nonzero_balance()
+        {
+            DataTable result = new DataTable();
+            //var con = new NpgsqlConnection(
+            //connectionString: globalcon);
+            //con.Open();
+            //using var cmd = new NpgsqlCommand();
+            //cmd.CommandText = $"SELECT id,firstname,lastname,account_balance FROM users WHERE account_balance > 0 or account_balance < 0;";
+            //using (var reader = cmd.ExecuteReader())
+            //{
+            //    reader.Fill
+            //    while (reader.Read())
+            //    {
+
+            //        p1 = Convert.ToString(reader.GetInt64(0));
+
+            //        p2.Add(p1);
+            //    }
+            //}
+            //return result;
+            string sql = $"SELECT id,firstname,lastname,account_balance FROM users WHERE account_balance > 0 or account_balance < 0;";
+            using(NpgsqlConnection con = new NpgsqlConnection(globalcon))
+            {
+                con.Open();
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(sql, con);
+                adapter.Fill(result);
+                return result;
+            }
         }
     }
 }

@@ -388,22 +388,37 @@ namespace AmoozeshPJWinF
                     p1.tarckingtime = time;
                     p1.trackingcode = Convert.ToInt64(tracCodetxb.Text);
                     p1.description = statustxb.Text;
+                    string result = "";
+                    if(tracTypeCbox.SelectedIndex == 0)
+                    {
+                        result = dpay.pay_set(p1);
+                    }
+                    else
+                    {
+                        result = dpay.pay_set(p1,"-");
+                    }
+                    if(result.Length > 0)
+                    {
+                        MessageBox.Show("پرداخت با موفقیت انجام شد.");
 
-                    dpay.pay_set(p1);
+                        clear_textbox(useridtbx);
+                        clear_textbox(datetxby);
+                        clear_textbox(datetxbm);
+                        clear_textbox(datetxbd);
+                        clear_textbox(amounttxb);
+                        clear_textbox(tractimetxbH);
+                        clear_textbox(tractimetxbM);
+                        clear_textbox(tracCodetxb);
+                        clear_textbox(statustxb);
+                        termCobox.Text = string.Empty;
+                        tracTypeCbox.Text = string.Empty;
+                    }
+                    else
+                    {
+                        MessageBox.Show("پرداخت نا موفق بود.");
+                    }
 
-                    MessageBox.Show("ثبت با موفقیت انجام شد");
-
-                    clear_textbox(useridtbx);
-                    clear_textbox(datetxby);
-                    clear_textbox(datetxbm);
-                    clear_textbox(datetxbd);
-                    clear_textbox(amounttxb);
-                    clear_textbox(tractimetxbH);
-                    clear_textbox(tractimetxbM);
-                    clear_textbox(tracCodetxb);
-                    clear_textbox(statustxb);
-                    termCobox.Text = string.Empty;
-                    tracTypeCbox.Text = string.Empty;
+                    
 
                 }
                 else

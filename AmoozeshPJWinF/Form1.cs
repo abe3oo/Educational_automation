@@ -18,9 +18,9 @@ namespace AmoozeshPJWinF
 
         public void get_classes(DateTime date)
         {
-            List<long> idtoday = dbc.Course_holding_id_Reader_by_date(date);
+            List<string> idtoday = dbc.Course_holding_id_Reader_by_date(date);
             List<GetCourse> coursetoday = new List<GetCourse>();
-            foreach (long id in idtoday)
+            foreach (string id in idtoday)
             {
                 coursetoday.Add(dbc.GetCourse_Reader_by_id(id));
             }
@@ -40,9 +40,9 @@ namespace AmoozeshPJWinF
         public void get_classes_for_bot(Button b1)
         {
             DateTime date = new DateTime(Convert.ToInt32(yearlabelcul.Text), Convert.ToInt32(monthlabelcul.Text), Convert.ToInt32(b1.Text));
-            List<long> idtoday = dbc.Course_holding_id_Reader_by_date(date);
+            List<string> idtoday = dbc.Course_holding_id_Reader_by_date(date);
             List<GetCourse> coursetoday = new List<GetCourse>();
-            foreach (long id in idtoday)
+            foreach (string id in idtoday)
             {
                 coursetoday.Add(dbc.GetCourse_Reader_by_id(id));
             }
