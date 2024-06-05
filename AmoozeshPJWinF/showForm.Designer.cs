@@ -95,6 +95,7 @@
             lname = new ColumnHeader();
             balance = new ColumnHeader();
             showbalancebot = new Button();
+            filterbalancecombo = new ComboBox();
             groupBoxsame.SuspendLayout();
             groupBoxSt.SuspendLayout();
             groupBoxTch.SuspendLayout();
@@ -194,7 +195,7 @@
             groupBoxsame.Controls.Add(idlabel);
             groupBoxsame.Location = new Point(12, 21);
             groupBoxsame.Name = "groupBoxsame";
-            groupBoxsame.Size = new Size(65, 36);
+            groupBoxsame.Size = new Size(586, 555);
             groupBoxsame.TabIndex = 7;
             groupBoxsame.TabStop = false;
             groupBoxsame.Text = "کاربر";
@@ -595,12 +596,13 @@
             classgroupbox.Controls.Add(teachernamelbl);
             classgroupbox.Controls.Add(teacheridlbl);
             classgroupbox.Controls.Add(course_name);
-            classgroupbox.Location = new Point(12, 77);
+            classgroupbox.Location = new Point(12, 63);
             classgroupbox.Name = "classgroupbox";
-            classgroupbox.Size = new Size(65, 36);
+            classgroupbox.Size = new Size(586, 513);
             classgroupbox.TabIndex = 8;
             classgroupbox.TabStop = false;
             classgroupbox.Text = "کلاس";
+            classgroupbox.Visible = false;
             // 
             // clocklblshow
             // 
@@ -738,12 +740,13 @@
             // balancegroupbox
             // 
             balancegroupbox.Controls.Add(balancelistview);
-            balancegroupbox.Location = new Point(12, 131);
+            balancegroupbox.Location = new Point(12, 104);
             balancegroupbox.Name = "balancegroupbox";
-            balancegroupbox.Size = new Size(647, 396);
+            balancegroupbox.Size = new Size(666, 434);
             balancegroupbox.TabIndex = 9;
             balancegroupbox.TabStop = false;
             balancegroupbox.Text = "بدهی ها";
+            balancegroupbox.Visible = false;
             // 
             // balancelistview
             // 
@@ -777,20 +780,32 @@
             // 
             // showbalancebot
             // 
-            showbalancebot.Location = new Point(776, 151);
+            showbalancebot.Location = new Point(684, 154);
             showbalancebot.Name = "showbalancebot";
-            showbalancebot.Size = new Size(94, 29);
+            showbalancebot.Size = new Size(65, 29);
             showbalancebot.TabIndex = 10;
-            showbalancebot.Text = "button1";
+            showbalancebot.Text = "نمایش";
             showbalancebot.UseVisualStyleBackColor = true;
             showbalancebot.Visible = false;
             showbalancebot.Click += showbalancebot_Click;
+            // 
+            // filterbalancecombo
+            // 
+            filterbalancecombo.DropDownStyle = ComboBoxStyle.DropDownList;
+            filterbalancecombo.FormattingEnabled = true;
+            filterbalancecombo.Items.AddRange(new object[] { "همه", "بدهکاری ها", "بستانکاری ها" });
+            filterbalancecombo.Location = new Point(778, 154);
+            filterbalancecombo.Name = "filterbalancecombo";
+            filterbalancecombo.Size = new Size(116, 28);
+            filterbalancecombo.TabIndex = 11;
+            filterbalancecombo.Visible = false;
             // 
             // showForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1054, 603);
+            Controls.Add(filterbalancecombo);
             Controls.Add(showbalancebot);
             Controls.Add(balancegroupbox);
             Controls.Add(classgroupbox);
@@ -890,5 +905,6 @@
         private ColumnHeader lname;
         private ColumnHeader balance;
         private Button showbalancebot;
+        private ComboBox filterbalancecombo;
     }
 }

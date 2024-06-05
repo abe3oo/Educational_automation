@@ -44,15 +44,60 @@ namespace AmoozeshPJWinF
         {
             DataTable dt = d1.get_nonzero_balance();
             balancelistview.Items.Clear();
-            foreach (DataRow row in dt.Rows)
+            if(filterbalancecombo.SelectedIndex == 0)
             {
-                ListViewItem item = new ListViewItem(row["id"].ToString());
-                item.SubItems.Add(row["firstname"].ToString());
-                item.SubItems.Add(row["lastname"].ToString());
-                item.SubItems.Add(row["account_balance"].ToString());
-                balancelistview.Items.Add(item);
+                foreach (DataRow row in dt.Rows)
+                {
+                    ListViewItem item = new ListViewItem(row["id"].ToString());
+                    item.SubItems.Add(row["firstname"].ToString());
+                    item.SubItems.Add(row["lastname"].ToString());
+                    item.SubItems.Add(row["account_balance"].ToString());
+                    balancelistview.Items.Add(item);
 
+                }
             }
+            else if(filterbalancecombo.SelectedIndex == 1)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    if(Convert.ToInt64(row["account_balance"]) > 0)
+                    {
+                        ListViewItem item = new ListViewItem(row["id"].ToString());
+                        item.SubItems.Add(row["firstname"].ToString());
+                        item.SubItems.Add(row["lastname"].ToString());
+                        item.SubItems.Add(row["account_balance"].ToString());
+                        balancelistview.Items.Add(item);
+                    }
+                    
+
+                }
+            }
+            else if(filterbalancecombo.SelectedIndex == 2)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    if (Convert.ToInt64(row["account_balance"]) < 0)
+                    {
+                        ListViewItem item = new ListViewItem(row["id"].ToString());
+                        item.SubItems.Add(row["firstname"].ToString());
+                        item.SubItems.Add(row["lastname"].ToString());
+                        item.SubItems.Add(row["account_balance"].ToString());
+                        balancelistview.Items.Add(item);
+                    }
+
+
+                }
+            }
+            
+            
+        }
+
+        public void hide_all()
+        {
+            balancegroupbox.Visible = false;
+            groupBoxsame.Visible = false;
+            classgroupbox.Visible=false;
+            textBox1.Text = string.Empty;
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -69,6 +114,7 @@ namespace AmoozeshPJWinF
         {
             if (userradioButton.Checked == true)
             {
+                hide_all();
                 textBox1.AutoCompleteCustomSource = null;
                 personresult = d1.get_all_users();
                 textBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -247,12 +293,17 @@ namespace AmoozeshPJWinF
 
                     }
                 }
+                else
+                {
+                    MessageBox.Show("کد ملی نا معتبر!");
+                }
             }
             else if (classradioButton.Checked == true)
             {
                 string thisid = ExtractNumber(textBox1.Text, 8);
                 if (d1.courseid_check(thisid) == true)
                 {
+                    classgroupbox.Visible = true;
                     showcourse c = new showcourse();
                     c = d1.show_course(thisid);
                     course_namelblshow.Text = c.coursename;
@@ -288,6 +339,7 @@ namespace AmoozeshPJWinF
         {
             if (classradioButton.Checked == true)
             {
+                hide_all();
                 textBox1.AutoCompleteCustomSource = null;
                 List<showcourse> s1 = new List<showcourse>();
                 s1 = d1.show_all_courseid_name();
@@ -310,17 +362,26 @@ namespace AmoozeshPJWinF
         {
             if (balanceradiobot.Checked == true)
             {
+                hide_all();
+                filterbalancecombo.SelectedIndex = 0;
                 showbalancebot.Visible = true;
+                filterbalancecombo.Visible = true;
+                textBox1.Enabled = false;
+                showbot.Enabled = false;
             }
             else
             {
                 showbalancebot.Visible = false;
+                filterbalancecombo.Visible = false;
+                textBox1.Enabled = true;
+                showbot.Enabled = true;
             }
         }
 
         private void showbalancebot_Click(object sender, EventArgs e)
         {
             loadData();
+            balancegroupbox.Visible = true;
         }
     }
 }
