@@ -10,26 +10,41 @@ using System.Linq;
 using System.Security.Cryptography.Pkcs;
 using System.Text;
 using System.Threading.Tasks;
+using IniParser;
+using IniParser.Model;
 
 namespace AmoozeshPJWinF
 {
     internal class DBC
     {
-        private string globalcon = "Host=localhost; Port=5432; Username=postgres; password=Ara41148; database=test";
+        private string globalcon;
         public Image returnImage;
+        
         //"Host=localhost; Port=5432; Username=postgres; password=nazanin1381; database=test"
         //"Host=localhost; Port=5432; Username=postgres; password=Ara41148; database=test"
         public DBC()
         {
-
+            globalcon = ReadDbConfigFromIni("dbconfig.ini");
 
         }
+        public string ReadDbConfigFromIni(string filePath)
+        {
+            var parser = new FileIniDataParser();
+            IniData data = parser.ReadFile(filePath);
 
+            string host = data["Database"]["Host"];
+            int port = int.Parse(data["Database"]["Port"]);
+            string username = data["Database"]["Username"];
+            string password = data["Database"]["Password"];
+            string database = data["Database"]["Database"];
+
+            return $"Host={host}; Port={port}; Username={username}; Password={password}; Database={database}";
+        }
         public void clear_textbox(TextBox t1)
         {
             t1.Text = string.Empty;
         }
-
+        
         public void DisplayAutoCompleteSuggestions(List<string> suggestions, TextBox t1)
         {
             t1.AutoCompleteCustomSource.Clear();
