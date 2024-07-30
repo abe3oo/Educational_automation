@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Runtime.InteropServices;
 
 namespace AmoozeshPJWinF
 {
@@ -50,11 +51,17 @@ namespace AmoozeshPJWinF
             {
                 todayclasslabel.Text = "کلاس های امروز:";
                 coursetodayGridView.DataSource = coursetoday;
+                classidcombo.Enabled = true;
+                foreach (GetCourse gid in coursetoday)
+                {
+                    classidcombo.Items.Add(gid.آی_دی_کلاس.ToString());
+                }
             }
             else
             {
                 todayclasslabel.Text = "امروز کلاسی ندارید.";
                 coursetodayGridView.DataSource = null;
+                classidcombo.Enabled = false;
 
             }
         }

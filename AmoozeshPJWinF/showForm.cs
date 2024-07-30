@@ -44,8 +44,9 @@ namespace AmoozeshPJWinF
         {
             DataTable dt = d1.get_nonzero_balance();
             balancelistview.Items.Clear();
-            if(filterbalancecombo.SelectedIndex == 0)
+            if (filterbalancecombo.SelectedIndex == 2)
             {
+
                 foreach (DataRow row in dt.Rows)
                 {
                     ListViewItem item = new ListViewItem(row["id"].ToString());
@@ -56,24 +57,42 @@ namespace AmoozeshPJWinF
 
                 }
             }
-            else if(filterbalancecombo.SelectedIndex == 1)
+            else if (filterbalancecombo.SelectedIndex == 0)
             {
+                if (balancelistview.Columns.Count > 0)
+                {
+                    ColumnHeader columnHeader = balancelistview.Columns[3];
+                    columnHeader.Text = "بدهکاری";
+
+                }
+                long sum = 0;
                 foreach (DataRow row in dt.Rows)
                 {
-                    if(Convert.ToInt64(row["account_balance"]) > 0)
+                    if (Convert.ToInt64(row["account_balance"]) > 0)
                     {
                         ListViewItem item = new ListViewItem(row["id"].ToString());
                         item.SubItems.Add(row["firstname"].ToString());
                         item.SubItems.Add(row["lastname"].ToString());
                         item.SubItems.Add(row["account_balance"].ToString());
                         balancelistview.Items.Add(item);
+                        
+                        sum = sum + Convert.ToInt64(row["account_balance"]);
+                        sumtxtlbl.Text = "مجموع بدهکاری ها :";
+                        sumnumberlbl.Text = sum.ToString();
                     }
-                    
+
 
                 }
             }
-            else if(filterbalancecombo.SelectedIndex == 2)
+            else if (filterbalancecombo.SelectedIndex == 1)
             {
+                if (balancelistview.Columns.Count > 0)
+                {
+                    ColumnHeader columnHeader = balancelistview.Columns[3];
+                    columnHeader.Text = "بستانکاری";
+
+                }
+                long sum = 0;
                 foreach (DataRow row in dt.Rows)
                 {
                     if (Convert.ToInt64(row["account_balance"]) < 0)
@@ -81,22 +100,24 @@ namespace AmoozeshPJWinF
                         ListViewItem item = new ListViewItem(row["id"].ToString());
                         item.SubItems.Add(row["firstname"].ToString());
                         item.SubItems.Add(row["lastname"].ToString());
-                        item.SubItems.Add(row["account_balance"].ToString());
+                        item.SubItems.Add(Math.Abs(Convert.ToInt32(row["account_balance"])).ToString());
                         balancelistview.Items.Add(item);
+                        
+                        sum = sum + Math.Abs(Convert.ToInt64(row["account_balance"]));
+                        sumtxtlbl.Text = "مجموع بستانکاری ها :";
+                        sumnumberlbl.Text = sum.ToString();
                     }
-
-
                 }
             }
-            
-            
+
+
         }
 
         public void hide_all()
         {
             balancegroupbox.Visible = false;
             groupBoxsame.Visible = false;
-            classgroupbox.Visible=false;
+            classgroupbox.Visible = false;
             textBox1.Text = string.Empty;
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -382,6 +403,11 @@ namespace AmoozeshPJWinF
         {
             loadData();
             balancegroupbox.Visible = true;
+        }
+
+        private void balancelistview_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

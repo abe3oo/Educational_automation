@@ -81,6 +81,10 @@
             coursetodayGridView = new DataGridView();
             todayclasslabel = new Label();
             showbot = new Button();
+            classidcombo = new ComboBox();
+            label4 = new Label();
+            truebot = new Button();
+            falsebot = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)coursetodayGridView).BeginInit();
             SuspendLayout();
@@ -608,11 +612,55 @@
             showbot.UseVisualStyleBackColor = true;
             showbot.Click += showbot_Click;
             // 
+            // classidcombo
+            // 
+            classidcombo.DropDownStyle = ComboBoxStyle.DropDownList;
+            classidcombo.Enabled = false;
+            classidcombo.FormattingEnabled = true;
+            classidcombo.Location = new Point(427, 348);
+            classidcombo.Name = "classidcombo";
+            classidcombo.Size = new Size(112, 28);
+            classidcombo.TabIndex = 48;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(553, 351);
+            label4.Name = "label4";
+            label4.RightToLeft = RightToLeft.Yes;
+            label4.Size = new Size(148, 20);
+            label4.TabIndex = 49;
+            label4.Text = "تغییر وضعیت برگزاری :";
+            // 
+            // truebot
+            // 
+            truebot.Enabled = false;
+            truebot.Location = new Point(375, 347);
+            truebot.Name = "truebot";
+            truebot.Size = new Size(35, 29);
+            truebot.TabIndex = 50;
+            truebot.Text = "✔";
+            truebot.UseVisualStyleBackColor = true;
+            // 
+            // falsebot
+            // 
+            falsebot.Enabled = false;
+            falsebot.Location = new Point(330, 347);
+            falsebot.Name = "falsebot";
+            falsebot.Size = new Size(35, 29);
+            falsebot.TabIndex = 51;
+            falsebot.Text = "❌";
+            falsebot.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(910, 533);
+            Controls.Add(falsebot);
+            Controls.Add(truebot);
+            Controls.Add(label4);
+            Controls.Add(classidcombo);
             Controls.Add(showbot);
             Controls.Add(todayclasslabel);
             Controls.Add(coursetodayGridView);
@@ -722,5 +770,9 @@
         private DataGridView coursetodayGridView;
         private Label todayclasslabel;
         private Button showbot;
+        private ComboBox classidcombo;
+        private Label label4;
+        private Button truebot;
+        private Button falsebot;
     }
 }

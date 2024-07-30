@@ -281,6 +281,7 @@
             Fieldbox.Name = "Fieldbox";
             Fieldbox.Size = new Size(125, 27);
             Fieldbox.TabIndex = 6;
+            Fieldbox.TextChanged += Fieldbox_TextChanged;
             Fieldbox.KeyPress += Fieldbox_KeyPress;
             // 
             // WAnumberbox

@@ -389,7 +389,7 @@ namespace AmoozeshPJWinF
                 p1.presence_record = Convert.ToInt32(reader[3]);
                 p1.date_of_entry = Convert.ToDateTime(reader[4]);
             }
-
+            con.Close();
             return p1;
             //cmd.ExecuteNonQueryAsync();
         }
@@ -458,10 +458,19 @@ namespace AmoozeshPJWinF
             {
                 reader.Read();
                 
-                g1.courseid = Convert.ToString(reader.GetString(0));
-                g1.teacherid = Convert.ToInt64(reader.GetInt64(1));
-                g1.coursename = Convert.ToString(reader.GetString(2));
+                g1.آی_دی_کلاس = Convert.ToString(reader.GetString(0));
+                g1.کد_ملی_استاد = Convert.ToInt64(reader.GetInt64(1));
+                g1.نام_کلاس = Convert.ToString(reader.GetString(2));
                 
+            }
+            using var cmd2 = new NpgsqlCommand();
+
+            cmd2.Connection = con;
+            cmd2.CommandText = $"SELECT holding_status FROM course_holding WHERE course_id = '{id}';";
+            using (var reader = cmd2.ExecuteReader())
+            {
+                reader.Read();
+                g1.وضعیت_برگذاری = Convert.ToString(reader.GetBoolean(0));
             }
             return g1;
             //cmd.ExecuteNonQueryAsync();

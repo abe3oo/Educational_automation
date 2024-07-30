@@ -414,7 +414,7 @@ namespace AmoozeshPJWinF
                                 usereditlabel.Text = "...";
                                 userlabel.Visible = false;
                                 usereditlabel.Visible = false;
-                                
+
 
                             }
                             else
@@ -429,7 +429,7 @@ namespace AmoozeshPJWinF
 
                     }
                 }
-                else if(TypeCbox.SelectedIndex == 0)
+                else if (TypeCbox.SelectedIndex == 0)
                 {
                     if (Idbox.Text != "" && Fnamebox.Text != "" && Lnamebox.Text != "" && Agebox.Text != "" && Numberbox.Text != ""
                              && educationCbox.Text != "" && Presencerecordbox.Text != "" && Yearenterybox.Text != "" &&
@@ -456,9 +456,9 @@ namespace AmoozeshPJWinF
                         t1.fieled_of_study = Fieldbox.Text;
                         educationCbox.SelectedIndex = t1.degree_of_education;
                         t1.presence_record = Convert.ToInt32(Presencerecordbox.Text);
-                        
-                        
-                        
+
+
+
                         //picture
 
                         t1.profilepicture = d1.ImageToByteArray(pictureBox1.Image);
@@ -595,27 +595,27 @@ namespace AmoozeshPJWinF
 
         private void Fnamebox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || char.IsWhiteSpace(e.KeyChar));
         }
 
         private void Lnamebox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || char.IsWhiteSpace(e.KeyChar));
         }
 
         private void Fieldbox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || char.IsWhiteSpace(e.KeyChar));
         }
 
         private void Citybox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || char.IsWhiteSpace(e.KeyChar));
         }
 
         private void Jobbox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || char.IsWhiteSpace(e.KeyChar));
         }
 
         private void AddUserForm_Load(object sender, EventArgs e)
@@ -713,7 +713,7 @@ namespace AmoozeshPJWinF
                     Lnamebox.Text = p1.lastname;
                     Agebox.Text = p1.age.ToString();
                     Numberbox.Text = p1.number.ToString();
-                    
+
                     if (p1.whatsappnumber != p1.number)
                     {
                         WAnumberbox.Text = p1.whatsappnumber.ToString();
@@ -752,7 +752,7 @@ namespace AmoozeshPJWinF
 
         private void usereditlabel_TextChanged(object sender, EventArgs e)
         {
-            if(editradioButton.Checked == true)
+            if (editradioButton.Checked == true)
             {
                 if (usereditlabel.Text.Length == 10)
                 {
@@ -763,6 +763,11 @@ namespace AmoozeshPJWinF
             {
                 Setbutton.Enabled = false;
             }
+        }
+
+        private void Fieldbox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -96,6 +96,8 @@
             balance = new ColumnHeader();
             showbalancebot = new Button();
             filterbalancecombo = new ComboBox();
+            sumtxtlbl = new Label();
+            sumnumberlbl = new Label();
             groupBoxsame.SuspendLayout();
             groupBoxSt.SuspendLayout();
             groupBoxTch.SuspendLayout();
@@ -739,6 +741,8 @@
             // 
             // balancegroupbox
             // 
+            balancegroupbox.Controls.Add(sumnumberlbl);
+            balancegroupbox.Controls.Add(sumtxtlbl);
             balancegroupbox.Controls.Add(balancelistview);
             balancegroupbox.Location = new Point(12, 104);
             balancegroupbox.Name = "balancegroupbox";
@@ -757,6 +761,7 @@
             balancelistview.TabIndex = 0;
             balancelistview.UseCompatibleStateImageBehavior = false;
             balancelistview.View = View.Details;
+            balancelistview.SelectedIndexChanged += balancelistview_SelectedIndexChanged;
             // 
             // id
             // 
@@ -776,7 +781,7 @@
             // balance
             // 
             balance.Text = "موجودی";
-            balance.Width = 70;
+            balance.Width = 90;
             // 
             // showbalancebot
             // 
@@ -793,12 +798,31 @@
             // 
             filterbalancecombo.DropDownStyle = ComboBoxStyle.DropDownList;
             filterbalancecombo.FormattingEnabled = true;
-            filterbalancecombo.Items.AddRange(new object[] { "همه", "بدهکاری ها", "بستانکاری ها" });
+            filterbalancecombo.Items.AddRange(new object[] { "بدهکاری ها", "بستانکاری ها" });
             filterbalancecombo.Location = new Point(778, 154);
             filterbalancecombo.Name = "filterbalancecombo";
             filterbalancecombo.Size = new Size(116, 28);
             filterbalancecombo.TabIndex = 11;
             filterbalancecombo.Visible = false;
+            // 
+            // sumtxtlbl
+            // 
+            sumtxtlbl.AutoSize = true;
+            sumtxtlbl.Location = new Point(364, 386);
+            sumtxtlbl.Name = "sumtxtlbl";
+            sumtxtlbl.RightToLeft = RightToLeft.Yes;
+            sumtxtlbl.Size = new Size(118, 20);
+            sumtxtlbl.TabIndex = 1;
+            sumtxtlbl.Text = "مجموع بدهی ها :";
+            // 
+            // sumnumberlbl
+            // 
+            sumnumberlbl.AutoSize = true;
+            sumnumberlbl.Location = new Point(284, 386);
+            sumnumberlbl.Name = "sumnumberlbl";
+            sumnumberlbl.Size = new Size(49, 20);
+            sumnumberlbl.TabIndex = 2;
+            sumnumberlbl.Text = "00000";
             // 
             // showForm
             // 
@@ -829,6 +853,7 @@
             classgroupbox.ResumeLayout(false);
             classgroupbox.PerformLayout();
             balancegroupbox.ResumeLayout(false);
+            balancegroupbox.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -906,5 +931,7 @@
         private ColumnHeader balance;
         private Button showbalancebot;
         private ComboBox filterbalancecombo;
+        private Label sumnumberlbl;
+        private Label sumtxtlbl;
     }
 }
