@@ -82,11 +82,19 @@
             todayclasslabel = new Label();
             showbot = new Button();
             classidcombo = new ComboBox();
-            label4 = new Label();
             truebot = new Button();
             falsebot = new Button();
+            groupBox2 = new GroupBox();
+            button5 = new Button();
+            groupBox3 = new GroupBox();
+            dayremedical = new TextBox();
+            monthremedical = new TextBox();
+            yearremedical = new TextBox();
+            label4 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)coursetodayGridView).BeginInit();
+            groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // button1
@@ -617,50 +625,111 @@
             classidcombo.DropDownStyle = ComboBoxStyle.DropDownList;
             classidcombo.Enabled = false;
             classidcombo.FormattingEnabled = true;
-            classidcombo.Location = new Point(427, 348);
+            classidcombo.Location = new Point(127, 13);
             classidcombo.Name = "classidcombo";
             classidcombo.Size = new Size(112, 28);
             classidcombo.TabIndex = 48;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(553, 351);
-            label4.Name = "label4";
-            label4.RightToLeft = RightToLeft.Yes;
-            label4.Size = new Size(148, 20);
-            label4.TabIndex = 49;
-            label4.Text = "تغییر وضعیت برگزاری :";
+            classidcombo.SelectedIndexChanged += classidcombo_SelectedIndexChanged;
             // 
             // truebot
             // 
             truebot.Enabled = false;
-            truebot.Location = new Point(375, 347);
+            truebot.Location = new Point(71, 13);
             truebot.Name = "truebot";
             truebot.Size = new Size(35, 29);
             truebot.TabIndex = 50;
             truebot.Text = "✔";
             truebot.UseVisualStyleBackColor = true;
+            truebot.Click += truebot_Click;
             // 
             // falsebot
             // 
             falsebot.Enabled = false;
-            falsebot.Location = new Point(330, 347);
+            falsebot.Location = new Point(30, 13);
             falsebot.Name = "falsebot";
             falsebot.Size = new Size(35, 29);
             falsebot.TabIndex = 51;
             falsebot.Text = "❌";
             falsebot.UseVisualStyleBackColor = true;
+            falsebot.Click += falsebot_Click;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(classidcombo);
+            groupBox2.Controls.Add(falsebot);
+            groupBox2.Controls.Add(truebot);
+            groupBox2.Location = new Point(272, 340);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(255, 47);
+            groupBox2.TabIndex = 52;
+            groupBox2.TabStop = false;
+            groupBox2.Visible = false;
+            // 
+            // button5
+            // 
+            button5.Enabled = false;
+            button5.Location = new Point(533, 353);
+            button5.Name = "button5";
+            button5.Size = new Size(155, 29);
+            button5.TabIndex = 53;
+            button5.Text = "تغییر وضعیت برگزاری";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click_1;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(dayremedical);
+            groupBox3.Controls.Add(monthremedical);
+            groupBox3.Controls.Add(yearremedical);
+            groupBox3.Controls.Add(label4);
+            groupBox3.Location = new Point(272, 393);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(416, 51);
+            groupBox3.TabIndex = 54;
+            groupBox3.TabStop = false;
+            // 
+            // dayremedical
+            // 
+            dayremedical.Location = new Point(155, 18);
+            dayremedical.Name = "dayremedical";
+            dayremedical.Size = new Size(37, 27);
+            dayremedical.TabIndex = 5;
+            dayremedical.KeyPress += dayremedical_KeyPress;
+            // 
+            // monthremedical
+            // 
+            monthremedical.Location = new Point(103, 18);
+            monthremedical.Name = "monthremedical";
+            monthremedical.Size = new Size(37, 27);
+            monthremedical.TabIndex = 4;
+            monthremedical.KeyPress += monthremedical_KeyPress;
+            // 
+            // yearremedical
+            // 
+            yearremedical.Location = new Point(30, 18);
+            yearremedical.Name = "yearremedical";
+            yearremedical.Size = new Size(55, 27);
+            yearremedical.TabIndex = 1;
+            yearremedical.KeyPress += yearremedical_KeyPress;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(216, 18);
+            label4.Name = "label4";
+            label4.RightToLeft = RightToLeft.Yes;
+            label4.Size = new Size(189, 20);
+            label4.TabIndex = 0;
+            label4.Text = "تاریخ جبرانی را مشخص کنید :";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(910, 533);
-            Controls.Add(falsebot);
-            Controls.Add(truebot);
-            Controls.Add(label4);
-            Controls.Add(classidcombo);
+            Controls.Add(groupBox3);
+            Controls.Add(button5);
+            Controls.Add(groupBox2);
             Controls.Add(showbot);
             Controls.Add(todayclasslabel);
             Controls.Add(coursetodayGridView);
@@ -712,6 +781,9 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)coursetodayGridView).EndInit();
+            groupBox2.ResumeLayout(false);
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -771,8 +843,14 @@
         private Label todayclasslabel;
         private Button showbot;
         private ComboBox classidcombo;
-        private Label label4;
         private Button truebot;
         private Button falsebot;
+        private GroupBox groupBox2;
+        private Button button5;
+        private GroupBox groupBox3;
+        private TextBox yearremedical;
+        private Label label4;
+        private TextBox monthremedical;
+        private TextBox dayremedical;
     }
 }

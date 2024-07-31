@@ -298,6 +298,25 @@ namespace AmoozeshPJWinF
             result = cmd.ExecuteNonQuery().ToString();
             return result;
         }
+
+        public string course_holding_update(string id,DateTime d1, bool b1)
+        {
+            var con = new NpgsqlConnection(
+            connectionString: globalcon);
+
+            string g1 = "";
+
+            con.Open();
+            //-----
+            using var cmd = new NpgsqlCommand();
+            
+            cmd.Connection = con;
+            
+            cmd.CommandText = $"UPDATE course_holding SET holding_status = {b1} WHERE course_id = '{id}' and date_of_sections = '{d1}';";
+            g1 = cmd.ExecuteNonQuery().ToString();
+            con.Close();
+            return g1;
+        }
         public void enrollment_set(Enrollment e1)
         {
             var con = new NpgsqlConnection(
@@ -441,7 +460,29 @@ namespace AmoozeshPJWinF
             //cmd.ExecuteNonQueryAsync();
         }
 
-        public GetCourse GetCourse_Reader_by_id(string id)
+        public bool check_course_holding_status(string id, DateTime d1)
+        {
+            var con = new NpgsqlConnection(
+            connectionString: globalcon);
+            bool ids;
+
+            con.Open();
+            //-----
+            using var cmd = new NpgsqlCommand();
+
+            cmd.Connection = con;
+            cmd.CommandText = $"SELECT holding_status FROM course_holding WHERE course_id = '{id}' and date_of_sections = '{d1}';";
+            using (var reader = cmd.ExecuteReader())
+            {
+
+                reader.Read();
+                
+                ids = Convert.ToBoolean(reader.GetBoolean(0));
+            }
+            return ids;
+        }
+
+        public GetCourse GetCourse_Reader_by_id(string id,DateTime d1)
         {
             var con = new NpgsqlConnection(
             connectionString: globalcon);
@@ -466,7 +507,7 @@ namespace AmoozeshPJWinF
             using var cmd2 = new NpgsqlCommand();
 
             cmd2.Connection = con;
-            cmd2.CommandText = $"SELECT holding_status FROM course_holding WHERE course_id = '{id}';";
+            cmd2.CommandText = $"SELECT holding_status FROM course_holding WHERE course_id = '{id}' and date_of_sections = '{d1}';";
             using (var reader = cmd2.ExecuteReader())
             {
                 reader.Read();

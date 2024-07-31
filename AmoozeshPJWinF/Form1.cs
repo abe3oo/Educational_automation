@@ -8,6 +8,7 @@ namespace AmoozeshPJWinF
     {
         System.Windows.Forms.Timer t = null;
         public List<Button> buttons1;
+        DateTime click_date;
         DBC dbc = new DBC();
         public Form1()
         {
@@ -23,42 +24,54 @@ namespace AmoozeshPJWinF
             List<GetCourse> coursetoday = new List<GetCourse>();
             foreach (string id in idtoday)
             {
-                coursetoday.Add(dbc.GetCourse_Reader_by_id(id));
+                coursetoday.Add(dbc.GetCourse_Reader_by_id(id, click_date));
             }
             if (coursetoday.Count > 0)
             {
                 todayclasslabel.Text = "کلاس های امروز:";
                 coursetodayGridView.DataSource = coursetoday;
+                button5.Enabled = true;
+
             }
             else
             {
                 todayclasslabel.Text = "امروز کلاسی ندارید.";
                 coursetodayGridView.DataSource = null;
-
+                button5.Enabled = false;
+                button5.BackColor = Color.White;
+                groupBox2.Visible = false;
             }
         }
 
         public void get_classes_for_bot(Button b1)
         {
             DateTime date = new DateTime(Convert.ToInt32(yearlabelcul.Text), Convert.ToInt32(monthlabelcul.Text), Convert.ToInt32(b1.Text));
+            click_date = date;
             List<string> idtoday = dbc.Course_holding_id_Reader_by_date(date);
             List<GetCourse> coursetoday = new List<GetCourse>();
             foreach (string id in idtoday)
             {
-                coursetoday.Add(dbc.GetCourse_Reader_by_id(id));
+                coursetoday.Add(dbc.GetCourse_Reader_by_id(id, date));
             }
             if (coursetoday.Count > 0)
             {
                 todayclasslabel.Text = "کلاس های امروز:";
                 coursetodayGridView.DataSource = coursetoday;
                 classidcombo.Enabled = true;
+                classidcombo.Items.Clear();
+                button5.Enabled = true;
+
                 foreach (GetCourse gid in coursetoday)
                 {
+
                     classidcombo.Items.Add(gid.آی_دی_کلاس.ToString());
                 }
             }
             else
             {
+                button5.Enabled = false;
+                button5.BackColor = Color.White;
+                groupBox2.Visible = false;
                 todayclasslabel.Text = "امروز کلاسی ندارید.";
                 coursetodayGridView.DataSource = null;
                 classidcombo.Enabled = false;
@@ -118,6 +131,7 @@ namespace AmoozeshPJWinF
         {
 
             DateTime da = dbc.cul_converter(DateTime.Now);
+            click_date = da;
             get_classes(da);
         }
 
@@ -478,6 +492,147 @@ namespace AmoozeshPJWinF
         {
             showForm s1 = new showForm();
             s1.ShowDialog();
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            if (groupBox2.Visible == false)
+            {
+                groupBox2.Visible = true;
+                button5.BackColor = Color.AliceBlue;
+            }
+            else
+            {
+                groupBox2.Visible = false;
+                button5.BackColor = Color.White;
+                classidcombo.SelectedIndex = -1;
+            }
+        }
+
+        private void classidcombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (classidcombo.SelectedIndex == -1)
+            {
+                truebot.Enabled = false;
+                falsebot.Enabled = false;
+            }
+            else
+            {
+                truebot.Enabled = true;
+                falsebot.Enabled = true;
+            }
+
+
+        }
+
+        private void truebot_Click(object sender, EventArgs e)
+        {
+
+            bool thisstatus = dbc.check_course_holding_status(classidcombo.Text, click_date);
+
+            if (thisstatus == false)
+            {
+                string s1 = dbc.course_holding_update(classidcombo.Text, click_date, true);
+                if (s1 == "1")
+                {
+                    MessageBox.Show("تغییر وضعیت با موفقیت انجام شد.");
+                    get_classes(click_date);
+                }
+                else
+                {
+                    MessageBox.Show("خطا در تغییر وضعیت.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("وضعیت کلاس (برگزار شده) است.");
+            }
+        }
+
+        private void falsebot_Click(object sender, EventArgs e)
+        {
+            bool thisstatus = dbc.check_course_holding_status(classidcombo.Text, click_date);
+
+            if (thisstatus == true)
+            {
+                string s1 = dbc.course_holding_update(classidcombo.Text, click_date, false);
+                if (s1 == "1")
+                {
+                    MessageBox.Show("تغییر وضعیت با موفقیت انجام شد.");
+                    get_classes(click_date);
+                }
+                else
+                {
+                    MessageBox.Show("خطا در تغییر وضعیت.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("وضعیت کلاس (برگزار نشده) است.");
+            }
+        }
+
+        private void monthremedical_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            // بررسی اینکه ورودی عددی بین 1 و 12 باشد
+            if (char.IsDigit(e.KeyChar))
+            {
+                int number;
+                if (int.TryParse(monthremedical.Text + e.KeyChar, out number))
+                {
+                    if (number < 1 || number > 12)
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+        }
+
+        private void dayremedical_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+
+            if (char.IsDigit(e.KeyChar))
+            {
+                int number;
+                if (int.TryParse(dayremedical.Text + e.KeyChar, out number))
+                {
+                    if (number < 1 || number > 31)
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+        }
+
+        private void yearremedical_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            // بررسی اینکه ورودی عددی بین 1 و 12 باشد
+            if (char.IsDigit(e.KeyChar))
+            {
+                int number;
+                if (int.TryParse(yearremedical.Text + e.KeyChar, out number))
+                {
+                    if (number < 1 || number > 3000)
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
         }
     }
 }
