@@ -10,17 +10,20 @@ namespace AmoozeshPJWinF
     {
         public GetCourse()
         {
-
+            
         }
 
+        private string? Clock;
         private string CourseID;
         private long TeacherID;
         private string CourseName;
         private string? Holding_status;
 
+        public string? ساعت { get { return Clock; } set { Clock = value; } }
         public string آی_دی_کلاس { get { return CourseID; } set { CourseID = value; } }
-        public long کد_ملی_استاد { get { return TeacherID; } set { TeacherID = value; } }
         public string نام_کلاس { get { return CourseName; } set { CourseName = value; } }
+        public long کد_ملی_استاد { get { return TeacherID; } set { TeacherID = value; } }
+        
         public string? وضعیت_برگذاری { get { return Holding_status; } set
             {
 
@@ -35,7 +38,7 @@ namespace AmoozeshPJWinF
             
             } }
 
-
+        
 
     }
 }

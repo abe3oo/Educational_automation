@@ -87,6 +87,7 @@
             groupBox2 = new GroupBox();
             button5 = new Button();
             groupBox3 = new GroupBox();
+            acceptbot = new Button();
             dayremedical = new TextBox();
             monthremedical = new TextBox();
             yearremedical = new TextBox();
@@ -99,7 +100,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(770, 347);
+            button1.Location = new Point(832, 387);
             button1.Name = "button1";
             button1.Size = new Size(112, 29);
             button1.TabIndex = 0;
@@ -109,7 +110,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(770, 391);
+            button2.Location = new Point(832, 422);
             button2.Name = "button2";
             button2.Size = new Size(112, 29);
             button2.TabIndex = 1;
@@ -182,7 +183,7 @@
             groupBox1.Controls.Add(yearlabelpr);
             groupBox1.Controls.Add(monthlabelpr);
             groupBox1.Controls.Add(daylabelpr);
-            groupBox1.Location = new Point(272, 3);
+            groupBox1.Location = new Point(339, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(349, 51);
             groupBox1.TabIndex = 7;
@@ -510,7 +511,7 @@
             // 
             // AddCourse
             // 
-            AddCourse.Location = new Point(770, 439);
+            AddCourse.Location = new Point(832, 458);
             AddCourse.Margin = new Padding(3, 4, 3, 4);
             AddCourse.Name = "AddCourse";
             AddCourse.Size = new Size(112, 31);
@@ -583,7 +584,7 @@
             // 
             // enrollment
             // 
-            enrollment.Location = new Point(770, 489);
+            enrollment.Location = new Point(832, 496);
             enrollment.Name = "enrollment";
             enrollment.Size = new Size(112, 29);
             enrollment.TabIndex = 44;
@@ -597,13 +598,13 @@
             coursetodayGridView.Location = new Point(272, 105);
             coursetodayGridView.Name = "coursetodayGridView";
             coursetodayGridView.RowHeadersWidth = 51;
-            coursetodayGridView.Size = new Size(452, 229);
+            coursetodayGridView.Size = new Size(672, 229);
             coursetodayGridView.TabIndex = 45;
             // 
             // todayclasslabel
             // 
             todayclasslabel.AutoSize = true;
-            todayclasslabel.Location = new Point(770, 105);
+            todayclasslabel.Location = new Point(832, 60);
             todayclasslabel.Name = "todayclasslabel";
             todayclasslabel.RightToLeft = RightToLeft.Yes;
             todayclasslabel.Size = new Size(112, 20);
@@ -612,7 +613,7 @@
             // 
             // showbot
             // 
-            showbot.Location = new Point(770, 305);
+            showbot.Location = new Point(832, 352);
             showbot.Name = "showbot";
             showbot.Size = new Size(112, 29);
             showbot.TabIndex = 47;
@@ -678,19 +679,31 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(acceptbot);
             groupBox3.Controls.Add(dayremedical);
             groupBox3.Controls.Add(monthremedical);
             groupBox3.Controls.Add(yearremedical);
             groupBox3.Controls.Add(label4);
             groupBox3.Location = new Point(272, 393);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(416, 51);
+            groupBox3.Size = new Size(452, 51);
             groupBox3.TabIndex = 54;
             groupBox3.TabStop = false;
+            groupBox3.Visible = false;
+            // 
+            // acceptbot
+            // 
+            acceptbot.Location = new Point(6, 17);
+            acceptbot.Name = "acceptbot";
+            acceptbot.Size = new Size(59, 29);
+            acceptbot.TabIndex = 6;
+            acceptbot.Text = "تایید";
+            acceptbot.UseVisualStyleBackColor = true;
+            acceptbot.Click += acceptbot_Click;
             // 
             // dayremedical
             // 
-            dayremedical.Location = new Point(155, 18);
+            dayremedical.Location = new Point(202, 17);
             dayremedical.Name = "dayremedical";
             dayremedical.Size = new Size(37, 27);
             dayremedical.TabIndex = 5;
@@ -698,7 +711,7 @@
             // 
             // monthremedical
             // 
-            monthremedical.Location = new Point(103, 18);
+            monthremedical.Location = new Point(155, 17);
             monthremedical.Name = "monthremedical";
             monthremedical.Size = new Size(37, 27);
             monthremedical.TabIndex = 4;
@@ -706,7 +719,7 @@
             // 
             // yearremedical
             // 
-            yearremedical.Location = new Point(30, 18);
+            yearremedical.Location = new Point(89, 17);
             yearremedical.Name = "yearremedical";
             yearremedical.Size = new Size(55, 27);
             yearremedical.TabIndex = 1;
@@ -715,7 +728,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(216, 18);
+            label4.Location = new Point(257, 21);
             label4.Name = "label4";
             label4.RightToLeft = RightToLeft.Yes;
             label4.Size = new Size(189, 20);
@@ -726,7 +739,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(910, 533);
+            ClientSize = new Size(971, 533);
             Controls.Add(groupBox3);
             Controls.Add(button5);
             Controls.Add(groupBox2);
@@ -852,5 +865,6 @@
         private Label label4;
         private TextBox monthremedical;
         private TextBox dayremedical;
+        private Button acceptbot;
     }
 }

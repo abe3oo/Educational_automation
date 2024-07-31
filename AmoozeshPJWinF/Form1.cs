@@ -551,25 +551,22 @@ namespace AmoozeshPJWinF
 
         private void falsebot_Click(object sender, EventArgs e)
         {
-            bool thisstatus = dbc.check_course_holding_status(classidcombo.Text, click_date);
 
-            if (thisstatus == true)
+            if(groupBox3.Visible == false)
             {
-                string s1 = dbc.course_holding_update(classidcombo.Text, click_date, false);
-                if (s1 == "1")
-                {
-                    MessageBox.Show("تغییر وضعیت با موفقیت انجام شد.");
-                    get_classes(click_date);
-                }
-                else
-                {
-                    MessageBox.Show("خطا در تغییر وضعیت.");
-                }
+                groupBox3.Visible = true;
+                falsebot.BackColor = Color.Red;
             }
             else
             {
-                MessageBox.Show("وضعیت کلاس (برگزار نشده) است.");
+                groupBox3.Visible = false;
+                falsebot.BackColor = Color.White;
+                yearremedical.Text = string.Empty;
+                monthremedical.Text = string.Empty;
+                dayremedical.Text = string.Empty;
+                groupBox3.Visible = false;
             }
+            
         }
 
         private void monthremedical_KeyPress(object sender, KeyPressEventArgs e)
@@ -633,6 +630,43 @@ namespace AmoozeshPJWinF
                     }
                 }
             }
+        }
+
+        private void acceptbot_Click(object sender, EventArgs e)
+        {
+            if(yearremedical.Text.Length != 4 || monthremedical.Text.Length == 0 || dayremedical.Text.Length == 0)
+            {
+                MessageBox.Show("تاریخ جبرانی را به صورت صحیح وارد کنید.");
+            }
+            else
+            {
+                bool thisstatus = dbc.check_course_holding_status(classidcombo.Text, click_date);
+
+                if (thisstatus == true)
+                {
+                    DateTime remedicaldate = new DateTime(Convert.ToInt32(yearremedical.Text), Convert.ToInt32(monthremedical.Text), Convert.ToInt32(dayremedical.Text));
+                    string s1 = dbc.course_holding_update(classidcombo.Text, click_date, false, remedicaldate);
+                    if (s1 == "1")
+                    {
+                        MessageBox.Show("تغییر وضعیت با موفقیت انجام شد.");
+                        yearremedical.Text = string.Empty;
+                        monthremedical.Text = string.Empty;
+                        dayremedical.Text = string.Empty;
+                        groupBox3.Visible = false;
+                        falsebot.BackColor = Color.White;
+                        get_classes(click_date);
+                    }
+                    else
+                    {
+                        MessageBox.Show("خطا در تغییر وضعیت.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("وضعیت کلاس (برگزار نشده) است.");
+                }
+            }
+            
         }
     }
 }

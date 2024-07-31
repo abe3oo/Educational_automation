@@ -299,7 +299,7 @@ namespace AmoozeshPJWinF
             return result;
         }
 
-        public string course_holding_update(string id,DateTime d1, bool b1)
+        public string course_holding_update(string id,DateTime d1, bool b1,DateTime dremedical= default)
         {
             var con = new NpgsqlConnection(
             connectionString: globalcon);
@@ -311,8 +311,15 @@ namespace AmoozeshPJWinF
             using var cmd = new NpgsqlCommand();
             
             cmd.Connection = con;
+            if (b1 == true)
+            {
+                cmd.CommandText = $"UPDATE course_holding SET holding_status = {b1}, date_of_remedical = null WHERE course_id = '{id}' and date_of_sections = '{d1}';";
+            }
+            else
+            {
+                cmd.CommandText = $"UPDATE course_holding SET holding_status = {b1}, date_of_remedical = '{dremedical}' WHERE course_id = '{id}' and date_of_sections = '{d1}';";
+            }
             
-            cmd.CommandText = $"UPDATE course_holding SET holding_status = {b1} WHERE course_id = '{id}' and date_of_sections = '{d1}';";
             g1 = cmd.ExecuteNonQuery().ToString();
             con.Close();
             return g1;
@@ -502,7 +509,7 @@ namespace AmoozeshPJWinF
                 g1.آی_دی_کلاس = Convert.ToString(reader.GetString(0));
                 g1.کد_ملی_استاد = Convert.ToInt64(reader.GetInt64(1));
                 g1.نام_کلاس = Convert.ToString(reader.GetString(2));
-                
+                g1.ساعت = Convert.ToString(reader.GetString(0).Substring(4,2) + ":" + reader.GetString(0).Substring(6, 2));
             }
             using var cmd2 = new NpgsqlCommand();
 
