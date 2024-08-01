@@ -46,22 +46,20 @@ namespace AmoozeshPJWinF
             status = new Label();
             tarncCode = new Label();
             useridtbx = new TextBox();
-            tractimetxbM = new TextBox();
             tracCodetxb = new TextBox();
             amounttxb = new TextBox();
             datetxbd = new TextBox();
             statustxb = new TextBox();
             datetxby = new TextBox();
             datetxbm = new TextBox();
-            tractimetxbH = new TextBox();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            sabtbutton = new Button();
             tracTypeCbox = new ComboBox();
             termCobox = new ComboBox();
             hourupdown = new NumericUpDown();
             minupdown = new NumericUpDown();
+            setbot = new Button();
             ((System.ComponentModel.ISupportInitialize)hourupdown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)minupdown).BeginInit();
             SuspendLayout();
@@ -167,15 +165,6 @@ namespace AmoozeshPJWinF
             useridtbx.TextChanged += useridtbx_TextChanged;
             useridtbx.KeyPress += useridtbx_KeyPress;
             // 
-            // tractimetxbM
-            // 
-            tractimetxbM.Location = new Point(689, 309);
-            tractimetxbM.Margin = new Padding(5, 4, 5, 4);
-            tractimetxbM.Name = "tractimetxbM";
-            tractimetxbM.Size = new Size(35, 27);
-            tractimetxbM.TabIndex = 10;
-            tractimetxbM.KeyPress += tractimetxbM_KeyPress;
-            // 
             // tracCodetxb
             // 
             tracCodetxb.Location = new Point(575, 364);
@@ -232,16 +221,6 @@ namespace AmoozeshPJWinF
             datetxbm.TabIndex = 18;
             datetxbm.KeyPress += datetxbm_KeyPress;
             // 
-            // tractimetxbH
-            // 
-            tractimetxbH.Location = new Point(630, 309);
-            tractimetxbH.Margin = new Padding(5, 4, 5, 4);
-            tractimetxbH.Name = "tractimetxbH";
-            tractimetxbH.Size = new Size(35, 27);
-            tractimetxbH.TabIndex = 19;
-            tractimetxbH.TextChanged += tractimetxbH_TextChanged;
-            tractimetxbH.KeyPress += tractimetxbH_KeyPress;
-            // 
             // label1
             // 
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -275,18 +254,6 @@ namespace AmoozeshPJWinF
             label3.TabIndex = 22;
             label3.Text = ":";
             // 
-            // sabtbutton
-            // 
-            sabtbutton.Enabled = false;
-            sabtbutton.Location = new Point(279, 336);
-            sabtbutton.Margin = new Padding(5, 4, 5, 4);
-            sabtbutton.Name = "sabtbutton";
-            sabtbutton.Size = new Size(86, 40);
-            sabtbutton.TabIndex = 23;
-            sabtbutton.Text = "ثبت";
-            sabtbutton.UseVisualStyleBackColor = true;
-            sabtbutton.Click += sabtbutton_Click;
-            // 
             // tracTypeCbox
             // 
             tracTypeCbox.FormattingEnabled = true;
@@ -310,42 +277,52 @@ namespace AmoozeshPJWinF
             // 
             // hourupdown
             // 
-            hourupdown.Location = new Point(546, 464);
+            hourupdown.Location = new Point(630, 311);
             hourupdown.Minimum = new decimal(new int[] { 1, 0, 0, int.MinValue });
             hourupdown.Name = "hourupdown";
-            hourupdown.Size = new Size(52, 27);
+            hourupdown.Size = new Size(40, 27);
             hourupdown.TabIndex = 26;
             hourupdown.ValueChanged += hourupdown_ValueChanged;
             // 
             // minupdown
             // 
-            minupdown.Location = new Point(617, 464);
+            minupdown.Location = new Point(689, 311);
+            minupdown.Minimum = new decimal(new int[] { 1, 0, 0, int.MinValue });
             minupdown.Name = "minupdown";
-            minupdown.Size = new Size(48, 27);
+            minupdown.Size = new Size(40, 27);
             minupdown.TabIndex = 27;
             minupdown.ValueChanged += minupdown_ValueChanged;
+            // 
+            // setbot
+            // 
+            setbot.Enabled = false;
+            setbot.Location = new Point(209, 406);
+            setbot.Name = "setbot";
+            setbot.Size = new Size(94, 29);
+            setbot.TabIndex = 28;
+            setbot.Text = "ثبت";
+            setbot.UseVisualStyleBackColor = true;
+            setbot.Click += setbot_Click;
             // 
             // payWindow
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(927, 600);
+            Controls.Add(setbot);
             Controls.Add(minupdown);
             Controls.Add(hourupdown);
             Controls.Add(termCobox);
             Controls.Add(tracTypeCbox);
-            Controls.Add(sabtbutton);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(tractimetxbH);
             Controls.Add(datetxbm);
             Controls.Add(datetxby);
             Controls.Add(statustxb);
             Controls.Add(datetxbd);
             Controls.Add(amounttxb);
             Controls.Add(tracCodetxb);
-            Controls.Add(tractimetxbM);
             Controls.Add(useridtbx);
             Controls.Add(tarncCode);
             Controls.Add(status);
@@ -366,101 +343,6 @@ namespace AmoozeshPJWinF
             PerformLayout();
         }
 
-        private void sabtbutton_Click(object sender, EventArgs e)
-        {
-            DBC dpay = new DBC();
-            if (dpay.id_check(useridtbx.Text) == true)
-            {
-               
-                if (useridtbx.Text != "" && datetxby.Text != "" && datetxbm.Text != "" && datetxbd.Text != "" && termCobox.Text != "" && amounttxb.Text != ""
-                       && tracTypeCbox.Text != "" && tractimetxbH.Text != "" && tractimetxbM.Text != "" &&
-                      tracCodetxb.Text != "")
-                {
-                    Payment p1 = new Payment();
-
-                    p1.userid = Convert.ToInt64(useridtbx.Text);
-                    DateTime date = new DateTime(Convert.ToInt16(datetxby.Text), Convert.ToInt16(datetxbm.Text), Convert.ToInt16(datetxbd.Text));
-                    p1.dateofpayment = date;
-                    if (termCobox.SelectedIndex == 0) 
-                    {
-                        p1.term = 1;
-                    }
-                    else if (termCobox.SelectedIndex == 1) 
-                    {
-                        p1.term = 2;
-                    }
-                    else if (termCobox.SelectedIndex == 2) 
-                    {
-                        p1.term = 3;
-                    }
-                    else if (termCobox.SelectedIndex == 3)
-                    {
-                        p1.term = 4;
-                    }
-
-                    p1.amount = Convert.ToInt64(amounttxb.Text);
-                    p1.accountbalance = dpay.acc_bl_reader(useridtbx.Text);
-                    if (tracTypeCbox.SelectedIndex == 0)
-                    {
-                        p1.transactionstatus = false;
-                        p1.accountbalance = p1.accountbalance - p1.amount;
-                    }
-                    else if (tracTypeCbox.SelectedIndex == 1)
-                    {
-                        p1.transactionstatus = true;
-                        p1.accountbalance = p1.accountbalance + p1.amount;
-                    }
-                    TimeSpan time = new TimeSpan(Convert.ToInt16(tractimetxbH.Text), Convert.ToInt16(tractimetxbM.Text), 0);
-                    p1.tarckingtime = time;
-                    p1.trackingcode = Convert.ToInt64(tracCodetxb.Text);
-                    p1.description = statustxb.Text;
-                    string result = "";
-                    if(tracTypeCbox.SelectedIndex == 0)
-                    {
-                        result = dpay.pay_set(p1);
-                    }
-                    else
-                    {
-                        result = dpay.pay_set(p1,"-");
-                    }
-                    if(result.Length > 0)
-                    {
-                        MessageBox.Show("پرداخت با موفقیت انجام شد.");
-
-                        clear_textbox(useridtbx);
-                        clear_textbox(datetxby);
-                        clear_textbox(datetxbm);
-                        clear_textbox(datetxbd);
-                        clear_textbox(amounttxb);
-                        clear_textbox(tractimetxbH);
-                        clear_textbox(tractimetxbM);
-                        clear_textbox(tracCodetxb);
-                        clear_textbox(statustxb);
-                        termCobox.Text = string.Empty;
-                        tracTypeCbox.Text = string.Empty;
-                    }
-                    else
-                    {
-                        MessageBox.Show("پرداخت نا موفق بود.");
-                    }
-
-                    
-
-                }
-                else
-                {
-                    MessageBox.Show("فیلد های مورد نیاز را پر کنید");
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("کد ملی موجود نیست!!!");
-            }
-
-
-        }
-
         #endregion
 
         private Label userID;
@@ -472,21 +354,19 @@ namespace AmoozeshPJWinF
         private Label status;
         private Label tarncCode;
         private TextBox useridtbx;
-        private TextBox tractimetxbM;
         private TextBox tracCodetxb;
         private TextBox amounttxb;
         private TextBox datetxbd;
         private TextBox statustxb;
         private TextBox datetxby;
         private TextBox datetxbm;
-        private TextBox tractimetxbH;
         private Label label1;
         private Label label2;
         private Label label3;
-        private Button sabtbutton;
         private ComboBox tracTypeCbox;
         private ComboBox termCobox;
         private NumericUpDown hourupdown;
         private NumericUpDown minupdown;
+        private Button setbot;
     }
 }

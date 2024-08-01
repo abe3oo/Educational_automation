@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Amozesh;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,9 +37,9 @@ namespace AmoozeshPJWinF
         {
             if (useridtbx.Text == "")
             {
-                sabtbutton.Enabled = false;
+                setbot.Enabled = false;
             }
-            else { sabtbutton.Enabled = true; }
+            else { setbot.Enabled = true; }
         }
 
         private void useridtbx_KeyPress(object sender, KeyPressEventArgs e)
@@ -187,6 +188,100 @@ namespace AmoozeshPJWinF
             {
                 minupdown.Value = 0;
             }
+        }
+
+        private void setbot_Click(object sender, EventArgs e)
+        {
+            DBC dpay = new DBC();
+            if (dpay.id_check(useridtbx.Text) == true)
+            {
+
+                if (useridtbx.Text != "" && datetxby.Text != "" && datetxbm.Text != "" && datetxbd.Text != "" && termCobox.Text != "" && amounttxb.Text != ""
+                       && tracTypeCbox.Text != "" &&
+                      tracCodetxb.Text != "")
+                {
+                    Payment p1 = new Payment();
+
+                    p1.userid = Convert.ToInt64(useridtbx.Text);
+                    DateTime date = new DateTime(Convert.ToInt16(datetxby.Text), Convert.ToInt16(datetxbm.Text), Convert.ToInt16(datetxbd.Text));
+                    p1.dateofpayment = date;
+                    if (termCobox.SelectedIndex == 0)
+                    {
+                        p1.term = 1;
+                    }
+                    else if (termCobox.SelectedIndex == 1)
+                    {
+                        p1.term = 2;
+                    }
+                    else if (termCobox.SelectedIndex == 2)
+                    {
+                        p1.term = 3;
+                    }
+                    else if (termCobox.SelectedIndex == 3)
+                    {
+                        p1.term = 4;
+                    }
+
+                    p1.amount = Convert.ToInt64(amounttxb.Text);
+                    p1.accountbalance = dpay.acc_bl_reader(useridtbx.Text);
+                    if (tracTypeCbox.SelectedIndex == 0)
+                    {
+                        p1.transactionstatus = false;
+                        p1.accountbalance = p1.accountbalance - p1.amount;
+                    }
+                    else if (tracTypeCbox.SelectedIndex == 1)
+                    {
+                        p1.transactionstatus = true;
+                        p1.accountbalance = p1.accountbalance + p1.amount;
+                    }
+                    TimeSpan time = new TimeSpan(Convert.ToInt16(hourupdown.Value), Convert.ToInt16(minupdown.Value), 0);
+                    p1.tarckingtime = time;
+                    p1.trackingcode = Convert.ToInt64(tracCodetxb.Text);
+                    p1.description = statustxb.Text;
+                    string result = "";
+                    if (tracTypeCbox.SelectedIndex == 0)
+                    {
+                        result = dpay.pay_set(p1);
+                    }
+                    else
+                    {
+                        result = dpay.pay_set(p1, "-");
+                    }
+                    if (result.Length > 0)
+                    {
+                        MessageBox.Show("پرداخت با موفقیت انجام شد.");
+
+                        clear_textbox(useridtbx);
+                        clear_textbox(datetxby);
+                        clear_textbox(datetxbm);
+                        clear_textbox(datetxbd);
+                        clear_textbox(amounttxb);
+                        hourupdown.Value = 0;
+                        minupdown.Value = 0;
+                        clear_textbox(tracCodetxb);
+                        clear_textbox(statustxb);
+                        termCobox.Text = string.Empty;
+                        tracTypeCbox.Text = string.Empty;
+                    }
+                    else
+                    {
+                        MessageBox.Show("پرداخت نا موفق بود.");
+                    }
+
+
+
+                }
+                else
+                {
+                    MessageBox.Show("فیلد های مورد نیاز را پر کنید");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("کد ملی موجود نیست!!!");
+            }
+
         }
     }
 }
