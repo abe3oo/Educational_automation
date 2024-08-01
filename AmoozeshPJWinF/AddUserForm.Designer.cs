@@ -543,6 +543,7 @@
             Controls.Add(groupBoxTch);
             Controls.Add(groupBoxsame);
             Controls.Add(TypeCbox);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "AddUserForm";
             Text = "AddUserForm";
             Load += AddUserForm_Load;

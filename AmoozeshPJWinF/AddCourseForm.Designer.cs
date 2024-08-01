@@ -294,6 +294,7 @@
             Controls.Add(course_name);
             Controls.Add(cost);
             Controls.Add(courseID);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(3, 4, 3, 4);
             Name = "AddCourseForm";
             Text = "AddCourseForm";

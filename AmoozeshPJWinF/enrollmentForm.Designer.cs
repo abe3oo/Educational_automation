@@ -63,10 +63,10 @@ namespace AmoozeshPJWinF
             // 
             courseID.AutoSize = true;
             courseID.ImageAlign = ContentAlignment.MiddleRight;
-            courseID.Location = new Point(308, 43);
+            courseID.Location = new Point(352, 57);
             courseID.Name = "courseID";
             courseID.RightToLeft = RightToLeft.Yes;
-            courseID.Size = new Size(49, 15);
+            courseID.Size = new Size(63, 20);
             courseID.TabIndex = 0;
             courseID.Text = "کد درس:";
             // 
@@ -74,10 +74,10 @@ namespace AmoozeshPJWinF
             // 
             date.AutoSize = true;
             date.ImageAlign = ContentAlignment.MiddleRight;
-            date.Location = new Point(306, 133);
+            date.Location = new Point(350, 177);
             date.Name = "date";
             date.RightToLeft = RightToLeft.Yes;
-            date.Size = new Size(73, 15);
+            date.Size = new Size(92, 20);
             date.TabIndex = 1;
             date.Text = "تاریخ ثبت نام:";
             // 
@@ -85,10 +85,10 @@ namespace AmoozeshPJWinF
             // 
             whatsappGP.AutoSize = true;
             whatsappGP.ImageAlign = ContentAlignment.MiddleRight;
-            whatsappGP.Location = new Point(308, 175);
+            whatsappGP.Location = new Point(352, 233);
             whatsappGP.Name = "whatsappGP";
             whatsappGP.RightToLeft = RightToLeft.Yes;
-            whatsappGP.Size = new Size(72, 15);
+            whatsappGP.Size = new Size(93, 20);
             whatsappGP.TabIndex = 2;
             whatsappGP.Text = "گروه واتساپ:";
             // 
@@ -96,91 +96,91 @@ namespace AmoozeshPJWinF
             // 
             studentID.AutoSize = true;
             studentID.ImageAlign = ContentAlignment.MiddleRight;
-            studentID.Location = new Point(308, 89);
+            studentID.Location = new Point(352, 119);
             studentID.Name = "studentID";
             studentID.RightToLeft = RightToLeft.Yes;
-            studentID.Size = new Size(119, 15);
+            studentID.Size = new Size(154, 20);
             studentID.TabIndex = 3;
             studentID.Text = "  کد ملی دانش اموزش:";
             // 
             // WAgptxb
             // 
-            WAgptxb.Location = new Point(65, 175);
-            WAgptxb.Margin = new Padding(4, 3, 4, 3);
+            WAgptxb.Location = new Point(74, 233);
+            WAgptxb.Margin = new Padding(5, 4, 5, 4);
             WAgptxb.Multiline = true;
             WAgptxb.Name = "WAgptxb";
-            WAgptxb.Size = new Size(233, 120);
+            WAgptxb.Size = new Size(266, 159);
             WAgptxb.TabIndex = 17;
             WAgptxb.TextChanged += WAgptxb_TextChanged;
             // 
             // label2
             // 
             label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(244, 130);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(279, 173);
+            label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
             label2.RightToLeft = RightToLeft.Yes;
-            label2.Size = new Size(15, 25);
+            label2.Size = new Size(17, 33);
             label2.TabIndex = 26;
             label2.Text = "/";
             // 
             // label1
             // 
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(186, 130);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(213, 173);
+            label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
             label1.RightToLeft = RightToLeft.Yes;
-            label1.Size = new Size(15, 25);
+            label1.Size = new Size(17, 33);
             label1.TabIndex = 25;
             label1.Text = "/";
             // 
             // datetxbm
             // 
-            datetxbm.Location = new Point(207, 130);
-            datetxbm.Margin = new Padding(4, 3, 4, 3);
+            datetxbm.Location = new Point(237, 173);
+            datetxbm.Margin = new Padding(5, 4, 5, 4);
             datetxbm.Name = "datetxbm";
-            datetxbm.Size = new Size(31, 23);
+            datetxbm.Size = new Size(35, 27);
             datetxbm.TabIndex = 24;
             datetxbm.KeyPress += datetxbm_KeyPress;
             // 
             // datetxby
             // 
-            datetxby.Location = new Point(134, 130);
-            datetxby.Margin = new Padding(4, 3, 4, 3);
+            datetxby.Location = new Point(153, 173);
+            datetxby.Margin = new Padding(5, 4, 5, 4);
             datetxby.Name = "datetxby";
-            datetxby.Size = new Size(46, 23);
+            datetxby.Size = new Size(52, 27);
             datetxby.TabIndex = 23;
             datetxby.TextAlign = HorizontalAlignment.Center;
             datetxby.KeyPress += datetxby_KeyPress;
             // 
             // datetxbd
             // 
-            datetxbd.Location = new Point(267, 130);
-            datetxbd.Margin = new Padding(4, 3, 4, 3);
+            datetxbd.Location = new Point(305, 173);
+            datetxbd.Margin = new Padding(5, 4, 5, 4);
             datetxbd.Name = "datetxbd";
-            datetxbd.Size = new Size(31, 23);
+            datetxbd.Size = new Size(35, 27);
             datetxbd.TabIndex = 22;
             datetxbd.KeyPress += datetxbd_KeyPress;
             // 
             // courseIDtxb
             // 
-            courseIDtxb.Location = new Point(167, 40);
-            courseIDtxb.Margin = new Padding(4, 3, 4, 3);
+            courseIDtxb.Location = new Point(191, 53);
+            courseIDtxb.Margin = new Padding(5, 4, 5, 4);
             courseIDtxb.MaxLength = 10;
             courseIDtxb.Name = "courseIDtxb";
-            courseIDtxb.Size = new Size(131, 23);
+            courseIDtxb.Size = new Size(149, 27);
             courseIDtxb.TabIndex = 27;
             courseIDtxb.TextChanged += courseIDtxb_TextChanged;
             courseIDtxb.KeyPress += courseIDtxb_KeyPress;
             // 
             // studentIDtxb
             // 
-            studentIDtxb.Location = new Point(167, 86);
-            studentIDtxb.Margin = new Padding(4, 3, 4, 3);
+            studentIDtxb.Location = new Point(191, 115);
+            studentIDtxb.Margin = new Padding(5, 4, 5, 4);
             studentIDtxb.MaxLength = 10;
             studentIDtxb.Name = "studentIDtxb";
-            studentIDtxb.Size = new Size(131, 23);
+            studentIDtxb.Size = new Size(149, 27);
             studentIDtxb.TabIndex = 28;
             studentIDtxb.TextChanged += studentIDtxb_TextChanged;
             studentIDtxb.KeyPress += studentIDtxb_KeyPress;
@@ -188,9 +188,10 @@ namespace AmoozeshPJWinF
             // sabtEnorollmetButton
             // 
             sabtEnorollmetButton.Enabled = false;
-            sabtEnorollmetButton.Location = new Point(26, 334);
+            sabtEnorollmetButton.Location = new Point(30, 445);
+            sabtEnorollmetButton.Margin = new Padding(3, 4, 3, 4);
             sabtEnorollmetButton.Name = "sabtEnorollmetButton";
-            sabtEnorollmetButton.Size = new Size(75, 23);
+            sabtEnorollmetButton.Size = new Size(86, 31);
             sabtEnorollmetButton.TabIndex = 29;
             sabtEnorollmetButton.Text = "ثبت";
             sabtEnorollmetButton.UseVisualStyleBackColor = true;
@@ -198,9 +199,9 @@ namespace AmoozeshPJWinF
             // 
             // enrollmentForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(444, 388);
+            ClientSize = new Size(507, 517);
             Controls.Add(sabtEnorollmetButton);
             Controls.Add(studentIDtxb);
             Controls.Add(courseIDtxb);
@@ -214,6 +215,8 @@ namespace AmoozeshPJWinF
             Controls.Add(whatsappGP);
             Controls.Add(date);
             Controls.Add(courseID);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "enrollmentForm";
             Text = "enrollmentForm";
             Load += enrollmentForm_Load;

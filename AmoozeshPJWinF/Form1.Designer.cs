@@ -788,6 +788,7 @@
             Controls.Add(groupBox1);
             Controls.Add(button2);
             Controls.Add(button1);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
