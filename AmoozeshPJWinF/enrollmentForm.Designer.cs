@@ -56,7 +56,7 @@ namespace AmoozeshPJWinF
             datetxbd = new TextBox();
             courseIDtxb = new TextBox();
             studentIDtxb = new TextBox();
-            sabtEnorollmetButton = new Button();
+            setbot = new Button();
             SuspendLayout();
             // 
             // courseID
@@ -185,24 +185,22 @@ namespace AmoozeshPJWinF
             studentIDtxb.TextChanged += studentIDtxb_TextChanged;
             studentIDtxb.KeyPress += studentIDtxb_KeyPress;
             // 
-            // sabtEnorollmetButton
+            // setbot
             // 
-            sabtEnorollmetButton.Enabled = false;
-            sabtEnorollmetButton.Location = new Point(30, 445);
-            sabtEnorollmetButton.Margin = new Padding(3, 4, 3, 4);
-            sabtEnorollmetButton.Name = "sabtEnorollmetButton";
-            sabtEnorollmetButton.Size = new Size(86, 31);
-            sabtEnorollmetButton.TabIndex = 29;
-            sabtEnorollmetButton.Text = "ثبت";
-            sabtEnorollmetButton.UseVisualStyleBackColor = true;
-            sabtEnorollmetButton.Click += sabtEnorollmetButton_Click;
+            setbot.Location = new Point(74, 447);
+            setbot.Name = "setbot";
+            setbot.Size = new Size(94, 29);
+            setbot.TabIndex = 30;
+            setbot.Text = "ثبت";
+            setbot.UseVisualStyleBackColor = true;
+            setbot.Click += setbot_Click;
             // 
             // enrollmentForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(507, 517);
-            Controls.Add(sabtEnorollmetButton);
+            Controls.Add(setbot);
             Controls.Add(studentIDtxb);
             Controls.Add(courseIDtxb);
             Controls.Add(label2);
@@ -229,46 +227,6 @@ namespace AmoozeshPJWinF
            
         }
 
-        private void sabtEnorollmetButton_Click(object sender, EventArgs e)
-        {
-            DBC denrollment = new DBC();
-
-            if ((denrollment.courseid_check(courseIDtxb.Text) == true) && (denrollment.studentid_check(studentIDtxb.Text) == true))
-            {
-                if (courseIDtxb.Text != "" && studentIDtxb.Text != "" && WAgptxb.Text != "" && datetxbd.Text != "" && datetxbm.Text != "" && datetxby.Text != "")
-                {
-                    Enrollment e1 = new Enrollment();
-
-                    e1.courseid = Convert.ToInt64(courseIDtxb.Text);
-                    e1.studentid = Convert.ToInt64(studentIDtxb.Text);
-                    e1.whatsappgp = WAgptxb.Text;
-                    DateTime date3 = new DateTime(Convert.ToInt16(datetxby.Text), Convert.ToInt16(datetxbm.Text), Convert.ToInt16(datetxbd.Text));
-                    e1.dateofenrollment = date3;
-
-                    denrollment.enrollment_set(e1);
-
-                    MessageBox.Show("ثبت با موفقیت انجام شد");
-
-                    clear_textbox(courseIDtxb);
-                    clear_textbox(studentIDtxb);
-                    clear_textbox(datetxby);
-                    clear_textbox(datetxbm);
-                    clear_textbox(datetxbd);      
-                    clear_textbox(WAgptxb);
-
-                }
-                else
-                {
-                    MessageBox.Show("فیلد های مورد نیاز را پر کنید");
-                }
-            }
-            else
-            {
-                MessageBox.Show("کد ملی یا کد درس موجود نیست!!!");
-            }
-
-        }
-
         #endregion
 
         private Label courseID;
@@ -288,6 +246,6 @@ namespace AmoozeshPJWinF
         private TextBox courseIDtxb;
         private TextBox textBox4;
         private TextBox studentIDtxb;
-        private Button sabtEnorollmetButton;
+        private Button setbot;
     }
 }

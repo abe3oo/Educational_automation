@@ -90,7 +90,7 @@ namespace AmoozeshPJWinF
                 {
                     if (d1.id_check(Idbox.Text) == true)
                     {
-                        MessageBox.Show("کد ملی موجود است");
+                        MessageBox.Show("کد ملی موجود است", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
@@ -172,7 +172,7 @@ namespace AmoozeshPJWinF
                             string result = d1.st_set(s1);
                             if (result == "11")
                             {
-                                MessageBox.Show("ثبت با موفقیت انجام شد");
+                                MessageBox.Show("ثبت با موفقیت انجام شد", "Successful", MessageBoxButtons.OK);
                                 clear_textbox(Idbox);
                                 clear_textbox(Fnamebox);
                                 clear_textbox(Lnamebox);
@@ -190,12 +190,12 @@ namespace AmoozeshPJWinF
                             }
                             else
                             {
-                                MessageBox.Show("ثبت انجام نشد!!!");
+                                MessageBox.Show("ثبت انجام نشد!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("فیلد های مورد نیاز را پر کنید");
+                            MessageBox.Show("فیلد های مورد نیاز را پر کنید", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
 
                     }
@@ -205,7 +205,7 @@ namespace AmoozeshPJWinF
 
                     if (Idbox.Text.Length < 10)
                     {
-                        MessageBox.Show("کد ملی نا معتبر است.");
+                        MessageBox.Show("کد ملی نا معتبر است.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
@@ -213,7 +213,7 @@ namespace AmoozeshPJWinF
 
                         if (d1.id_check(Idbox.Text) == true)
                         {
-                            MessageBox.Show("کد ملی موجود است");
+                            MessageBox.Show("کد ملی موجود است", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else
                         {
@@ -293,12 +293,12 @@ namespace AmoozeshPJWinF
 
                                 else
                                 {
-                                    MessageBox.Show("ثبت انجام نشد!!!");
+                                    MessageBox.Show("ثبت انجام نشد!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("فیلد های مورد نیاز را پر کنید");
+                                MessageBox.Show("فیلد های مورد نیاز را پر کنید", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
                         }
                     }
@@ -306,7 +306,7 @@ namespace AmoozeshPJWinF
                 }
                 else
                 {
-                    MessageBox.Show("نوع کاربر را انتخاب کنید");
+                    MessageBox.Show("نوع کاربر را انتخاب کنید", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else if (editradioButton.Checked == true)
@@ -419,12 +419,12 @@ namespace AmoozeshPJWinF
                             }
                             else
                             {
-                                MessageBox.Show("ویرایش انجام نشد!!!");
+                                MessageBox.Show("ویرایش انجام نشد!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("فیلد های مورد نیاز را پر کنید");
+                            MessageBox.Show("فیلد های مورد نیاز را پر کنید", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
 
                     }
@@ -478,7 +478,7 @@ namespace AmoozeshPJWinF
                         }
                         else
                         {
-                            MessageBox.Show("ویرایش انجام نشد!!!");
+                            MessageBox.Show("ویرایش انجام نشد!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -777,7 +777,7 @@ namespace AmoozeshPJWinF
             }
             else
             {
-                MessageBox.Show("کاربر وجود ندارد!");
+                MessageBox.Show("کاربر وجود ندارد!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 userlabel.Visible = false;
                 usereditlabel.Visible = false;
                 usereditlabel.Text = "...";

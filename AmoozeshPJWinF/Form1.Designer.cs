@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             button1 = new Button();
             button2 = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
@@ -100,7 +101,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(832, 387);
+            button1.Location = new Point(842, 399);
             button1.Name = "button1";
             button1.Size = new Size(112, 29);
             button1.TabIndex = 0;
@@ -110,7 +111,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(832, 422);
+            button2.Location = new Point(842, 434);
             button2.Name = "button2";
             button2.Size = new Size(112, 29);
             button2.TabIndex = 1;
@@ -177,6 +178,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.BackColor = Color.Transparent;
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(clocklabel);
@@ -511,7 +513,7 @@
             // 
             // AddCourse
             // 
-            AddCourse.Location = new Point(832, 458);
+            AddCourse.Location = new Point(842, 470);
             AddCourse.Margin = new Padding(3, 4, 3, 4);
             AddCourse.Name = "AddCourse";
             AddCourse.Size = new Size(112, 31);
@@ -584,7 +586,7 @@
             // 
             // enrollment
             // 
-            enrollment.Location = new Point(832, 496);
+            enrollment.Location = new Point(842, 508);
             enrollment.Name = "enrollment";
             enrollment.Size = new Size(112, 29);
             enrollment.TabIndex = 44;
@@ -598,13 +600,14 @@
             coursetodayGridView.Location = new Point(272, 105);
             coursetodayGridView.Name = "coursetodayGridView";
             coursetodayGridView.RowHeadersWidth = 51;
-            coursetodayGridView.Size = new Size(672, 229);
+            coursetodayGridView.Size = new Size(682, 241);
             coursetodayGridView.TabIndex = 45;
             // 
             // todayclasslabel
             // 
             todayclasslabel.AutoSize = true;
-            todayclasslabel.Location = new Point(832, 60);
+            todayclasslabel.BackColor = Color.Transparent;
+            todayclasslabel.Location = new Point(842, 61);
             todayclasslabel.Name = "todayclasslabel";
             todayclasslabel.RightToLeft = RightToLeft.Yes;
             todayclasslabel.Size = new Size(112, 20);
@@ -613,12 +616,13 @@
             // 
             // showbot
             // 
-            showbot.Location = new Point(832, 352);
+            showbot.BackColor = Color.Transparent;
+            showbot.Location = new Point(842, 364);
             showbot.Name = "showbot";
             showbot.Size = new Size(112, 29);
             showbot.TabIndex = 47;
             showbot.Text = "show";
-            showbot.UseVisualStyleBackColor = true;
+            showbot.UseVisualStyleBackColor = false;
             showbot.Click += showbot_Click;
             // 
             // classidcombo
@@ -656,10 +660,11 @@
             // 
             // groupBox2
             // 
+            groupBox2.BackColor = Color.Transparent;
             groupBox2.Controls.Add(classidcombo);
             groupBox2.Controls.Add(falsebot);
             groupBox2.Controls.Add(truebot);
-            groupBox2.Location = new Point(272, 340);
+            groupBox2.Location = new Point(272, 352);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(255, 47);
             groupBox2.TabIndex = 52;
@@ -669,7 +674,7 @@
             // button5
             // 
             button5.Enabled = false;
-            button5.Location = new Point(533, 353);
+            button5.Location = new Point(533, 365);
             button5.Name = "button5";
             button5.Size = new Size(155, 29);
             button5.TabIndex = 53;
@@ -679,17 +684,19 @@
             // 
             // groupBox3
             // 
+            groupBox3.BackColor = Color.Transparent;
             groupBox3.Controls.Add(acceptbot);
             groupBox3.Controls.Add(dayremedical);
             groupBox3.Controls.Add(monthremedical);
             groupBox3.Controls.Add(yearremedical);
             groupBox3.Controls.Add(label4);
-            groupBox3.Location = new Point(272, 393);
+            groupBox3.Location = new Point(272, 405);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(452, 51);
             groupBox3.TabIndex = 54;
             groupBox3.TabStop = false;
             groupBox3.Visible = false;
+            groupBox3.Enter += groupBox3_Enter;
             // 
             // acceptbot
             // 
@@ -739,7 +746,10 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(971, 533);
+            BackColor = SystemColors.Control;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Center;
+            ClientSize = new Size(978, 549);
             Controls.Add(groupBox3);
             Controls.Add(button5);
             Controls.Add(groupBox2);

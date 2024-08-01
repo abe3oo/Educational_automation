@@ -552,7 +552,7 @@ namespace AmoozeshPJWinF
         private void falsebot_Click(object sender, EventArgs e)
         {
 
-            if(groupBox3.Visible == false)
+            if (groupBox3.Visible == false)
             {
                 groupBox3.Visible = true;
                 falsebot.BackColor = Color.Red;
@@ -566,7 +566,7 @@ namespace AmoozeshPJWinF
                 dayremedical.Text = string.Empty;
                 groupBox3.Visible = false;
             }
-            
+
         }
 
         private void monthremedical_KeyPress(object sender, KeyPressEventArgs e)
@@ -618,7 +618,7 @@ namespace AmoozeshPJWinF
                 e.Handled = true;
             }
 
-            
+
             if (char.IsDigit(e.KeyChar))
             {
                 int number;
@@ -634,7 +634,7 @@ namespace AmoozeshPJWinF
 
         private void acceptbot_Click(object sender, EventArgs e)
         {
-            if(yearremedical.Text.Length != 4 || monthremedical.Text.Length == 0 || dayremedical.Text.Length == 0)
+            if (yearremedical.Text.Length != 4 || monthremedical.Text.Length == 0 || dayremedical.Text.Length == 0)
             {
                 MessageBox.Show("تاریخ جبرانی را به صورت صحیح وارد کنید.");
             }
@@ -666,7 +666,12 @@ namespace AmoozeshPJWinF
                     MessageBox.Show("وضعیت کلاس (برگزار نشده) است.");
                 }
             }
-            
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

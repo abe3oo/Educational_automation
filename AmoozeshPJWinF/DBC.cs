@@ -29,16 +29,26 @@ namespace AmoozeshPJWinF
         }
         public string ReadDbConfigFromIni(string filePath)
         {
-            var parser = new FileIniDataParser();
-            IniData data = parser.ReadFile(filePath);
 
-            string host = data["Database"]["Host"];
-            int port = int.Parse(data["Database"]["Port"]);
-            string username = data["Database"]["Username"];
-            string password = data["Database"]["Password"];
-            string database = data["Database"]["Database"];
+            try
+            {
+                var parser = new FileIniDataParser();
+                IniData data = parser.ReadFile(filePath);
 
-            return $"Host={host}; Port={port}; Username={username}; Password={password}; Database={database}";
+                string host = data["Database"]["Host"];
+                int port = int.Parse(data["Database"]["Port"]);
+                string username = data["Database"]["Username"];
+                string password = data["Database"]["Password"];
+                string database = data["Database"]["Database"];
+
+                return $"Host={host}; Port={port}; Username={username}; Password={password}; Database={database}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("خطا در خواندن فایل کانفیگ !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            
         }
         public void clear_textbox(TextBox t1)
         {
@@ -52,52 +62,68 @@ namespace AmoozeshPJWinF
         }
         public bool id_check(string thisid)
         {
-            
-            var con = new NpgsqlConnection(connectionString: globalcon);
-            con.Open();
-            //-----
-            using var cmd = new NpgsqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = $"SELECT * FROM users WHERE id = {thisid};";
-            bool msg;
-            using (var reader = cmd.ExecuteReader())
+            try
             {
-                if (reader.Read())
+                var con = new NpgsqlConnection(connectionString: globalcon);
+                con.Open();
+                //-----
+                using var cmd = new NpgsqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = $"SELECT * FROM users WHERE id = {thisid};";
+                bool msg;
+                using (var reader = cmd.ExecuteReader())
                 {
-                    msg = true;
+                    if (reader.Read())
+                    {
+                        msg = true;
+                    }
+                    else
+                    {
+                        msg = false;
+                    }
                 }
-                else
-                {
-                    msg = false;
-                }
+                cmd.ExecuteNonQueryAsync();
+                return msg;
             }
-            cmd.ExecuteNonQueryAsync();
-            return msg;
+            catch
+            {
+                MessageBox.Show("خطا در چک کردن کد ملی !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            
         }
 
         public bool teacherid_check(string thisid)
         {
-
-            var con = new NpgsqlConnection(connectionString: globalcon);
-            con.Open();
-            //-----
-            using var cmd = new NpgsqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = $"SELECT * FROM teacher WHERE id = {thisid};";
-            bool msg;
-            using (var reader = cmd.ExecuteReader())
+            try
             {
-                if (reader.Read())
+                var con = new NpgsqlConnection(connectionString: globalcon);
+                con.Open();
+                //-----
+                using var cmd = new NpgsqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = $"SELECT * FROM teacher WHERE id = {thisid};";
+                bool msg;
+                using (var reader = cmd.ExecuteReader())
                 {
-                    msg = true;
+                    if (reader.Read())
+                    {
+                        msg = true;
+                    }
+                    else
+                    {
+                        msg = false;
+                    }
                 }
-                else
-                {
-                    msg = false;
-                }
+                cmd.ExecuteNonQueryAsync();
+                return msg;
             }
-            cmd.ExecuteNonQueryAsync();
-            return msg;
+            catch
+            {
+                MessageBox.Show("خطا در چک کردن کد ملی استاد !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            
         }
 
        
@@ -105,283 +131,397 @@ namespace AmoozeshPJWinF
 
         public bool courseid_check(string thisid)
         {
-
-            var con = new NpgsqlConnection(connectionString: globalcon);
-            con.Open();
-            //-----
-            using var cmd = new NpgsqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = $"SELECT * FROM course WHERE id = '{thisid}';";
-            bool msg;
-            using (var reader = cmd.ExecuteReader())
+            try
             {
-                if (reader.Read())
+                var con = new NpgsqlConnection(connectionString: globalcon);
+                con.Open();
+                //-----
+                using var cmd = new NpgsqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = $"SELECT * FROM course WHERE id = '{thisid}';";
+                bool msg;
+                using (var reader = cmd.ExecuteReader())
                 {
-                    msg = true;
+                    if (reader.Read())
+                    {
+                        msg = true;
+                    }
+                    else
+                    {
+                        msg = false;
+                    }
                 }
-                else
-                {
-                    msg = false;
-                }
+                cmd.ExecuteNonQueryAsync();
+                return msg;
             }
-            cmd.ExecuteNonQueryAsync();
-            return msg;
+            catch
+            {
+                MessageBox.Show("خطا در چک کردن آی دی کلاس !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            
         }
         public bool studentid_check(string thisid)
         {
-
-            var con = new NpgsqlConnection(connectionString: globalcon);
-            con.Open();
-            //-----
-            using var cmd = new NpgsqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = $"SELECT * FROM student WHERE id = {thisid};";
-            bool msg;
-            using (var reader = cmd.ExecuteReader())
+            try
             {
-                if (reader.Read())
+                var con = new NpgsqlConnection(connectionString: globalcon);
+                con.Open();
+                //-----
+                using var cmd = new NpgsqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = $"SELECT * FROM student WHERE id = {thisid};";
+                bool msg;
+                using (var reader = cmd.ExecuteReader())
                 {
-                    msg = true;
+                    if (reader.Read())
+                    {
+                        msg = true;
+                    }
+                    else
+                    {
+                        msg = false;
+                    }
                 }
-                else
-                {
-                    msg = false;
-                }
+                cmd.ExecuteNonQueryAsync();
+                return msg;
             }
-            cmd.ExecuteNonQueryAsync();
-            return msg;
+            catch
+            {
+                MessageBox.Show("خطا در چک کردن کد ملی دانشجو !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            
         }
 
 
         public string st_set(student s1)
         {
-            var con = new NpgsqlConnection(
-            connectionString: globalcon);
-
-            string g1;
-            string g2;
-            con.Open();
-            //-----
-            using var cmd = new NpgsqlCommand();
-            using var cmd2 = new NpgsqlCommand();
-            cmd.Connection = con;
-            cmd2.Connection = con;
-            cmd.CommandText = $"INSERT INTO users(id, firstname, lastname, age, phone_num, whatsapp_num, pict) VALUES ({s1.personalcode}, '{s1.firstname}', '{s1.lastname}', {s1.age}, {s1.number}, {s1.whatsappnumber},@Image);";
-            cmd2.CommandText = $"INSERT INTO student(id, level_of_education, fieled_of_study, marital_status, job, city, class_type) VALUES ({s1.personalcode}, {s1.education}, '{s1.fieled_of_study}', {s1.maritalstatus}, '{s1.job}', '{s1.city}', {s1.classtype});";
-            NpgsqlParameter param = cmd.CreateParameter();
-            param.ParameterName = "@Image";
-            param.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Bytea;
-            param.Value = s1.profilepicture;
-            cmd.Parameters.Add(param);
-            g1 = cmd.ExecuteNonQuery().ToString();
-            g2 = cmd2.ExecuteNonQuery().ToString();
-            con.Close();
-            return g1 + g2;
+            try
+            {
+                var con = new NpgsqlConnection(
+                connectionString: globalcon);
+                string g1;
+                string g2;
+                con.Open();
+                //-----
+                using var cmd = new NpgsqlCommand();
+                using var cmd2 = new NpgsqlCommand();
+                cmd.Connection = con;
+                cmd2.Connection = con;
+                cmd.CommandText = $"INSERT INTO users(id, firstname, lastname, age, phone_num, whatsapp_num, pict) VALUES ({s1.personalcode}, '{s1.firstname}', '{s1.lastname}', {s1.age}, {s1.number}, {s1.whatsappnumber},@Image);";
+                cmd2.CommandText = $"INSERT INTO student(id, level_of_education, fieled_of_study, marital_status, job, city, class_type) VALUES ({s1.personalcode}, {s1.education}, '{s1.fieled_of_study}', {s1.maritalstatus}, '{s1.job}', '{s1.city}', {s1.classtype});";
+                NpgsqlParameter param = cmd.CreateParameter();
+                param.ParameterName = "@Image";
+                param.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Bytea;
+                param.Value = s1.profilepicture;
+                cmd.Parameters.Add(param);
+                g1 = cmd.ExecuteNonQuery().ToString();
+                g2 = cmd2.ExecuteNonQuery().ToString();
+                con.Close();
+                return g1 + g2;
+            }
+            catch
+            {
+                MessageBox.Show("خطا در ثبت دانشجو !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "00";
+            }
+            
         }
 
         public string st_edit(student s1, string id)
         {
-            var con = new NpgsqlConnection(
+            try
+            {
+                var con = new NpgsqlConnection(
             connectionString: globalcon);
 
-            string g1 = "";
-            string g2 = "";
-            con.Open();
-            //-----
-            using var cmd = new NpgsqlCommand();
-            using var cmd2 = new NpgsqlCommand();
-            cmd.Connection = con;
-            cmd2.Connection = con;
-            cmd.CommandText = $"UPDATE users SET id = {s1.personalcode},firstname = '{s1.firstname}',lastname = '{s1.lastname}',age = {s1.age},phone_num = {s1.number},whatsapp_num = {s1.whatsappnumber},pict = @Image WHERE id = {id};";
-            cmd2.CommandText = $"UPDATE student SET id = {s1.personalcode},level_of_education = {s1.education},fieled_of_study = '{s1.fieled_of_study}',marital_status = {s1.maritalstatus},job = '{s1.job}',city = '{s1.city}',class_type = {s1.classtype} WHERE id = {id};";
-            NpgsqlParameter param = cmd.CreateParameter();
-            param.ParameterName = "@Image";
-            param.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Bytea;
-            param.Value = s1.profilepicture;
-            cmd.Parameters.Add(param);
-            g1 = cmd.ExecuteNonQuery().ToString();
-            g2 = cmd2.ExecuteNonQuery().ToString();
-            con.Close();
-            return g1 + g2;
+                string g1 = "";
+                string g2 = "";
+                con.Open();
+                //-----
+                using var cmd = new NpgsqlCommand();
+                using var cmd2 = new NpgsqlCommand();
+                cmd.Connection = con;
+                cmd2.Connection = con;
+                cmd.CommandText = $"UPDATE users SET id = {s1.personalcode},firstname = '{s1.firstname}',lastname = '{s1.lastname}',age = {s1.age},phone_num = {s1.number},whatsapp_num = {s1.whatsappnumber},pict = @Image WHERE id = {id};";
+                cmd2.CommandText = $"UPDATE student SET id = {s1.personalcode},level_of_education = {s1.education},fieled_of_study = '{s1.fieled_of_study}',marital_status = {s1.maritalstatus},job = '{s1.job}',city = '{s1.city}',class_type = {s1.classtype} WHERE id = {id};";
+                NpgsqlParameter param = cmd.CreateParameter();
+                param.ParameterName = "@Image";
+                param.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Bytea;
+                param.Value = s1.profilepicture;
+                cmd.Parameters.Add(param);
+                g1 = cmd.ExecuteNonQuery().ToString();
+                g2 = cmd2.ExecuteNonQuery().ToString();
+                con.Close();
+                return g1 + g2;
+            }
+            catch
+            {
+                MessageBox.Show("خطا در ویرایش دانشجو !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "00";
+            }
+            
         }
 
         public string pr_set(teacher p1)
         {
-            var con = new NpgsqlConnection(
-            connectionString: globalcon);
+            try
+            {
+                var con = new NpgsqlConnection(
+                connectionString: globalcon);
 
-            string g1;
-            string g2;
-            con.Open();
-            //-----
-            using var cmd = new NpgsqlCommand();
-            using var cmd2 = new NpgsqlCommand();
-            cmd.Connection = con;
-            cmd2.Connection = con;
-            cmd.CommandText = $"INSERT INTO users(id, firstname, lastname, age, phone_num, whatsapp_num, pict) VALUES ({p1.personalcode}, '{p1.firstname}', '{p1.lastname}', {p1.age}, {p1.number}, {p1.whatsappnumber}, @Image);";
-            cmd2.CommandText = $"INSERT INTO teacher VALUES ({p1.personalcode}, '{p1.fieled_of_study}', {p1.degree_of_education}, {p1.presence_record}, '{p1.date_of_entry.Year}-{p1.date_of_entry.Month}-{p1.date_of_entry.Day}');";
-            NpgsqlParameter param = cmd.CreateParameter();
-            param.ParameterName = "@Image";
-            param.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Bytea;
-            param.Value = p1.profilepicture;
-            cmd.Parameters.Add(param);
-            g1 = cmd.ExecuteNonQuery().ToString();
-            g2 = cmd2.ExecuteNonQuery().ToString();
-            con.Close();
-            return g1 + g2;
+                string g1;
+                string g2;
+                con.Open();
+                //-----
+                using var cmd = new NpgsqlCommand();
+                using var cmd2 = new NpgsqlCommand();
+                cmd.Connection = con;
+                cmd2.Connection = con;
+                cmd.CommandText = $"INSERT INTO users(id, firstname, lastname, age, phone_num, whatsapp_num, pict) VALUES ({p1.personalcode}, '{p1.firstname}', '{p1.lastname}', {p1.age}, {p1.number}, {p1.whatsappnumber}, @Image);";
+                cmd2.CommandText = $"INSERT INTO teacher VALUES ({p1.personalcode}, '{p1.fieled_of_study}', {p1.degree_of_education}, {p1.presence_record}, '{p1.date_of_entry.Year}-{p1.date_of_entry.Month}-{p1.date_of_entry.Day}');";
+                NpgsqlParameter param = cmd.CreateParameter();
+                param.ParameterName = "@Image";
+                param.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Bytea;
+                param.Value = p1.profilepicture;
+                cmd.Parameters.Add(param);
+                g1 = cmd.ExecuteNonQuery().ToString();
+                g2 = cmd2.ExecuteNonQuery().ToString();
+                con.Close();
+                return g1 + g2;
+            }
+            catch
+            {
+                MessageBox.Show("خطا در ثبت استاد !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "00";
+            }
+            
         }
 
         public string pr_edit(teacher s1, string id)
         {
-            var con = new NpgsqlConnection(
-            connectionString: globalcon);
+            try
+            {
+                var con = new NpgsqlConnection(
+                connectionString: globalcon);
 
-            string g1 = "";
-            string g2 = "";
-            con.Open();
-            //-----
-            using var cmd = new NpgsqlCommand();
-            using var cmd2 = new NpgsqlCommand();
-            cmd.Connection = con;
-            cmd2.Connection = con;
-            cmd.CommandText = $"UPDATE users SET id = {s1.personalcode},firstname = '{s1.firstname}',lastname = '{s1.lastname}',age = {s1.age},phone_num = {s1.number},whatsapp_num = {s1.whatsappnumber},pict = @Image WHERE id = {id};";
-            cmd2.CommandText = $"UPDATE teacher SET id = {s1.personalcode} ,fieled_of_study = '{s1.fieled_of_study}' ,degree_of_education = {s1.degree_of_education} ,presence_record = {s1.presence_record} ,date_of_entry = '{s1.date_of_entry.Year}-{s1.date_of_entry.Month}-{s1.date_of_entry.Day}' WHERE id = {id};";
-            NpgsqlParameter param = cmd.CreateParameter();
-            param.ParameterName = "@Image";
-            param.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Bytea;
-            param.Value = s1.profilepicture;
-            cmd.Parameters.Add(param);
-            g1 = cmd.ExecuteNonQuery().ToString();
-            g2 = cmd2.ExecuteNonQuery().ToString();
-            con.Close();
-            return g1 + g2;
+                string g1 = "";
+                string g2 = "";
+                con.Open();
+                //-----
+                using var cmd = new NpgsqlCommand();
+                using var cmd2 = new NpgsqlCommand();
+                cmd.Connection = con;
+                cmd2.Connection = con;
+                cmd.CommandText = $"UPDATE users SET id = {s1.personalcode},firstname = '{s1.firstname}',lastname = '{s1.lastname}',age = {s1.age},phone_num = {s1.number},whatsapp_num = {s1.whatsappnumber},pict = @Image WHERE id = {id};";
+                cmd2.CommandText = $"UPDATE teacher SET id = {s1.personalcode} ,fieled_of_study = '{s1.fieled_of_study}' ,degree_of_education = {s1.degree_of_education} ,presence_record = {s1.presence_record} ,date_of_entry = '{s1.date_of_entry.Year}-{s1.date_of_entry.Month}-{s1.date_of_entry.Day}' WHERE id = {id};";
+                NpgsqlParameter param = cmd.CreateParameter();
+                param.ParameterName = "@Image";
+                param.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Bytea;
+                param.Value = s1.profilepicture;
+                cmd.Parameters.Add(param);
+                g1 = cmd.ExecuteNonQuery().ToString();
+                g2 = cmd2.ExecuteNonQuery().ToString();
+                con.Close();
+                return g1 + g2;
+            }
+            catch
+            {
+                MessageBox.Show("خطا در ویرایش استاد !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "00";
+            }
+            
         }
 
         public string pay_set(Payment p1, string sym="+")
         {
-            var con = new NpgsqlConnection(
-            connectionString: globalcon);
-            con.Open();
-            using var cmd = new NpgsqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = $"INSERT INTO payment(user_id, date_of_payment, term, amount, transaction_status, tracking_code,tracking_time , description) VALUES ({p1.userid}, '{p1.dateofpayment}', '{p1.term}', {p1.amount}, '{p1.transactionstatus}', '{p1.trackingcode}', '{p1.tarckingtime}' , '{p1.description}');";
-            cmd.CommandText = $"UPDATE users SET account_balance = account_balance {sym} {p1.accountbalance} WHERE id =  {p1.userid};";
-            string result = cmd.ExecuteNonQuery().ToString();
-            return result;
+            try
+            {
+                var con = new NpgsqlConnection(
+                connectionString: globalcon);
+                con.Open();
+                using var cmd = new NpgsqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = $"INSERT INTO payment(user_id, date_of_payment, term, amount, transaction_status, tracking_code,tracking_time , description) VALUES ({p1.userid}, '{p1.dateofpayment}', '{p1.term}', {p1.amount}, '{p1.transactionstatus}', '{p1.trackingcode}', '{p1.tarckingtime}' , '{p1.description}');";
+                cmd.CommandText = $"UPDATE users SET account_balance = account_balance {sym} {p1.accountbalance} WHERE id =  {p1.userid};";
+                string result = cmd.ExecuteNonQuery().ToString();
+                return result;
+            }
+            catch
+            {
+                MessageBox.Show("خطا در ثبت تراکنش !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "0";
+            }
+            
             
 
         }
 
         public string course_set(Course c1)
         {
-            var con = new NpgsqlConnection(
-            connectionString: globalcon);
-            con.Open();
-            using var cmd = new NpgsqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = $"INSERT INTO course(id,teacher_id, course_name, cost, date_of_start) VALUES ('{c1.courseid}', {c1.teacherid}, '{c1.coursename}', {c1.cost}, '{c1.dateofstart.Year}-{c1.dateofstart.Month}-{c1.dateofstart.Day}');";
-            string result = "";
-            result = cmd.ExecuteNonQuery().ToString();
-            return result;
+            try
+            {
+                var con = new NpgsqlConnection(
+                connectionString: globalcon);
+                con.Open();
+                using var cmd = new NpgsqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = $"INSERT INTO course(id,teacher_id, course_name, cost, date_of_start) VALUES ('{c1.courseid}', {c1.teacherid}, '{c1.coursename}', {c1.cost}, '{c1.dateofstart.Year}-{c1.dateofstart.Month}-{c1.dateofstart.Day}');";
+                string result = "";
+                result = cmd.ExecuteNonQuery().ToString();
+                return result;
+            }
+            catch
+            {
+                MessageBox.Show("خطا در ثبت کلاس !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "0";
+            }
+            
 
         }
 
         public string course_holding_set(Course_holding c1)
         {
-            var con = new NpgsqlConnection(
-            connectionString: globalcon);
-            con.Open();
-            using var cmd = new NpgsqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = $"INSERT INTO course_holding(course_id, date_of_sections, teacher_id, holding_status) VALUES ('{c1.courseid}', '{c1.dateOfsection}', {c1.teacherid}, {c1.holding_state});";
-            string result = "";
-            result = cmd.ExecuteNonQuery().ToString();
-            return result;
+            try
+            {
+                var con = new NpgsqlConnection(
+                connectionString: globalcon);
+                con.Open();
+                using var cmd = new NpgsqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = $"INSERT INTO course_holding(course_id, date_of_sections, teacher_id, holding_status) VALUES ('{c1.courseid}', '{c1.dateOfsection}', {c1.teacherid}, {c1.holding_state});";
+                string result = "";
+                result = cmd.ExecuteNonQuery().ToString();
+                return result;
+            }
+            catch
+            {
+                MessageBox.Show("خطا در ثبت جلسات کلاس !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "0";
+            }
+            
         }
 
         public string course_holding_update(string id,DateTime d1, bool b1,DateTime dremedical= default)
         {
-            var con = new NpgsqlConnection(
-            connectionString: globalcon);
-
-            string g1 = "";
-
-            con.Open();
-            //-----
-            using var cmd = new NpgsqlCommand();
-            
-            cmd.Connection = con;
-            if (b1 == true)
+            try
             {
-                cmd.CommandText = $"UPDATE course_holding SET holding_status = {b1}, date_of_remedical = null WHERE course_id = '{id}' and date_of_sections = '{d1}';";
+                var con = new NpgsqlConnection(
+                connectionString: globalcon);
+
+                string g1 = "";
+
+                con.Open();
+                //-----
+                using var cmd = new NpgsqlCommand();
+
+                cmd.Connection = con;
+                if (b1 == true)
+                {
+                    cmd.CommandText = $"UPDATE course_holding SET holding_status = {b1}, date_of_remedical = null WHERE course_id = '{id}' and date_of_sections = '{d1}';";
+                }
+                else
+                {
+                    cmd.CommandText = $"UPDATE course_holding SET holding_status = {b1}, date_of_remedical = '{dremedical}' WHERE course_id = '{id}' and date_of_sections = '{d1}';";
+                }
+
+                g1 = cmd.ExecuteNonQuery().ToString();
+                con.Close();
+                return g1;
             }
-            else
+            catch
             {
-                cmd.CommandText = $"UPDATE course_holding SET holding_status = {b1}, date_of_remedical = '{dremedical}' WHERE course_id = '{id}' and date_of_sections = '{d1}';";
+                MessageBox.Show("خطا در بروزرسانی اطلاعات کلاس !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "0";
             }
             
-            g1 = cmd.ExecuteNonQuery().ToString();
-            con.Close();
-            return g1;
         }
-        public void enrollment_set(Enrollment e1)
+        public string enrollment_set(Enrollment e1)
         {
-            var con = new NpgsqlConnection(
-            connectionString: globalcon);
-            con.Open();
-            using var cmd = new NpgsqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = $"INSERT INTO enrollment(course_id,student_id, whatsapp_gp, date_of_enrollment) VALUES ({e1.courseid}, {e1.studentid}, '{e1.whatsappgp}','{e1.dateofenrollment}');";
-            cmd.ExecuteNonQueryAsync();
-            Thread.Sleep(500);
+            try
+            {
+                var con = new NpgsqlConnection(
+                connectionString: globalcon);
+                string g1 = "";
+                con.Open();
+                using var cmd = new NpgsqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = $"INSERT INTO enrollment(course_id,student_id, whatsapp_gp, date_of_enrollment) VALUES ({e1.courseid}, {e1.studentid}, '{e1.whatsappgp}','{e1.dateofenrollment}');";
+                g1 = cmd.ExecuteNonQuery().ToString();
+                return g1;
+            }
+            catch
+            {
+                MessageBox.Show("خطا در ثبت نام !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "0";
+            }
+            
 
         }
 
         public GetStudent St_Reader(string thisid)
         {
-            var con = new NpgsqlConnection(
-            connectionString: globalcon);
-            GetStudent s1 = new GetStudent();
-            con.Open();
-            //-----
-            using var cmd = new NpgsqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = $"SELECT * FROM users WHERE id = {thisid};";
-
-
-            using (var reader = cmd.ExecuteReader())
+            try
             {
-                reader.Read();
-                s1.personalcode = Convert.ToString(reader[0]);
-                s1.firstname = Convert.ToString(reader[1]);
-                s1.lastname = Convert.ToString(reader[2]);
-                s1.age = Convert.ToInt32(reader[3]);
-                s1.number = Convert.ToInt64(reader[4]);
-                s1.whatsappnumber = Convert.ToInt64(reader[5]);
-                s1.account_balance = Convert.ToInt64(reader[7]);
-                
-                
-            }
-            using var cmd2 = new NpgsqlCommand();
-            cmd2.Connection = con;
-            cmd2.CommandText = $"SELECT * FROM student WHERE id = {thisid};";
-            using (var reader = cmd2.ExecuteReader())
-            {
-                reader.Read();
-                s1.education = Convert.ToInt16(reader[1]);
-                s1.fieled_of_study = Convert.ToString(reader[2]);
-                s1.maritalstatus = Convert.ToBoolean(reader[3]);
-                s1.job = Convert.ToString(reader[4]);
-                s1.city = Convert.ToString(reader[5]);
-                s1.classtype = Convert.ToBoolean(reader[6]);
-            }
+                var con = new NpgsqlConnection(
+                connectionString: globalcon);
+                GetStudent s1 = new GetStudent();
+                con.Open();
+                //-----
+                using var cmd = new NpgsqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = $"SELECT * FROM users WHERE id = {thisid};";
 
-            return s1;
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    reader.Read();
+                    s1.personalcode = Convert.ToString(reader[0]);
+                    s1.firstname = Convert.ToString(reader[1]);
+                    s1.lastname = Convert.ToString(reader[2]);
+                    s1.age = Convert.ToInt32(reader[3]);
+                    s1.number = Convert.ToInt64(reader[4]);
+                    s1.whatsappnumber = Convert.ToInt64(reader[5]);
+                    s1.account_balance = Convert.ToInt64(reader[7]);
+
+
+                }
+                using var cmd2 = new NpgsqlCommand();
+                cmd2.Connection = con;
+                cmd2.CommandText = $"SELECT * FROM student WHERE id = {thisid};";
+                using (var reader = cmd2.ExecuteReader())
+                {
+                    reader.Read();
+                    s1.education = Convert.ToInt16(reader[1]);
+                    s1.fieled_of_study = Convert.ToString(reader[2]);
+                    s1.maritalstatus = Convert.ToBoolean(reader[3]);
+                    s1.job = Convert.ToString(reader[4]);
+                    s1.city = Convert.ToString(reader[5]);
+                    s1.classtype = Convert.ToBoolean(reader[6]);
+                }
+
+                return s1;
+            }
+            catch
+            {
+                MessageBox.Show("خطا در خواندن اطلاعات دانشجو !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            
             //cmd.ExecuteNonQueryAsync();
         }
 
         public GetTeacher Pr_Reader(string thisid)
         {
+            try
+            {
+
+            }
+            catch
+            {
+                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             var con = new NpgsqlConnection(
             connectionString: globalcon);
             GetTeacher p1 = new GetTeacher();
@@ -422,6 +562,14 @@ namespace AmoozeshPJWinF
 
         public long acc_bl_reader(string thisid)
         {
+            try
+            {
+
+            }
+            catch
+            {
+                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             var con = new NpgsqlConnection(
             connectionString: globalcon);
             Payment p1 = new Payment();
@@ -443,6 +591,14 @@ namespace AmoozeshPJWinF
 
         public List<string> Course_holding_id_Reader_by_date(DateTime tod)
         {
+            try
+            {
+
+            }
+            catch
+            {
+                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             var con = new NpgsqlConnection(
             connectionString: globalcon);
             List<string> list = new List<string>();
@@ -469,6 +625,14 @@ namespace AmoozeshPJWinF
 
         public bool check_course_holding_status(string id, DateTime d1)
         {
+            try
+            {
+
+            }
+            catch
+            {
+                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             var con = new NpgsqlConnection(
             connectionString: globalcon);
             bool ids;
@@ -491,6 +655,14 @@ namespace AmoozeshPJWinF
 
         public GetCourse GetCourse_Reader_by_id(string id,DateTime d1)
         {
+            try
+            {
+
+            }
+            catch
+            {
+                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             var con = new NpgsqlConnection(
             connectionString: globalcon);
             
@@ -526,6 +698,14 @@ namespace AmoozeshPJWinF
 
         public List<GetTeacher> All_teacher_reader()
         {
+            try
+            {
+
+            }
+            catch
+            {
+                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             var con = new NpgsqlConnection(
             connectionString: globalcon);
             List<GetTeacher> list = new List<GetTeacher>();
@@ -574,7 +754,14 @@ namespace AmoozeshPJWinF
 
         public byte[] ImageToByteArray(System.Drawing.Image img)
         {
-            
+            try
+            {
+
+            }
+            catch
+            {
+                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             ImageConverter converter = new ImageConverter();
             return (byte[])converter.ConvertTo(img, typeof(byte[]));
         }
@@ -597,6 +784,14 @@ namespace AmoozeshPJWinF
 
         public void SaveImage(Image image, string name)
         {
+            try
+            {
+
+            }
+            catch
+            {
+                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
                 saveFileDialog.Filter = "JPEG Image|*.jpg|PNG Image|*.png|BMP Image|*.bmp";
@@ -644,6 +839,14 @@ namespace AmoozeshPJWinF
         //}
         public Image pic_reader(string id)
         {
+            try
+            {
+
+            }
+            catch
+            {
+                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             using (var conn = new NpgsqlConnection(globalcon))
             {
                 try
@@ -702,6 +905,14 @@ namespace AmoozeshPJWinF
 
         public DateTime cul_converter(DateTime d1)
         {
+            try
+            {
+
+            }
+            catch
+            {
+                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             PersianCalendar pc = new PersianCalendar();
             DateTime result = new DateTime(pc.GetYear(d1), pc.GetMonth(d1), pc.GetDayOfMonth(d1));
 
@@ -710,6 +921,14 @@ namespace AmoozeshPJWinF
 
         public List<DateTime> data_course_creator(DateTime d1, int d)
         {
+            try
+            {
+
+            }
+            catch
+            {
+                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             List<DateTime> list = new List<DateTime>();
             DateTime dateTime = d1;
             for (int i = 0; i < d; i++)
@@ -729,6 +948,14 @@ namespace AmoozeshPJWinF
         }
         public List<string> get_all_users()
         {
+            try
+            {
+
+            }
+            catch
+            {
+                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             var con = new NpgsqlConnection(
             connectionString: globalcon);
             string p1 = "";
@@ -754,6 +981,14 @@ namespace AmoozeshPJWinF
         }
         public showcourse show_course(string id)
         {
+            try
+            {
+
+            }
+            catch
+            {
+                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             showcourse s1 = new showcourse();
             
             var con = new NpgsqlConnection(
@@ -807,6 +1042,14 @@ namespace AmoozeshPJWinF
         }
         public List<showcourse> show_all_courseid_name()
         {
+            try
+            {
+
+            }
+            catch
+            {
+                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             showcourse s1 = new showcourse();
             List<showcourse> result = new List<showcourse>();
             var con = new NpgsqlConnection(
@@ -880,6 +1123,14 @@ namespace AmoozeshPJWinF
 
         public DataTable get_nonzero_balance()
         {
+            try
+            {
+
+            }
+            catch
+            {
+                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             DataTable result = new DataTable();
             //var con = new NpgsqlConnection(
             //connectionString: globalcon);
