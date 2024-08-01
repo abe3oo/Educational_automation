@@ -30,7 +30,6 @@
         {
             userradioButton = new RadioButton();
             balanceradiobot = new RadioButton();
-            radioButton3 = new RadioButton();
             classradioButton = new RadioButton();
             textBox1 = new TextBox();
             showbot = new Button();
@@ -89,6 +88,8 @@
             teacheridlbl = new Label();
             course_name = new Label();
             balancegroupbox = new GroupBox();
+            sumnumberlbl = new Label();
+            sumtxtlbl = new Label();
             balancelistview = new ListView();
             id = new ColumnHeader();
             fname = new ColumnHeader();
@@ -96,8 +97,6 @@
             balance = new ColumnHeader();
             showbalancebot = new Button();
             filterbalancecombo = new ComboBox();
-            sumtxtlbl = new Label();
-            sumnumberlbl = new Label();
             groupBoxsame.SuspendLayout();
             groupBoxSt.SuspendLayout();
             groupBoxTch.SuspendLayout();
@@ -130,17 +129,6 @@
             balanceradiobot.UseVisualStyleBackColor = true;
             balanceradiobot.CheckedChanged += balanceradiobot_CheckedChanged;
             // 
-            // radioButton3
-            // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(917, 211);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(117, 24);
-            radioButton3.TabIndex = 2;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "radioButton3";
-            radioButton3.UseVisualStyleBackColor = true;
-            // 
             // classradioButton
             // 
             classradioButton.AutoSize = true;
@@ -155,7 +143,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(674, 47);
+            textBox1.Location = new Point(734, 48);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(160, 27);
             textBox1.TabIndex = 5;
@@ -163,7 +151,7 @@
             // 
             // showbot
             // 
-            showbot.Location = new Point(604, 46);
+            showbot.Location = new Point(673, 48);
             showbot.Name = "showbot";
             showbot.Size = new Size(55, 29);
             showbot.TabIndex = 6;
@@ -746,11 +734,30 @@
             balancegroupbox.Controls.Add(balancelistview);
             balancegroupbox.Location = new Point(12, 104);
             balancegroupbox.Name = "balancegroupbox";
-            balancegroupbox.Size = new Size(666, 434);
+            balancegroupbox.Size = new Size(632, 434);
             balancegroupbox.TabIndex = 9;
             balancegroupbox.TabStop = false;
             balancegroupbox.Text = "بدهی ها";
             balancegroupbox.Visible = false;
+            // 
+            // sumnumberlbl
+            // 
+            sumnumberlbl.AutoSize = true;
+            sumnumberlbl.Location = new Point(284, 386);
+            sumnumberlbl.Name = "sumnumberlbl";
+            sumnumberlbl.Size = new Size(49, 20);
+            sumnumberlbl.TabIndex = 2;
+            sumnumberlbl.Text = "00000";
+            // 
+            // sumtxtlbl
+            // 
+            sumtxtlbl.AutoSize = true;
+            sumtxtlbl.Location = new Point(364, 386);
+            sumtxtlbl.Name = "sumtxtlbl";
+            sumtxtlbl.RightToLeft = RightToLeft.Yes;
+            sumtxtlbl.Size = new Size(118, 20);
+            sumtxtlbl.TabIndex = 1;
+            sumtxtlbl.Text = "مجموع بدهی ها :";
             // 
             // balancelistview
             // 
@@ -785,7 +792,7 @@
             // 
             // showbalancebot
             // 
-            showbalancebot.Location = new Point(684, 154);
+            showbalancebot.Location = new Point(694, 154);
             showbalancebot.Name = "showbalancebot";
             showbalancebot.Size = new Size(65, 29);
             showbalancebot.TabIndex = 10;
@@ -799,30 +806,11 @@
             filterbalancecombo.DropDownStyle = ComboBoxStyle.DropDownList;
             filterbalancecombo.FormattingEnabled = true;
             filterbalancecombo.Items.AddRange(new object[] { "بدهکاری ها", "بستانکاری ها" });
-            filterbalancecombo.Location = new Point(778, 154);
+            filterbalancecombo.Location = new Point(775, 155);
             filterbalancecombo.Name = "filterbalancecombo";
-            filterbalancecombo.Size = new Size(116, 28);
+            filterbalancecombo.Size = new Size(119, 28);
             filterbalancecombo.TabIndex = 11;
             filterbalancecombo.Visible = false;
-            // 
-            // sumtxtlbl
-            // 
-            sumtxtlbl.AutoSize = true;
-            sumtxtlbl.Location = new Point(364, 386);
-            sumtxtlbl.Name = "sumtxtlbl";
-            sumtxtlbl.RightToLeft = RightToLeft.Yes;
-            sumtxtlbl.Size = new Size(118, 20);
-            sumtxtlbl.TabIndex = 1;
-            sumtxtlbl.Text = "مجموع بدهی ها :";
-            // 
-            // sumnumberlbl
-            // 
-            sumnumberlbl.AutoSize = true;
-            sumnumberlbl.Location = new Point(284, 386);
-            sumnumberlbl.Name = "sumnumberlbl";
-            sumnumberlbl.Size = new Size(49, 20);
-            sumnumberlbl.TabIndex = 2;
-            sumnumberlbl.Text = "00000";
             // 
             // showForm
             // 
@@ -837,7 +825,6 @@
             Controls.Add(showbot);
             Controls.Add(textBox1);
             Controls.Add(classradioButton);
-            Controls.Add(radioButton3);
             Controls.Add(balanceradiobot);
             Controls.Add(userradioButton);
             Name = "showForm";
@@ -862,7 +849,6 @@
 
         private RadioButton userradioButton;
         private RadioButton balanceradiobot;
-        private RadioButton radioButton3;
         private RadioButton classradioButton;
         private TextBox textBox1;
         private Button showbot;

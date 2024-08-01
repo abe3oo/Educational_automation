@@ -60,6 +60,10 @@ namespace AmoozeshPJWinF
             sabtbutton = new Button();
             tracTypeCbox = new ComboBox();
             termCobox = new ComboBox();
+            hourupdown = new NumericUpDown();
+            minupdown = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)hourupdown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)minupdown).BeginInit();
             SuspendLayout();
             // 
             // userID
@@ -304,11 +308,30 @@ namespace AmoozeshPJWinF
             termCobox.Size = new Size(153, 28);
             termCobox.TabIndex = 25;
             // 
+            // hourupdown
+            // 
+            hourupdown.Location = new Point(546, 464);
+            hourupdown.Minimum = new decimal(new int[] { 1, 0, 0, int.MinValue });
+            hourupdown.Name = "hourupdown";
+            hourupdown.Size = new Size(52, 27);
+            hourupdown.TabIndex = 26;
+            hourupdown.ValueChanged += hourupdown_ValueChanged;
+            // 
+            // minupdown
+            // 
+            minupdown.Location = new Point(617, 464);
+            minupdown.Name = "minupdown";
+            minupdown.Size = new Size(48, 27);
+            minupdown.TabIndex = 27;
+            minupdown.ValueChanged += minupdown_ValueChanged;
+            // 
             // payWindow
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(927, 600);
+            Controls.Add(minupdown);
+            Controls.Add(hourupdown);
             Controls.Add(termCobox);
             Controls.Add(tracTypeCbox);
             Controls.Add(sabtbutton);
@@ -337,6 +360,8 @@ namespace AmoozeshPJWinF
             Name = "payWindow";
             Text = "Form2";
             Load += payWindow_Load;
+            ((System.ComponentModel.ISupportInitialize)hourupdown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)minupdown).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -461,5 +486,7 @@ namespace AmoozeshPJWinF
         private Button sabtbutton;
         private ComboBox tracTypeCbox;
         private ComboBox termCobox;
+        private NumericUpDown hourupdown;
+        private NumericUpDown minupdown;
     }
 }

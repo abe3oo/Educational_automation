@@ -575,6 +575,19 @@ namespace AmoozeshPJWinF
             {
                 e.Handled = true;
             }
+
+
+            if (char.IsDigit(e.KeyChar))
+            {
+                int number;
+                if (int.TryParse(Yearenterybox.Text + e.KeyChar, out number))
+                {
+                    if (number < 1 || number > 3000)
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
         }
 
         private void Monthenterybox_KeyPress(object sender, KeyPressEventArgs e)
@@ -583,6 +596,19 @@ namespace AmoozeshPJWinF
             {
                 e.Handled = true;
             }
+
+
+            if (char.IsDigit(e.KeyChar))
+            {
+                int number;
+                if (int.TryParse(Monthenterybox.Text + e.KeyChar, out number))
+                {
+                    if (number < 1 || number > 12)
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
         }
 
         private void Dayenterybox_KeyPress(object sender, KeyPressEventArgs e)
@@ -590,6 +616,19 @@ namespace AmoozeshPJWinF
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+
+
+            if (char.IsDigit(e.KeyChar))
+            {
+                int number;
+                if (int.TryParse(Dayenterybox.Text + e.KeyChar, out number))
+                {
+                    if (number < 1 || number > 31)
+                    {
+                        e.Handled = true;
+                    }
+                }
             }
         }
 

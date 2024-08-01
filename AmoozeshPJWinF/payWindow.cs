@@ -55,6 +55,19 @@ namespace AmoozeshPJWinF
             {
                 e.Handled = true;
             }
+
+
+            if (char.IsDigit(e.KeyChar))
+            {
+                int number;
+                if (int.TryParse(datetxby.Text + e.KeyChar, out number))
+                {
+                    if (number < 1 || number > 3000)
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
         }
 
 
@@ -64,6 +77,19 @@ namespace AmoozeshPJWinF
             {
                 e.Handled = true;
             }
+
+
+            if (char.IsDigit(e.KeyChar))
+            {
+                int number;
+                if (int.TryParse(datetxbm.Text + e.KeyChar, out number))
+                {
+                    if (number < 1 || number > 12)
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
         }
 
         private void datetxbd_KeyPress(object sender, KeyPressEventArgs e)
@@ -71,6 +97,19 @@ namespace AmoozeshPJWinF
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+
+
+            if (char.IsDigit(e.KeyChar))
+            {
+                int number;
+                if (int.TryParse(datetxbd.Text + e.KeyChar, out number))
+                {
+                    if (number < 1 || number > 31)
+                    {
+                        e.Handled = true;
+                    }
+                }
             }
         }
 
@@ -124,6 +163,30 @@ namespace AmoozeshPJWinF
         private void amounttxb_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void hourupdown_ValueChanged(object sender, EventArgs e)
+        {
+            if (hourupdown.Value < 0)
+            {
+                hourupdown.Value = 23;
+            }
+            else if (hourupdown.Value >= 24)
+            {
+                hourupdown.Value = 0;
+            }
+        }
+
+        private void minupdown_ValueChanged(object sender, EventArgs e)
+        {
+            if (minupdown.Value < 0)
+            {
+                minupdown.Value = 59;
+            }
+            else if (minupdown.Value >= 60)
+            {
+                minupdown.Value = 0;
+            }
         }
     }
 }

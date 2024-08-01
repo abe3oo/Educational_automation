@@ -618,7 +618,7 @@ namespace AmoozeshPJWinF
                 e.Handled = true;
             }
 
-            // بررسی اینکه ورودی عددی بین 1 و 12 باشد
+            
             if (char.IsDigit(e.KeyChar))
             {
                 int number;

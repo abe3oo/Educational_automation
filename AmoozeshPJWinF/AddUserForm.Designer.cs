@@ -177,7 +177,7 @@
             // checkBoxWA
             // 
             checkBoxWA.AutoSize = true;
-            checkBoxWA.Location = new Point(158, 196);
+            checkBoxWA.Location = new Point(306, 199);
             checkBoxWA.Name = "checkBoxWA";
             checkBoxWA.Size = new Size(18, 17);
             checkBoxWA.TabIndex = 16;
@@ -187,7 +187,7 @@
             // educationlabel
             // 
             educationlabel.AutoSize = true;
-            educationlabel.Location = new Point(182, 260);
+            educationlabel.Location = new Point(153, 261);
             educationlabel.Name = "educationlabel";
             educationlabel.RightToLeft = RightToLeft.Yes;
             educationlabel.Size = new Size(112, 20);
@@ -197,7 +197,7 @@
             // Fieldlabel
             // 
             Fieldlabel.AutoSize = true;
-            Fieldlabel.Location = new Point(182, 227);
+            Fieldlabel.Location = new Point(153, 228);
             Fieldlabel.Name = "Fieldlabel";
             Fieldlabel.RightToLeft = RightToLeft.Yes;
             Fieldlabel.Size = new Size(47, 20);
@@ -207,7 +207,7 @@
             // WAnamberlabel
             // 
             WAnamberlabel.AutoSize = true;
-            WAnamberlabel.Location = new Point(182, 195);
+            WAnamberlabel.Location = new Point(153, 196);
             WAnamberlabel.Name = "WAnamberlabel";
             WAnamberlabel.RightToLeft = RightToLeft.Yes;
             WAnamberlabel.Size = new Size(147, 20);
@@ -217,7 +217,7 @@
             // NumberLabel
             // 
             NumberLabel.AutoSize = true;
-            NumberLabel.Location = new Point(182, 161);
+            NumberLabel.Location = new Point(153, 162);
             NumberLabel.Name = "NumberLabel";
             NumberLabel.RightToLeft = RightToLeft.Yes;
             NumberLabel.Size = new Size(55, 20);
@@ -227,7 +227,7 @@
             // Agelabel
             // 
             Agelabel.AutoSize = true;
-            Agelabel.Location = new Point(182, 128);
+            Agelabel.Location = new Point(153, 129);
             Agelabel.Name = "Agelabel";
             Agelabel.RightToLeft = RightToLeft.Yes;
             Agelabel.Size = new Size(39, 20);
@@ -237,7 +237,7 @@
             // Lnamelabel
             // 
             Lnamelabel.AutoSize = true;
-            Lnamelabel.Location = new Point(182, 95);
+            Lnamelabel.Location = new Point(153, 96);
             Lnamelabel.Name = "Lnamelabel";
             Lnamelabel.RightToLeft = RightToLeft.Yes;
             Lnamelabel.Size = new Size(97, 20);
@@ -247,7 +247,7 @@
             // Fnamelabel
             // 
             Fnamelabel.AutoSize = true;
-            Fnamelabel.Location = new Point(182, 61);
+            Fnamelabel.Location = new Point(153, 62);
             Fnamelabel.Name = "Fnamelabel";
             Fnamelabel.RightToLeft = RightToLeft.Yes;
             Fnamelabel.Size = new Size(34, 20);
@@ -257,7 +257,7 @@
             // idlabel
             // 
             idlabel.AutoSize = true;
-            idlabel.Location = new Point(182, 29);
+            idlabel.Location = new Point(153, 30);
             idlabel.Name = "idlabel";
             idlabel.RightToLeft = RightToLeft.Yes;
             idlabel.Size = new Size(63, 20);
@@ -346,7 +346,7 @@
             groupBoxSt.Controls.Add(Jobbox);
             groupBoxSt.Controls.Add(Citybox);
             groupBoxSt.Controls.Add(MaritalCbox);
-            groupBoxSt.Location = new Point(405, 369);
+            groupBoxSt.Location = new Point(37, 350);
             groupBoxSt.Name = "groupBoxSt";
             groupBoxSt.Size = new Size(331, 156);
             groupBoxSt.TabIndex = 2;
