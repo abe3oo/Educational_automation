@@ -31,6 +31,15 @@ namespace AmoozeshPJWinF
                 todayclasslabel.Text = "کلاس های امروز:";
                 coursetodayGridView.DataSource = coursetoday;
                 button5.Enabled = true;
+                classidcombo.Enabled = true;
+                classidcombo.Items.Clear();
+                button5.Enabled = true;
+
+                foreach (GetCourse gid in coursetoday)
+                {
+
+                    classidcombo.Items.Add(gid.آی_دی_کلاس.ToString());
+                }
 
             }
             else

@@ -27,11 +27,11 @@ namespace AmoozeshPJWinF
         {
             if (studentIDtxb.Text == "")
             {
-                sabtEnorollmetButton.Enabled = false;
+                setbot.Enabled = false;
             }
             else
             {
-                sabtEnorollmetButton.Enabled = true;
+                setbot.Enabled = true;
             }
         }
 
@@ -40,11 +40,11 @@ namespace AmoozeshPJWinF
 
             if (studentIDtxb.Text == "")
             {
-                sabtEnorollmetButton.Enabled = false;
+                setbot.Enabled = false;
             }
             else
             {
-                sabtEnorollmetButton.Enabled = true;
+                setbot.Enabled = true;
             }
         }
 

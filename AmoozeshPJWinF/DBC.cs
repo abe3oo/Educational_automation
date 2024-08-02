@@ -883,7 +883,7 @@ namespace AmoozeshPJWinF
 
         public DateTime cul_converter(DateTime d1)
         {
-            DateTime result1 = new DateTime(0000,00,00);
+            DateTime result1 = new DateTime(1000,01,01);
             try
             {
                 PersianCalendar pc = new PersianCalendar();

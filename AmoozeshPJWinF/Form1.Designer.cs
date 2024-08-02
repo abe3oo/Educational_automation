@@ -38,7 +38,6 @@
             daylabelpr = new Label();
             label1 = new Label();
             label2 = new Label();
-            groupBox1 = new GroupBox();
             clocklabel = new Label();
             day1 = new Button();
             day2 = new Button();
@@ -93,30 +92,35 @@
             monthremedical = new TextBox();
             yearremedical = new TextBox();
             label4 = new Label();
-            groupBox1.SuspendLayout();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)coursetodayGridView).BeginInit();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(842, 399);
+            button1.BackColor = Color.LavenderBlush;
+            button1.Location = new Point(644, 469);
             button1.Name = "button1";
-            button1.Size = new Size(112, 29);
+            button1.Size = new Size(96, 32);
             button1.TabIndex = 0;
-            button1.Text = "AddUser";
-            button1.UseVisualStyleBackColor = true;
+            button1.Text = "افزودن کاربر";
+            button1.UseVisualStyleBackColor = false;
             button1.Click += Adduser_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(842, 434);
+            button2.BackColor = Color.LavenderBlush;
+            button2.BackgroundImageLayout = ImageLayout.None;
+            button2.ForeColor = SystemColors.ActiveCaptionText;
+            button2.Location = new Point(845, 421);
             button2.Name = "button2";
-            button2.Size = new Size(112, 29);
+            button2.Size = new Size(96, 32);
             button2.TabIndex = 1;
-            button2.Text = "pay";
-            button2.UseVisualStyleBackColor = true;
+            button2.Text = "پرداخت ها";
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // timer1
@@ -127,7 +131,8 @@
             // 
             yearlabelpr.AutoSize = true;
             yearlabelpr.Font = new Font("Segoe UI", 11F);
-            yearlabelpr.Location = new Point(58, 16);
+            yearlabelpr.ForeColor = Color.White;
+            yearlabelpr.Location = new Point(-2, 11);
             yearlabelpr.Name = "yearlabelpr";
             yearlabelpr.Size = new Size(52, 25);
             yearlabelpr.TabIndex = 2;
@@ -137,7 +142,8 @@
             // 
             monthlabelpr.AutoSize = true;
             monthlabelpr.Font = new Font("Segoe UI", 11F);
-            monthlabelpr.Location = new Point(117, 16);
+            monthlabelpr.ForeColor = Color.White;
+            monthlabelpr.Location = new Point(57, 11);
             monthlabelpr.Name = "monthlabelpr";
             monthlabelpr.Size = new Size(32, 25);
             monthlabelpr.TabIndex = 3;
@@ -148,7 +154,8 @@
             // 
             daylabelpr.AutoSize = true;
             daylabelpr.Font = new Font("Segoe UI", 11F);
-            daylabelpr.Location = new Point(155, 16);
+            daylabelpr.ForeColor = Color.White;
+            daylabelpr.Location = new Point(95, 11);
             daylabelpr.Name = "daylabelpr";
             daylabelpr.Size = new Size(32, 25);
             daylabelpr.TabIndex = 4;
@@ -160,7 +167,8 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11F);
-            label1.Location = new Point(103, 15);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(43, 10);
             label1.Name = "label1";
             label1.Size = new Size(19, 25);
             label1.TabIndex = 5;
@@ -170,32 +178,19 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F);
-            label2.Location = new Point(142, 15);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(82, 10);
             label2.Name = "label2";
             label2.Size = new Size(19, 25);
             label2.TabIndex = 6;
             label2.Text = "/";
             // 
-            // groupBox1
-            // 
-            groupBox1.BackColor = Color.Transparent;
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(clocklabel);
-            groupBox1.Controls.Add(yearlabelpr);
-            groupBox1.Controls.Add(monthlabelpr);
-            groupBox1.Controls.Add(daylabelpr);
-            groupBox1.Location = new Point(339, 12);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(349, 51);
-            groupBox1.TabIndex = 7;
-            groupBox1.TabStop = false;
-            // 
             // clocklabel
             // 
             clocklabel.AutoSize = true;
             clocklabel.Font = new Font("Segoe UI", 11F);
-            clocklabel.Location = new Point(230, 17);
+            clocklabel.ForeColor = Color.White;
+            clocklabel.Location = new Point(170, 12);
             clocklabel.Name = "clocklabel";
             clocklabel.Size = new Size(80, 25);
             clocklabel.TabIndex = 8;
@@ -513,20 +508,21 @@
             // 
             // AddCourse
             // 
-            AddCourse.Location = new Point(842, 470);
+            AddCourse.BackColor = Color.LavenderBlush;
+            AddCourse.Location = new Point(240, 470);
             AddCourse.Margin = new Padding(3, 4, 3, 4);
             AddCourse.Name = "AddCourse";
-            AddCourse.Size = new Size(112, 31);
+            AddCourse.Size = new Size(96, 32);
             AddCourse.TabIndex = 39;
-            AddCourse.Text = "Add Course";
-            AddCourse.UseVisualStyleBackColor = true;
+            AddCourse.Text = "افزودن کلاس";
+            AddCourse.UseVisualStyleBackColor = false;
             AddCourse.Click += AddCourse_Click;
             // 
             // yearlabelcul
             // 
             yearlabelcul.AutoSize = true;
             yearlabelcul.Font = new Font("Segoe UI", 11F);
-            yearlabelcul.Location = new Point(71, 105);
+            yearlabelcul.Location = new Point(71, 107);
             yearlabelcul.Name = "yearlabelcul";
             yearlabelcul.Size = new Size(52, 25);
             yearlabelcul.TabIndex = 9;
@@ -536,7 +532,7 @@
             // 
             monthlabelcul.AutoSize = true;
             monthlabelcul.Font = new Font("Segoe UI", 11F);
-            monthlabelcul.Location = new Point(139, 105);
+            monthlabelcul.Location = new Point(139, 107);
             monthlabelcul.Name = "monthlabelcul";
             monthlabelcul.Size = new Size(32, 25);
             monthlabelcul.TabIndex = 40;
@@ -547,7 +543,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11F);
-            label3.Location = new Point(123, 105);
+            label3.Location = new Point(123, 107);
             label3.Name = "label3";
             label3.Size = new Size(19, 25);
             label3.TabIndex = 9;
@@ -556,7 +552,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(178, 105);
+            button3.Location = new Point(178, 107);
             button3.Name = "button3";
             button3.Size = new Size(35, 29);
             button3.TabIndex = 41;
@@ -566,7 +562,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(30, 105);
+            button4.Location = new Point(30, 106);
             button4.Name = "button4";
             button4.Size = new Size(35, 29);
             button4.TabIndex = 42;
@@ -586,12 +582,13 @@
             // 
             // enrollment
             // 
-            enrollment.Location = new Point(842, 508);
+            enrollment.BackColor = Color.LavenderBlush;
+            enrollment.Location = new Point(38, 421);
             enrollment.Name = "enrollment";
-            enrollment.Size = new Size(112, 29);
+            enrollment.Size = new Size(96, 32);
             enrollment.TabIndex = 44;
-            enrollment.Text = "enrollment";
-            enrollment.UseVisualStyleBackColor = true;
+            enrollment.Text = "ثبت نام";
+            enrollment.UseVisualStyleBackColor = false;
             enrollment.Click += button5_Click;
             // 
             // coursetodayGridView
@@ -616,12 +613,12 @@
             // 
             // showbot
             // 
-            showbot.BackColor = Color.Transparent;
-            showbot.Location = new Point(842, 364);
+            showbot.BackColor = Color.LavenderBlush;
+            showbot.Location = new Point(442, 492);
             showbot.Name = "showbot";
-            showbot.Size = new Size(112, 29);
+            showbot.Size = new Size(96, 32);
             showbot.TabIndex = 47;
-            showbot.Text = "show";
+            showbot.Text = "نمایش";
             showbot.UseVisualStyleBackColor = false;
             showbot.Click += showbot_Click;
             // 
@@ -664,7 +661,7 @@
             groupBox2.Controls.Add(classidcombo);
             groupBox2.Controls.Add(falsebot);
             groupBox2.Controls.Add(truebot);
-            groupBox2.Location = new Point(272, 352);
+            groupBox2.Location = new Point(514, 352);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(255, 47);
             groupBox2.TabIndex = 52;
@@ -674,7 +671,7 @@
             // button5
             // 
             button5.Enabled = false;
-            button5.Location = new Point(533, 365);
+            button5.Location = new Point(799, 361);
             button5.Name = "button5";
             button5.Size = new Size(155, 29);
             button5.TabIndex = 53;
@@ -690,9 +687,9 @@
             groupBox3.Controls.Add(monthremedical);
             groupBox3.Controls.Add(yearremedical);
             groupBox3.Controls.Add(label4);
-            groupBox3.Location = new Point(272, 405);
+            groupBox3.Location = new Point(56, 352);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(452, 51);
+            groupBox3.Size = new Size(452, 47);
             groupBox3.TabIndex = 54;
             groupBox3.TabStop = false;
             groupBox3.Visible = false;
@@ -700,7 +697,7 @@
             // 
             // acceptbot
             // 
-            acceptbot.Location = new Point(6, 17);
+            acceptbot.Location = new Point(8, 13);
             acceptbot.Name = "acceptbot";
             acceptbot.Size = new Size(59, 29);
             acceptbot.TabIndex = 6;
@@ -710,7 +707,7 @@
             // 
             // dayremedical
             // 
-            dayremedical.Location = new Point(202, 17);
+            dayremedical.Location = new Point(198, 13);
             dayremedical.Name = "dayremedical";
             dayremedical.Size = new Size(37, 27);
             dayremedical.TabIndex = 5;
@@ -718,7 +715,7 @@
             // 
             // monthremedical
             // 
-            monthremedical.Location = new Point(155, 17);
+            monthremedical.Location = new Point(155, 13);
             monthremedical.Name = "monthremedical";
             monthremedical.Size = new Size(37, 27);
             monthremedical.TabIndex = 4;
@@ -726,7 +723,7 @@
             // 
             // yearremedical
             // 
-            yearremedical.Location = new Point(89, 17);
+            yearremedical.Location = new Point(90, 13);
             yearremedical.Name = "yearremedical";
             yearremedical.Size = new Size(55, 27);
             yearremedical.TabIndex = 1;
@@ -735,12 +732,26 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(257, 21);
+            label4.Location = new Point(257, 18);
             label4.Name = "label4";
             label4.RightToLeft = RightToLeft.Yes;
             label4.Size = new Size(189, 20);
             label4.TabIndex = 0;
             label4.Text = "تاریخ جبرانی را مشخص کنید :";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(clocklabel);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(daylabelpr);
+            panel1.Controls.Add(monthlabelpr);
+            panel1.Controls.Add(yearlabelpr);
+            panel1.Location = new Point(366, 13);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(250, 48);
+            panel1.TabIndex = 55;
             // 
             // Form1
             // 
@@ -750,6 +761,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(978, 549);
+            Controls.Add(panel1);
             Controls.Add(groupBox3);
             Controls.Add(button5);
             Controls.Add(groupBox2);
@@ -795,19 +807,18 @@
             Controls.Add(day3);
             Controls.Add(day2);
             Controls.Add(day1);
-            Controls.Add(groupBox1);
             Controls.Add(button2);
             Controls.Add(button1);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)coursetodayGridView).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -822,7 +833,6 @@
         private Label daylabelpr;
         private Label label1;
         private Label label2;
-        private GroupBox groupBox1;
         private Label clocklabel;
         private Button day1;
         private Button day2;
@@ -877,5 +887,6 @@
         private TextBox monthremedical;
         private TextBox dayremedical;
         private Button acceptbot;
+        private Panel panel1;
     }
 }
