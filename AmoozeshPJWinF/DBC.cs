@@ -516,47 +516,48 @@ namespace AmoozeshPJWinF
         {
             try
             {
+                var con = new NpgsqlConnection(
+                connectionString: globalcon);
+                GetTeacher p1 = new GetTeacher();
+                con.Open();
+                //-----
+                using var cmd = new NpgsqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = $"SELECT * FROM users WHERE id = {thisid};";
 
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    reader.Read();
+                    p1.personalcode = Convert.ToString(reader[0]);
+                    p1.firstname = Convert.ToString(reader[1]);
+                    p1.lastname = Convert.ToString(reader[2]);
+                    p1.age = Convert.ToInt32(reader[3]);
+                    p1.number = Convert.ToInt64(reader[4]);
+                    p1.whatsappnumber = Convert.ToInt64(reader[5]);
+                    p1.account_balance = Convert.ToInt64(reader[7]);
+                }
+                using var cmd2 = new NpgsqlCommand();
+                cmd2.Connection = con;
+                cmd2.CommandText = $"SELECT * FROM teacher WHERE id = {thisid};";
+                using (var reader = cmd2.ExecuteReader())
+                {
+                    reader.Read();
+
+                    p1.fieled_of_study = Convert.ToString(reader[1]);
+                    p1.degree_of_education = Convert.ToInt32(reader[2]);
+                    p1.presence_record = Convert.ToInt32(reader[3]);
+                    p1.date_of_entry = Convert.ToDateTime(reader[4]);
+                }
+                con.Close();
+                return p1;
             }
             catch
             {
-                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("خطا در خواندن اطلاعات استاد !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
-            var con = new NpgsqlConnection(
-            connectionString: globalcon);
-            GetTeacher p1 = new GetTeacher();
-            con.Open();
-            //-----
-            using var cmd = new NpgsqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = $"SELECT * FROM users WHERE id = {thisid};";
-
-
-            using (var reader = cmd.ExecuteReader())
-            {
-                reader.Read();
-                p1.personalcode = Convert.ToString(reader[0]);
-                p1.firstname = Convert.ToString(reader[1]);
-                p1.lastname = Convert.ToString(reader[2]);
-                p1.age = Convert.ToInt32(reader[3]);
-                p1.number = Convert.ToInt64(reader[4]);
-                p1.whatsappnumber = Convert.ToInt64(reader[5]);
-                p1.account_balance = Convert.ToInt64(reader[7]);
-            }
-            using var cmd2 = new NpgsqlCommand();
-            cmd2.Connection = con;
-            cmd2.CommandText = $"SELECT * FROM teacher WHERE id = {thisid};";
-            using (var reader = cmd2.ExecuteReader())
-            {
-                reader.Read();
-                
-                p1.fieled_of_study = Convert.ToString(reader[1]);
-                p1.degree_of_education = Convert.ToInt32(reader[2]);
-                p1.presence_record = Convert.ToInt32(reader[3]);
-                p1.date_of_entry = Convert.ToDateTime(reader[4]);
-            }
-            con.Close();
-            return p1;
+            
             //cmd.ExecuteNonQueryAsync();
         }
 
@@ -564,28 +565,29 @@ namespace AmoozeshPJWinF
         {
             try
             {
+                var con = new NpgsqlConnection(
+                connectionString: globalcon);
+                Payment p1 = new Payment();
+                con.Open();
+                //-----
+                using var cmd = new NpgsqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = $"SELECT account_balance FROM users WHERE id = {thisid};";
 
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    reader.Read();
+                    p1.accountbalance = Convert.ToInt64(reader[0]);
+                }
+                return p1.accountbalance;
             }
             catch
             {
-                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("خطا در خواندن اطلاعات مالی کاربر !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
             }
-            var con = new NpgsqlConnection(
-            connectionString: globalcon);
-            Payment p1 = new Payment();
-            con.Open();
-            //-----
-            using var cmd = new NpgsqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = $"SELECT account_balance FROM users WHERE id = {thisid};";
-
-
-            using (var reader = cmd.ExecuteReader())
-            {
-                reader.Read();
-                p1.accountbalance = Convert.ToInt64(reader[0]);
-            }
-             return p1.accountbalance;
+            
             
         }
 
@@ -593,33 +595,34 @@ namespace AmoozeshPJWinF
         {
             try
             {
+                var con = new NpgsqlConnection(
+                connectionString: globalcon);
+                List<string> list = new List<string>();
 
+                con.Open();
+                //-----
+                using var cmd = new NpgsqlCommand();
+
+                cmd.Connection = con;
+
+                cmd.CommandText = $"SELECT course_id FROM course_holding WHERE date_of_sections = '{tod.Year}-{tod.Month}-{tod.Day}';";
+                using (var reader = cmd.ExecuteReader())
+                {
+
+                    while (reader.Read())
+                    {
+                        string id = Convert.ToString(reader.GetString(0));
+                        list.Add(id);
+                    }
+                }
+                return list;
             }
             catch
             {
-                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("خطا در خواندن اطلاعات کلاس !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
-            var con = new NpgsqlConnection(
-            connectionString: globalcon);
-            List<string> list = new List<string>();
-
-            con.Open();
-            //-----
-            using var cmd = new NpgsqlCommand();
-
-            cmd.Connection = con;
-
-            cmd.CommandText = $"SELECT course_id FROM course_holding WHERE date_of_sections = '{tod.Year}-{tod.Month}-{tod.Day}';";
-            using (var reader = cmd.ExecuteReader())
-            {
-
-                while (reader.Read())
-                {
-                    string id = Convert.ToString(reader.GetString(0));
-                    list.Add(id);
-                }
-            }
-            return list;
+            
             //cmd.ExecuteNonQueryAsync();
         }
 
@@ -627,72 +630,74 @@ namespace AmoozeshPJWinF
         {
             try
             {
+                var con = new NpgsqlConnection(
+                connectionString: globalcon);
+                bool ids;
 
+                con.Open();
+                //-----
+                using var cmd = new NpgsqlCommand();
+
+                cmd.Connection = con;
+                cmd.CommandText = $"SELECT holding_status FROM course_holding WHERE course_id = '{id}' and date_of_sections = '{d1}';";
+                using (var reader = cmd.ExecuteReader())
+                {
+
+                    reader.Read();
+
+                    ids = Convert.ToBoolean(reader.GetBoolean(0));
+                }
+                return ids;
             }
             catch
             {
-                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("خطا در خواندن وضعیت !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
-            var con = new NpgsqlConnection(
-            connectionString: globalcon);
-            bool ids;
-
-            con.Open();
-            //-----
-            using var cmd = new NpgsqlCommand();
-
-            cmd.Connection = con;
-            cmd.CommandText = $"SELECT holding_status FROM course_holding WHERE course_id = '{id}' and date_of_sections = '{d1}';";
-            using (var reader = cmd.ExecuteReader())
-            {
-
-                reader.Read();
-                
-                ids = Convert.ToBoolean(reader.GetBoolean(0));
-            }
-            return ids;
+            
         }
 
         public GetCourse GetCourse_Reader_by_id(string id,DateTime d1)
         {
             try
             {
+                var con = new NpgsqlConnection(
+                connectionString: globalcon);
 
+                GetCourse g1 = new GetCourse();
+                con.Open();
+                //-----
+                using var cmd = new NpgsqlCommand();
+
+                cmd.Connection = con;
+
+                cmd.CommandText = $"SELECT * FROM course WHERE id = '{id}';";
+                using (var reader = cmd.ExecuteReader())
+                {
+                    reader.Read();
+
+                    g1.آی_دی_کلاس = Convert.ToString(reader.GetString(0));
+                    g1.کد_ملی_استاد = Convert.ToInt64(reader.GetInt64(1));
+                    g1.نام_کلاس = Convert.ToString(reader.GetString(2));
+                    g1.ساعت = Convert.ToString(reader.GetString(0).Substring(4, 2) + ":" + reader.GetString(0).Substring(6, 2));
+                }
+                using var cmd2 = new NpgsqlCommand();
+
+                cmd2.Connection = con;
+                cmd2.CommandText = $"SELECT holding_status FROM course_holding WHERE course_id = '{id}' and date_of_sections = '{d1}';";
+                using (var reader = cmd2.ExecuteReader())
+                {
+                    reader.Read();
+                    g1.وضعیت_برگذاری = Convert.ToString(reader.GetBoolean(0));
+                }
+                return g1;
             }
             catch
             {
-                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("خطا در خواندن اطلاعات کلاس !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
-            var con = new NpgsqlConnection(
-            connectionString: globalcon);
             
-            GetCourse g1 = new GetCourse();
-            con.Open();
-            //-----
-            using var cmd = new NpgsqlCommand();
-
-            cmd.Connection = con;
-
-            cmd.CommandText = $"SELECT * FROM course WHERE id = '{id}';";
-            using (var reader = cmd.ExecuteReader())
-            {
-                reader.Read();
-                
-                g1.آی_دی_کلاس = Convert.ToString(reader.GetString(0));
-                g1.کد_ملی_استاد = Convert.ToInt64(reader.GetInt64(1));
-                g1.نام_کلاس = Convert.ToString(reader.GetString(2));
-                g1.ساعت = Convert.ToString(reader.GetString(0).Substring(4,2) + ":" + reader.GetString(0).Substring(6, 2));
-            }
-            using var cmd2 = new NpgsqlCommand();
-
-            cmd2.Connection = con;
-            cmd2.CommandText = $"SELECT holding_status FROM course_holding WHERE course_id = '{id}' and date_of_sections = '{d1}';";
-            using (var reader = cmd2.ExecuteReader())
-            {
-                reader.Read();
-                g1.وضعیت_برگذاری = Convert.ToString(reader.GetBoolean(0));
-            }
-            return g1;
             //cmd.ExecuteNonQueryAsync();
         }
 
@@ -700,55 +705,51 @@ namespace AmoozeshPJWinF
         {
             try
             {
+                var con = new NpgsqlConnection(
+                connectionString: globalcon);
+                List<GetTeacher> list = new List<GetTeacher>();
+                List<long> ids = new List<long>();
 
+                con.Open();
+                //-----
+                using var cmd = new NpgsqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = $"SELECT * FROM teacher;";
+                using (var reader = cmd.ExecuteReader())
+                {
+
+                    while (reader.Read())
+                    {
+
+
+                        ids.Add(Convert.ToInt64(reader.GetInt64(0)));
+                    }
+                }
+                using var cmd2 = new NpgsqlCommand();
+                cmd2.Connection = con;
+                foreach (var id in ids)
+                {
+                    cmd2.CommandText = $"SELECT * FROM users WHERE id = {id};";
+                    using (var reader = cmd2.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            GetTeacher g1 = new GetTeacher();
+                            g1.personalcode = id.ToString();
+                            g1.firstname = Convert.ToString(reader.GetString(1));
+                            g1.lastname = Convert.ToString(reader.GetString(2));
+                            list.Add(g1);
+                        }
+                    }
+                }
+                return list;
             }
             catch
             {
-                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            var con = new NpgsqlConnection(
-            connectionString: globalcon);
-            List<GetTeacher> list = new List<GetTeacher>();
-            List<long> ids = new List<long>();
-            
-            con.Open();
-            //-----
-            using var cmd = new NpgsqlCommand();
-
-            cmd.Connection = con;
-
-            cmd.CommandText = $"SELECT * FROM teacher;";
-            using (var reader = cmd.ExecuteReader())
-            {
-
-                while (reader.Read())
-                {
-                    
-                    
-                    ids.Add(Convert.ToInt64(reader.GetInt64(0)));
-                }
-            }
-
-            using var cmd2 = new NpgsqlCommand();
-            cmd2.Connection = con;
-            foreach (var id in ids)
-            {
-                cmd2.CommandText = $"SELECT * FROM users WHERE id = {id};";
-                using (var reader = cmd2.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        GetTeacher g1 = new GetTeacher();
-                        g1.personalcode = id.ToString();
-                        g1.firstname = Convert.ToString(reader.GetString(1));
-                        g1.lastname = Convert.ToString(reader.GetString(2));
-                        list.Add(g1);
-                    }
-                }
+                MessageBox.Show("خطا در خواندن اطلاعات استاد !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
             
-            
-            return list;
         }
 
 
@@ -756,67 +757,52 @@ namespace AmoozeshPJWinF
         {
             try
             {
-
+                ImageConverter converter = new ImageConverter();
+                return (byte[])converter.ConvertTo(img, typeof(byte[]));
             }
             catch
             {
-                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("خطا در تبدیل فرمت تصویر !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
-            ImageConverter converter = new ImageConverter();
-            return (byte[])converter.ConvertTo(img, typeof(byte[]));
-        }
-
-        public Image byteArrayToImage(byte[] byteArrayIn)
-        {
             
-            try
-            {
-                MemoryStream ms = new MemoryStream(byteArrayIn, 0, byteArrayIn.Length);
-                ms.Write(byteArrayIn, 0, byteArrayIn.Length);
-                returnImage = Image.FromStream(ms, true);//Exception occurs here
-            }
-            catch
-            {
-                returnImage = Properties.Resources.nullimage;
-            }
-            return returnImage;
         }
 
         public void SaveImage(Image image, string name)
         {
             try
             {
+                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                {
+                    saveFileDialog.Filter = "JPEG Image|*.jpg|PNG Image|*.png|BMP Image|*.bmp";
+                    saveFileDialog.Title = "Save an Image File";
+                    saveFileDialog.FileName = $"{name}";
 
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // تشخیص فرمت تصویر از پسوند فایل
+                        switch (saveFileDialog.FilterIndex)
+                        {
+                            case 1:
+                                image.Save(saveFileDialog.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                                break;
+                            case 2:
+                                image.Save(saveFileDialog.FileName, System.Drawing.Imaging.ImageFormat.Png);
+                                break;
+                            case 3:
+                                image.Save(saveFileDialog.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
+                                break;
+                        }
+
+                        MessageBox.Show("Image saved successfully!");
+                    }
+                }
             }
             catch
             {
-                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("خطا در ذخیره تصویر !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-            {
-                saveFileDialog.Filter = "JPEG Image|*.jpg|PNG Image|*.png|BMP Image|*.bmp";
-                saveFileDialog.Title = "Save an Image File";
-                saveFileDialog.FileName = $"{name}";
-
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    // تشخیص فرمت تصویر از پسوند فایل
-                    switch (saveFileDialog.FilterIndex)
-                    {
-                        case 1:
-                            image.Save(saveFileDialog.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
-                            break;
-                        case 2:
-                            image.Save(saveFileDialog.FileName, System.Drawing.Imaging.ImageFormat.Png);
-                            break;
-                        case 3:
-                            image.Save(saveFileDialog.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
-                            break;
-                    }
-
-                    MessageBox.Show("Image saved successfully!");
-                }
-            }
+            
         }
 
         //public void testt()
@@ -839,14 +825,6 @@ namespace AmoozeshPJWinF
         //}
         public Image pic_reader(string id)
         {
-            try
-            {
-
-            }
-            catch
-            {
-                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
             using (var conn = new NpgsqlConnection(globalcon))
             {
                 try
@@ -894,7 +872,7 @@ namespace AmoozeshPJWinF
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Image a1;
                     a1 = Properties.Resources.nullimage;
                     return a1;
@@ -905,79 +883,83 @@ namespace AmoozeshPJWinF
 
         public DateTime cul_converter(DateTime d1)
         {
+            DateTime result1 = new DateTime(0000,00,00);
             try
             {
+                PersianCalendar pc = new PersianCalendar();
+                DateTime result = new DateTime(pc.GetYear(d1), pc.GetMonth(d1), pc.GetDayOfMonth(d1));
 
+                return result;
             }
             catch
             {
-                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("خطا در تبدیل تاریخ به شمسی !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return result1;
             }
-            PersianCalendar pc = new PersianCalendar();
-            DateTime result = new DateTime(pc.GetYear(d1), pc.GetMonth(d1), pc.GetDayOfMonth(d1));
-
-            return result;
+            
         }
 
         public List<DateTime> data_course_creator(DateTime d1, int d)
         {
             try
             {
+                List<DateTime> list = new List<DateTime>();
+                DateTime dateTime = d1;
+                for (int i = 0; i < d; i++)
+                {
+                    if (i != 0)
+                    {
+                        dateTime = dateTime.AddDays(7);
 
+                        list.Add(dateTime);
+                    }
+                    else
+                    {
+                        list.Add(dateTime);
+                    }
+                }
+                return list;
             }
             catch
             {
-                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("خطا در تشکیل تاریخ های کلاس !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
-            List<DateTime> list = new List<DateTime>();
-            DateTime dateTime = d1;
-            for (int i = 0; i < d; i++)
-            {
-                if (i != 0)
-                {
-                    dateTime = dateTime.AddDays(7);
-
-                    list.Add(dateTime);
-                }
-                else
-                {
-                    list.Add(dateTime);
-                }
-            }
-            return list;
+            
         }
         public List<string> get_all_users()
         {
             try
             {
+                var con = new NpgsqlConnection(
+                connectionString: globalcon);
+                string p1 = "";
+                List<string> p2 = new List<string>();
+                con.Open();
+                //-----
+                using var cmd = new NpgsqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = $"SELECT id FROM users;";
 
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+
+                        p1 = Convert.ToString(reader.GetInt64(0));
+
+                        p2.Add(p1);
+                    }
+                }
+                return p2;
             }
             catch
             {
-                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("خطا در دریافت اطلاعات کاربران !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
-            var con = new NpgsqlConnection(
-            connectionString: globalcon);
-            string p1 = "";
-            List<string> p2 = new List<string>();
-            con.Open();
-            //-----
-            using var cmd = new NpgsqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = $"SELECT id FROM users;";
-
-
-            using (var reader = cmd.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-
-                    p1 = Convert.ToString(reader.GetInt64(0));
-
-                    p2.Add(p1);
-                }
-            }
-            return p2;
+            
         }
         public showcourse show_course(string id)
         {
@@ -1016,7 +998,7 @@ namespace AmoozeshPJWinF
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             using var cmd2 = new NpgsqlCommand();
             cmd2.Connection = con;
@@ -1035,49 +1017,52 @@ namespace AmoozeshPJWinF
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         
             return s1;
         }
         public List<showcourse> show_all_courseid_name()
         {
+            List<showcourse> result = new List<showcourse>();
             try
             {
+                showcourse s1 = new showcourse();
 
+                var con = new NpgsqlConnection(
+                connectionString: globalcon);
+                long teacherid = 0;
+                con.Open();
+                using var cmd = new NpgsqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = $"SELECT id, course_name FROM course;";
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        try
+                        {
+                            string courseid = Convert.ToString(reader.GetString(0));
+                            s1.courseid = courseid;
+                            s1.coursename = Convert.ToString(reader.GetString(1));
+                            result.Add(s1);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                    }
+                }
+                return result;
             }
             catch
             {
-                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("خطا در دریافت آی دی کلاس !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return result;
             }
-            showcourse s1 = new showcourse();
-            List<showcourse> result = new List<showcourse>();
-            var con = new NpgsqlConnection(
-            connectionString: globalcon);
-            long teacherid = 0;
-            con.Open();
-            using var cmd = new NpgsqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = $"SELECT id, course_name FROM course;";
-            using (var reader = cmd.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    try
-                    {
-                        string courseid = Convert.ToString(reader.GetString(0));
-                        s1.courseid = courseid;
-                        s1.coursename = Convert.ToString(reader.GetString(1));
-                        result.Add(s1);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.ToString());
-                    }
-                    
-                }
-            }
-            return result;
+            
+            
         }
 
 
@@ -1125,38 +1110,23 @@ namespace AmoozeshPJWinF
         {
             try
             {
+                DataTable result = new DataTable();
 
+                string sql = $"SELECT id,firstname,lastname,account_balance FROM users WHERE account_balance > 0 or account_balance < 0;";
+                using (NpgsqlConnection con = new NpgsqlConnection(globalcon))
+                {
+                    con.Open();
+                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(sql, con);
+                    adapter.Fill(result);
+                    return result;
+                }
             }
             catch
             {
-                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("خطا در دریافت اطلاعات مالی !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
-            DataTable result = new DataTable();
-            //var con = new NpgsqlConnection(
-            //connectionString: globalcon);
-            //con.Open();
-            //using var cmd = new NpgsqlCommand();
-            //cmd.CommandText = $"SELECT id,firstname,lastname,account_balance FROM users WHERE account_balance > 0 or account_balance < 0;";
-            //using (var reader = cmd.ExecuteReader())
-            //{
-            //    reader.Fill
-            //    while (reader.Read())
-            //    {
-
-            //        p1 = Convert.ToString(reader.GetInt64(0));
-
-            //        p2.Add(p1);
-            //    }
-            //}
-            //return result;
-            string sql = $"SELECT id,firstname,lastname,account_balance FROM users WHERE account_balance > 0 or account_balance < 0;";
-            using(NpgsqlConnection con = new NpgsqlConnection(globalcon))
-            {
-                con.Open();
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(sql, con);
-                adapter.Fill(result);
-                return result;
-            }
+            
         }
     }
 }
