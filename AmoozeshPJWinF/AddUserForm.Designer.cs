@@ -499,9 +499,10 @@
             // Setbutton
             // 
             Setbutton.Enabled = false;
-            Setbutton.Location = new Point(597, 273);
+            Setbutton.Font = new Font("Segoe UI", 20F);
+            Setbutton.Location = new Point(453, 398);
             Setbutton.Name = "Setbutton";
-            Setbutton.Size = new Size(94, 29);
+            Setbutton.Size = new Size(127, 57);
             Setbutton.TabIndex = 4;
             Setbutton.Text = "تایید";
             Setbutton.UseVisualStyleBackColor = true;
@@ -510,7 +511,7 @@
             // addradioButton
             // 
             addradioButton.AutoSize = true;
-            addradioButton.Location = new Point(688, 103);
+            addradioButton.Location = new Point(632, 103);
             addradioButton.Name = "addradioButton";
             addradioButton.Size = new Size(104, 24);
             addradioButton.TabIndex = 5;
@@ -522,7 +523,7 @@
             // editradioButton
             // 
             editradioButton.AutoSize = true;
-            editradioButton.Location = new Point(688, 133);
+            editradioButton.Location = new Point(632, 133);
             editradioButton.Name = "editradioButton";
             editradioButton.Size = new Size(111, 24);
             editradioButton.TabIndex = 6;
@@ -535,7 +536,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(823, 554);
+            ClientSize = new Size(763, 520);
             Controls.Add(editradioButton);
             Controls.Add(addradioButton);
             Controls.Add(groupBoxSt);

@@ -102,9 +102,9 @@
             // button1
             // 
             button1.BackColor = Color.LavenderBlush;
-            button1.Location = new Point(644, 469);
+            button1.Location = new Point(788, 463);
             button1.Name = "button1";
-            button1.Size = new Size(96, 32);
+            button1.Size = new Size(96, 81);
             button1.TabIndex = 0;
             button1.Text = "افزودن کاربر";
             button1.UseVisualStyleBackColor = false;
@@ -115,9 +115,9 @@
             button2.BackColor = Color.LavenderBlush;
             button2.BackgroundImageLayout = ImageLayout.None;
             button2.ForeColor = SystemColors.ActiveCaptionText;
-            button2.Location = new Point(845, 421);
+            button2.Location = new Point(952, 463);
             button2.Name = "button2";
-            button2.Size = new Size(96, 32);
+            button2.Size = new Size(96, 81);
             button2.TabIndex = 1;
             button2.Text = "پرداخت ها";
             button2.UseVisualStyleBackColor = false;
@@ -509,10 +509,10 @@
             // AddCourse
             // 
             AddCourse.BackColor = Color.LavenderBlush;
-            AddCourse.Location = new Point(240, 470);
+            AddCourse.Location = new Point(520, 450);
             AddCourse.Margin = new Padding(3, 4, 3, 4);
             AddCourse.Name = "AddCourse";
-            AddCourse.Size = new Size(96, 32);
+            AddCourse.Size = new Size(96, 81);
             AddCourse.TabIndex = 39;
             AddCourse.Text = "افزودن کلاس";
             AddCourse.UseVisualStyleBackColor = false;
@@ -583,9 +583,9 @@
             // enrollment
             // 
             enrollment.BackColor = Color.LavenderBlush;
-            enrollment.Location = new Point(38, 421);
+            enrollment.Location = new Point(397, 463);
             enrollment.Name = "enrollment";
-            enrollment.Size = new Size(96, 32);
+            enrollment.Size = new Size(96, 81);
             enrollment.TabIndex = 44;
             enrollment.Text = "ثبت نام";
             enrollment.UseVisualStyleBackColor = false;
@@ -594,17 +594,17 @@
             // coursetodayGridView
             // 
             coursetodayGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            coursetodayGridView.Location = new Point(272, 105);
+            coursetodayGridView.Location = new Point(269, 105);
             coursetodayGridView.Name = "coursetodayGridView";
             coursetodayGridView.RowHeadersWidth = 51;
-            coursetodayGridView.Size = new Size(682, 241);
+            coursetodayGridView.Size = new Size(659, 299);
             coursetodayGridView.TabIndex = 45;
             // 
             // todayclasslabel
             // 
             todayclasslabel.AutoSize = true;
             todayclasslabel.BackColor = Color.Transparent;
-            todayclasslabel.Location = new Point(842, 61);
+            todayclasslabel.Location = new Point(699, 63);
             todayclasslabel.Name = "todayclasslabel";
             todayclasslabel.RightToLeft = RightToLeft.Yes;
             todayclasslabel.Size = new Size(112, 20);
@@ -614,9 +614,9 @@
             // showbot
             // 
             showbot.BackColor = Color.LavenderBlush;
-            showbot.Location = new Point(442, 492);
+            showbot.Location = new Point(656, 463);
             showbot.Name = "showbot";
-            showbot.Size = new Size(96, 32);
+            showbot.Size = new Size(96, 81);
             showbot.TabIndex = 47;
             showbot.Text = "نمایش";
             showbot.UseVisualStyleBackColor = false;
@@ -661,7 +661,7 @@
             groupBox2.Controls.Add(classidcombo);
             groupBox2.Controls.Add(falsebot);
             groupBox2.Controls.Add(truebot);
-            groupBox2.Location = new Point(514, 352);
+            groupBox2.Location = new Point(62, 463);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(255, 47);
             groupBox2.TabIndex = 52;
@@ -671,7 +671,7 @@
             // button5
             // 
             button5.Enabled = false;
-            button5.Location = new Point(799, 361);
+            button5.Location = new Point(30, 536);
             button5.Name = "button5";
             button5.Size = new Size(155, 29);
             button5.TabIndex = 53;
@@ -687,7 +687,7 @@
             groupBox3.Controls.Add(monthremedical);
             groupBox3.Controls.Add(yearremedical);
             groupBox3.Controls.Add(label4);
-            groupBox3.Location = new Point(56, 352);
+            groupBox3.Location = new Point(3, 410);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(452, 47);
             groupBox3.TabIndex = 54;
@@ -759,8 +759,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(978, 549);
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1066, 594);
             Controls.Add(panel1);
             Controls.Add(groupBox3);
             Controls.Add(button5);

@@ -574,6 +574,7 @@
             // 
             classgroupbox.Controls.Add(clocklblshow);
             classgroupbox.Controls.Add(costlblshow);
+            classgroupbox.Controls.Add(balancegroupbox);
             classgroupbox.Controls.Add(dateofstartlblshow);
             classgroupbox.Controls.Add(termlblshow);
             classgroupbox.Controls.Add(teacheridlblshow);
@@ -732,7 +733,7 @@
             balancegroupbox.Controls.Add(sumnumberlbl);
             balancegroupbox.Controls.Add(sumtxtlbl);
             balancegroupbox.Controls.Add(balancelistview);
-            balancegroupbox.Location = new Point(12, 104);
+            balancegroupbox.Location = new Point(0, 41);
             balancegroupbox.Name = "balancegroupbox";
             balancegroupbox.Size = new Size(632, 434);
             balancegroupbox.TabIndex = 9;
@@ -819,7 +820,6 @@
             ClientSize = new Size(1054, 603);
             Controls.Add(filterbalancecombo);
             Controls.Add(showbalancebot);
-            Controls.Add(balancegroupbox);
             Controls.Add(classgroupbox);
             Controls.Add(groupBoxsame);
             Controls.Add(showbot);
