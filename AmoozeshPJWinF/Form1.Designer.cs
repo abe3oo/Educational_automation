@@ -92,34 +92,51 @@
             monthremedical = new TextBox();
             yearremedical = new TextBox();
             label4 = new Label();
-            panel1 = new Panel();
+            panel2 = new Panel();
+            panel3 = new Panel();
+            panel4 = new Panel();
             ((System.ComponentModel.ISupportInitialize)coursetodayGridView).BeginInit();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
-            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            panel3.SuspendLayout();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.BackColor = Color.LavenderBlush;
-            button1.Location = new Point(788, 463);
+            button1.BackColor = Color.FromArgb(227, 231, 240);
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("B Nazanin", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 178);
+            button1.ForeColor = Color.Black;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.Location = new Point(4, 82);
             button1.Name = "button1";
-            button1.Size = new Size(96, 81);
+            button1.Size = new Size(113, 76);
             button1.TabIndex = 0;
             button1.Text = "افزودن کاربر";
+            button1.TextAlign = ContentAlignment.BottomCenter;
+            button1.TextImageRelation = TextImageRelation.ImageAboveText;
             button1.UseVisualStyleBackColor = false;
             button1.Click += Adduser_Click;
             // 
             // button2
             // 
-            button2.BackColor = Color.LavenderBlush;
+            button2.BackColor = Color.FromArgb(227, 231, 240);
             button2.BackgroundImageLayout = ImageLayout.None;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("B Nazanin", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 178);
             button2.ForeColor = SystemColors.ActiveCaptionText;
-            button2.Location = new Point(952, 463);
+            button2.Image = (Image)resources.GetObject("button2.Image");
+            button2.Location = new Point(3, 405);
             button2.Name = "button2";
-            button2.Size = new Size(96, 81);
+            button2.Size = new Size(113, 81);
             button2.TabIndex = 1;
             button2.Text = "پرداخت ها";
+            button2.TextAlign = ContentAlignment.BottomCenter;
+            button2.TextImageRelation = TextImageRelation.ImageAboveText;
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
@@ -130,22 +147,23 @@
             // yearlabelpr
             // 
             yearlabelpr.AutoSize = true;
-            yearlabelpr.Font = new Font("Segoe UI", 11F);
+            yearlabelpr.BackColor = Color.Transparent;
+            yearlabelpr.Font = new Font("Monotype Corsiva", 12F, FontStyle.Italic);
             yearlabelpr.ForeColor = Color.White;
-            yearlabelpr.Location = new Point(-2, 11);
+            yearlabelpr.Location = new Point(1, 9);
             yearlabelpr.Name = "yearlabelpr";
-            yearlabelpr.Size = new Size(52, 25);
+            yearlabelpr.Size = new Size(46, 24);
             yearlabelpr.TabIndex = 2;
             yearlabelpr.Text = "0000";
             // 
             // monthlabelpr
             // 
             monthlabelpr.AutoSize = true;
-            monthlabelpr.Font = new Font("Segoe UI", 11F);
+            monthlabelpr.Font = new Font("Monotype Corsiva", 12F, FontStyle.Italic);
             monthlabelpr.ForeColor = Color.White;
-            monthlabelpr.Location = new Point(57, 11);
+            monthlabelpr.Location = new Point(56, 9);
             monthlabelpr.Name = "monthlabelpr";
-            monthlabelpr.Size = new Size(32, 25);
+            monthlabelpr.Size = new Size(28, 24);
             monthlabelpr.TabIndex = 3;
             monthlabelpr.Text = "00";
             monthlabelpr.TextChanged += monthlabelpr_TextChanged;
@@ -153,11 +171,11 @@
             // daylabelpr
             // 
             daylabelpr.AutoSize = true;
-            daylabelpr.Font = new Font("Segoe UI", 11F);
+            daylabelpr.Font = new Font("Monotype Corsiva", 12F, FontStyle.Italic);
             daylabelpr.ForeColor = Color.White;
-            daylabelpr.Location = new Point(95, 11);
+            daylabelpr.Location = new Point(94, 9);
             daylabelpr.Name = "daylabelpr";
-            daylabelpr.Size = new Size(32, 25);
+            daylabelpr.Size = new Size(28, 24);
             daylabelpr.TabIndex = 4;
             daylabelpr.Text = "00";
             daylabelpr.TextChanged += daylabelpr_TextChanged;
@@ -166,39 +184,39 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 11F);
+            label1.Font = new Font("Monotype Corsiva", 12F, FontStyle.Italic);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(43, 10);
+            label1.Location = new Point(43, 8);
             label1.Name = "label1";
-            label1.Size = new Size(19, 25);
+            label1.Size = new Size(17, 24);
             label1.TabIndex = 5;
             label1.Text = "/";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 11F);
+            label2.Font = new Font("Monotype Corsiva", 12F, FontStyle.Italic);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(82, 10);
+            label2.Location = new Point(81, 8);
             label2.Name = "label2";
-            label2.Size = new Size(19, 25);
+            label2.Size = new Size(17, 24);
             label2.TabIndex = 6;
             label2.Text = "/";
             // 
             // clocklabel
             // 
             clocklabel.AutoSize = true;
-            clocklabel.Font = new Font("Segoe UI", 11F);
+            clocklabel.Font = new Font("Monotype Corsiva", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
             clocklabel.ForeColor = Color.White;
-            clocklabel.Location = new Point(170, 12);
+            clocklabel.Location = new Point(24, 44);
             clocklabel.Name = "clocklabel";
-            clocklabel.Size = new Size(80, 25);
+            clocklabel.Size = new Size(74, 24);
             clocklabel.TabIndex = 8;
             clocklabel.Text = "00:00:00";
             // 
             // day1
             // 
-            day1.Location = new Point(11, 147);
+            day1.Location = new Point(25, 54);
             day1.Name = "day1";
             day1.Size = new Size(33, 27);
             day1.TabIndex = 8;
@@ -208,7 +226,7 @@
             // 
             // day2
             // 
-            day2.Location = new Point(51, 147);
+            day2.Location = new Point(65, 54);
             day2.Name = "day2";
             day2.Size = new Size(33, 27);
             day2.TabIndex = 9;
@@ -218,7 +236,7 @@
             // 
             // day3
             // 
-            day3.Location = new Point(90, 147);
+            day3.Location = new Point(104, 54);
             day3.Name = "day3";
             day3.Size = new Size(33, 27);
             day3.TabIndex = 10;
@@ -228,7 +246,7 @@
             // 
             // day4
             // 
-            day4.Location = new Point(129, 147);
+            day4.Location = new Point(143, 54);
             day4.Name = "day4";
             day4.Size = new Size(33, 27);
             day4.TabIndex = 11;
@@ -238,7 +256,7 @@
             // 
             // day5
             // 
-            day5.Location = new Point(168, 147);
+            day5.Location = new Point(182, 54);
             day5.Name = "day5";
             day5.Size = new Size(33, 27);
             day5.TabIndex = 12;
@@ -248,7 +266,7 @@
             // 
             // day6
             // 
-            day6.Location = new Point(207, 147);
+            day6.Location = new Point(221, 54);
             day6.Name = "day6";
             day6.Size = new Size(33, 27);
             day6.TabIndex = 13;
@@ -258,7 +276,7 @@
             // 
             // day7
             // 
-            day7.Location = new Point(11, 179);
+            day7.Location = new Point(25, 86);
             day7.Name = "day7";
             day7.Size = new Size(33, 27);
             day7.TabIndex = 14;
@@ -268,7 +286,7 @@
             // 
             // day8
             // 
-            day8.Location = new Point(51, 179);
+            day8.Location = new Point(65, 86);
             day8.Name = "day8";
             day8.Size = new Size(33, 27);
             day8.TabIndex = 15;
@@ -278,7 +296,7 @@
             // 
             // day9
             // 
-            day9.Location = new Point(90, 179);
+            day9.Location = new Point(104, 86);
             day9.Name = "day9";
             day9.Size = new Size(33, 27);
             day9.TabIndex = 16;
@@ -288,7 +306,7 @@
             // 
             // day10
             // 
-            day10.Location = new Point(129, 179);
+            day10.Location = new Point(143, 86);
             day10.Name = "day10";
             day10.Size = new Size(33, 27);
             day10.TabIndex = 17;
@@ -298,7 +316,7 @@
             // 
             // day11
             // 
-            day11.Location = new Point(168, 179);
+            day11.Location = new Point(182, 86);
             day11.Name = "day11";
             day11.Size = new Size(33, 27);
             day11.TabIndex = 18;
@@ -308,7 +326,7 @@
             // 
             // day12
             // 
-            day12.Location = new Point(207, 179);
+            day12.Location = new Point(221, 86);
             day12.Name = "day12";
             day12.Size = new Size(33, 27);
             day12.TabIndex = 19;
@@ -318,7 +336,7 @@
             // 
             // day13
             // 
-            day13.Location = new Point(11, 211);
+            day13.Location = new Point(25, 118);
             day13.Name = "day13";
             day13.Size = new Size(33, 27);
             day13.TabIndex = 20;
@@ -328,7 +346,7 @@
             // 
             // day14
             // 
-            day14.Location = new Point(53, 211);
+            day14.Location = new Point(67, 118);
             day14.Name = "day14";
             day14.Size = new Size(33, 27);
             day14.TabIndex = 21;
@@ -338,7 +356,7 @@
             // 
             // day15
             // 
-            day15.Location = new Point(89, 211);
+            day15.Location = new Point(103, 118);
             day15.Name = "day15";
             day15.Size = new Size(34, 27);
             day15.TabIndex = 22;
@@ -348,7 +366,7 @@
             // 
             // day16
             // 
-            day16.Location = new Point(129, 211);
+            day16.Location = new Point(143, 118);
             day16.Name = "day16";
             day16.Size = new Size(33, 27);
             day16.TabIndex = 23;
@@ -358,7 +376,7 @@
             // 
             // day17
             // 
-            day17.Location = new Point(168, 211);
+            day17.Location = new Point(182, 118);
             day17.Name = "day17";
             day17.Size = new Size(33, 27);
             day17.TabIndex = 24;
@@ -368,7 +386,7 @@
             // 
             // day18
             // 
-            day18.Location = new Point(207, 209);
+            day18.Location = new Point(221, 116);
             day18.Name = "day18";
             day18.Size = new Size(33, 27);
             day18.TabIndex = 25;
@@ -378,7 +396,7 @@
             // 
             // day19
             // 
-            day19.Location = new Point(11, 243);
+            day19.Location = new Point(25, 150);
             day19.Name = "day19";
             day19.Size = new Size(33, 27);
             day19.TabIndex = 26;
@@ -388,7 +406,7 @@
             // 
             // day20
             // 
-            day20.Location = new Point(53, 243);
+            day20.Location = new Point(67, 150);
             day20.Name = "day20";
             day20.Size = new Size(33, 27);
             day20.TabIndex = 27;
@@ -398,7 +416,7 @@
             // 
             // day21
             // 
-            day21.Location = new Point(89, 243);
+            day21.Location = new Point(103, 150);
             day21.Name = "day21";
             day21.Size = new Size(34, 27);
             day21.TabIndex = 28;
@@ -408,7 +426,7 @@
             // 
             // day22
             // 
-            day22.Location = new Point(129, 243);
+            day22.Location = new Point(143, 150);
             day22.Name = "day22";
             day22.Size = new Size(33, 27);
             day22.TabIndex = 29;
@@ -418,7 +436,7 @@
             // 
             // day23
             // 
-            day23.Location = new Point(168, 243);
+            day23.Location = new Point(182, 150);
             day23.Name = "day23";
             day23.Size = new Size(33, 27);
             day23.TabIndex = 30;
@@ -428,7 +446,7 @@
             // 
             // day24
             // 
-            day24.Location = new Point(207, 243);
+            day24.Location = new Point(221, 150);
             day24.Name = "day24";
             day24.Size = new Size(33, 27);
             day24.TabIndex = 31;
@@ -438,7 +456,7 @@
             // 
             // day25
             // 
-            day25.Location = new Point(11, 275);
+            day25.Location = new Point(25, 182);
             day25.Name = "day25";
             day25.Size = new Size(33, 27);
             day25.TabIndex = 32;
@@ -448,7 +466,7 @@
             // 
             // day26
             // 
-            day26.Location = new Point(53, 275);
+            day26.Location = new Point(67, 182);
             day26.Name = "day26";
             day26.Size = new Size(33, 27);
             day26.TabIndex = 33;
@@ -458,7 +476,7 @@
             // 
             // day27
             // 
-            day27.Location = new Point(89, 275);
+            day27.Location = new Point(103, 182);
             day27.Name = "day27";
             day27.Size = new Size(34, 27);
             day27.TabIndex = 34;
@@ -468,7 +486,7 @@
             // 
             // day28
             // 
-            day28.Location = new Point(129, 275);
+            day28.Location = new Point(143, 182);
             day28.Name = "day28";
             day28.Size = new Size(33, 27);
             day28.TabIndex = 35;
@@ -478,7 +496,7 @@
             // 
             // day29
             // 
-            day29.Location = new Point(168, 275);
+            day29.Location = new Point(182, 182);
             day29.Name = "day29";
             day29.Size = new Size(33, 27);
             day29.TabIndex = 36;
@@ -488,7 +506,7 @@
             // 
             // day30
             // 
-            day30.Location = new Point(207, 275);
+            day30.Location = new Point(221, 182);
             day30.Name = "day30";
             day30.Size = new Size(33, 27);
             day30.TabIndex = 37;
@@ -498,7 +516,7 @@
             // 
             // day31
             // 
-            day31.Location = new Point(11, 307);
+            day31.Location = new Point(25, 214);
             day31.Name = "day31";
             day31.Size = new Size(33, 27);
             day31.TabIndex = 38;
@@ -508,13 +526,19 @@
             // 
             // AddCourse
             // 
-            AddCourse.BackColor = Color.LavenderBlush;
-            AddCourse.Location = new Point(520, 450);
+            AddCourse.BackColor = Color.FromArgb(227, 231, 240);
+            AddCourse.FlatAppearance.BorderSize = 0;
+            AddCourse.FlatStyle = FlatStyle.Flat;
+            AddCourse.Font = new Font("B Nazanin", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 178);
+            AddCourse.Image = (Image)resources.GetObject("AddCourse.Image");
+            AddCourse.Location = new Point(3, 157);
             AddCourse.Margin = new Padding(3, 4, 3, 4);
             AddCourse.Name = "AddCourse";
-            AddCourse.Size = new Size(96, 81);
+            AddCourse.Size = new Size(113, 81);
             AddCourse.TabIndex = 39;
             AddCourse.Text = "افزودن کلاس";
+            AddCourse.TextAlign = ContentAlignment.BottomCenter;
+            AddCourse.TextImageRelation = TextImageRelation.ImageAboveText;
             AddCourse.UseVisualStyleBackColor = false;
             AddCourse.Click += AddCourse_Click;
             // 
@@ -522,7 +546,7 @@
             // 
             yearlabelcul.AutoSize = true;
             yearlabelcul.Font = new Font("Segoe UI", 11F);
-            yearlabelcul.Location = new Point(71, 107);
+            yearlabelcul.Location = new Point(85, 14);
             yearlabelcul.Name = "yearlabelcul";
             yearlabelcul.Size = new Size(52, 25);
             yearlabelcul.TabIndex = 9;
@@ -532,7 +556,7 @@
             // 
             monthlabelcul.AutoSize = true;
             monthlabelcul.Font = new Font("Segoe UI", 11F);
-            monthlabelcul.Location = new Point(139, 107);
+            monthlabelcul.Location = new Point(153, 14);
             monthlabelcul.Name = "monthlabelcul";
             monthlabelcul.Size = new Size(32, 25);
             monthlabelcul.TabIndex = 40;
@@ -543,7 +567,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11F);
-            label3.Location = new Point(123, 107);
+            label3.Location = new Point(137, 14);
             label3.Name = "label3";
             label3.Size = new Size(19, 25);
             label3.TabIndex = 9;
@@ -552,7 +576,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(178, 107);
+            button3.Location = new Point(192, 14);
             button3.Name = "button3";
             button3.Size = new Size(35, 29);
             button3.TabIndex = 41;
@@ -562,7 +586,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(30, 106);
+            button4.Location = new Point(44, 13);
             button4.Name = "button4";
             button4.Size = new Size(35, 29);
             button4.TabIndex = 42;
@@ -572,7 +596,7 @@
             // 
             // todaybot
             // 
-            todaybot.Location = new Point(178, 307);
+            todaybot.Location = new Point(192, 214);
             todaybot.Name = "todaybot";
             todaybot.Size = new Size(64, 33);
             todaybot.TabIndex = 43;
@@ -582,43 +606,58 @@
             // 
             // enrollment
             // 
-            enrollment.BackColor = Color.LavenderBlush;
-            enrollment.Location = new Point(397, 463);
+            enrollment.BackColor = Color.FromArgb(227, 231, 240);
+            enrollment.FlatAppearance.BorderSize = 0;
+            enrollment.FlatStyle = FlatStyle.Flat;
+            enrollment.Font = new Font("B Nazanin", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 178);
+            enrollment.Image = (Image)resources.GetObject("enrollment.Image");
+            enrollment.Location = new Point(3, 324);
             enrollment.Name = "enrollment";
-            enrollment.Size = new Size(96, 81);
+            enrollment.Size = new Size(113, 81);
             enrollment.TabIndex = 44;
             enrollment.Text = "ثبت نام";
+            enrollment.TextAlign = ContentAlignment.BottomCenter;
+            enrollment.TextImageRelation = TextImageRelation.ImageAboveText;
             enrollment.UseVisualStyleBackColor = false;
             enrollment.Click += button5_Click;
             // 
             // coursetodayGridView
             // 
             coursetodayGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            coursetodayGridView.Location = new Point(269, 105);
+            coursetodayGridView.Location = new Point(306, 8);
             coursetodayGridView.Name = "coursetodayGridView";
             coursetodayGridView.RowHeadersWidth = 51;
-            coursetodayGridView.Size = new Size(659, 299);
+            coursetodayGridView.Size = new Size(620, 299);
             coursetodayGridView.TabIndex = 45;
             // 
             // todayclasslabel
             // 
             todayclasslabel.AutoSize = true;
             todayclasslabel.BackColor = Color.Transparent;
-            todayclasslabel.Location = new Point(699, 63);
+            todayclasslabel.FlatStyle = FlatStyle.Flat;
+            todayclasslabel.Font = new Font("B Nazanin", 24F, FontStyle.Bold, GraphicsUnit.Point, 178);
+            todayclasslabel.Location = new Point(468, 135);
             todayclasslabel.Name = "todayclasslabel";
             todayclasslabel.RightToLeft = RightToLeft.Yes;
-            todayclasslabel.Size = new Size(112, 20);
+            todayclasslabel.Size = new Size(324, 64);
             todayclasslabel.TabIndex = 46;
-            todayclasslabel.Text = "کلاس های امروز:";
+            todayclasslabel.Text = "امروز کلاسی ندارید !!!";
+            todayclasslabel.Click += todayclasslabel_Click;
             // 
             // showbot
             // 
-            showbot.BackColor = Color.LavenderBlush;
-            showbot.Location = new Point(656, 463);
+            showbot.BackColor = Color.FromArgb(227, 231, 240);
+            showbot.FlatAppearance.BorderSize = 0;
+            showbot.FlatStyle = FlatStyle.Flat;
+            showbot.Font = new Font("B Nazanin", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 178);
+            showbot.Image = (Image)resources.GetObject("showbot.Image");
+            showbot.Location = new Point(4, 245);
             showbot.Name = "showbot";
-            showbot.Size = new Size(96, 81);
+            showbot.Size = new Size(113, 73);
             showbot.TabIndex = 47;
             showbot.Text = "نمایش";
+            showbot.TextAlign = ContentAlignment.BottomCenter;
+            showbot.TextImageRelation = TextImageRelation.ImageAboveText;
             showbot.UseVisualStyleBackColor = false;
             showbot.Click += showbot_Click;
             // 
@@ -626,19 +665,20 @@
             // 
             classidcombo.DropDownStyle = ComboBoxStyle.DropDownList;
             classidcombo.Enabled = false;
+            classidcombo.Font = new Font("Segoe UI", 12F);
             classidcombo.FormattingEnabled = true;
-            classidcombo.Location = new Point(127, 13);
+            classidcombo.Location = new Point(150, 26);
             classidcombo.Name = "classidcombo";
-            classidcombo.Size = new Size(112, 28);
+            classidcombo.Size = new Size(112, 36);
             classidcombo.TabIndex = 48;
             classidcombo.SelectedIndexChanged += classidcombo_SelectedIndexChanged;
             // 
             // truebot
             // 
             truebot.Enabled = false;
-            truebot.Location = new Point(71, 13);
+            truebot.Location = new Point(73, 24);
             truebot.Name = "truebot";
-            truebot.Size = new Size(35, 29);
+            truebot.Size = new Size(56, 44);
             truebot.TabIndex = 50;
             truebot.Text = "✔";
             truebot.UseVisualStyleBackColor = true;
@@ -647,9 +687,9 @@
             // falsebot
             // 
             falsebot.Enabled = false;
-            falsebot.Location = new Point(30, 13);
+            falsebot.Location = new Point(11, 24);
             falsebot.Name = "falsebot";
-            falsebot.Size = new Size(35, 29);
+            falsebot.Size = new Size(56, 44);
             falsebot.TabIndex = 51;
             falsebot.Text = "❌";
             falsebot.UseVisualStyleBackColor = true;
@@ -661,22 +701,26 @@
             groupBox2.Controls.Add(classidcombo);
             groupBox2.Controls.Add(falsebot);
             groupBox2.Controls.Add(truebot);
-            groupBox2.Location = new Point(62, 463);
+            groupBox2.Location = new Point(461, 313);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(255, 47);
+            groupBox2.Size = new Size(278, 76);
             groupBox2.TabIndex = 52;
             groupBox2.TabStop = false;
             groupBox2.Visible = false;
             // 
             // button5
             // 
+            button5.BackColor = Color.Transparent;
             button5.Enabled = false;
-            button5.Location = new Point(30, 536);
+            button5.FlatStyle = FlatStyle.Popup;
+            button5.Image = (Image)resources.GetObject("button5.Image");
+            button5.Location = new Point(770, 313);
             button5.Name = "button5";
-            button5.Size = new Size(155, 29);
+            button5.Size = new Size(156, 86);
             button5.TabIndex = 53;
             button5.Text = "تغییر وضعیت برگزاری";
-            button5.UseVisualStyleBackColor = true;
+            button5.TextImageRelation = TextImageRelation.TextBeforeImage;
+            button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click_1;
             // 
             // groupBox3
@@ -687,9 +731,9 @@
             groupBox3.Controls.Add(monthremedical);
             groupBox3.Controls.Add(yearremedical);
             groupBox3.Controls.Add(label4);
-            groupBox3.Location = new Point(3, 410);
+            groupBox3.Location = new Point(429, 405);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(452, 47);
+            groupBox3.Size = new Size(497, 81);
             groupBox3.TabIndex = 54;
             groupBox3.TabStop = false;
             groupBox3.Visible = false;
@@ -732,83 +776,104 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("B Nazanin", 12F, FontStyle.Bold, GraphicsUnit.Point, 178);
             label4.Location = new Point(257, 18);
             label4.Name = "label4";
             label4.RightToLeft = RightToLeft.Yes;
-            label4.Size = new Size(189, 20);
+            label4.Size = new Size(222, 32);
             label4.TabIndex = 0;
             label4.Text = "تاریخ جبرانی را مشخص کنید :";
             // 
-            // panel1
+            // panel2
             // 
-            panel1.BackColor = Color.Transparent;
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(clocklabel);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(daylabelpr);
-            panel1.Controls.Add(monthlabelpr);
-            panel1.Controls.Add(yearlabelpr);
-            panel1.Location = new Point(366, 13);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(250, 48);
-            panel1.TabIndex = 55;
+            panel2.BackColor = Color.FromArgb(227, 231, 240);
+            panel2.Controls.Add(panel3);
+            panel2.Controls.Add(button1);
+            panel2.Controls.Add(AddCourse);
+            panel2.Controls.Add(showbot);
+            panel2.Controls.Add(enrollment);
+            panel2.Controls.Add(button2);
+            panel2.Dock = DockStyle.Right;
+            panel2.ForeColor = Color.Black;
+            panel2.Location = new Point(945, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(121, 497);
+            panel2.TabIndex = 56;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(92, 83, 80);
+            panel3.Controls.Add(clocklabel);
+            panel3.Controls.Add(label2);
+            panel3.Controls.Add(yearlabelpr);
+            panel3.Controls.Add(monthlabelpr);
+            panel3.Controls.Add(label1);
+            panel3.Controls.Add(daylabelpr);
+            panel3.Dock = DockStyle.Top;
+            panel3.Location = new Point(0, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(121, 76);
+            panel3.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.Transparent;
+            panel4.Controls.Add(button4);
+            panel4.Controls.Add(day1);
+            panel4.Controls.Add(day2);
+            panel4.Controls.Add(day3);
+            panel4.Controls.Add(day4);
+            panel4.Controls.Add(day5);
+            panel4.Controls.Add(day6);
+            panel4.Controls.Add(day7);
+            panel4.Controls.Add(todaybot);
+            panel4.Controls.Add(day8);
+            panel4.Controls.Add(day9);
+            panel4.Controls.Add(button3);
+            panel4.Controls.Add(day10);
+            panel4.Controls.Add(label3);
+            panel4.Controls.Add(day11);
+            panel4.Controls.Add(monthlabelcul);
+            panel4.Controls.Add(day12);
+            panel4.Controls.Add(yearlabelcul);
+            panel4.Controls.Add(day13);
+            panel4.Controls.Add(day31);
+            panel4.Controls.Add(day14);
+            panel4.Controls.Add(day30);
+            panel4.Controls.Add(day15);
+            panel4.Controls.Add(day29);
+            panel4.Controls.Add(day16);
+            panel4.Controls.Add(day28);
+            panel4.Controls.Add(day17);
+            panel4.Controls.Add(day27);
+            panel4.Controls.Add(day18);
+            panel4.Controls.Add(day26);
+            panel4.Controls.Add(day19);
+            panel4.Controls.Add(day25);
+            panel4.Controls.Add(day20);
+            panel4.Controls.Add(day24);
+            panel4.Controls.Add(day21);
+            panel4.Controls.Add(day23);
+            panel4.Controls.Add(day22);
+            panel4.Location = new Point(12, 22);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(276, 259);
+            panel4.TabIndex = 57;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.Control;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1066, 594);
-            Controls.Add(panel1);
+            ClientSize = new Size(1066, 497);
+            Controls.Add(todayclasslabel);
+            Controls.Add(coursetodayGridView);
+            Controls.Add(panel4);
+            Controls.Add(panel2);
             Controls.Add(groupBox3);
             Controls.Add(button5);
             Controls.Add(groupBox2);
-            Controls.Add(showbot);
-            Controls.Add(todayclasslabel);
-            Controls.Add(coursetodayGridView);
-            Controls.Add(enrollment);
-            Controls.Add(todaybot);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(label3);
-            Controls.Add(monthlabelcul);
-            Controls.Add(yearlabelcul);
-            Controls.Add(AddCourse);
-            Controls.Add(day31);
-            Controls.Add(day30);
-            Controls.Add(day29);
-            Controls.Add(day28);
-            Controls.Add(day27);
-            Controls.Add(day26);
-            Controls.Add(day25);
-            Controls.Add(day24);
-            Controls.Add(day23);
-            Controls.Add(day22);
-            Controls.Add(day21);
-            Controls.Add(day20);
-            Controls.Add(day19);
-            Controls.Add(day18);
-            Controls.Add(day17);
-            Controls.Add(day16);
-            Controls.Add(day15);
-            Controls.Add(day14);
-            Controls.Add(day13);
-            Controls.Add(day12);
-            Controls.Add(day11);
-            Controls.Add(day10);
-            Controls.Add(day9);
-            Controls.Add(day8);
-            Controls.Add(day7);
-            Controls.Add(day6);
-            Controls.Add(day5);
-            Controls.Add(day4);
-            Controls.Add(day3);
-            Controls.Add(day2);
-            Controls.Add(day1);
-            Controls.Add(button2);
-            Controls.Add(button1);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "Form1";
             Text = "Form1";
@@ -817,8 +882,11 @@
             groupBox2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -887,6 +955,8 @@
         private TextBox monthremedical;
         private TextBox dayremedical;
         private Button acceptbot;
-        private Panel panel1;
+        private Panel panel2;
+        private Panel panel3;
+        private Panel panel4;
     }
 }

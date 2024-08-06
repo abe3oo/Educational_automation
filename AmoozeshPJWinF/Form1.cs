@@ -28,7 +28,7 @@ namespace AmoozeshPJWinF
             }
             if (coursetoday.Count > 0)
             {
-                todayclasslabel.Text = "کلاس های امروز:";
+                todayclasslabel.Text = "";
                 coursetodayGridView.DataSource = coursetoday;
                 button5.Enabled = true;
                 classidcombo.Enabled = true;
@@ -64,7 +64,7 @@ namespace AmoozeshPJWinF
             }
             if (coursetoday.Count > 0)
             {
-                todayclasslabel.Text = "کلاس های امروز:";
+                todayclasslabel.Text = "";
                 coursetodayGridView.DataSource = coursetoday;
                 classidcombo.Enabled = true;
                 classidcombo.Items.Clear();
@@ -679,6 +679,11 @@ namespace AmoozeshPJWinF
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void todayclasslabel_Click(object sender, EventArgs e)
         {
 
         }
