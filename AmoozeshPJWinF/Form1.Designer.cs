@@ -79,7 +79,6 @@
             todaybot = new Button();
             enrollment = new Button();
             coursetodayGridView = new DataGridView();
-            todayclasslabel = new Label();
             showbot = new Button();
             classidcombo = new ComboBox();
             truebot = new Button();
@@ -95,12 +94,14 @@
             panel2 = new Panel();
             panel3 = new Panel();
             panel4 = new Panel();
+            nullpic = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)coursetodayGridView).BeginInit();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nullpic).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -631,20 +632,6 @@
             coursetodayGridView.Size = new Size(620, 299);
             coursetodayGridView.TabIndex = 45;
             // 
-            // todayclasslabel
-            // 
-            todayclasslabel.AutoSize = true;
-            todayclasslabel.BackColor = Color.FromArgb(188, 184, 177);
-            todayclasslabel.FlatStyle = FlatStyle.Flat;
-            todayclasslabel.Font = new Font("B Nazanin", 24F, FontStyle.Bold, GraphicsUnit.Point, 178);
-            todayclasslabel.Location = new Point(468, 135);
-            todayclasslabel.Name = "todayclasslabel";
-            todayclasslabel.RightToLeft = RightToLeft.Yes;
-            todayclasslabel.Size = new Size(324, 64);
-            todayclasslabel.TabIndex = 46;
-            todayclasslabel.Text = "امروز کلاسی ندارید !!!";
-            todayclasslabel.Click += todayclasslabel_Click;
-            // 
             // showbot
             // 
             showbot.BackColor = Color.FromArgb(227, 231, 240);
@@ -868,6 +855,16 @@
             panel4.Size = new Size(276, 259);
             panel4.TabIndex = 57;
             // 
+            // nullpic
+            // 
+            nullpic.Image = (Image)resources.GetObject("nullpic.Image");
+            nullpic.Location = new Point(558, 97);
+            nullpic.Name = "nullpic";
+            nullpic.Size = new Size(120, 120);
+            nullpic.SizeMode = PictureBoxSizeMode.StretchImage;
+            nullpic.TabIndex = 58;
+            nullpic.TabStop = false;
+            // 
             // Form1
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -875,8 +872,8 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1066, 497);
+            Controls.Add(nullpic);
             Controls.Add(groupBox2);
-            Controls.Add(todayclasslabel);
             Controls.Add(coursetodayGridView);
             Controls.Add(panel4);
             Controls.Add(panel2);
@@ -895,8 +892,8 @@
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nullpic).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -950,7 +947,6 @@
         private Button todaybot;
         private Button enrollment;
         private DataGridView coursetodayGridView;
-        private Label todayclasslabel;
         private Button showbot;
         private ComboBox classidcombo;
         private Button truebot;
@@ -966,5 +962,6 @@
         private Panel panel3;
         private Panel panel4;
         private CheckBox checkBox1;
+        private PictureBox nullpic;
     }
 }

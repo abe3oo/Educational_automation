@@ -28,7 +28,8 @@ namespace AmoozeshPJWinF
             }
             if (coursetoday.Count > 0)
             {
-                todayclasslabel.Text = "";
+                nullpic.Visible = false;
+                
                 coursetodayGridView.DataSource = coursetoday;
                 button5.Enabled = true;
                 classidcombo.Enabled = true;
@@ -44,7 +45,8 @@ namespace AmoozeshPJWinF
             }
             else
             {
-                todayclasslabel.Text = "امروز کلاسی ندارید.";
+                nullpic.Visible = true;
+                
                 coursetodayGridView.DataSource = null;
                 button5.Enabled = false;
                 button5.BackColor = Color.White;
@@ -64,7 +66,8 @@ namespace AmoozeshPJWinF
             }
             if (coursetoday.Count > 0)
             {
-                todayclasslabel.Text = "";
+                nullpic.Visible = false;
+                
                 coursetodayGridView.DataSource = coursetoday;
                 classidcombo.Enabled = true;
                 classidcombo.Items.Clear();
@@ -81,7 +84,8 @@ namespace AmoozeshPJWinF
                 button5.Enabled = false;
                 button5.BackColor = Color.White;
                 groupBox2.Visible = false;
-                todayclasslabel.Text = "امروز کلاسی ندارید.";
+                nullpic.Visible = true;
+                
                 coursetodayGridView.DataSource = null;
                 classidcombo.Enabled = false;
 
