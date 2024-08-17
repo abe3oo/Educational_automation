@@ -44,7 +44,7 @@ namespace AmoozeshPJWinF
             clear_textbox(Jobbox);
             clear_textbox(Citybox);
             usereditlabel.Text = "...";
-            pictureBox1.Image = Properties.Resources.nullimage;
+            pictureBox1.Image = Properties.Resources.person;
         }
 
         private void TypeCbox_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace AmoozeshPJWinF
 
                 panelst.Visible = false;
 
-                educationlabel.Text = "مدرک تحصیلی :";
+                educationlabel.Text = "مدرک تحصیلی";
             }
             else if (TypeCbox.SelectedIndex == 1)
             {
@@ -65,7 +65,7 @@ namespace AmoozeshPJWinF
 
                 panelst.Visible = true;
 
-                educationlabel.Text = "سطح تحصیلات :";
+                educationlabel.Text = "سطح تحصیلات";
             }
         }
 
@@ -189,7 +189,7 @@ namespace AmoozeshPJWinF
                                 educationCbox.SelectedIndex = -1;
                                 MaritalCbox.SelectedIndex = -1;
                                 ClasstypeCbox.SelectedIndex = -1;
-                                pictureBox1.Image = Properties.Resources.nullimage;
+                                pictureBox1.Image = Properties.Resources.person;
 
                             }
                             else
@@ -291,7 +291,7 @@ namespace AmoozeshPJWinF
                                     clear_textbox(Monthenterybox);
                                     clear_textbox(Dayenterybox);
                                     educationCbox.SelectedIndex = -1;
-                                    pictureBox1.Image = Properties.Resources.nullimage;
+                                    pictureBox1.Image = Properties.Resources.person;
 
                                 }
 
@@ -414,7 +414,7 @@ namespace AmoozeshPJWinF
                                 educationCbox.SelectedIndex = -1;
                                 MaritalCbox.SelectedIndex = -1;
                                 ClasstypeCbox.SelectedIndex = -1;
-                                pictureBox1.Image = Properties.Resources.nullimage;
+                                pictureBox1.Image = Properties.Resources.person;
                                 usereditlabel.Text = "...";
                                 userlabel.Visible = false;
                                 usereditlabel.Visible = false;
@@ -671,7 +671,7 @@ namespace AmoozeshPJWinF
 
             panelst.Visible = true;
 
-            educationlabel.Text = "سطح تحصیلات :";
+            educationlabel.Text = "سطح تحصیلات";
 
         }
 

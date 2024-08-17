@@ -71,13 +71,15 @@
             editradioButton = new RadioButton();
             panelsame = new Panel();
             panelTch = new Panel();
+            label6 = new Label();
+            label5 = new Label();
             panelst = new Panel();
             panel1 = new Panel();
             studentbot = new Button();
             teacherbot = new Button();
             panel2 = new Panel();
-            panelcolorselect = new Panel();
             pictureBox2 = new PictureBox();
+            panelcolorselect = new Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelsame.SuspendLayout();
             panelTch.SuspendLayout();
@@ -96,6 +98,7 @@
             TypeCbox.Name = "TypeCbox";
             TypeCbox.Size = new Size(151, 28);
             TypeCbox.TabIndex = 0;
+            TypeCbox.Visible = false;
             TypeCbox.SelectedIndexChanged += TypeCbox_SelectedIndexChanged;
             // 
             // usereditlabel
@@ -135,9 +138,10 @@
             // 
             // picturebot
             // 
+            picturebot.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 178);
             picturebot.Location = new Point(38, 216);
             picturebot.Name = "picturebot";
-            picturebot.Size = new Size(101, 29);
+            picturebot.Size = new Size(101, 34);
             picturebot.TabIndex = 5;
             picturebot.Text = "انتخاب عکس";
             picturebot.UseVisualStyleBackColor = true;
@@ -167,80 +171,88 @@
             // educationlabel
             // 
             educationlabel.AutoSize = true;
-            educationlabel.Location = new Point(411, 245);
+            educationlabel.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
+            educationlabel.Location = new Point(420, 242);
             educationlabel.Name = "educationlabel";
             educationlabel.RightToLeft = RightToLeft.Yes;
-            educationlabel.Size = new Size(105, 20);
+            educationlabel.Size = new Size(101, 27);
             educationlabel.TabIndex = 15;
             educationlabel.Text = "سطح تحصیلات";
             // 
             // Fieldlabel
             // 
             Fieldlabel.AutoSize = true;
-            Fieldlabel.Location = new Point(476, 212);
+            Fieldlabel.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
+            Fieldlabel.Location = new Point(477, 210);
             Fieldlabel.Name = "Fieldlabel";
             Fieldlabel.RightToLeft = RightToLeft.Yes;
-            Fieldlabel.Size = new Size(40, 20);
+            Fieldlabel.Size = new Size(42, 27);
             Fieldlabel.TabIndex = 14;
             Fieldlabel.Text = "رشته";
             // 
             // WAnamberlabel
             // 
             WAnamberlabel.AutoSize = true;
-            WAnamberlabel.Location = new Point(407, 179);
+            WAnamberlabel.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
+            WAnamberlabel.Location = new Point(418, 177);
             WAnamberlabel.Name = "WAnamberlabel";
             WAnamberlabel.RightToLeft = RightToLeft.Yes;
-            WAnamberlabel.Size = new Size(109, 20);
+            WAnamberlabel.Size = new Size(101, 27);
             WAnamberlabel.TabIndex = 13;
             WAnamberlabel.Text = "شماره واتس اپ";
             // 
             // NumberLabel
             // 
             NumberLabel.AutoSize = true;
-            NumberLabel.Location = new Point(468, 145);
+            NumberLabel.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
+            NumberLabel.Location = new Point(472, 143);
             NumberLabel.Name = "NumberLabel";
             NumberLabel.RightToLeft = RightToLeft.Yes;
-            NumberLabel.Size = new Size(48, 20);
+            NumberLabel.Size = new Size(47, 27);
             NumberLabel.TabIndex = 12;
             NumberLabel.Text = "شماره";
             // 
             // Agelabel
             // 
             Agelabel.AutoSize = true;
-            Agelabel.Location = new Point(484, 113);
+            Agelabel.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
+            Agelabel.Location = new Point(484, 111);
             Agelabel.Name = "Agelabel";
             Agelabel.RightToLeft = RightToLeft.Yes;
-            Agelabel.Size = new Size(32, 20);
+            Agelabel.Size = new Size(33, 27);
             Agelabel.TabIndex = 11;
             Agelabel.Text = "سن";
             // 
             // Lnamelabel
             // 
             Lnamelabel.AutoSize = true;
-            Lnamelabel.Location = new Point(426, 77);
+            Lnamelabel.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
+            Lnamelabel.Location = new Point(432, 77);
             Lnamelabel.Name = "Lnamelabel";
             Lnamelabel.RightToLeft = RightToLeft.Yes;
-            Lnamelabel.Size = new Size(90, 20);
+            Lnamelabel.Size = new Size(85, 27);
             Lnamelabel.TabIndex = 10;
             Lnamelabel.Text = "نام خانوادگی";
             // 
             // Fnamelabel
             // 
             Fnamelabel.AutoSize = true;
+            Fnamelabel.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
             Fnamelabel.Location = new Point(489, 44);
             Fnamelabel.Name = "Fnamelabel";
             Fnamelabel.RightToLeft = RightToLeft.Yes;
-            Fnamelabel.Size = new Size(27, 20);
+            Fnamelabel.Size = new Size(28, 27);
             Fnamelabel.TabIndex = 9;
             Fnamelabel.Text = "نام";
             // 
             // idlabel
             // 
             idlabel.AutoSize = true;
-            idlabel.Location = new Point(460, 14);
+            idlabel.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 178);
+            idlabel.Location = new Point(463, 13);
             idlabel.Name = "idlabel";
             idlabel.RightToLeft = RightToLeft.Yes;
-            idlabel.Size = new Size(56, 20);
+            idlabel.Size = new Size(54, 27);
             idlabel.TabIndex = 8;
             idlabel.Text = "کد ملی";
             idlabel.Click += idlabel_Click;
@@ -363,7 +375,7 @@
             ClasstypeCbox.Items.AddRange(new object[] { "حضوری", "مجازی" });
             ClasstypeCbox.Location = new Point(9, 115);
             ClasstypeCbox.Name = "ClasstypeCbox";
-            ClasstypeCbox.Size = new Size(208, 28);
+            ClasstypeCbox.Size = new Size(211, 28);
             ClasstypeCbox.TabIndex = 3;
             // 
             // Jobbox
@@ -402,7 +414,7 @@
             // 
             // Monthenterybox
             // 
-            Monthenterybox.Location = new Point(146, 53);
+            Monthenterybox.Location = new Point(133, 53);
             Monthenterybox.Name = "Monthenterybox";
             Monthenterybox.Size = new Size(31, 27);
             Monthenterybox.TabIndex = 24;
@@ -410,7 +422,7 @@
             // 
             // Yearenterybox
             // 
-            Yearenterybox.Location = new Point(98, 53);
+            Yearenterybox.Location = new Point(71, 53);
             Yearenterybox.Name = "Yearenterybox";
             Yearenterybox.Size = new Size(42, 27);
             Yearenterybox.TabIndex = 23;
@@ -419,10 +431,11 @@
             // entrylabel
             // 
             entrylabel.AutoSize = true;
-            entrylabel.Location = new Point(223, 56);
+            entrylabel.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
+            entrylabel.Location = new Point(232, 53);
             entrylabel.Name = "entrylabel";
             entrylabel.RightToLeft = RightToLeft.Yes;
-            entrylabel.Size = new Size(121, 20);
+            entrylabel.Size = new Size(118, 27);
             entrylabel.TabIndex = 22;
             entrylabel.Text = "تاریخ ورود به مرکز";
             // 
@@ -437,17 +450,18 @@
             // Presencerecordlabel
             // 
             Presencerecordlabel.AutoSize = true;
-            Presencerecordlabel.Location = new Point(255, 12);
+            Presencerecordlabel.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
+            Presencerecordlabel.Location = new Point(265, 9);
             Presencerecordlabel.Name = "Presencerecordlabel";
             Presencerecordlabel.RightToLeft = RightToLeft.Yes;
-            Presencerecordlabel.Size = new Size(89, 20);
+            Presencerecordlabel.Size = new Size(83, 27);
             Presencerecordlabel.TabIndex = 20;
             Presencerecordlabel.Text = "سابقه حضور";
             // 
             // Setbutton
             // 
             Setbutton.Enabled = false;
-            Setbutton.Font = new Font("Segoe UI", 20F);
+            Setbutton.Font = new Font("B Nazanin", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 178);
             Setbutton.Location = new Point(38, 355);
             Setbutton.Name = "Setbutton";
             Setbutton.Size = new Size(99, 57);
@@ -459,9 +473,10 @@
             // addradioButton
             // 
             addradioButton.AutoSize = true;
+            addradioButton.Font = new Font("B Nazanin", 10.8F, FontStyle.Bold);
             addradioButton.Location = new Point(59, 12);
             addradioButton.Name = "addradioButton";
-            addradioButton.Size = new Size(104, 24);
+            addradioButton.Size = new Size(106, 33);
             addradioButton.TabIndex = 5;
             addradioButton.TabStop = true;
             addradioButton.Text = "اضافه کردن";
@@ -471,9 +486,10 @@
             // editradioButton
             // 
             editradioButton.AutoSize = true;
+            editradioButton.Font = new Font("B Nazanin", 10.8F, FontStyle.Bold);
             editradioButton.Location = new Point(59, 42);
             editradioButton.Name = "editradioButton";
-            editradioButton.Size = new Size(111, 24);
+            editradioButton.Size = new Size(118, 33);
             editradioButton.TabIndex = 6;
             editradioButton.TabStop = true;
             editradioButton.Text = "ویرایش کردن";
@@ -517,6 +533,8 @@
             // 
             // panelTch
             // 
+            panelTch.Controls.Add(label6);
+            panelTch.Controls.Add(label5);
             panelTch.Controls.Add(Dayenterybox);
             panelTch.Controls.Add(Presencerecordbox);
             panelTch.Controls.Add(Monthenterybox);
@@ -527,6 +545,24 @@
             panelTch.Name = "panelTch";
             panelTch.Size = new Size(374, 175);
             panelTch.TabIndex = 9;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(118, 56);
+            label6.Name = "label6";
+            label6.Size = new Size(15, 20);
+            label6.TabIndex = 27;
+            label6.Text = "/";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(164, 56);
+            label5.Name = "label5";
+            label5.Size = new Size(15, 20);
+            label5.TabIndex = 26;
+            label5.Text = "/";
             // 
             // panelst
             // 
@@ -561,12 +597,14 @@
             // 
             studentbot.FlatAppearance.BorderSize = 0;
             studentbot.FlatStyle = FlatStyle.Flat;
+            studentbot.Font = new Font("B Nazanin", 10.8F, FontStyle.Bold);
             studentbot.Image = (Image)resources.GetObject("studentbot.Image");
             studentbot.Location = new Point(472, 3);
             studentbot.Name = "studentbot";
-            studentbot.Size = new Size(85, 69);
+            studentbot.Size = new Size(85, 78);
             studentbot.TabIndex = 8;
             studentbot.Text = "دانشجو";
+            studentbot.TextAlign = ContentAlignment.BottomCenter;
             studentbot.TextImageRelation = TextImageRelation.ImageAboveText;
             studentbot.UseVisualStyleBackColor = true;
             studentbot.Click += studentbot_Click;
@@ -575,12 +613,14 @@
             // 
             teacherbot.FlatAppearance.BorderSize = 0;
             teacherbot.FlatStyle = FlatStyle.Flat;
+            teacherbot.Font = new Font("B Nazanin", 10.8F, FontStyle.Bold);
             teacherbot.Image = (Image)resources.GetObject("teacherbot.Image");
             teacherbot.Location = new Point(381, 3);
             teacherbot.Name = "teacherbot";
-            teacherbot.Size = new Size(85, 69);
+            teacherbot.Size = new Size(85, 78);
             teacherbot.TabIndex = 7;
             teacherbot.Text = "استاد";
+            teacherbot.TextAlign = ContentAlignment.BottomCenter;
             teacherbot.TextImageRelation = TextImageRelation.ImageAboveText;
             teacherbot.UseVisualStyleBackColor = true;
             teacherbot.Click += teacherbot_Click;
@@ -594,14 +634,6 @@
             panel2.Size = new Size(131, 84);
             panel2.TabIndex = 0;
             // 
-            // panelcolorselect
-            // 
-            panelcolorselect.BackColor = Color.FromArgb(224, 175, 160);
-            panelcolorselect.Location = new Point(472, 72);
-            panelcolorselect.Name = "panelcolorselect";
-            panelcolorselect.Size = new Size(85, 10);
-            panelcolorselect.TabIndex = 11;
-            // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
@@ -611,6 +643,14 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
+            // 
+            // panelcolorselect
+            // 
+            panelcolorselect.BackColor = Color.FromArgb(224, 175, 160);
+            panelcolorselect.Location = new Point(472, 72);
+            panelcolorselect.Name = "panelcolorselect";
+            panelcolorselect.Size = new Size(85, 10);
+            panelcolorselect.TabIndex = 11;
             // 
             // AddUserForm
             // 
@@ -690,5 +730,7 @@
         private Button teacherbot;
         private Panel panelcolorselect;
         private PictureBox pictureBox2;
+        private Label label6;
+        private Label label5;
     }
 }
