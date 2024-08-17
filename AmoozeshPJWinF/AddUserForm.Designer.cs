@@ -77,16 +77,12 @@
             panel1 = new Panel();
             studentbot = new Button();
             teacherbot = new Button();
-            panel2 = new Panel();
-            pictureBox2 = new PictureBox();
             panelcolorselect = new Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelsame.SuspendLayout();
             panelTch.SuspendLayout();
             panelst.SuspendLayout();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // TypeCbox
@@ -331,40 +327,44 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(275, 118);
+            label4.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
+            label4.Location = new Point(278, 116);
             label4.Name = "label4";
             label4.RightToLeft = RightToLeft.Yes;
-            label4.Size = new Size(70, 20);
+            label4.Size = new Size(70, 27);
             label4.TabIndex = 19;
             label4.Text = "نوع کلاس";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(304, 86);
+            label3.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
+            label3.Location = new Point(307, 79);
             label3.Name = "label3";
             label3.RightToLeft = RightToLeft.Yes;
-            label3.Size = new Size(41, 20);
+            label3.Size = new Size(39, 27);
             label3.TabIndex = 18;
             label3.Text = "شغل";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(309, 43);
+            label2.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
+            label2.Location = new Point(308, 43);
             label2.Name = "label2";
             label2.RightToLeft = RightToLeft.Yes;
-            label2.Size = new Size(36, 20);
+            label2.Size = new Size(38, 27);
             label2.TabIndex = 17;
             label2.Text = "شهر";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(252, 9);
+            label1.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
+            label1.Location = new Point(261, 7);
             label1.Name = "label1";
             label1.RightToLeft = RightToLeft.Yes;
-            label1.Size = new Size(93, 20);
+            label1.Size = new Size(86, 27);
             label1.TabIndex = 16;
             label1.Text = "وضعیت تاهل";
             // 
@@ -541,7 +541,7 @@
             panelTch.Controls.Add(Presencerecordlabel);
             panelTch.Controls.Add(Yearenterybox);
             panelTch.Controls.Add(entrylabel);
-            panelTch.Location = new Point(171, 276);
+            panelTch.Location = new Point(172, 267);
             panelTch.Name = "panelTch";
             panelTch.Size = new Size(374, 175);
             panelTch.TabIndex = 9;
@@ -584,7 +584,6 @@
             panel1.BackColor = Color.FromArgb(244, 243, 238);
             panel1.Controls.Add(studentbot);
             panel1.Controls.Add(teacherbot);
-            panel1.Controls.Add(panel2);
             panel1.Controls.Add(editradioButton);
             panel1.Controls.Add(addradioButton);
             panel1.Dock = DockStyle.Top;
@@ -598,6 +597,7 @@
             studentbot.FlatAppearance.BorderSize = 0;
             studentbot.FlatStyle = FlatStyle.Flat;
             studentbot.Font = new Font("B Nazanin", 10.8F, FontStyle.Bold);
+            studentbot.ForeColor = SystemColors.ControlText;
             studentbot.Image = (Image)resources.GetObject("studentbot.Image");
             studentbot.Location = new Point(472, 3);
             studentbot.Name = "studentbot";
@@ -624,25 +624,6 @@
             teacherbot.TextImageRelation = TextImageRelation.ImageAboveText;
             teacherbot.UseVisualStyleBackColor = true;
             teacherbot.Click += teacherbot_Click;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.FromArgb(188, 184, 177);
-            panel2.Controls.Add(pictureBox2);
-            panel2.Location = new Point(229, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(131, 84);
-            panel2.TabIndex = 0;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(23, 3);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(85, 81);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 0;
-            pictureBox2.TabStop = false;
             // 
             // panelcolorselect
             // 
@@ -674,8 +655,6 @@
             panelst.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -725,11 +704,9 @@
         private Panel panelst;
         private Panel panelTch;
         private Panel panel1;
-        private Panel panel2;
         private Button studentbot;
         private Button teacherbot;
         private Panel panelcolorselect;
-        private PictureBox pictureBox2;
         private Label label6;
         private Label label5;
     }

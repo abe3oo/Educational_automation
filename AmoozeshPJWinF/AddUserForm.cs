@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
+using System.Resources;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -665,6 +667,9 @@ namespace AmoozeshPJWinF
         {
             panelcolorselect.Width = studentbot.Width;
             panelcolorselect.Left = studentbot.Left;
+            ReduceSaturation(teacherbot, 0.1f, 0);
+            ReduceSaturation(studentbot, 1f, 1);
+            studentbot.ForeColor = Color.Black;
             TypeCbox.SelectedIndex = 1;
             panelsame.Visible = true;
             panelTch.Visible = false;
@@ -816,13 +821,62 @@ namespace AmoozeshPJWinF
 
         }
 
+        private void ReduceSaturation(Button b1,float f1, int i1)
+        {
+            Image iconImage;
+            // آیکون اصلی را به دست می‌آوریم
+            if (i1 == 1)
+            {
+                iconImage = Properties.Resources.studentcolor;
+            }
+            else
+            {
+                iconImage = Properties.Resources.teachercolor;
+            }
+             // جایگزین با نام آیکون شما در منابع پروژه
+
+            // ماتریس رنگ برای کاهش اشباع
+            float saturation = f1; // مقدار اشباع (0 = سیاه و سفید، 1 = رنگ اصلی)
+            float r = 0.3086f * (1 - saturation);
+            float g = 0.6094f * (1 - saturation);
+            float b = 0.0820f * (1 - saturation);
+
+            ColorMatrix colorMatrix = new ColorMatrix(new float[][]
+            {
+            new float[] {r + saturation, r, r, 0, 0},
+            new float[] {g, g + saturation, g, 0, 0},
+            new float[] {b, b, b + saturation, 0, 0},
+            new float[] {0, 0, 0, 1, 0},
+            new float[] {0, 0, 0, 0, 1}
+            });
+
+            // پردازش تصویر با استفاده از ماتریس رنگ
+            ImageAttributes imageAttributes = new ImageAttributes();
+            imageAttributes.SetColorMatrix(colorMatrix);
+
+            // تصویر جدید با اشباع کاهش یافته
+            Bitmap bmp = new Bitmap(iconImage.Width, iconImage.Height);
+            
+            using (Graphics g222 = Graphics.FromImage(bmp))
+            {
+                g222.DrawImage(iconImage, new Rectangle(0, 0, bmp.Width, bmp.Height), 0, 0, iconImage.Width, iconImage.Height, GraphicsUnit.Pixel, imageAttributes);
+            }
+
+            // تنظیم آیکون جدید برای دکمه
+            b1.Image = bmp;
+            b1.ForeColor = Color.DarkGray;
+        }
+
         private void studentbot_Click(object sender, EventArgs e)
         {
             panelcolorselect.Width = studentbot.Width;
             panelcolorselect.Left = studentbot.Left;
             TypeCbox.SelectedIndex = 1;
-            
-            
+            ReduceSaturation(teacherbot, 0.1f, 0);
+            ReduceSaturation(studentbot, 1f, 1);
+            studentbot.ForeColor = Color.Black;
+
+
         }
 
         private void teacherbot_Click(object sender, EventArgs e)
@@ -830,6 +884,9 @@ namespace AmoozeshPJWinF
             panelcolorselect.Width = teacherbot.Width;
             panelcolorselect.Left = teacherbot.Left;
             TypeCbox.SelectedIndex = 0;
+            ReduceSaturation(studentbot, 0.1f, 1);
+            ReduceSaturation(teacherbot, 1f, 0);
+            teacherbot.ForeColor = Color.Black;
         }
 
         
