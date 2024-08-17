@@ -87,11 +87,11 @@
             groupBox2 = new GroupBox();
             button5 = new Button();
             groupBox3 = new GroupBox();
+            checkBox1 = new CheckBox();
             acceptbot = new Button();
             dayremedical = new TextBox();
             monthremedical = new TextBox();
             yearremedical = new TextBox();
-            label4 = new Label();
             panel2 = new Panel();
             panel3 = new Panel();
             panel4 = new Panel();
@@ -623,6 +623,7 @@
             // 
             // coursetodayGridView
             // 
+            coursetodayGridView.BackgroundColor = Color.FromArgb(188, 184, 177);
             coursetodayGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             coursetodayGridView.Location = new Point(306, 8);
             coursetodayGridView.Name = "coursetodayGridView";
@@ -633,7 +634,7 @@
             // todayclasslabel
             // 
             todayclasslabel.AutoSize = true;
-            todayclasslabel.BackColor = Color.Transparent;
+            todayclasslabel.BackColor = Color.FromArgb(188, 184, 177);
             todayclasslabel.FlatStyle = FlatStyle.Flat;
             todayclasslabel.Font = new Font("B Nazanin", 24F, FontStyle.Bold, GraphicsUnit.Point, 178);
             todayclasslabel.Location = new Point(468, 135);
@@ -665,20 +666,20 @@
             // 
             classidcombo.DropDownStyle = ComboBoxStyle.DropDownList;
             classidcombo.Enabled = false;
-            classidcombo.Font = new Font("Segoe UI", 12F);
+            classidcombo.Font = new Font("Segoe UI", 11F);
             classidcombo.FormattingEnabled = true;
-            classidcombo.Location = new Point(150, 26);
+            classidcombo.Location = new Point(132, 14);
             classidcombo.Name = "classidcombo";
-            classidcombo.Size = new Size(112, 36);
+            classidcombo.Size = new Size(112, 33);
             classidcombo.TabIndex = 48;
             classidcombo.SelectedIndexChanged += classidcombo_SelectedIndexChanged;
             // 
             // truebot
             // 
             truebot.Enabled = false;
-            truebot.Location = new Point(73, 24);
+            truebot.Location = new Point(79, 15);
             truebot.Name = "truebot";
-            truebot.Size = new Size(56, 44);
+            truebot.Size = new Size(47, 33);
             truebot.TabIndex = 50;
             truebot.Text = "✔";
             truebot.UseVisualStyleBackColor = true;
@@ -687,9 +688,9 @@
             // falsebot
             // 
             falsebot.Enabled = false;
-            falsebot.Location = new Point(11, 24);
+            falsebot.Location = new Point(26, 15);
             falsebot.Name = "falsebot";
-            falsebot.Size = new Size(56, 44);
+            falsebot.Size = new Size(47, 33);
             falsebot.TabIndex = 51;
             falsebot.Text = "❌";
             falsebot.UseVisualStyleBackColor = true;
@@ -701,9 +702,9 @@
             groupBox2.Controls.Add(classidcombo);
             groupBox2.Controls.Add(falsebot);
             groupBox2.Controls.Add(truebot);
-            groupBox2.Location = new Point(461, 313);
+            groupBox2.Location = new Point(661, 358);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(278, 76);
+            groupBox2.Size = new Size(265, 54);
             groupBox2.TabIndex = 52;
             groupBox2.TabStop = false;
             groupBox2.Visible = false;
@@ -714,11 +715,10 @@
             button5.Enabled = false;
             button5.FlatStyle = FlatStyle.Popup;
             button5.Image = (Image)resources.GetObject("button5.Image");
-            button5.Location = new Point(770, 313);
+            button5.Location = new Point(306, 313);
             button5.Name = "button5";
-            button5.Size = new Size(156, 86);
+            button5.Size = new Size(620, 39);
             button5.TabIndex = 53;
-            button5.Text = "تغییر وضعیت برگزاری";
             button5.TextImageRelation = TextImageRelation.TextBeforeImage;
             button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click_1;
@@ -726,24 +726,37 @@
             // groupBox3
             // 
             groupBox3.BackColor = Color.Transparent;
+            groupBox3.Controls.Add(checkBox1);
             groupBox3.Controls.Add(acceptbot);
             groupBox3.Controls.Add(dayremedical);
             groupBox3.Controls.Add(monthremedical);
             groupBox3.Controls.Add(yearremedical);
-            groupBox3.Controls.Add(label4);
-            groupBox3.Location = new Point(429, 405);
+            groupBox3.Location = new Point(306, 358);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(497, 81);
+            groupBox3.Size = new Size(349, 54);
             groupBox3.TabIndex = 54;
             groupBox3.TabStop = false;
             groupBox3.Visible = false;
             groupBox3.Enter += groupBox3_Enter;
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.CheckAlign = ContentAlignment.MiddleRight;
+            checkBox1.Location = new Point(169, 20);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(106, 24);
+            checkBox1.TabIndex = 7;
+            checkBox1.Text = "تاریخ جبرانی";
+            checkBox1.TextAlign = ContentAlignment.BottomCenter;
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            // 
             // acceptbot
             // 
-            acceptbot.Location = new Point(8, 13);
+            acceptbot.Location = new Point(286, 14);
             acceptbot.Name = "acceptbot";
-            acceptbot.Size = new Size(59, 29);
+            acceptbot.Size = new Size(47, 33);
             acceptbot.TabIndex = 6;
             acceptbot.Text = "تایید";
             acceptbot.UseVisualStyleBackColor = true;
@@ -751,38 +764,33 @@
             // 
             // dayremedical
             // 
-            dayremedical.Location = new Point(198, 13);
+            dayremedical.Font = new Font("Segoe UI", 11F);
+            dayremedical.Location = new Point(119, 15);
             dayremedical.Name = "dayremedical";
-            dayremedical.Size = new Size(37, 27);
+            dayremedical.Size = new Size(47, 32);
             dayremedical.TabIndex = 5;
+            dayremedical.Visible = false;
             dayremedical.KeyPress += dayremedical_KeyPress;
             // 
             // monthremedical
             // 
-            monthremedical.Location = new Point(155, 13);
+            monthremedical.Font = new Font("Segoe UI", 11F);
+            monthremedical.Location = new Point(76, 15);
             monthremedical.Name = "monthremedical";
-            monthremedical.Size = new Size(37, 27);
+            monthremedical.Size = new Size(37, 32);
             monthremedical.TabIndex = 4;
+            monthremedical.Visible = false;
             monthremedical.KeyPress += monthremedical_KeyPress;
             // 
             // yearremedical
             // 
-            yearremedical.Location = new Point(90, 13);
+            yearremedical.Font = new Font("Segoe UI", 11F);
+            yearremedical.Location = new Point(15, 15);
             yearremedical.Name = "yearremedical";
-            yearremedical.Size = new Size(55, 27);
+            yearremedical.Size = new Size(55, 32);
             yearremedical.TabIndex = 1;
+            yearremedical.Visible = false;
             yearremedical.KeyPress += yearremedical_KeyPress;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("B Nazanin", 12F, FontStyle.Bold, GraphicsUnit.Point, 178);
-            label4.Location = new Point(257, 18);
-            label4.Name = "label4";
-            label4.RightToLeft = RightToLeft.Yes;
-            label4.Size = new Size(222, 32);
-            label4.TabIndex = 0;
-            label4.Text = "تاریخ جبرانی را مشخص کنید :";
             // 
             // panel2
             // 
@@ -867,13 +875,13 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1066, 497);
+            Controls.Add(groupBox2);
             Controls.Add(todayclasslabel);
             Controls.Add(coursetodayGridView);
             Controls.Add(panel4);
             Controls.Add(panel2);
             Controls.Add(groupBox3);
             Controls.Add(button5);
-            Controls.Add(groupBox2);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "Form1";
             Text = "Form1";
@@ -951,12 +959,12 @@
         private Button button5;
         private GroupBox groupBox3;
         private TextBox yearremedical;
-        private Label label4;
         private TextBox monthremedical;
         private TextBox dayremedical;
         private Button acceptbot;
         private Panel panel2;
         private Panel panel3;
         private Panel panel4;
+        private CheckBox checkBox1;
     }
 }

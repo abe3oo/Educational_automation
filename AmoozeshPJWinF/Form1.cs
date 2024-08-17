@@ -513,6 +513,7 @@ namespace AmoozeshPJWinF
             else
             {
                 groupBox2.Visible = false;
+                groupBox3.Visible = false;
                 button5.BackColor = Color.White;
                 classidcombo.SelectedIndex = -1;
             }
@@ -643,9 +644,43 @@ namespace AmoozeshPJWinF
 
         private void acceptbot_Click(object sender, EventArgs e)
         {
-            if (yearremedical.Text.Length != 4 || monthremedical.Text.Length == 0 || dayremedical.Text.Length == 0)
+            if (checkBox1.Checked == true)
             {
-                MessageBox.Show("تاریخ جبرانی را به صورت صحیح وارد کنید.");
+
+
+                if (yearremedical.Text.Length != 4 || monthremedical.Text.Length == 0 || dayremedical.Text.Length == 0)
+                {
+                    MessageBox.Show("تاریخ جبرانی را به صورت صحیح وارد کنید.");
+                }
+                else
+                {
+                    bool thisstatus = dbc.check_course_holding_status(classidcombo.Text, click_date);
+
+                    if (thisstatus == true)
+                    {
+                        DateTime remedicaldate = new DateTime(Convert.ToInt32(yearremedical.Text), Convert.ToInt32(monthremedical.Text), Convert.ToInt32(dayremedical.Text));
+                        string s1 = dbc.course_holding_update(classidcombo.Text, click_date, false, remedicaldate);
+                        if (s1 == "1")
+                        {
+                            MessageBox.Show("تغییر وضعیت با موفقیت انجام شد.");
+                            yearremedical.Text = string.Empty;
+                            monthremedical.Text = string.Empty;
+                            dayremedical.Text = string.Empty;
+                            groupBox3.Visible = false;
+                            falsebot.BackColor = Color.White;
+                            checkBox1.Checked = false;
+                            get_classes(click_date);
+                        }
+                        else
+                        {
+                            MessageBox.Show("خطا در تغییر وضعیت.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("وضعیت کلاس (برگزار نشده) است.");
+                    }
+                }
             }
             else
             {
@@ -653,8 +688,8 @@ namespace AmoozeshPJWinF
 
                 if (thisstatus == true)
                 {
-                    DateTime remedicaldate = new DateTime(Convert.ToInt32(yearremedical.Text), Convert.ToInt32(monthremedical.Text), Convert.ToInt32(dayremedical.Text));
-                    string s1 = dbc.course_holding_update(classidcombo.Text, click_date, false, remedicaldate);
+                    
+                    string s1 = dbc.course_holding_update(classidcombo.Text, click_date, false);
                     if (s1 == "1")
                     {
                         MessageBox.Show("تغییر وضعیت با موفقیت انجام شد.");
@@ -663,6 +698,7 @@ namespace AmoozeshPJWinF
                         dayremedical.Text = string.Empty;
                         groupBox3.Visible = false;
                         falsebot.BackColor = Color.White;
+                        checkBox1.Checked = false;
                         get_classes(click_date);
                     }
                     else
@@ -675,7 +711,6 @@ namespace AmoozeshPJWinF
                     MessageBox.Show("وضعیت کلاس (برگزار نشده) است.");
                 }
             }
-
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
@@ -686,6 +721,26 @@ namespace AmoozeshPJWinF
         private void todayclasslabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                yearremedical.Visible = true;
+                monthremedical.Visible = true;
+                dayremedical.Visible = true;
+            }
+            else
+            {
+                yearremedical.Text = string.Empty;
+                monthremedical.Text = string.Empty;
+                dayremedical.Text = string.Empty;
+                yearremedical.Visible = false;
+                monthremedical.Visible = false;
+                dayremedical.Visible = false;
+
+            }
         }
     }
 }

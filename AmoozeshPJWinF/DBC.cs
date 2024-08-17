@@ -421,6 +421,10 @@ namespace AmoozeshPJWinF
                 {
                     cmd.CommandText = $"UPDATE course_holding SET holding_status = {b1}, date_of_remedical = null WHERE course_id = '{id}' and date_of_sections = '{d1}';";
                 }
+                else if (b1 == false && dremedical == default)
+                {
+                    cmd.CommandText = $"UPDATE course_holding SET holding_status = {b1}, date_of_remedical = null WHERE course_id = '{id}' and date_of_sections = '{d1}';";
+                }
                 else
                 {
                     cmd.CommandText = $"UPDATE course_holding SET holding_status = {b1}, date_of_remedical = '{dremedical}' WHERE course_id = '{id}' and date_of_sections = '{d1}';";
