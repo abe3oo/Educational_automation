@@ -44,23 +44,27 @@ namespace AmoozeshPJWinF
             clear_textbox(Jobbox);
             clear_textbox(Citybox);
             usereditlabel.Text = "...";
-            pictureBox1.Image = null;
+            pictureBox1.Image = Properties.Resources.nullimage;
         }
 
         private void TypeCbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (TypeCbox.SelectedIndex == 0)
             {
-                groupBoxsame.Visible = true;
-                groupBoxTch.Visible = true;
-                groupBoxSt.Visible = false;
+                panelsame.Visible = true;
+                panelTch.Visible = true;
+
+                panelst.Visible = false;
+
                 educationlabel.Text = "مدرک تحصیلی :";
             }
             else if (TypeCbox.SelectedIndex == 1)
             {
-                groupBoxsame.Visible = true;
-                groupBoxTch.Visible = false;
-                groupBoxSt.Visible = true;
+                panelsame.Visible = true;
+                panelTch.Visible = false;
+
+                panelst.Visible = true;
+
                 educationlabel.Text = "سطح تحصیلات :";
             }
         }
@@ -185,7 +189,7 @@ namespace AmoozeshPJWinF
                                 educationCbox.SelectedIndex = -1;
                                 MaritalCbox.SelectedIndex = -1;
                                 ClasstypeCbox.SelectedIndex = -1;
-                                pictureBox1.Image = null;
+                                pictureBox1.Image = Properties.Resources.nullimage;
 
                             }
                             else
@@ -287,7 +291,7 @@ namespace AmoozeshPJWinF
                                     clear_textbox(Monthenterybox);
                                     clear_textbox(Dayenterybox);
                                     educationCbox.SelectedIndex = -1;
-                                    pictureBox1.Image = null;
+                                    pictureBox1.Image = Properties.Resources.nullimage;
 
                                 }
 
@@ -410,7 +414,7 @@ namespace AmoozeshPJWinF
                                 educationCbox.SelectedIndex = -1;
                                 MaritalCbox.SelectedIndex = -1;
                                 ClasstypeCbox.SelectedIndex = -1;
-                                pictureBox1.Image = null;
+                                pictureBox1.Image = Properties.Resources.nullimage;
                                 usereditlabel.Text = "...";
                                 userlabel.Visible = false;
                                 usereditlabel.Visible = false;
@@ -659,11 +663,14 @@ namespace AmoozeshPJWinF
 
         private void AddUserForm_Load(object sender, EventArgs e)
         {
+            panelcolorselect.Width = studentbot.Width;
+            panelcolorselect.Left = studentbot.Left;
             TypeCbox.SelectedIndex = 1;
+            panelsame.Visible = true;
+            panelTch.Visible = false;
 
-            groupBoxsame.Visible = true;
-            groupBoxTch.Visible = false;
-            groupBoxSt.Visible = true;
+            panelst.Visible = true;
+
             educationlabel.Text = "سطح تحصیلات :";
 
         }
@@ -808,5 +815,23 @@ namespace AmoozeshPJWinF
         {
 
         }
+
+        private void studentbot_Click(object sender, EventArgs e)
+        {
+            panelcolorselect.Width = studentbot.Width;
+            panelcolorselect.Left = studentbot.Left;
+            TypeCbox.SelectedIndex = 1;
+            
+            
+        }
+
+        private void teacherbot_Click(object sender, EventArgs e)
+        {
+            panelcolorselect.Width = teacherbot.Width;
+            panelcolorselect.Left = teacherbot.Left;
+            TypeCbox.SelectedIndex = 0;
+        }
+
+        
     }
 }
