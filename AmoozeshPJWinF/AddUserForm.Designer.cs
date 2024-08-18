@@ -461,7 +461,7 @@
             // Setbutton
             // 
             Setbutton.Enabled = false;
-            Setbutton.Font = new Font("B Nazanin", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 178);
+            Setbutton.Font = new Font("B Nazanin", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 178);
             Setbutton.Location = new Point(38, 355);
             Setbutton.Name = "Setbutton";
             Setbutton.Size = new Size(99, 57);

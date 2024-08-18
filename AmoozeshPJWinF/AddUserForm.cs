@@ -192,6 +192,7 @@ namespace AmoozeshPJWinF
                                 MaritalCbox.SelectedIndex = -1;
                                 ClasstypeCbox.SelectedIndex = -1;
                                 pictureBox1.Image = Properties.Resources.person;
+                                Idbox.Focus();
 
                             }
                             else
@@ -824,7 +825,7 @@ namespace AmoozeshPJWinF
         private void ReduceSaturation(Button b1,float f1, int i1)
         {
             Image iconImage;
-            // آیکون اصلی را به دست می‌آوریم
+            
             if (i1 == 1)
             {
                 iconImage = Properties.Resources.studentcolor;
@@ -833,9 +834,7 @@ namespace AmoozeshPJWinF
             {
                 iconImage = Properties.Resources.teachercolor;
             }
-             // جایگزین با نام آیکون شما در منابع پروژه
-
-            // ماتریس رنگ برای کاهش اشباع
+            
             float saturation = f1; // مقدار اشباع (0 = سیاه و سفید، 1 = رنگ اصلی)
             float r = 0.3086f * (1 - saturation);
             float g = 0.6094f * (1 - saturation);
@@ -850,11 +849,11 @@ namespace AmoozeshPJWinF
             new float[] {0, 0, 0, 0, 1}
             });
 
-            // پردازش تصویر با استفاده از ماتریس رنگ
+            
             ImageAttributes imageAttributes = new ImageAttributes();
             imageAttributes.SetColorMatrix(colorMatrix);
 
-            // تصویر جدید با اشباع کاهش یافته
+            
             Bitmap bmp = new Bitmap(iconImage.Width, iconImage.Height);
             
             using (Graphics g222 = Graphics.FromImage(bmp))
@@ -862,7 +861,7 @@ namespace AmoozeshPJWinF
                 g222.DrawImage(iconImage, new Rectangle(0, 0, bmp.Width, bmp.Height), 0, 0, iconImage.Width, iconImage.Height, GraphicsUnit.Pixel, imageAttributes);
             }
 
-            // تنظیم آیکون جدید برای دکمه
+            
             b1.Image = bmp;
             b1.ForeColor = Color.DarkGray;
         }
