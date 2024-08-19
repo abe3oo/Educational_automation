@@ -44,6 +44,7 @@ namespace AmoozeshPJWinF
         /// </summary>
         private void InitializeComponent()
         {
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(enrollmentForm));
             courseID = new Label();
             date = new Label();
             whatsappGP = new Label();
@@ -58,67 +59,92 @@ namespace AmoozeshPJWinF
             studentIDtxb = new TextBox();
             setbot = new Button();
             panel1 = new Panel();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            classidpictureBox = new PictureBox();
+            classnamelbl = new Label();
+            classidlbl = new Label();
+            classnamepictureBox = new PictureBox();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            studentnamepictureBox = new PictureBox();
+            studentidpictureBox = new PictureBox();
+            studentnamelbl = new Label();
+            studentidlbl = new Label();
             panel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            ((ISupportInitialize)classidpictureBox).BeginInit();
+            ((ISupportInitialize)classnamepictureBox).BeginInit();
+            tableLayoutPanel1.SuspendLayout();
+            ((ISupportInitialize)studentnamepictureBox).BeginInit();
+            ((ISupportInitialize)studentidpictureBox).BeginInit();
             SuspendLayout();
             // 
             // courseID
             // 
             courseID.AutoSize = true;
+            courseID.BackColor = Color.Transparent;
+            courseID.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
             courseID.ImageAlign = ContentAlignment.MiddleRight;
-            courseID.Location = new Point(406, 30);
+            courseID.Location = new Point(439, 48);
             courseID.Name = "courseID";
-            courseID.RightToLeft = RightToLeft.Yes;
-            courseID.Size = new Size(40, 20);
+            courseID.RightToLeft = RightToLeft.No;
+            courseID.Size = new Size(41, 27);
             courseID.TabIndex = 0;
             courseID.Text = "درس";
             // 
             // date
             // 
             date.AutoSize = true;
+            date.BackColor = Color.Transparent;
+            date.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
             date.ImageAlign = ContentAlignment.MiddleRight;
-            date.Location = new Point(350, 177);
+            date.Location = new Point(392, 189);
             date.Name = "date";
-            date.RightToLeft = RightToLeft.Yes;
-            date.Size = new Size(89, 20);
+            date.RightToLeft = RightToLeft.No;
+            date.Size = new Size(90, 27);
             date.TabIndex = 1;
             date.Text = "تاریخ ثبت نام";
             // 
             // whatsappGP
             // 
             whatsappGP.AutoSize = true;
+            whatsappGP.BackColor = Color.Transparent;
+            whatsappGP.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
             whatsappGP.ImageAlign = ContentAlignment.MiddleRight;
-            whatsappGP.Location = new Point(352, 233);
+            whatsappGP.Location = new Point(395, 238);
             whatsappGP.Name = "whatsappGP";
-            whatsappGP.RightToLeft = RightToLeft.Yes;
-            whatsappGP.Size = new Size(90, 20);
+            whatsappGP.RightToLeft = RightToLeft.No;
+            whatsappGP.Size = new Size(85, 27);
             whatsappGP.TabIndex = 2;
             whatsappGP.Text = "گروه واتساپ";
             // 
             // studentID
             // 
             studentID.AutoSize = true;
+            studentID.BackColor = Color.Transparent;
+            studentID.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
             studentID.ImageAlign = ContentAlignment.MiddleRight;
-            studentID.Location = new Point(406, 69);
+            studentID.Location = new Point(425, 14);
             studentID.Name = "studentID";
-            studentID.RightToLeft = RightToLeft.Yes;
-            studentID.Size = new Size(56, 20);
+            studentID.RightToLeft = RightToLeft.No;
+            studentID.Size = new Size(55, 27);
             studentID.TabIndex = 3;
             studentID.Text = "دانشجو";
             // 
             // WAgptxb
             // 
-            WAgptxb.Location = new Point(74, 233);
+            WAgptxb.Location = new Point(74, 235);
             WAgptxb.Margin = new Padding(5, 4, 5, 4);
             WAgptxb.Multiline = true;
             WAgptxb.Name = "WAgptxb";
-            WAgptxb.Size = new Size(266, 159);
-            WAgptxb.TabIndex = 17;
+            WAgptxb.Size = new Size(313, 97);
+            WAgptxb.TabIndex = 6;
             WAgptxb.TextChanged += WAgptxb_TextChanged;
             // 
             // label2
             // 
+            label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(279, 173);
+            label2.Location = new Point(282, 183);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
             label2.RightToLeft = RightToLeft.Yes;
@@ -128,8 +154,9 @@ namespace AmoozeshPJWinF
             // 
             // label1
             // 
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(213, 173);
+            label1.Location = new Point(216, 183);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
             label1.RightToLeft = RightToLeft.Yes;
@@ -139,59 +166,61 @@ namespace AmoozeshPJWinF
             // 
             // datetxbm
             // 
-            datetxbm.Location = new Point(237, 173);
+            datetxbm.Location = new Point(237, 186);
             datetxbm.Margin = new Padding(5, 4, 5, 4);
             datetxbm.Name = "datetxbm";
             datetxbm.Size = new Size(35, 27);
-            datetxbm.TabIndex = 24;
+            datetxbm.TabIndex = 4;
             datetxbm.KeyPress += datetxbm_KeyPress;
             // 
             // datetxby
             // 
-            datetxby.Location = new Point(153, 173);
+            datetxby.Location = new Point(153, 186);
             datetxby.Margin = new Padding(5, 4, 5, 4);
             datetxby.Name = "datetxby";
             datetxby.Size = new Size(52, 27);
-            datetxby.TabIndex = 23;
+            datetxby.TabIndex = 5;
             datetxby.TextAlign = HorizontalAlignment.Center;
+            datetxby.TextChanged += datetxby_TextChanged;
             datetxby.KeyPress += datetxby_KeyPress;
             // 
             // datetxbd
             // 
-            datetxbd.Location = new Point(305, 173);
+            datetxbd.Location = new Point(305, 186);
             datetxbd.Margin = new Padding(5, 4, 5, 4);
             datetxbd.Name = "datetxbd";
             datetxbd.Size = new Size(35, 27);
-            datetxbd.TabIndex = 22;
+            datetxbd.TabIndex = 3;
             datetxbd.KeyPress += datetxbd_KeyPress;
             // 
             // courseIDtxb
             // 
-            courseIDtxb.Location = new Point(74, 27);
+            courseIDtxb.Location = new Point(74, 49);
             courseIDtxb.Margin = new Padding(5, 4, 5, 4);
             courseIDtxb.MaxLength = 10;
             courseIDtxb.Name = "courseIDtxb";
-            courseIDtxb.Size = new Size(310, 27);
-            courseIDtxb.TabIndex = 27;
+            courseIDtxb.Size = new Size(324, 27);
+            courseIDtxb.TabIndex = 2;
             courseIDtxb.TextChanged += courseIDtxb_TextChanged;
             courseIDtxb.KeyPress += courseIDtxb_KeyPress;
             // 
             // studentIDtxb
             // 
-            studentIDtxb.Location = new Point(74, 62);
+            studentIDtxb.Location = new Point(74, 13);
             studentIDtxb.Margin = new Padding(5, 4, 5, 4);
             studentIDtxb.MaxLength = 10;
             studentIDtxb.Name = "studentIDtxb";
-            studentIDtxb.Size = new Size(310, 27);
-            studentIDtxb.TabIndex = 28;
+            studentIDtxb.Size = new Size(324, 27);
+            studentIDtxb.TabIndex = 1;
             studentIDtxb.TextChanged += studentIDtxb_TextChanged;
             studentIDtxb.KeyPress += studentIDtxb_KeyPress;
             // 
             // setbot
             // 
-            setbot.Location = new Point(74, 447);
+            setbot.Font = new Font("B Nazanin", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 178);
+            setbot.Location = new Point(74, 359);
             setbot.Name = "setbot";
-            setbot.Size = new Size(94, 29);
+            setbot.Size = new Size(94, 56);
             setbot.TabIndex = 30;
             setbot.Text = "ثبت";
             setbot.UseVisualStyleBackColor = true;
@@ -200,6 +229,8 @@ namespace AmoozeshPJWinF
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(244, 243, 238);
+            panel1.Controls.Add(tableLayoutPanel2);
+            panel1.Controls.Add(tableLayoutPanel1);
             panel1.Controls.Add(courseIDtxb);
             panel1.Controls.Add(courseID);
             panel1.Controls.Add(studentIDtxb);
@@ -207,14 +238,138 @@ namespace AmoozeshPJWinF
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(482, 166);
+            panel1.Size = new Size(496, 166);
             panel1.TabIndex = 31;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 35F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel2.Controls.Add(classidpictureBox, 0, 1);
+            tableLayoutPanel2.Controls.Add(classnamelbl, 1, 0);
+            tableLayoutPanel2.Controls.Add(classidlbl, 1, 1);
+            tableLayoutPanel2.Controls.Add(classnamepictureBox, 0, 0);
+            tableLayoutPanel2.Location = new Point(3, 92);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RightToLeft = RightToLeft.Yes;
+            tableLayoutPanel2.RowCount = 2;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
+            tableLayoutPanel2.Size = new Size(241, 74);
+            tableLayoutPanel2.TabIndex = 32;
+            // 
+            // classidpictureBox
+            // 
+            classidpictureBox.Anchor = AnchorStyles.Left;
+            classidpictureBox.Image = Properties.Resources.barcode25;
+            classidpictureBox.Location = new Point(209, 40);
+            classidpictureBox.Name = "classidpictureBox";
+            classidpictureBox.Size = new Size(29, 28);
+            classidpictureBox.TabIndex = 31;
+            classidpictureBox.TabStop = false;
+            // 
+            // classnamelbl
+            // 
+            classnamelbl.Anchor = AnchorStyles.Left;
+            classnamelbl.AutoSize = true;
+            classnamelbl.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
+            classnamelbl.Location = new Point(162, 4);
+            classnamelbl.Name = "classnamelbl";
+            classnamelbl.Size = new Size(41, 27);
+            classnamelbl.TabIndex = 33;
+            classnamelbl.Text = "خالی";
+            classnamelbl.Visible = false;
+            // 
+            // classidlbl
+            // 
+            classidlbl.Anchor = AnchorStyles.Left;
+            classidlbl.AutoSize = true;
+            classidlbl.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
+            classidlbl.Location = new Point(162, 41);
+            classidlbl.Name = "classidlbl";
+            classidlbl.Size = new Size(41, 27);
+            classidlbl.TabIndex = 34;
+            classidlbl.Text = "خالی";
+            classidlbl.Visible = false;
+            // 
+            // classnamepictureBox
+            // 
+            classnamepictureBox.Anchor = AnchorStyles.Left;
+            classnamepictureBox.Image = Properties.Resources.class25;
+            classnamepictureBox.Location = new Point(209, 3);
+            classnamepictureBox.Name = "classnamepictureBox";
+            classnamepictureBox.Size = new Size(29, 29);
+            classnamepictureBox.TabIndex = 32;
+            classnamepictureBox.TabStop = false;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 35F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.Controls.Add(studentnamepictureBox, 0, 0);
+            tableLayoutPanel1.Controls.Add(studentidpictureBox, 0, 1);
+            tableLayoutPanel1.Controls.Add(studentnamelbl, 1, 0);
+            tableLayoutPanel1.Controls.Add(studentidlbl, 1, 1);
+            tableLayoutPanel1.Location = new Point(250, 92);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RightToLeft = RightToLeft.Yes;
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.Size = new Size(234, 71);
+            tableLayoutPanel1.TabIndex = 33;
+            // 
+            // studentnamepictureBox
+            // 
+            studentnamepictureBox.Image = Properties.Resources.name25;
+            studentnamepictureBox.Location = new Point(202, 3);
+            studentnamepictureBox.Name = "studentnamepictureBox";
+            studentnamepictureBox.Size = new Size(29, 28);
+            studentnamepictureBox.TabIndex = 30;
+            studentnamepictureBox.TabStop = false;
+            // 
+            // studentidpictureBox
+            // 
+            studentidpictureBox.Anchor = AnchorStyles.Left;
+            studentidpictureBox.Image = Properties.Resources.id25;
+            studentidpictureBox.Location = new Point(202, 37);
+            studentidpictureBox.Name = "studentidpictureBox";
+            studentidpictureBox.Size = new Size(29, 32);
+            studentidpictureBox.TabIndex = 29;
+            studentidpictureBox.TabStop = false;
+            // 
+            // studentnamelbl
+            // 
+            studentnamelbl.Anchor = AnchorStyles.Left;
+            studentnamelbl.AutoSize = true;
+            studentnamelbl.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
+            studentnamelbl.Location = new Point(155, 3);
+            studentnamelbl.Name = "studentnamelbl";
+            studentnamelbl.Size = new Size(41, 27);
+            studentnamelbl.TabIndex = 31;
+            studentnamelbl.Text = "خالی";
+            studentnamelbl.Visible = false;
+            // 
+            // studentidlbl
+            // 
+            studentidlbl.Anchor = AnchorStyles.Left;
+            studentidlbl.AutoSize = true;
+            studentidlbl.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
+            studentidlbl.Location = new Point(155, 39);
+            studentidlbl.Name = "studentidlbl";
+            studentidlbl.Size = new Size(41, 27);
+            studentidlbl.TabIndex = 32;
+            studentidlbl.Text = "خالی";
+            studentidlbl.Visible = false;
             // 
             // enrollmentForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(482, 497);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(496, 427);
             Controls.Add(panel1);
             Controls.Add(setbot);
             Controls.Add(label2);
@@ -232,6 +387,14 @@ namespace AmoozeshPJWinF
             Load += enrollmentForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
+            ((ISupportInitialize)classidpictureBox).EndInit();
+            ((ISupportInitialize)classnamepictureBox).EndInit();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            ((ISupportInitialize)studentnamepictureBox).EndInit();
+            ((ISupportInitialize)studentidpictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -257,5 +420,15 @@ namespace AmoozeshPJWinF
         private TextBox studentIDtxb;
         private Button setbot;
         private Panel panel1;
+        private PictureBox studentnamepictureBox;
+        private PictureBox studentidpictureBox;
+        private PictureBox classnamepictureBox;
+        private PictureBox classidpictureBox;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label studentnamelbl;
+        private Label studentidlbl;
+        private TableLayoutPanel tableLayoutPanel2;
+        private Label classnamelbl;
+        private Label classidlbl;
     }
 }
