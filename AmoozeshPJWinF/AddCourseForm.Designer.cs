@@ -103,12 +103,12 @@
             // teacher_id
             // 
             teacher_id.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
-            teacher_id.Location = new Point(304, 23);
+            teacher_id.Location = new Point(313, 22);
             teacher_id.Name = "teacher_id";
             teacher_id.RightToLeft = RightToLeft.Yes;
             teacher_id.Size = new Size(104, 31);
             teacher_id.TabIndex = 4;
-            teacher_id.Text = "جستجوی استاد";
+            teacher_id.Text = "کد ملی استاد";
             teacher_id.TextAlign = ContentAlignment.MiddleRight;
             // 
             // date_of_start
@@ -167,7 +167,7 @@
             // 
             acceptButton.Enabled = false;
             acceptButton.Font = new Font("B Nazanin", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 178);
-            acceptButton.Location = new Point(12, 406);
+            acceptButton.Location = new Point(20, 399);
             acceptButton.Margin = new Padding(3, 4, 3, 4);
             acceptButton.Name = "acceptButton";
             acceptButton.Size = new Size(105, 50);

@@ -574,7 +574,6 @@
             // 
             classgroupbox.Controls.Add(clocklblshow);
             classgroupbox.Controls.Add(costlblshow);
-            classgroupbox.Controls.Add(balancegroupbox);
             classgroupbox.Controls.Add(dateofstartlblshow);
             classgroupbox.Controls.Add(termlblshow);
             classgroupbox.Controls.Add(teacheridlblshow);
@@ -607,7 +606,7 @@
             // costlblshow
             // 
             costlblshow.AutoSize = true;
-            costlblshow.Location = new Point(94, 247);
+            costlblshow.Location = new Point(93, 249);
             costlblshow.Name = "costlblshow";
             costlblshow.Size = new Size(18, 20);
             costlblshow.TabIndex = 33;
@@ -733,9 +732,9 @@
             balancegroupbox.Controls.Add(sumnumberlbl);
             balancegroupbox.Controls.Add(sumtxtlbl);
             balancegroupbox.Controls.Add(balancelistview);
-            balancegroupbox.Location = new Point(0, 41);
+            balancegroupbox.Location = new Point(629, 189);
             balancegroupbox.Name = "balancegroupbox";
-            balancegroupbox.Size = new Size(632, 434);
+            balancegroupbox.Size = new Size(556, 404);
             balancegroupbox.TabIndex = 9;
             balancegroupbox.TabStop = false;
             balancegroupbox.Text = "بدهی ها";
@@ -817,9 +816,10 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1054, 603);
+            ClientSize = new Size(1209, 670);
             Controls.Add(filterbalancecombo);
             Controls.Add(showbalancebot);
+            Controls.Add(balancegroupbox);
             Controls.Add(classgroupbox);
             Controls.Add(groupBoxsame);
             Controls.Add(showbot);

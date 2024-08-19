@@ -13,6 +13,9 @@ namespace AmoozeshPJWinF
 {
     public partial class enrollmentForm : Form
     {
+        DBC denrollment = new DBC();
+        List<string> personresult = new List<string>();
+        List<string> courseresult = new List<string>();
         public enrollmentForm()
         {
             InitializeComponent();
@@ -38,30 +41,26 @@ namespace AmoozeshPJWinF
         private void studentIDtxb_TextChanged(object sender, EventArgs e)
         {
 
-            if (studentIDtxb.Text == "")
+            if (studentIDtxb.AutoCompleteCustomSource.Contains(studentIDtxb.Text))
             {
-                setbot.Enabled = false;
-            }
-            else
-            {
-                setbot.Enabled = true;
+                MessageBox.Show("OK");
             }
         }
 
         private void courseIDtxb_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            //if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            //{
+            //    e.Handled = true;
+            //}
         }
 
         private void studentIDtxb_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            //if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            //{
+            //    e.Handled = true;
+            //}
         }
 
         private void datetxby_KeyPress(object sender, KeyPressEventArgs e)
@@ -129,7 +128,7 @@ namespace AmoozeshPJWinF
 
         private void setbot_Click(object sender, EventArgs e)
         {
-            DBC denrollment = new DBC();
+            
 
             if ((denrollment.courseid_check(courseIDtxb.Text) == true) && (denrollment.studentid_check(studentIDtxb.Text) == true))
             {
@@ -171,6 +170,36 @@ namespace AmoozeshPJWinF
             {
                 MessageBox.Show("کد ملی یا کد درس موجود نیست!!!");
             }
+        }
+
+        private void enrollmentForm_Load(object sender, EventArgs e)
+        {
+            //course_suj
+            courseIDtxb.AutoCompleteCustomSource = null;
+            List<showcourse> s1 = new List<showcourse>();
+            s1 = denrollment.show_all_courseid_name();
+            foreach (showcourse s in s1)
+            {
+                string res1 = s.courseid + " " + s.coursename;
+                string res2 = s.coursename + " " + s.courseid;
+                courseresult.Add(res1);
+                courseresult.Add(res2);
+            }
+            courseIDtxb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            courseIDtxb.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection te = new AutoCompleteStringCollection();
+            te.AddRange(courseresult.ToArray());
+            courseIDtxb.AutoCompleteCustomSource = te;
+            //student_suj
+            studentIDtxb.AutoCompleteCustomSource = null;
+            personresult = denrollment.get_all_students();
+
+            
+            studentIDtxb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            studentIDtxb.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection tee = new AutoCompleteStringCollection();
+            tee.AddRange(personresult.ToArray());
+            studentIDtxb.AutoCompleteCustomSource = tee;
         }
     }
 }

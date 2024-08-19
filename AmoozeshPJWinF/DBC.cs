@@ -965,6 +965,42 @@ namespace AmoozeshPJWinF
             }
             
         }
+
+        public List<string> get_all_students()
+        {
+            try
+            {
+                var con = new NpgsqlConnection(
+                connectionString: globalcon);
+                string p1 = "";
+                string p11 = "";
+                List<string> p2 = new List<string>();
+                con.Open();
+                //-----
+                using var cmd = new NpgsqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = $"SELECT student.id, users.firstname, users.lastname FROM student JOIN users ON student.id = users.id;";
+
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+
+                        p1 = Convert.ToString(reader.GetInt64(0)) + " " + Convert.ToString(reader.GetString(1)) + " " + Convert.ToString(reader.GetString(2));
+                        p11 = Convert.ToString(reader.GetString(1)) + " " + Convert.ToString(reader.GetString(2)) + " " + Convert.ToString(reader.GetInt64(0));
+                        p2.Add(p1);
+                        p2.Add (p11);
+                    }
+                }
+                return p2;
+            }
+            catch
+            {
+                MessageBox.Show("خطا در دریافت اطلاعات کاربران !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
         public showcourse show_course(string id)
         {
             try

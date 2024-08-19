@@ -92,7 +92,7 @@ namespace AmoozeshPJWinF
 
             if (dcourse.teacherid_check(idlabel.Text) == true)
             {
-                if (termcombobox.Text != "" && idlabel.Text != "" && courseNametxb.Text != "" && costtxb.Text != "" && datetxbd.Text != "" && datetxbm.Text != "" && datetxby.Text != "")
+                if (termcombobox.Text != "" && idlabel.Text != "خالی" && courseNametxb.Text != "" && costtxb.Text != "" && datetxbd.Text != "" && datetxbm.Text != "" && datetxby.Text != "")
                 {
 
                     Course c1 = new Course();
@@ -153,10 +153,11 @@ namespace AmoozeshPJWinF
                             dcourse.clear_textbox(costtxb);
                             dcourse.clear_textbox(courseNametxb);
                             dcourse.clear_textbox(numberofcoursebox);
-                            idlabel.Text = string.Empty;
-                            namelabel.Text = string.Empty;
+                            idlabel.Text = "خالی";
+                            namelabel.Text = "خالی";
                             ReduceSaturation(idpictureBox, 0f, 1);
                             ReduceSaturation(namepictureBox, 0f, 0);
+                            idlabel.Visible = false; namelabel.Visible = false;
                             termcombobox.SelectedIndex = -1;
                             hourUpDown.Value = 0;
                             minUpDown.Value = 0;
@@ -194,7 +195,7 @@ namespace AmoozeshPJWinF
         private void teacherIDtxb_TextChanged(object sender, EventArgs e)
         {
 
-            if (teacherIDtxb.Text.Length > 10)
+            if (teacherIDtxb.AutoCompleteCustomSource.Contains(teacherIDtxb.Text))
             {
                 idlabel.Text = teacherIDtxb.Text.Substring(0, 10);
                 namelabel.Text = teacherIDtxb.Text.Substring(11);
@@ -363,6 +364,7 @@ namespace AmoozeshPJWinF
             if(idlabel.Text.Length == 10)
             {
                 acceptButton.Enabled = true;
+                termcombobox.Focus();
             }
             else
             {
