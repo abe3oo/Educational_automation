@@ -36,7 +36,7 @@ namespace AmoozeshPJWinF
             {
                 iconImage = Properties.Resources.id25;
             }
-            else if(i1 == 1)
+            else if (i1 == 1)
             {
                 iconImage = Properties.Resources.name25;
             }
@@ -48,7 +48,7 @@ namespace AmoozeshPJWinF
             {
                 iconImage = Properties.Resources.barcode25;
             }
-            
+
 
             float saturation = f1; // مقدار اشباع (0 = سیاه و سفید، 1 = رنگ اصلی)
             float r = 0.3086f * (1 - saturation);
@@ -128,7 +128,7 @@ namespace AmoozeshPJWinF
                 ReduceSaturation(classidpictureBox, 1f, 3);
                 classnamelbl.Visible = true;
                 classidlbl.Visible = true;
-                
+
                 studentIDtxb.Focus();
             }
         }
@@ -232,14 +232,14 @@ namespace AmoozeshPJWinF
         {
 
 
-            if ((denrollment.courseid_check(courseIDtxb.Text) == true) && (denrollment.studentid_check(studentIDtxb.Text) == true))
+            if ((denrollment.courseid_check(classidlbl.Text) == true) && (denrollment.studentid_check(studentidlbl.Text) == true))
             {
-                if (courseIDtxb.Text != "" && studentIDtxb.Text != "" && WAgptxb.Text != "" && datetxbd.Text != "" && datetxbm.Text != "" && datetxby.Text != "")
+                if (classidlbl.Text != "" && studentidlbl.Text != "" && WAgptxb.Text != "" && datetxbd.Text != "" && datetxbm.Text != "" && datetxby.Text != "")
                 {
                     Enrollment e1 = new Enrollment();
 
-                    e1.courseid = Convert.ToInt64(courseIDtxb.Text);
-                    e1.studentid = Convert.ToInt64(studentIDtxb.Text);
+                    e1.courseid = Convert.ToInt64(classidlbl.Text);
+                    e1.studentid = Convert.ToInt64(studentidlbl.Text);
                     e1.whatsappgp = WAgptxb.Text;
                     DateTime date3 = new DateTime(Convert.ToInt16(datetxby.Text), Convert.ToInt16(datetxbm.Text), Convert.ToInt16(datetxbd.Text));
                     e1.dateofenrollment = date3;
@@ -249,8 +249,10 @@ namespace AmoozeshPJWinF
                     {
                         MessageBox.Show("ثبت با موفقیت انجام شد");
 
-                        clear_textbox(courseIDtxb);
-                        clear_textbox(studentIDtxb);
+                        classidlbl.Text = "خالی";
+                        studentidlbl.Text = "خالی";
+                        classidlbl.Visible = false;
+                        studentidlbl.Visible = false ;
                         clear_textbox(datetxby);
                         clear_textbox(datetxbm);
                         clear_textbox(datetxbd);
@@ -315,6 +317,37 @@ namespace AmoozeshPJWinF
         private void datetxby_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void studentidlbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void studentidlbl_TextChanged(object sender, EventArgs e)
+        {
+            if (studentidlbl.Text.Length == 10 && classidlbl.Text.Length == 8)
+            {
+                setbot.Enabled = true;
+
+            }
+            else
+            {
+                setbot.Enabled = false;
+            }
+        }
+
+        private void classidlbl_TextChanged(object sender, EventArgs e)
+        {
+            if (studentidlbl.Text.Length == 10 && classidlbl.Text.Length == 8)
+            {
+                setbot.Enabled = true;
+
+            }
+            else
+            {
+                setbot.Enabled = false;
+            }
         }
     }
 }

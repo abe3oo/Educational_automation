@@ -217,6 +217,7 @@ namespace AmoozeshPJWinF
             // 
             // setbot
             // 
+            setbot.Enabled = false;
             setbot.Font = new Font("B Nazanin", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 178);
             setbot.Location = new Point(74, 359);
             setbot.Name = "setbot";
@@ -292,6 +293,7 @@ namespace AmoozeshPJWinF
             classidlbl.TabIndex = 34;
             classidlbl.Text = "خالی";
             classidlbl.Visible = false;
+            classidlbl.TextChanged += classidlbl_TextChanged;
             // 
             // classnamepictureBox
             // 
@@ -363,6 +365,8 @@ namespace AmoozeshPJWinF
             studentidlbl.TabIndex = 32;
             studentidlbl.Text = "خالی";
             studentidlbl.Visible = false;
+            studentidlbl.TextChanged += studentidlbl_TextChanged;
+            studentidlbl.Click += studentidlbl_Click;
             // 
             // enrollmentForm
             // 
