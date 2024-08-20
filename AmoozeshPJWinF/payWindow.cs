@@ -238,7 +238,7 @@ namespace AmoozeshPJWinF
                     p1.tarckingtime = time;
                     p1.trackingcode = Convert.ToInt64(tracCodetxb.Text);
                     p1.description = statustxb.Text;
-                    string result = "";
+                    string result;
                     if (tracTypeCbox.SelectedIndex == 0)
                     {
                         result = dpay.pay_set(p1);
@@ -247,7 +247,8 @@ namespace AmoozeshPJWinF
                     {
                         result = dpay.pay_set(p1, "-");
                     }
-                    if (result.Length > 0)
+                    
+                    if (result == "0")
                     {
                         MessageBox.Show("پرداخت با موفقیت انجام شد.");
 

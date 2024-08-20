@@ -238,14 +238,14 @@ namespace AmoozeshPJWinF
                 {
                     Enrollment e1 = new Enrollment();
 
-                    e1.courseid = Convert.ToInt64(classidlbl.Text);
+                    e1.courseid = classidlbl.Text;
                     e1.studentid = Convert.ToInt64(studentidlbl.Text);
                     e1.whatsappgp = WAgptxb.Text;
                     DateTime date3 = new DateTime(Convert.ToInt16(datetxby.Text), Convert.ToInt16(datetxbm.Text), Convert.ToInt16(datetxbd.Text));
                     e1.dateofenrollment = date3;
                     string g1;
                     g1 = denrollment.enrollment_set(e1);
-                    if (g1 == "1")
+                    if (g1 == "11")
                     {
                         MessageBox.Show("ثبت با موفقیت انجام شد");
 

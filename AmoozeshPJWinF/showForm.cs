@@ -68,15 +68,16 @@ namespace AmoozeshPJWinF
                 long sum = 0;
                 foreach (DataRow row in dt.Rows)
                 {
-                    if (Convert.ToInt64(row["account_balance"]) > 0)
+                    if (Convert.ToInt64(row["account_balance"]) < 0)
                     {
                         ListViewItem item = new ListViewItem(row["id"].ToString());
                         item.SubItems.Add(row["firstname"].ToString());
                         item.SubItems.Add(row["lastname"].ToString());
-                        item.SubItems.Add(row["account_balance"].ToString());
-                        balancelistview.Items.Add(item);
+                        item.SubItems.Add(Math.Abs(Convert.ToInt32(row["account_balance"])).ToString());
                         
-                        sum = sum + Convert.ToInt64(row["account_balance"]);
+                        balancelistview.Items.Add(item);
+                        sum = sum + Math.Abs(Convert.ToInt64(row["account_balance"]));
+                        
                         sumtxtlbl.Text = "مجموع بدهکاری ها :";
                         sumnumberlbl.Text = sum.ToString();
                     }
@@ -95,15 +96,16 @@ namespace AmoozeshPJWinF
                 long sum = 0;
                 foreach (DataRow row in dt.Rows)
                 {
-                    if (Convert.ToInt64(row["account_balance"]) < 0)
+                    if (Convert.ToInt64(row["account_balance"]) > 0)
                     {
                         ListViewItem item = new ListViewItem(row["id"].ToString());
                         item.SubItems.Add(row["firstname"].ToString());
                         item.SubItems.Add(row["lastname"].ToString());
-                        item.SubItems.Add(Math.Abs(Convert.ToInt32(row["account_balance"])).ToString());
-                        balancelistview.Items.Add(item);
                         
-                        sum = sum + Math.Abs(Convert.ToInt64(row["account_balance"]));
+                        item.SubItems.Add(row["account_balance"].ToString());
+                        balancelistview.Items.Add(item);
+
+                        sum = sum + Convert.ToInt64(row["account_balance"]);
                         sumtxtlbl.Text = "مجموع بستانکاری ها :";
                         sumnumberlbl.Text = sum.ToString();
                     }

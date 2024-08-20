@@ -83,9 +83,39 @@ namespace AmoozeshPJWinF.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap down_money_40 {
+            get {
+                object obj = ResourceManager.GetObject("down_money_40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap id25 {
             get {
                 object obj = ResourceManager.GetObject("id25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap moneydown60 {
+            get {
+                object obj = ResourceManager.GetObject("moneydown60", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap moneyup60 {
+            get {
+                object obj = ResourceManager.GetObject("moneyup60", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -136,6 +166,16 @@ namespace AmoozeshPJWinF.Properties {
         public static System.Drawing.Bitmap teachercolor {
             get {
                 object obj = ResourceManager.GetObject("teachercolor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap up_money_40 {
+            get {
+                object obj = ResourceManager.GetObject("up_money_40", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

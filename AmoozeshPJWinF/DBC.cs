@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using IniParser;
 using IniParser.Model;
+using System.Drawing;
 
 namespace AmoozeshPJWinF
 {
@@ -346,7 +347,7 @@ namespace AmoozeshPJWinF
                 cmd.CommandText = $"INSERT INTO payment(user_id, date_of_payment, term, amount, transaction_status, tracking_code,tracking_time , description) VALUES ({p1.userid}, '{p1.dateofpayment}', '{p1.term}', {p1.amount}, '{p1.transactionstatus}', '{p1.trackingcode}', '{p1.tarckingtime}' , '{p1.description}');";
                 cmd.CommandText = $"UPDATE users SET account_balance = account_balance {sym} {p1.accountbalance} WHERE id =  {p1.userid};";
                 string result = cmd.ExecuteNonQuery().ToString();
-                return result;
+                return result.ToString();
             }
             catch
             {
@@ -355,6 +356,30 @@ namespace AmoozeshPJWinF
             }
             
             
+
+        }
+
+        public string enrollment_pay(long id, long cost, string sym = "+")
+        {
+            try
+            {
+                var con = new NpgsqlConnection(
+                connectionString: globalcon);
+                con.Open();
+                using var cmd = new NpgsqlCommand();
+                cmd.Connection = con;
+                
+                cmd.CommandText = $"UPDATE users SET account_balance = account_balance {sym} {cost} WHERE id = {id};";
+                string result = cmd.ExecuteNonQuery().ToString();
+                return result.ToString();
+            }
+            catch
+            {
+                MessageBox.Show("خطا در ثبت تراکنش !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "0";
+            }
+
+
 
         }
 
@@ -443,25 +468,50 @@ namespace AmoozeshPJWinF
         }
         public string enrollment_set(Enrollment e1)
         {
+            string g1 = "";
+            string g2 = "";
+            long cost = 0;
+            var con = new NpgsqlConnection(
+                connectionString: globalcon);
+            con.Open();
             try
             {
-                var con = new NpgsqlConnection(
-                connectionString: globalcon);
-                string g1 = "";
-                con.Open();
+
                 using var cmd = new NpgsqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = $"INSERT INTO enrollment(course_id,student_id, whatsapp_gp, date_of_enrollment) VALUES ({e1.courseid}, {e1.studentid}, '{e1.whatsappgp}','{e1.dateofenrollment}');";
+                cmd.CommandText = $"INSERT INTO enrollment(course_id,student_id, whatsapp_gp, date_of_enrollment) VALUES ('{e1.courseid}', {e1.studentid}, '{e1.whatsappgp}','{e1.dateofenrollment}');";
                 g1 = cmd.ExecuteNonQuery().ToString();
-                return g1;
+                
             }
+            //catch(Exception ex)
+            //{
+            //    MessageBox.Show(ex.ToString());
+            //    return "0";
+            //}
             catch
             {
+
                 MessageBox.Show("خطا در ثبت نام !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return "0";
             }
-            
+            using var cmd2 = new NpgsqlCommand();
+            cmd2.Connection = con;
+            cmd2.CommandText = $"SELECT cost FROM course WHERE id = '{e1.courseid}';";
+            try
+            {
+                using (var reader2 = cmd2.ExecuteReader())
+                {
+                    reader2.Read();
 
+                    cost = Convert.ToInt64(reader2.GetInt64(0));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            g2 = enrollment_pay(e1.studentid, cost, "-");
+            return g1+ g2;
         }
 
         public GetStudent St_Reader(string thisid)

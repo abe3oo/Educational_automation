@@ -16,12 +16,12 @@ namespace Amozesh
         {
 
         }
-        private long CourseID;
+        private string CourseID;
         private long StudentID;
         private string WhatsappGP;
         private DateTime DateOfEnrollment;
 
-        public long courseid { get { return CourseID; } set { CourseID = value; } }
+        public string courseid { get { return CourseID; } set { CourseID = value; } }
         public DateTime dateofenrollment { get { return DateOfEnrollment; } set { DateOfEnrollment = value; } }
         public long studentid { get { return StudentID; } set { StudentID = value; } }
         public string whatsappgp { get { return WhatsappGP; } set { WhatsappGP = value; } }
