@@ -342,12 +342,17 @@ namespace AmoozeshPJWinF
                 var con = new NpgsqlConnection(
                 connectionString: globalcon);
                 con.Open();
+                string g1 = "";
+                string g2 = "";
                 using var cmd = new NpgsqlCommand();
+                using var cmd2 = new NpgsqlCommand();
                 cmd.Connection = con;
+                cmd2.Connection = con;
                 cmd.CommandText = $"INSERT INTO payment(user_id, date_of_payment, term, amount, transaction_status, tracking_code,tracking_time , description) VALUES ({p1.userid}, '{p1.dateofpayment}', '{p1.term}', {p1.amount}, '{p1.transactionstatus}', '{p1.trackingcode}', '{p1.tarckingtime}' , '{p1.description}');";
-                cmd.CommandText = $"UPDATE users SET account_balance = account_balance {sym} {p1.accountbalance} WHERE id =  {p1.userid};";
-                string result = cmd.ExecuteNonQuery().ToString();
-                return result.ToString();
+                cmd2.CommandText = $"UPDATE users SET account_balance = account_balance {sym} {p1.amount} WHERE id =  {p1.userid};";
+                g1 = cmd.ExecuteNonQuery().ToString();
+                g2 = cmd2.ExecuteNonQuery().ToString();
+                return g1 + g2;
             }
             catch
             {
@@ -615,35 +620,7 @@ namespace AmoozeshPJWinF
             //cmd.ExecuteNonQueryAsync();
         }
 
-        public long acc_bl_reader(string thisid)
-        {
-            try
-            {
-                var con = new NpgsqlConnection(
-                connectionString: globalcon);
-                Payment p1 = new Payment();
-                con.Open();
-                //-----
-                using var cmd = new NpgsqlCommand();
-                cmd.Connection = con;
-                cmd.CommandText = $"SELECT account_balance FROM users WHERE id = {thisid};";
-
-
-                using (var reader = cmd.ExecuteReader())
-                {
-                    reader.Read();
-                    p1.accountbalance = Convert.ToInt64(reader[0]);
-                }
-                return p1.accountbalance;
-            }
-            catch
-            {
-                MessageBox.Show("خطا در خواندن اطلاعات مالی کاربر !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return -1;
-            }
-            
-            
-        }
+        
 
         public List<string> Course_holding_id_Reader_by_date(DateTime tod)
         {
@@ -988,12 +965,13 @@ namespace AmoozeshPJWinF
                 var con = new NpgsqlConnection(
                 connectionString: globalcon);
                 string p1 = "";
+                string p11 = "";
                 List<string> p2 = new List<string>();
                 con.Open();
                 //-----
                 using var cmd = new NpgsqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = $"SELECT id FROM users;";
+                cmd.CommandText = $"SELECT id, firstname, lastname FROM users;";
 
 
                 using (var reader = cmd.ExecuteReader())
@@ -1001,9 +979,11 @@ namespace AmoozeshPJWinF
                     while (reader.Read())
                     {
 
-                        p1 = Convert.ToString(reader.GetInt64(0));
+                        p1 = Convert.ToString(reader.GetInt64(0)) + " " + Convert.ToString(reader.GetString(1) + " " + Convert.ToString(reader.GetString(2)));
+                        p11 = Convert.ToString(reader.GetString(1) + " " + Convert.ToString(reader.GetString(2))) + " " + Convert.ToString(reader.GetInt64(0));
 
                         p2.Add(p1);
+                        p2.Add(p11);
                     }
                 }
                 return p2;

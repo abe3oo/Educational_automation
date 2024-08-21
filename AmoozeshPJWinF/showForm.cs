@@ -40,6 +40,26 @@ namespace AmoozeshPJWinF
             }
         }
 
+        public string Extractname(string input)
+        {
+
+            string pattern = @"\d*\s*([\u0600-\u06FFa-zA-Z\s]+)\s*\d*";
+            Match match = Regex.Match(input, pattern);
+
+            if (match.Success)
+            {
+
+                for (int i = 1; i < match.Groups.Count; i++)
+                {
+                    if (match.Groups[i].Success)
+                    {
+                        return match.Groups[i].Value;
+                    }
+                }
+            }
+
+            return "خالی";
+        }
         public void loadData()
         {
             DataTable dt = d1.get_nonzero_balance();
@@ -157,16 +177,16 @@ namespace AmoozeshPJWinF
         {
             if (userradioButton.Checked == true)
             {
-
-                if (d1.id_check(textBox1.Text) == true)
+                string thisid = ExtractNumber(textBox1.Text, 10);
+                if (d1.id_check(thisid) == true)
                 {
-                    if (d1.teacherid_check(textBox1.Text) == false)
+                    if (d1.teacherid_check(thisid) == false)
                     {
                         groupBoxsame.Visible = true;
                         groupBoxSt.Visible = true;
                         groupBoxTch.Visible = false;
                         GetStudent s1 = new GetStudent();
-                        s1 = d1.St_Reader(textBox1.Text);
+                        s1 = d1.St_Reader(thisid);
                         idlblshow.Text = s1.personalcode;
                         typelblshow.Text = "دانشجو";
                         fnamelblshow.Text = s1.firstname;
@@ -244,6 +264,7 @@ namespace AmoozeshPJWinF
                             peymentstlblshow.Text = "0";
                         }
                         pictureBox1.Image = d1.pic_reader(s1.personalcode);
+                        textBox1.Text = string.Empty;
                     }
                     else
                     {
@@ -251,7 +272,7 @@ namespace AmoozeshPJWinF
                         groupBoxSt.Visible = false;
                         groupBoxTch.Visible = true;
                         GetTeacher s1 = new GetTeacher();
-                        s1 = d1.Pr_Reader(textBox1.Text);
+                        s1 = d1.Pr_Reader(thisid);
                         idlblshow.Text = s1.personalcode;
                         typelblshow.Text = "استاد";
                         fnamelblshow.Text = s1.firstname;
@@ -313,7 +334,7 @@ namespace AmoozeshPJWinF
                             peymentlbl.Text = "پرداختی :";
                             peymentlblshow.Text = "0";
                         }
-
+                        textBox1.Text = string.Empty;
                     }
                 }
                 else

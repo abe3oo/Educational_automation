@@ -97,7 +97,7 @@ namespace AmoozeshPJWinF
             date.BackColor = Color.Transparent;
             date.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
             date.ImageAlign = ContentAlignment.MiddleRight;
-            date.Location = new Point(392, 189);
+            date.Location = new Point(392, 187);
             date.Name = "date";
             date.RightToLeft = RightToLeft.No;
             date.Size = new Size(90, 27);
@@ -144,7 +144,7 @@ namespace AmoozeshPJWinF
             // 
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(282, 183);
+            label2.Location = new Point(306, 183);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
             label2.RightToLeft = RightToLeft.Yes;
@@ -156,7 +156,7 @@ namespace AmoozeshPJWinF
             // 
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(216, 183);
+            label1.Location = new Point(240, 183);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
             label1.RightToLeft = RightToLeft.Yes;
@@ -166,7 +166,7 @@ namespace AmoozeshPJWinF
             // 
             // datetxbm
             // 
-            datetxbm.Location = new Point(237, 186);
+            datetxbm.Location = new Point(261, 186);
             datetxbm.Margin = new Padding(5, 4, 5, 4);
             datetxbm.Name = "datetxbm";
             datetxbm.Size = new Size(35, 27);
@@ -175,7 +175,7 @@ namespace AmoozeshPJWinF
             // 
             // datetxby
             // 
-            datetxby.Location = new Point(153, 186);
+            datetxby.Location = new Point(177, 186);
             datetxby.Margin = new Padding(5, 4, 5, 4);
             datetxby.Name = "datetxby";
             datetxby.Size = new Size(52, 27);
@@ -186,7 +186,7 @@ namespace AmoozeshPJWinF
             // 
             // datetxbd
             // 
-            datetxbd.Location = new Point(305, 186);
+            datetxbd.Location = new Point(329, 186);
             datetxbd.Margin = new Padding(5, 4, 5, 4);
             datetxbd.Name = "datetxbd";
             datetxbd.Size = new Size(35, 27);
