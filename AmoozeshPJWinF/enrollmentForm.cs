@@ -119,34 +119,34 @@ namespace AmoozeshPJWinF
         }
         private void courseIDtxb_TextChanged(object sender, EventArgs e)
         {
-            if (courseIDtxb.AutoCompleteCustomSource.Contains(courseIDtxb.Text))
-            {
-                classidlbl.Text = ExtractNumber(courseIDtxb.Text, 8);
-                classnamelbl.Text = Extractname(courseIDtxb.Text);
-                courseIDtxb.Text = string.Empty;
-                ReduceSaturation(classnamepictureBox, 1f, 2);
-                ReduceSaturation(classidpictureBox, 1f, 3);
-                classnamelbl.Visible = true;
-                classidlbl.Visible = true;
+            //if (courseIDtxb.AutoCompleteCustomSource.Contains(courseIDtxb.Text))
+            //{
+            //    classidlbl.Text = ExtractNumber(courseIDtxb.Text, 8);
+            //    classnamelbl.Text = Extractname(courseIDtxb.Text);
+            //    courseIDtxb.Text = string.Empty;
+            //    ReduceSaturation(classnamepictureBox, 1f, 2);
+            //    ReduceSaturation(classidpictureBox, 1f, 3);
+            //    classnamelbl.Visible = true;
+            //    classidlbl.Visible = true;
 
-                studentIDtxb.Focus();
-            }
+
+            //}
         }
 
         private void studentIDtxb_TextChanged(object sender, EventArgs e)
         {
 
-            if (studentIDtxb.AutoCompleteCustomSource.Contains(studentIDtxb.Text))
-            {
-                studentidlbl.Text = ExtractNumber(studentIDtxb.Text, 10);
-                studentnamelbl.Text = Extractname(studentIDtxb.Text);
-                studentIDtxb.Text = string.Empty;
-                ReduceSaturation(studentnamepictureBox, 1f, 1);
-                ReduceSaturation(studentidpictureBox, 1f, 0);
-                studentidlbl.Visible = true;
-                studentnamelbl.Visible = true;
+            //if (studentIDtxb.AutoCompleteCustomSource.Contains(studentIDtxb.Text))
+            //{
+            //    studentidlbl.Text = ExtractNumber(studentIDtxb.Text, 10);
+            //    studentnamelbl.Text = Extractname(studentIDtxb.Text);
+            //    studentIDtxb.Text = string.Empty;
+            //    ReduceSaturation(studentnamepictureBox, 1f, 1);
+            //    ReduceSaturation(studentidpictureBox, 1f, 0);
+            //    studentidlbl.Visible = true;
+            //    studentnamelbl.Visible = true;
 
-            }
+            //}
         }
 
         private void courseIDtxb_KeyPress(object sender, KeyPressEventArgs e)
@@ -245,6 +245,22 @@ namespace AmoozeshPJWinF
                     e1.dateofenrollment = date3;
                     string g1;
                     g1 = denrollment.enrollment_set(e1);
+                    if (paycheckbox.Checked == true)
+                    {
+                        TimeSpan t1 = new TimeSpan(Convert.ToInt32(DateTime.Now.Hour), Convert.ToInt32(DateTime.Now.Minute), 0);
+
+                        Payment p1 = new Payment();
+                        p1.userid = Convert.ToInt64(studentidlbl.Text);
+                        DateTime date = new DateTime(Convert.ToInt16(DateTime.Now.Year), Convert.ToInt16(DateTime.Now.Month), Convert.ToInt16(DateTime.Now.Day));
+                        p1.dateofpayment = date;
+                        p1.term = Convert.ToInt32(classidlbl.Text[2]);
+                        p1.amount = denrollment.get_cost(classidlbl.Text);
+                        p1.transactionstatus = true;
+                        p1.trackingcode = Convert.ToInt64(trackingcodetbx.Text);
+                        p1.tarckingtime = t1;
+                        p1.description = $"هزینه کلاس {classidlbl.Text}";
+                        denrollment.pay_set(p1);
+                    }
                     if (g1 == "11")
                     {
                         MessageBox.Show("ثبت با موفقیت انجام شد");
@@ -252,11 +268,12 @@ namespace AmoozeshPJWinF
                         classidlbl.Text = "خالی";
                         studentidlbl.Text = "خالی";
                         classidlbl.Visible = false;
-                        studentidlbl.Visible = false ;
+                        studentidlbl.Visible = false;
                         clear_textbox(datetxby);
                         clear_textbox(datetxbm);
                         clear_textbox(datetxbd);
                         clear_textbox(WAgptxb);
+                        clear_textbox(trackingcodetbx);
                     }
                     else
                     {
@@ -347,6 +364,81 @@ namespace AmoozeshPJWinF
             else
             {
                 setbot.Enabled = false;
+            }
+        }
+
+        private void courseIDtxb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                if (courseIDtxb.AutoCompleteCustomSource.Contains(courseIDtxb.Text))
+                {
+                    classidlbl.Text = ExtractNumber(courseIDtxb.Text, 8);
+                    classnamelbl.Text = Extractname(courseIDtxb.Text);
+                    courseIDtxb.Text = string.Empty;
+                    ReduceSaturation(classnamepictureBox, 1f, 2);
+                    ReduceSaturation(classidpictureBox, 1f, 3);
+                    classnamelbl.Visible = true;
+                    classidlbl.Visible = true;
+                }
+            }
+        }
+
+        private void courseIDtxb_Leave(object sender, EventArgs e)
+        {
+            if (courseIDtxb.AutoCompleteCustomSource.Contains(courseIDtxb.Text))
+            {
+                classidlbl.Text = ExtractNumber(courseIDtxb.Text, 8);
+                classnamelbl.Text = Extractname(courseIDtxb.Text);
+                courseIDtxb.Text = string.Empty;
+                ReduceSaturation(classnamepictureBox, 1f, 2);
+                ReduceSaturation(classidpictureBox, 1f, 3);
+                classnamelbl.Visible = true;
+                classidlbl.Visible = true;
+            }
+        }
+
+        private void studentIDtxb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                if (studentIDtxb.AutoCompleteCustomSource.Contains(studentIDtxb.Text))
+                {
+                    studentidlbl.Text = ExtractNumber(studentIDtxb.Text, 10);
+                    studentnamelbl.Text = Extractname(studentIDtxb.Text);
+                    studentIDtxb.Text = string.Empty;
+                    ReduceSaturation(studentnamepictureBox, 1f, 1);
+                    ReduceSaturation(studentidpictureBox, 1f, 0);
+                    studentidlbl.Visible = true;
+                    studentnamelbl.Visible = true;
+                }
+            }
+        }
+
+        private void studentIDtxb_Leave(object sender, EventArgs e)
+        {
+            if (studentIDtxb.AutoCompleteCustomSource.Contains(studentIDtxb.Text))
+            {
+                studentidlbl.Text = ExtractNumber(studentIDtxb.Text, 10);
+                studentnamelbl.Text = Extractname(studentIDtxb.Text);
+                studentIDtxb.Text = string.Empty;
+                ReduceSaturation(studentnamepictureBox, 1f, 1);
+                ReduceSaturation(studentidpictureBox, 1f, 0);
+                studentidlbl.Visible = true;
+                studentnamelbl.Visible = true;
+            }
+        }
+
+        private void paycheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!paycheckbox.Checked)
+            {
+                trackingcodetbx.Enabled = false;
+                trackingcodetbx.Text = string.Empty;
+            }
+            else
+            {
+                trackingcodetbx.Enabled = true;
             }
         }
     }

@@ -359,13 +359,15 @@ namespace AmoozeshPJWinF
                 MessageBox.Show("خطا در ثبت تراکنش !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return "0";
             }
-            
-            
+
+
+
 
         }
 
         public string enrollment_pay(long id, long cost, string sym = "+")
         {
+            string g1 = "";
             try
             {
                 var con = new NpgsqlConnection(
@@ -375,15 +377,15 @@ namespace AmoozeshPJWinF
                 cmd.Connection = con;
                 
                 cmd.CommandText = $"UPDATE users SET account_balance = account_balance {sym} {cost} WHERE id = {id};";
-                string result = cmd.ExecuteNonQuery().ToString();
-                return result.ToString();
+                g1 = cmd.ExecuteNonQuery().ToString();
+                return g1;
             }
-            catch
+            
+            catch (Exception ex)
             {
-                MessageBox.Show("خطا در ثبت تراکنش !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.ToString());
                 return "0";
             }
-
 
 
         }
@@ -471,6 +473,32 @@ namespace AmoozeshPJWinF
             }
             
         }
+        public long get_cost(string id)
+        {
+            
+            var con = new NpgsqlConnection(
+            connectionString: globalcon);
+            con.Open();
+            long cost = 0;
+            using var cmd2 = new NpgsqlCommand();
+            cmd2.Connection = con;
+            cmd2.CommandText = $"SELECT cost FROM course WHERE id = '{id}';";
+            try
+            {
+                using (var reader2 = cmd2.ExecuteReader())
+                {
+                    reader2.Read();
+
+                    cost = Convert.ToInt64(reader2.GetInt64(0));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return cost;
+            
+        }
         public string enrollment_set(Enrollment e1)
         {
             string g1 = "";
@@ -488,33 +516,18 @@ namespace AmoozeshPJWinF
                 g1 = cmd.ExecuteNonQuery().ToString();
                 
             }
-            //catch(Exception ex)
-            //{
-            //    MessageBox.Show(ex.ToString());
-            //    return "0";
-            //}
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return "0";
+            }
             catch
             {
 
                 MessageBox.Show("خطا در ثبت نام !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return "0";
             }
-            using var cmd2 = new NpgsqlCommand();
-            cmd2.Connection = con;
-            cmd2.CommandText = $"SELECT cost FROM course WHERE id = '{e1.courseid}';";
-            try
-            {
-                using (var reader2 = cmd2.ExecuteReader())
-                {
-                    reader2.Read();
-
-                    cost = Convert.ToInt64(reader2.GetInt64(0));
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            cost = get_cost(e1.courseid);
             g2 = enrollment_pay(e1.studentid, cost, "-");
             return g1+ g2;
         }
@@ -1033,14 +1046,7 @@ namespace AmoozeshPJWinF
         }
         public showcourse show_course(string id)
         {
-            try
-            {
-
-            }
-            catch
-            {
-                MessageBox.Show("", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
             showcourse s1 = new showcourse();
             
             var con = new NpgsqlConnection(
@@ -1060,7 +1066,7 @@ namespace AmoozeshPJWinF
                     s1.courseid = courseid;
                     s1.teacherid = teacherid;
                     s1.coursename = Convert.ToString(reader.GetString(2));
-                    s1.term = courseid[3].ToString();
+                    s1.term = courseid[2].ToString();
                     s1.start_date = Convert.ToDateTime(reader.GetDateTime(4));
                     s1.cost = Convert.ToInt64(reader.GetInt64(3));
                     s1.clock = courseid.Substring(4, 2) + ":" + courseid.Substring(6, 2);
@@ -1097,7 +1103,7 @@ namespace AmoozeshPJWinF
             List<showcourse> result = new List<showcourse>();
             try
             {
-                showcourse s1 = new showcourse();
+                
 
                 var con = new NpgsqlConnection(
                 connectionString: globalcon);
@@ -1112,6 +1118,7 @@ namespace AmoozeshPJWinF
                     {
                         try
                         {
+                            showcourse s1 = new showcourse();
                             string courseid = Convert.ToString(reader.GetString(0));
                             s1.courseid = courseid;
                             s1.coursename = Convert.ToString(reader.GetString(1));

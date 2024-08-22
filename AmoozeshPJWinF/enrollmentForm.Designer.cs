@@ -69,6 +69,9 @@ namespace AmoozeshPJWinF
             studentidpictureBox = new PictureBox();
             studentnamelbl = new Label();
             studentidlbl = new Label();
+            paycheckbox = new CheckBox();
+            trackingcodetbx = new TextBox();
+            tarncCode = new Label();
             panel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             ((ISupportInitialize)classidpictureBox).BeginInit();
@@ -110,7 +113,7 @@ namespace AmoozeshPJWinF
             whatsappGP.BackColor = Color.Transparent;
             whatsappGP.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
             whatsappGP.ImageAlign = ContentAlignment.MiddleRight;
-            whatsappGP.Location = new Point(395, 238);
+            whatsappGP.Location = new Point(395, 274);
             whatsappGP.Name = "whatsappGP";
             whatsappGP.RightToLeft = RightToLeft.No;
             whatsappGP.Size = new Size(85, 27);
@@ -132,7 +135,7 @@ namespace AmoozeshPJWinF
             // 
             // WAgptxb
             // 
-            WAgptxb.Location = new Point(74, 235);
+            WAgptxb.Location = new Point(74, 275);
             WAgptxb.Margin = new Padding(5, 4, 5, 4);
             WAgptxb.Multiline = true;
             WAgptxb.Name = "WAgptxb";
@@ -195,6 +198,7 @@ namespace AmoozeshPJWinF
             // 
             // courseIDtxb
             // 
+            courseIDtxb.AutoCompleteMode = AutoCompleteMode.Suggest;
             courseIDtxb.Location = new Point(74, 49);
             courseIDtxb.Margin = new Padding(5, 4, 5, 4);
             courseIDtxb.MaxLength = 10;
@@ -202,10 +206,13 @@ namespace AmoozeshPJWinF
             courseIDtxb.Size = new Size(324, 27);
             courseIDtxb.TabIndex = 2;
             courseIDtxb.TextChanged += courseIDtxb_TextChanged;
+            courseIDtxb.KeyDown += courseIDtxb_KeyDown;
             courseIDtxb.KeyPress += courseIDtxb_KeyPress;
+            courseIDtxb.Leave += courseIDtxb_Leave;
             // 
             // studentIDtxb
             // 
+            studentIDtxb.AutoCompleteMode = AutoCompleteMode.Suggest;
             studentIDtxb.Location = new Point(74, 13);
             studentIDtxb.Margin = new Padding(5, 4, 5, 4);
             studentIDtxb.MaxLength = 10;
@@ -213,13 +220,15 @@ namespace AmoozeshPJWinF
             studentIDtxb.Size = new Size(324, 27);
             studentIDtxb.TabIndex = 1;
             studentIDtxb.TextChanged += studentIDtxb_TextChanged;
+            studentIDtxb.KeyDown += studentIDtxb_KeyDown;
             studentIDtxb.KeyPress += studentIDtxb_KeyPress;
+            studentIDtxb.Leave += studentIDtxb_Leave;
             // 
             // setbot
             // 
             setbot.Enabled = false;
             setbot.Font = new Font("B Nazanin", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 178);
-            setbot.Location = new Point(74, 359);
+            setbot.Location = new Point(74, 379);
             setbot.Name = "setbot";
             setbot.Size = new Size(94, 56);
             setbot.TabIndex = 30;
@@ -368,12 +377,50 @@ namespace AmoozeshPJWinF
             studentidlbl.TextChanged += studentidlbl_TextChanged;
             studentidlbl.Click += studentidlbl_Click;
             // 
+            // paycheckbox
+            // 
+            paycheckbox.AutoSize = true;
+            paycheckbox.BackColor = Color.Transparent;
+            paycheckbox.Checked = true;
+            paycheckbox.CheckState = CheckState.Checked;
+            paycheckbox.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 178);
+            paycheckbox.Location = new Point(89, 233);
+            paycheckbox.Name = "paycheckbox";
+            paycheckbox.Size = new Size(79, 31);
+            paycheckbox.TabIndex = 32;
+            paycheckbox.Text = "پرداخت";
+            paycheckbox.UseVisualStyleBackColor = false;
+            paycheckbox.CheckedChanged += paycheckbox_CheckedChanged;
+            // 
+            // trackingcodetbx
+            // 
+            trackingcodetbx.Location = new Point(174, 233);
+            trackingcodetbx.Name = "trackingcodetbx";
+            trackingcodetbx.Size = new Size(213, 27);
+            trackingcodetbx.TabIndex = 33;
+            // 
+            // tarncCode
+            // 
+            tarncCode.BackColor = Color.Transparent;
+            tarncCode.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
+            tarncCode.Location = new Point(392, 227);
+            tarncCode.Margin = new Padding(5, 0, 5, 0);
+            tarncCode.Name = "tarncCode";
+            tarncCode.RightToLeft = RightToLeft.No;
+            tarncCode.Size = new Size(85, 41);
+            tarncCode.TabIndex = 34;
+            tarncCode.Text = "کد پیگیری";
+            tarncCode.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // enrollmentForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(496, 427);
+            ClientSize = new Size(496, 447);
+            Controls.Add(tarncCode);
+            Controls.Add(trackingcodetbx);
+            Controls.Add(paycheckbox);
             Controls.Add(panel1);
             Controls.Add(setbot);
             Controls.Add(label2);
@@ -434,5 +481,8 @@ namespace AmoozeshPJWinF
         private TableLayoutPanel tableLayoutPanel2;
         private Label classnamelbl;
         private Label classidlbl;
+        private CheckBox paycheckbox;
+        private TextBox trackingcodetbx;
+        private Label tarncCode;
     }
 }
