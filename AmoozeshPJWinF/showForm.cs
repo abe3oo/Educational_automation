@@ -94,10 +94,10 @@ namespace AmoozeshPJWinF
                         item.SubItems.Add(row["firstname"].ToString());
                         item.SubItems.Add(row["lastname"].ToString());
                         item.SubItems.Add(Math.Abs(Convert.ToInt32(row["account_balance"])).ToString());
-                        
+
                         balancelistview.Items.Add(item);
                         sum = sum + Math.Abs(Convert.ToInt64(row["account_balance"]));
-                        
+
                         sumtxtlbl.Text = "مجموع بدهکاری ها :";
                         sumnumberlbl.Text = sum.ToString();
                     }
@@ -121,7 +121,7 @@ namespace AmoozeshPJWinF
                         ListViewItem item = new ListViewItem(row["id"].ToString());
                         item.SubItems.Add(row["firstname"].ToString());
                         item.SubItems.Add(row["lastname"].ToString());
-                        
+
                         item.SubItems.Add(row["account_balance"].ToString());
                         balancelistview.Items.Add(item);
 
@@ -137,9 +137,9 @@ namespace AmoozeshPJWinF
 
         public void hide_all()
         {
-            balancegroupbox.Visible = false;
-            groupBoxsame.Visible = false;
-            classgroupbox.Visible = false;
+            balancepanel.Visible = false;
+            panelsame.Visible = false;
+            classpanel.Visible = false;
             textBox1.Text = string.Empty;
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -182,9 +182,9 @@ namespace AmoozeshPJWinF
                 {
                     if (d1.teacherid_check(thisid) == false)
                     {
-                        groupBoxsame.Visible = true;
-                        groupBoxSt.Visible = true;
-                        groupBoxTch.Visible = false;
+                        panelsame.Visible = true;
+                        panelSt.Visible = true;
+                        panelTch.Visible = false;
                         GetStudent s1 = new GetStudent();
                         s1 = d1.St_Reader(thisid);
                         idlblshow.Text = s1.personalcode;
@@ -268,9 +268,9 @@ namespace AmoozeshPJWinF
                     }
                     else
                     {
-                        groupBoxsame.Visible = true;
-                        groupBoxSt.Visible = false;
-                        groupBoxTch.Visible = true;
+                        panelsame.Visible = true;
+                        panelSt.Visible = false;
+                        panelTch.Visible = true;
                         GetTeacher s1 = new GetTeacher();
                         s1 = d1.Pr_Reader(thisid);
                         idlblshow.Text = s1.personalcode;
@@ -347,7 +347,7 @@ namespace AmoozeshPJWinF
                 string thisid = ExtractNumber(textBox1.Text, 8);
                 if (d1.courseid_check(thisid) == true)
                 {
-                    classgroupbox.Visible = true;
+                    classpanel.Visible = true;
                     showcourse c = new showcourse();
                     c = d1.show_course(thisid);
                     course_namelblshow.Text = c.coursename;
@@ -425,12 +425,27 @@ namespace AmoozeshPJWinF
         private void showbalancebot_Click(object sender, EventArgs e)
         {
             loadData();
-            balancegroupbox.Visible = true;
+            balancepanel.Visible = true;
         }
 
         private void balancelistview_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void userbot_Click(object sender, EventArgs e)
+        {
+            userradioButton.Checked = true;
+        }
+
+        private void classbot_Click(object sender, EventArgs e)
+        {
+            classradioButton.Checked = true;
+        }
+
+        private void balancebot_Click(object sender, EventArgs e)
+        {
+            balanceradiobot.Checked = true;
         }
     }
 }
