@@ -33,7 +33,6 @@
             balanceradiobot = new RadioButton();
             classradioButton = new RadioButton();
             textBox1 = new TextBox();
-            showbot = new Button();
             peymentstlblshow = new Label();
             peymentstlbl = new Label();
             classtypelblshow = new Label();
@@ -91,7 +90,6 @@
             fname = new ColumnHeader();
             lname = new ColumnHeader();
             balance = new ColumnHeader();
-            showbalancebot = new Button();
             filterbalancecombo = new ComboBox();
             balancepanel = new Panel();
             classpanel = new Panel();
@@ -99,6 +97,10 @@
             panelSt = new Panel();
             panelTch = new Panel();
             panel1 = new Panel();
+            searchlabel = new Label();
+            bedebot = new Button();
+            bestabot = new Button();
+            panelcolorselect = new Panel();
             userbot = new Button();
             balancebot = new Button();
             classbot = new Button();
@@ -114,7 +116,7 @@
             // userradioButton
             // 
             userradioButton.AutoSize = true;
-            userradioButton.Location = new Point(660, 370);
+            userradioButton.Location = new Point(690, 355);
             userradioButton.Name = "userradioButton";
             userradioButton.Size = new Size(59, 24);
             userradioButton.TabIndex = 0;
@@ -127,7 +129,7 @@
             // balanceradiobot
             // 
             balanceradiobot.AutoSize = true;
-            balanceradiobot.Location = new Point(660, 430);
+            balanceradiobot.Location = new Point(690, 415);
             balanceradiobot.Name = "balanceradiobot";
             balanceradiobot.Size = new Size(84, 24);
             balanceradiobot.TabIndex = 1;
@@ -140,7 +142,7 @@
             // classradioButton
             // 
             classradioButton.AutoSize = true;
-            classradioButton.Location = new Point(660, 400);
+            classradioButton.Location = new Point(690, 385);
             classradioButton.Name = "classradioButton";
             classradioButton.Size = new Size(65, 24);
             classradioButton.TabIndex = 3;
@@ -152,21 +154,14 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(120, 25);
+            textBox1.Enabled = false;
+            textBox1.Location = new Point(31, 33);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(160, 27);
+            textBox1.Size = new Size(264, 27);
             textBox1.TabIndex = 5;
             textBox1.TextChanged += textBox1_TextChanged;
-            // 
-            // showbot
-            // 
-            showbot.Location = new Point(31, 12);
-            showbot.Name = "showbot";
-            showbot.Size = new Size(65, 40);
-            showbot.TabIndex = 6;
-            showbot.Text = "show";
-            showbot.UseVisualStyleBackColor = true;
-            showbot.Click += showbot_Click;
+            textBox1.KeyDown += textBox1_KeyDown;
+            textBox1.Leave += textBox1_Leave;
             // 
             // peymentstlblshow
             // 
@@ -281,6 +276,7 @@
             typelbl.Size = new Size(52, 20);
             typelbl.TabIndex = 30;
             typelbl.Text = "سمت :";
+            typelbl.Visible = false;
             // 
             // peymentlblshow
             // 
@@ -696,27 +692,17 @@
             balance.Text = "موجودی";
             balance.Width = 90;
             // 
-            // showbalancebot
-            // 
-            showbalancebot.Location = new Point(31, 58);
-            showbalancebot.Name = "showbalancebot";
-            showbalancebot.Size = new Size(65, 29);
-            showbalancebot.TabIndex = 10;
-            showbalancebot.Text = "نمایش";
-            showbalancebot.UseVisualStyleBackColor = true;
-            showbalancebot.Visible = false;
-            showbalancebot.Click += showbalancebot_Click;
-            // 
             // filterbalancecombo
             // 
             filterbalancecombo.DropDownStyle = ComboBoxStyle.DropDownList;
             filterbalancecombo.FormattingEnabled = true;
             filterbalancecombo.Items.AddRange(new object[] { "بدهکاری ها", "بستانکاری ها" });
-            filterbalancecombo.Location = new Point(161, 58);
+            filterbalancecombo.Location = new Point(678, 302);
             filterbalancecombo.Name = "filterbalancecombo";
-            filterbalancecombo.Size = new Size(119, 28);
+            filterbalancecombo.Size = new Size(77, 28);
             filterbalancecombo.TabIndex = 11;
             filterbalancecombo.Visible = false;
+            filterbalancecombo.SelectedIndexChanged += filterbalancecombo_SelectedIndexChanged;
             // 
             // balancepanel
             // 
@@ -726,8 +712,9 @@
             balancepanel.Controls.Add(sumtxtlbl);
             balancepanel.Location = new Point(31, 110);
             balancepanel.Name = "balancepanel";
-            balancepanel.Size = new Size(221, 28);
+            balancepanel.Size = new Size(617, 417);
             balancepanel.TabIndex = 12;
+            balancepanel.Visible = false;
             // 
             // classpanel
             // 
@@ -746,10 +733,11 @@
             classpanel.Controls.Add(course_namelblshow);
             classpanel.Controls.Add(dateofstartlbl);
             classpanel.Controls.Add(costlbl);
-            classpanel.Location = new Point(29, 144);
+            classpanel.Location = new Point(469, 103);
             classpanel.Name = "classpanel";
             classpanel.Size = new Size(221, 35);
             classpanel.TabIndex = 13;
+            classpanel.Visible = false;
             // 
             // panelsame
             // 
@@ -776,10 +764,11 @@
             panelsame.Controls.Add(educationlabel);
             panelsame.Controls.Add(idlblshow);
             panelsame.Controls.Add(savepicturebot);
-            panelsame.Location = new Point(29, 185);
+            panelsame.Location = new Point(469, 150);
             panelsame.Name = "panelsame";
-            panelsame.Size = new Size(221, 40);
+            panelsame.Size = new Size(250, 55);
             panelsame.TabIndex = 14;
+            panelsame.Visible = false;
             // 
             // panelSt
             // 
@@ -814,18 +803,73 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(244, 243, 238);
+            panel1.Controls.Add(searchlabel);
+            panel1.Controls.Add(bedebot);
+            panel1.Controls.Add(bestabot);
+            panel1.Controls.Add(panelcolorselect);
             panel1.Controls.Add(userbot);
             panel1.Controls.Add(balancebot);
             panel1.Controls.Add(classbot);
             panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(showbalancebot);
-            panel1.Controls.Add(filterbalancecombo);
-            panel1.Controls.Add(showbot);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(780, 92);
             panel1.TabIndex = 15;
+            // 
+            // searchlabel
+            // 
+            searchlabel.AutoSize = true;
+            searchlabel.Location = new Point(301, 36);
+            searchlabel.Name = "searchlabel";
+            searchlabel.RightToLeft = RightToLeft.Yes;
+            searchlabel.Size = new Size(60, 20);
+            searchlabel.TabIndex = 32;
+            searchlabel.Text = "جستجو :";
+            searchlabel.Visible = false;
+            // 
+            // bedebot
+            // 
+            bedebot.BackColor = Color.Transparent;
+            bedebot.FlatAppearance.BorderSize = 0;
+            bedebot.FlatStyle = FlatStyle.Flat;
+            bedebot.Image = Properties.Resources.bede25;
+            bedebot.ImageAlign = ContentAlignment.MiddleRight;
+            bedebot.Location = new Point(342, 9);
+            bedebot.Name = "bedebot";
+            bedebot.Size = new Size(121, 35);
+            bedebot.TabIndex = 16;
+            bedebot.Text = "بدهکاری ها";
+            bedebot.TextAlign = ContentAlignment.MiddleLeft;
+            bedebot.UseVisualStyleBackColor = false;
+            bedebot.Visible = false;
+            bedebot.Click += bedebot_Click;
+            // 
+            // bestabot
+            // 
+            bestabot.BackColor = Color.Transparent;
+            bestabot.FlatAppearance.BorderSize = 0;
+            bestabot.FlatStyle = FlatStyle.Flat;
+            bestabot.Image = Properties.Resources.besta25;
+            bestabot.ImageAlign = ContentAlignment.MiddleRight;
+            bestabot.Location = new Point(342, 48);
+            bestabot.Name = "bestabot";
+            bestabot.Size = new Size(124, 37);
+            bestabot.TabIndex = 17;
+            bestabot.Text = "بستانکاری ها";
+            bestabot.TextAlign = ContentAlignment.MiddleLeft;
+            bestabot.UseVisualStyleBackColor = false;
+            bestabot.Visible = false;
+            bestabot.Click += bestabot_Click;
+            // 
+            // panelcolorselect
+            // 
+            panelcolorselect.BackColor = Color.FromArgb(224, 175, 160);
+            panelcolorselect.Location = new Point(678, 77);
+            panelcolorselect.Name = "panelcolorselect";
+            panelcolorselect.Size = new Size(97, 13);
+            panelcolorselect.TabIndex = 31;
+            panelcolorselect.Visible = false;
             // 
             // userbot
             // 
@@ -834,9 +878,9 @@
             userbot.FlatAppearance.BorderSize = 0;
             userbot.FlatStyle = FlatStyle.Flat;
             userbot.Image = Properties.Resources.teachercolor;
-            userbot.Location = new Point(678, 3);
+            userbot.Location = new Point(678, 4);
             userbot.Name = "userbot";
-            userbot.Size = new Size(99, 86);
+            userbot.Size = new Size(97, 86);
             userbot.TabIndex = 9;
             userbot.Text = "کاربر";
             userbot.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -849,9 +893,9 @@
             balancebot.FlatAppearance.BorderSize = 0;
             balancebot.FlatStyle = FlatStyle.Flat;
             balancebot.Image = Properties.Resources.money40;
-            balancebot.Location = new Point(462, 3);
+            balancebot.Location = new Point(472, 3);
             balancebot.Name = "balancebot";
-            balancebot.Size = new Size(104, 86);
+            balancebot.Size = new Size(97, 86);
             balancebot.TabIndex = 8;
             balancebot.Text = "بدهی ها";
             balancebot.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -863,7 +907,7 @@
             classbot.FlatAppearance.BorderSize = 0;
             classbot.FlatStyle = FlatStyle.Flat;
             classbot.Image = Properties.Resources.classroom40;
-            classbot.Location = new Point(575, 3);
+            classbot.Location = new Point(575, 4);
             classbot.Name = "classbot";
             classbot.Size = new Size(97, 86);
             classbot.TabIndex = 7;
@@ -885,6 +929,7 @@
             Controls.Add(classradioButton);
             Controls.Add(balanceradiobot);
             Controls.Add(userradioButton);
+            Controls.Add(filterbalancecombo);
             Name = "showForm";
             Text = "111";
             Load += showForm_Load;
@@ -911,7 +956,6 @@
         private RadioButton balanceradiobot;
         private RadioButton classradioButton;
         private TextBox textBox1;
-        private Button showbot;
         private Label eductionlblshow;
         private Label fieldlblshow;
         private Label wanumberlblshow;
@@ -970,7 +1014,6 @@
         private ColumnHeader fname;
         private ColumnHeader lname;
         private ColumnHeader balance;
-        private Button showbalancebot;
         private ComboBox filterbalancecombo;
         private Label sumnumberlbl;
         private Label sumtxtlbl;
@@ -983,5 +1026,9 @@
         private Button balancebot;
         private Button classbot;
         private Button userbot;
+        private Panel panelcolorselect;
+        private Button bedebot;
+        private Button bestabot;
+        private Label searchlabel;
     }
 }

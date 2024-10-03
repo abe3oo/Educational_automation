@@ -121,6 +121,12 @@
   <data name="barcode25" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\barcode25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bede25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bede25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="besta25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\besta25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="class25" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\class25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
