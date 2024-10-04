@@ -92,6 +92,9 @@
             monthremedical = new TextBox();
             yearremedical = new TextBox();
             panel2 = new Panel();
+            panelcolorselect = new Panel();
+            panel1 = new Panel();
+            infobot = new Button();
             panel3 = new Panel();
             panel4 = new Panel();
             nullpic = new PictureBox();
@@ -99,6 +102,7 @@
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             panel2.SuspendLayout();
+            panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nullpic).BeginInit();
@@ -114,7 +118,7 @@
             button1.Image = (Image)resources.GetObject("button1.Image");
             button1.Location = new Point(4, 82);
             button1.Name = "button1";
-            button1.Size = new Size(113, 76);
+            button1.Size = new Size(113, 75);
             button1.TabIndex = 0;
             button1.Text = "افزودن کاربر";
             button1.TextAlign = ContentAlignment.BottomCenter;
@@ -133,7 +137,7 @@
             button2.Image = (Image)resources.GetObject("button2.Image");
             button2.Location = new Point(3, 405);
             button2.Name = "button2";
-            button2.Size = new Size(113, 81);
+            button2.Size = new Size(113, 75);
             button2.TabIndex = 1;
             button2.Text = "پرداخت ها";
             button2.TextAlign = ContentAlignment.BottomCenter;
@@ -217,9 +221,9 @@
             // 
             // day1
             // 
-            day1.Location = new Point(25, 54);
+            day1.Location = new Point(10, 54);
             day1.Name = "day1";
-            day1.Size = new Size(33, 27);
+            day1.Size = new Size(37, 31);
             day1.TabIndex = 8;
             day1.Text = "01";
             day1.UseVisualStyleBackColor = true;
@@ -227,9 +231,9 @@
             // 
             // day2
             // 
-            day2.Location = new Point(65, 54);
+            day2.Location = new Point(54, 54);
             day2.Name = "day2";
-            day2.Size = new Size(33, 27);
+            day2.Size = new Size(37, 31);
             day2.TabIndex = 9;
             day2.Text = "02";
             day2.UseVisualStyleBackColor = true;
@@ -237,9 +241,9 @@
             // 
             // day3
             // 
-            day3.Location = new Point(104, 54);
+            day3.Location = new Point(98, 54);
             day3.Name = "day3";
-            day3.Size = new Size(33, 27);
+            day3.Size = new Size(37, 31);
             day3.TabIndex = 10;
             day3.Text = "03";
             day3.UseVisualStyleBackColor = true;
@@ -247,9 +251,9 @@
             // 
             // day4
             // 
-            day4.Location = new Point(143, 54);
+            day4.Location = new Point(142, 54);
             day4.Name = "day4";
-            day4.Size = new Size(33, 27);
+            day4.Size = new Size(37, 31);
             day4.TabIndex = 11;
             day4.Text = "04";
             day4.UseVisualStyleBackColor = true;
@@ -257,9 +261,9 @@
             // 
             // day5
             // 
-            day5.Location = new Point(182, 54);
+            day5.Location = new Point(186, 54);
             day5.Name = "day5";
-            day5.Size = new Size(33, 27);
+            day5.Size = new Size(37, 31);
             day5.TabIndex = 12;
             day5.Text = "05";
             day5.UseVisualStyleBackColor = true;
@@ -267,9 +271,9 @@
             // 
             // day6
             // 
-            day6.Location = new Point(221, 54);
+            day6.Location = new Point(230, 54);
             day6.Name = "day6";
-            day6.Size = new Size(33, 27);
+            day6.Size = new Size(37, 31);
             day6.TabIndex = 13;
             day6.Text = "06";
             day6.UseVisualStyleBackColor = true;
@@ -277,9 +281,9 @@
             // 
             // day7
             // 
-            day7.Location = new Point(25, 86);
+            day7.Location = new Point(10, 91);
             day7.Name = "day7";
-            day7.Size = new Size(33, 27);
+            day7.Size = new Size(37, 31);
             day7.TabIndex = 14;
             day7.Text = "07";
             day7.UseVisualStyleBackColor = true;
@@ -287,9 +291,9 @@
             // 
             // day8
             // 
-            day8.Location = new Point(65, 86);
+            day8.Location = new Point(54, 91);
             day8.Name = "day8";
-            day8.Size = new Size(33, 27);
+            day8.Size = new Size(37, 31);
             day8.TabIndex = 15;
             day8.Text = "08";
             day8.UseVisualStyleBackColor = true;
@@ -297,9 +301,9 @@
             // 
             // day9
             // 
-            day9.Location = new Point(104, 86);
+            day9.Location = new Point(98, 91);
             day9.Name = "day9";
-            day9.Size = new Size(33, 27);
+            day9.Size = new Size(37, 31);
             day9.TabIndex = 16;
             day9.Text = "09";
             day9.UseVisualStyleBackColor = true;
@@ -307,9 +311,9 @@
             // 
             // day10
             // 
-            day10.Location = new Point(143, 86);
+            day10.Location = new Point(142, 91);
             day10.Name = "day10";
-            day10.Size = new Size(33, 27);
+            day10.Size = new Size(37, 31);
             day10.TabIndex = 17;
             day10.Text = "10";
             day10.UseVisualStyleBackColor = true;
@@ -317,9 +321,9 @@
             // 
             // day11
             // 
-            day11.Location = new Point(182, 86);
+            day11.Location = new Point(186, 91);
             day11.Name = "day11";
-            day11.Size = new Size(33, 27);
+            day11.Size = new Size(37, 31);
             day11.TabIndex = 18;
             day11.Text = "11";
             day11.UseVisualStyleBackColor = true;
@@ -327,9 +331,9 @@
             // 
             // day12
             // 
-            day12.Location = new Point(221, 86);
+            day12.Location = new Point(230, 91);
             day12.Name = "day12";
-            day12.Size = new Size(33, 27);
+            day12.Size = new Size(37, 31);
             day12.TabIndex = 19;
             day12.Text = "12";
             day12.UseVisualStyleBackColor = true;
@@ -337,9 +341,9 @@
             // 
             // day13
             // 
-            day13.Location = new Point(25, 118);
+            day13.Location = new Point(10, 128);
             day13.Name = "day13";
-            day13.Size = new Size(33, 27);
+            day13.Size = new Size(37, 31);
             day13.TabIndex = 20;
             day13.Text = "13";
             day13.UseVisualStyleBackColor = true;
@@ -347,9 +351,9 @@
             // 
             // day14
             // 
-            day14.Location = new Point(67, 118);
+            day14.Location = new Point(54, 128);
             day14.Name = "day14";
-            day14.Size = new Size(33, 27);
+            day14.Size = new Size(37, 31);
             day14.TabIndex = 21;
             day14.Text = "14";
             day14.UseVisualStyleBackColor = true;
@@ -357,9 +361,9 @@
             // 
             // day15
             // 
-            day15.Location = new Point(103, 118);
+            day15.Location = new Point(98, 128);
             day15.Name = "day15";
-            day15.Size = new Size(34, 27);
+            day15.Size = new Size(37, 31);
             day15.TabIndex = 22;
             day15.Text = "15";
             day15.UseVisualStyleBackColor = true;
@@ -367,9 +371,9 @@
             // 
             // day16
             // 
-            day16.Location = new Point(143, 118);
+            day16.Location = new Point(142, 128);
             day16.Name = "day16";
-            day16.Size = new Size(33, 27);
+            day16.Size = new Size(37, 31);
             day16.TabIndex = 23;
             day16.Text = "16";
             day16.UseVisualStyleBackColor = true;
@@ -377,9 +381,9 @@
             // 
             // day17
             // 
-            day17.Location = new Point(182, 118);
+            day17.Location = new Point(186, 128);
             day17.Name = "day17";
-            day17.Size = new Size(33, 27);
+            day17.Size = new Size(37, 31);
             day17.TabIndex = 24;
             day17.Text = "17";
             day17.UseVisualStyleBackColor = true;
@@ -387,9 +391,9 @@
             // 
             // day18
             // 
-            day18.Location = new Point(221, 116);
+            day18.Location = new Point(230, 128);
             day18.Name = "day18";
-            day18.Size = new Size(33, 27);
+            day18.Size = new Size(37, 31);
             day18.TabIndex = 25;
             day18.Text = "18";
             day18.UseVisualStyleBackColor = true;
@@ -397,9 +401,9 @@
             // 
             // day19
             // 
-            day19.Location = new Point(25, 150);
+            day19.Location = new Point(10, 165);
             day19.Name = "day19";
-            day19.Size = new Size(33, 27);
+            day19.Size = new Size(37, 31);
             day19.TabIndex = 26;
             day19.Text = "19";
             day19.UseVisualStyleBackColor = true;
@@ -407,9 +411,9 @@
             // 
             // day20
             // 
-            day20.Location = new Point(67, 150);
+            day20.Location = new Point(54, 165);
             day20.Name = "day20";
-            day20.Size = new Size(33, 27);
+            day20.Size = new Size(37, 31);
             day20.TabIndex = 27;
             day20.Text = "20";
             day20.UseVisualStyleBackColor = true;
@@ -417,9 +421,9 @@
             // 
             // day21
             // 
-            day21.Location = new Point(103, 150);
+            day21.Location = new Point(98, 165);
             day21.Name = "day21";
-            day21.Size = new Size(34, 27);
+            day21.Size = new Size(37, 31);
             day21.TabIndex = 28;
             day21.Text = "21";
             day21.UseVisualStyleBackColor = true;
@@ -427,9 +431,9 @@
             // 
             // day22
             // 
-            day22.Location = new Point(143, 150);
+            day22.Location = new Point(142, 165);
             day22.Name = "day22";
-            day22.Size = new Size(33, 27);
+            day22.Size = new Size(37, 31);
             day22.TabIndex = 29;
             day22.Text = "22";
             day22.UseVisualStyleBackColor = true;
@@ -437,9 +441,9 @@
             // 
             // day23
             // 
-            day23.Location = new Point(182, 150);
+            day23.Location = new Point(186, 165);
             day23.Name = "day23";
-            day23.Size = new Size(33, 27);
+            day23.Size = new Size(37, 31);
             day23.TabIndex = 30;
             day23.Text = "23";
             day23.UseVisualStyleBackColor = true;
@@ -447,9 +451,9 @@
             // 
             // day24
             // 
-            day24.Location = new Point(221, 150);
+            day24.Location = new Point(230, 165);
             day24.Name = "day24";
-            day24.Size = new Size(33, 27);
+            day24.Size = new Size(37, 31);
             day24.TabIndex = 31;
             day24.Text = "24";
             day24.UseVisualStyleBackColor = true;
@@ -457,9 +461,9 @@
             // 
             // day25
             // 
-            day25.Location = new Point(25, 182);
+            day25.Location = new Point(10, 202);
             day25.Name = "day25";
-            day25.Size = new Size(33, 27);
+            day25.Size = new Size(37, 31);
             day25.TabIndex = 32;
             day25.Text = "25";
             day25.UseVisualStyleBackColor = true;
@@ -467,9 +471,9 @@
             // 
             // day26
             // 
-            day26.Location = new Point(67, 182);
+            day26.Location = new Point(54, 201);
             day26.Name = "day26";
-            day26.Size = new Size(33, 27);
+            day26.Size = new Size(37, 31);
             day26.TabIndex = 33;
             day26.Text = "26";
             day26.UseVisualStyleBackColor = true;
@@ -477,9 +481,9 @@
             // 
             // day27
             // 
-            day27.Location = new Point(103, 182);
+            day27.Location = new Point(98, 201);
             day27.Name = "day27";
-            day27.Size = new Size(34, 27);
+            day27.Size = new Size(37, 31);
             day27.TabIndex = 34;
             day27.Text = "27";
             day27.UseVisualStyleBackColor = true;
@@ -487,9 +491,9 @@
             // 
             // day28
             // 
-            day28.Location = new Point(143, 182);
+            day28.Location = new Point(142, 201);
             day28.Name = "day28";
-            day28.Size = new Size(33, 27);
+            day28.Size = new Size(37, 31);
             day28.TabIndex = 35;
             day28.Text = "28";
             day28.UseVisualStyleBackColor = true;
@@ -497,9 +501,9 @@
             // 
             // day29
             // 
-            day29.Location = new Point(182, 182);
+            day29.Location = new Point(186, 201);
             day29.Name = "day29";
-            day29.Size = new Size(33, 27);
+            day29.Size = new Size(37, 31);
             day29.TabIndex = 36;
             day29.Text = "29";
             day29.UseVisualStyleBackColor = true;
@@ -507,9 +511,9 @@
             // 
             // day30
             // 
-            day30.Location = new Point(221, 182);
+            day30.Location = new Point(230, 201);
             day30.Name = "day30";
-            day30.Size = new Size(33, 27);
+            day30.Size = new Size(37, 31);
             day30.TabIndex = 37;
             day30.Text = "30";
             day30.UseVisualStyleBackColor = true;
@@ -517,9 +521,9 @@
             // 
             // day31
             // 
-            day31.Location = new Point(25, 214);
+            day31.Location = new Point(10, 239);
             day31.Name = "day31";
-            day31.Size = new Size(33, 27);
+            day31.Size = new Size(37, 31);
             day31.TabIndex = 38;
             day31.Text = "31";
             day31.UseVisualStyleBackColor = true;
@@ -532,10 +536,10 @@
             AddCourse.FlatStyle = FlatStyle.Flat;
             AddCourse.Font = new Font("B Nazanin", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 178);
             AddCourse.Image = (Image)resources.GetObject("AddCourse.Image");
-            AddCourse.Location = new Point(3, 157);
+            AddCourse.Location = new Point(3, 163);
             AddCourse.Margin = new Padding(3, 4, 3, 4);
             AddCourse.Name = "AddCourse";
-            AddCourse.Size = new Size(113, 81);
+            AddCourse.Size = new Size(113, 75);
             AddCourse.TabIndex = 39;
             AddCourse.Text = "افزودن کلاس";
             AddCourse.TextAlign = ContentAlignment.BottomCenter;
@@ -547,7 +551,7 @@
             // 
             yearlabelcul.AutoSize = true;
             yearlabelcul.Font = new Font("Segoe UI", 11F);
-            yearlabelcul.Location = new Point(85, 14);
+            yearlabelcul.Location = new Point(91, 14);
             yearlabelcul.Name = "yearlabelcul";
             yearlabelcul.Size = new Size(52, 25);
             yearlabelcul.TabIndex = 9;
@@ -557,7 +561,7 @@
             // 
             monthlabelcul.AutoSize = true;
             monthlabelcul.Font = new Font("Segoe UI", 11F);
-            monthlabelcul.Location = new Point(153, 14);
+            monthlabelcul.Location = new Point(154, 14);
             monthlabelcul.Name = "monthlabelcul";
             monthlabelcul.Size = new Size(32, 25);
             monthlabelcul.TabIndex = 40;
@@ -568,7 +572,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11F);
-            label3.Location = new Point(137, 14);
+            label3.Location = new Point(139, 14);
             label3.Name = "label3";
             label3.Size = new Size(19, 25);
             label3.TabIndex = 9;
@@ -577,9 +581,9 @@
             // 
             // button3
             // 
-            button3.Location = new Point(192, 14);
+            button3.Location = new Point(186, 14);
             button3.Name = "button3";
-            button3.Size = new Size(35, 29);
+            button3.Size = new Size(81, 29);
             button3.TabIndex = 41;
             button3.Text = ">";
             button3.UseVisualStyleBackColor = true;
@@ -587,9 +591,9 @@
             // 
             // button4
             // 
-            button4.Location = new Point(44, 13);
+            button4.Location = new Point(10, 13);
             button4.Name = "button4";
-            button4.Size = new Size(35, 29);
+            button4.Size = new Size(81, 29);
             button4.TabIndex = 42;
             button4.Text = "<";
             button4.UseVisualStyleBackColor = true;
@@ -597,9 +601,9 @@
             // 
             // todaybot
             // 
-            todaybot.Location = new Point(192, 214);
+            todaybot.Location = new Point(54, 239);
             todaybot.Name = "todaybot";
-            todaybot.Size = new Size(64, 33);
+            todaybot.Size = new Size(213, 31);
             todaybot.TabIndex = 43;
             todaybot.Text = "امروز";
             todaybot.UseVisualStyleBackColor = true;
@@ -612,9 +616,9 @@
             enrollment.FlatStyle = FlatStyle.Flat;
             enrollment.Font = new Font("B Nazanin", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 178);
             enrollment.Image = (Image)resources.GetObject("enrollment.Image");
-            enrollment.Location = new Point(3, 324);
+            enrollment.Location = new Point(5, 324);
             enrollment.Name = "enrollment";
-            enrollment.Size = new Size(113, 81);
+            enrollment.Size = new Size(113, 75);
             enrollment.TabIndex = 44;
             enrollment.Text = "ثبت نام";
             enrollment.TextAlign = ContentAlignment.BottomCenter;
@@ -639,9 +643,9 @@
             showbot.FlatStyle = FlatStyle.Flat;
             showbot.Font = new Font("B Nazanin", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 178);
             showbot.Image = (Image)resources.GetObject("showbot.Image");
-            showbot.Location = new Point(4, 245);
+            showbot.Location = new Point(3, 243);
             showbot.Name = "showbot";
-            showbot.Size = new Size(113, 73);
+            showbot.Size = new Size(113, 75);
             showbot.TabIndex = 47;
             showbot.Text = "نمایش";
             showbot.TextAlign = ContentAlignment.BottomCenter;
@@ -782,6 +786,8 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(227, 231, 240);
+            panel2.Controls.Add(panelcolorselect);
+            panel2.Controls.Add(panel1);
             panel2.Controls.Add(panel3);
             panel2.Controls.Add(button1);
             panel2.Controls.Add(AddCourse);
@@ -792,8 +798,41 @@
             panel2.ForeColor = Color.Black;
             panel2.Location = new Point(945, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(121, 497);
+            panel2.Size = new Size(121, 523);
             panel2.TabIndex = 56;
+            // 
+            // panelcolorselect
+            // 
+            panelcolorselect.BackColor = Color.FromArgb(224, 175, 160);
+            panelcolorselect.Location = new Point(-1, 482);
+            panelcolorselect.Name = "panelcolorselect";
+            panelcolorselect.Size = new Size(123, 5);
+            panelcolorselect.TabIndex = 59;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(227, 231, 240);
+            panel1.Controls.Add(infobot);
+            panel1.Dock = DockStyle.Bottom;
+            panel1.Location = new Point(0, 486);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(121, 37);
+            panel1.TabIndex = 48;
+            // 
+            // infobot
+            // 
+            infobot.FlatAppearance.BorderSize = 0;
+            infobot.FlatStyle = FlatStyle.Flat;
+            infobot.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 178);
+            infobot.Image = Properties.Resources.info25;
+            infobot.Location = new Point(15, 2);
+            infobot.Name = "infobot";
+            infobot.RightToLeft = RightToLeft.Yes;
+            infobot.Size = new Size(93, 30);
+            infobot.TabIndex = 59;
+            infobot.Text = "درباره ما";
+            infobot.TextImageRelation = TextImageRelation.ImageBeforeText;
+            infobot.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -813,6 +852,7 @@
             // panel4
             // 
             panel4.BackColor = Color.Transparent;
+            panel4.Controls.Add(monthlabelcul);
             panel4.Controls.Add(button4);
             panel4.Controls.Add(day1);
             panel4.Controls.Add(day2);
@@ -828,7 +868,6 @@
             panel4.Controls.Add(day10);
             panel4.Controls.Add(label3);
             panel4.Controls.Add(day11);
-            panel4.Controls.Add(monthlabelcul);
             panel4.Controls.Add(day12);
             panel4.Controls.Add(yearlabelcul);
             panel4.Controls.Add(day13);
@@ -852,7 +891,7 @@
             panel4.Controls.Add(day22);
             panel4.Location = new Point(12, 22);
             panel4.Name = "panel4";
-            panel4.Size = new Size(276, 259);
+            panel4.Size = new Size(276, 285);
             panel4.TabIndex = 57;
             // 
             // nullpic
@@ -871,7 +910,7 @@
             BackColor = SystemColors.Control;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1066, 497);
+            ClientSize = new Size(1066, 523);
             Controls.Add(nullpic);
             Controls.Add(groupBox2);
             Controls.Add(coursetodayGridView);
@@ -879,6 +918,7 @@
             Controls.Add(panel2);
             Controls.Add(groupBox3);
             Controls.Add(button5);
+            DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "Form1";
             Text = "Form1";
@@ -888,6 +928,7 @@
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             panel2.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
@@ -963,5 +1004,8 @@
         private Panel panel4;
         private CheckBox checkBox1;
         private PictureBox nullpic;
+        private Panel panel1;
+        private Button infobot;
+        private Panel panelcolorselect;
     }
 }

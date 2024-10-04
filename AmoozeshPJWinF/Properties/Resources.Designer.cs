@@ -133,6 +133,26 @@ namespace AmoozeshPJWinF.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap info25 {
+            get {
+                object obj = ResourceManager.GetObject("info25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap info40 {
+            get {
+                object obj = ResourceManager.GetObject("info40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap money40 {
             get {
                 object obj = ResourceManager.GetObject("money40", resourceCulture);
