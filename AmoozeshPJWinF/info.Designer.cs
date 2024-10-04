@@ -56,9 +56,9 @@
             label2.Font = new Font("Comic Sans MS", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(128, 223);
             label2.Name = "label2";
-            label2.Size = new Size(122, 25);
+            label2.Size = new Size(124, 25);
             label2.TabIndex = 1;
-            label2.Text = "v1.0.f76f4e6";
+            label2.Text = "v1.0.b910018";
             // 
             // label3
             // 
