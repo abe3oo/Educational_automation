@@ -29,7 +29,7 @@ namespace AmoozeshPJWinF
             if (coursetoday.Count > 0)
             {
                 nullpic.Visible = false;
-                
+
                 coursetodayGridView.DataSource = coursetoday;
                 button5.Enabled = true;
                 classidcombo.Enabled = true;
@@ -46,7 +46,7 @@ namespace AmoozeshPJWinF
             else
             {
                 nullpic.Visible = true;
-                
+
                 coursetodayGridView.DataSource = null;
                 button5.Enabled = false;
                 button5.BackColor = Color.White;
@@ -67,7 +67,7 @@ namespace AmoozeshPJWinF
             if (coursetoday.Count > 0)
             {
                 nullpic.Visible = false;
-                
+
                 coursetodayGridView.DataSource = coursetoday;
                 classidcombo.Enabled = true;
                 classidcombo.Items.Clear();
@@ -85,7 +85,7 @@ namespace AmoozeshPJWinF
                 button5.BackColor = Color.White;
                 groupBox2.Visible = false;
                 nullpic.Visible = true;
-                
+
                 coursetodayGridView.DataSource = null;
                 classidcombo.Enabled = false;
 
@@ -692,7 +692,7 @@ namespace AmoozeshPJWinF
 
                 if (thisstatus == true)
                 {
-                    
+
                     string s1 = dbc.course_holding_update(classidcombo.Text, click_date, false);
                     if (s1 == "1")
                     {
@@ -745,6 +745,12 @@ namespace AmoozeshPJWinF
                 dayremedical.Visible = false;
 
             }
+        }
+
+        private void infobot_Click(object sender, EventArgs e)
+        {
+            info f1 = new info();
+            f1.ShowDialog();
         }
     }
 }

@@ -833,6 +833,7 @@
             infobot.Text = "درباره ما";
             infobot.TextImageRelation = TextImageRelation.ImageBeforeText;
             infobot.UseVisualStyleBackColor = true;
+            infobot.Click += infobot_Click;
             // 
             // panel3
             // 
