@@ -405,7 +405,7 @@
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(3, 4, 3, 4);
             Name = "AddCourseForm";
-            Text = "AddCourseForm";
+            Text = "افزودن کلاس";
             Load += AddCourseForm_Load;
             ((System.ComponentModel.ISupportInitialize)hourUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)minUpDown).EndInit();

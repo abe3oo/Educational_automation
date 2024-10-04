@@ -434,7 +434,7 @@ namespace AmoozeshPJWinF
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(3, 4, 3, 4);
             Name = "enrollmentForm";
-            Text = "enrollmentForm";
+            Text = "ثبت نام";
             Load += enrollmentForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

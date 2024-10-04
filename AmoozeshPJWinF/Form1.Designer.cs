@@ -922,7 +922,7 @@
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "Form1";
-            Text = "Form1";
+            Text = "صفحه اصلی";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)coursetodayGridView).EndInit();
             groupBox2.ResumeLayout(false);

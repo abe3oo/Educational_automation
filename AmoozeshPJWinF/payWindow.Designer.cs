@@ -491,7 +491,7 @@ namespace AmoozeshPJWinF
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(5, 4, 5, 4);
             Name = "payWindow";
-            Text = "Form2";
+            Text = "پرداخت";
             Load += payWindow_Load;
             ((System.ComponentModel.ISupportInitialize)hourupdown).EndInit();
             ((System.ComponentModel.ISupportInitialize)minupdown).EndInit();

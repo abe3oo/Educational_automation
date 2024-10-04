@@ -1008,7 +1008,7 @@
             Controls.Add(userradioButton);
             Controls.Add(filterbalancecombo);
             Name = "showForm";
-            Text = "111";
+            Text = "نمایش";
             Load += showForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             balancepanel.ResumeLayout(false);

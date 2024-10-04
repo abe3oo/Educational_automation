@@ -644,7 +644,7 @@
             Controls.Add(panelsame);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "AddUserForm";
-            Text = "AddUserForm";
+            Text = "افزودن کاربر";
             Load += AddUserForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panelsame.ResumeLayout(false);

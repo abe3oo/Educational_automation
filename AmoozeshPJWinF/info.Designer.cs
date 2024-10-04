@@ -116,7 +116,7 @@
             Controls.Add(label1);
             DoubleBuffered = true;
             Name = "info";
-            Text = "info";
+            Text = "درباره ما";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
