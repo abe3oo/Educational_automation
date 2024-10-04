@@ -50,7 +50,10 @@ namespace AmoozeshPJWinF
                             {
                                 wanumberlblshow.Text = s1.whatsappnumber.ToString();
                             }
-                            wanumberlblshow.Text = s1.whatsappnumber.ToString();
+                            else
+                            {
+                                wanumberlblshow.Text = "ندارد";
+                            }
                             fieldlblshow.Text = s1.fieled_of_study;
                             eductionlblshow.Text = s1.education.ToString();
                             educationlabel.Text = "سطح تحصیلات :";
@@ -326,6 +329,8 @@ namespace AmoozeshPJWinF
             }
             else if (filterbalancecombo.SelectedIndex == 0)
             {
+                sumtxtlbl.Text = "مجموع بدهی ها :";
+                sumnumberlbl.Text = "0";
                 if (balancelistview.Columns.Count > 0)
                 {
                     ColumnHeader columnHeader = balancelistview.Columns[3];
@@ -345,7 +350,7 @@ namespace AmoozeshPJWinF
                         balancelistview.Items.Add(item);
                         sum = sum + Math.Abs(Convert.ToInt64(row["account_balance"]));
 
-                        sumtxtlbl.Text = "مجموع بدهکاری ها :";
+
                         sumnumberlbl.Text = sum.ToString();
                     }
 
@@ -354,6 +359,8 @@ namespace AmoozeshPJWinF
             }
             else if (filterbalancecombo.SelectedIndex == 1)
             {
+                sumtxtlbl.Text = "مجموع بستانکاری ها :";
+                sumnumberlbl.Text = "0";
                 if (balancelistview.Columns.Count > 0)
                 {
                     ColumnHeader columnHeader = balancelistview.Columns[3];
@@ -373,7 +380,7 @@ namespace AmoozeshPJWinF
                         balancelistview.Items.Add(item);
 
                         sum = sum + Convert.ToInt64(row["account_balance"]);
-                        sumtxtlbl.Text = "مجموع بستانکاری ها :";
+
                         sumnumberlbl.Text = sum.ToString();
                     }
                 }
@@ -422,7 +429,7 @@ namespace AmoozeshPJWinF
 
         }
 
-        
+
 
         private void savepicturebot_Click(object sender, EventArgs e)
         {
@@ -462,10 +469,10 @@ namespace AmoozeshPJWinF
 
         private void balanceradiobot_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
-        
+
 
         private void balancelistview_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -501,7 +508,7 @@ namespace AmoozeshPJWinF
             panelcolorselect.Visible = true;
             panelcolorselect.Width = classbot.Width;
             panelcolorselect.Left = classbot.Left;
-            textBox1.Enabled=true;
+            textBox1.Enabled = true;
             searchlabel.Visible = true;
             bedebot.Visible = false;
 
@@ -510,6 +517,7 @@ namespace AmoozeshPJWinF
 
         private void balancebot_Click(object sender, EventArgs e)
         {
+            hide_all();
             ReduceSaturationforbot(userbot, 0.2f, 0);
             ReduceSaturationforbot(classbot, 0.2f, 1);
             ReduceSaturationforbot(balancebot, 1f, 2);
@@ -519,7 +527,7 @@ namespace AmoozeshPJWinF
             panelcolorselect.Visible = true;
             panelcolorselect.Width = balancebot.Width;
             panelcolorselect.Left = balancebot.Left;
-            textBox1.Enabled=false;
+            textBox1.Enabled = false;
             searchlabel.Visible = false;
             bedebot.Visible = true;
 
@@ -541,24 +549,33 @@ namespace AmoozeshPJWinF
 
         private void bedebot_Click(object sender, EventArgs e)
         {
+
             ReduceSaturationforbot(bedebot, 1f, 3);
             ReduceSaturationforbot(bestabot, 0.2f, 4);
             filterbalancecombo.SelectedIndex = 0;
             balancepanel.Visible = true;
+            loadData();
         }
 
         private void bestabot_Click(object sender, EventArgs e)
         {
+
             ReduceSaturationforbot(bedebot, 0.2f, 3);
             ReduceSaturationforbot(bestabot, 1f, 4);
             filterbalancecombo.SelectedIndex = 1;
             balancepanel.Visible = true;
+            loadData();
         }
 
         private void filterbalancecombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            loadData();
-            
+
+
+        }
+
+        private void sumnumberlbl_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
