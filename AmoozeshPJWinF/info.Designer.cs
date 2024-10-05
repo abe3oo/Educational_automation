@@ -54,7 +54,7 @@
             label2.AutoSize = true;
             label2.BackColor = SystemColors.ControlLight;
             label2.Font = new Font("Comic Sans MS", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(150, 241);
+            label2.Location = new Point(146, 241);
             label2.Name = "label2";
             label2.Size = new Size(132, 25);
             label2.TabIndex = 1;
