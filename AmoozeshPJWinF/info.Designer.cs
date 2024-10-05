@@ -43,18 +43,18 @@
             label1.AutoSize = true;
             label1.BackColor = SystemColors.ControlLight;
             label1.Font = new Font("B Nazanin", 10.8F, FontStyle.Bold);
-            label1.Location = new Point(143, 178);
+            label1.Location = new Point(136, 196);
             label1.Name = "label1";
-            label1.Size = new Size(129, 29);
+            label1.Size = new Size(148, 29);
             label1.TabIndex = 0;
-            label1.Text = "اتومایسون دانشگاه";
+            label1.Text = "کرسی پژوهشی حافظ";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.BackColor = SystemColors.ControlLight;
             label2.Font = new Font("Comic Sans MS", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(150, 224);
+            label2.Location = new Point(150, 241);
             label2.Name = "label2";
             label2.Size = new Size(124, 25);
             label2.TabIndex = 1;
@@ -65,7 +65,7 @@
             label3.AutoSize = true;
             label3.BackColor = SystemColors.ControlLight;
             label3.Font = new Font("B Nazanin", 10.8F, FontStyle.Bold);
-            label3.Location = new Point(69, 268);
+            label3.Location = new Point(69, 285);
             label3.Name = "label3";
             label3.Size = new Size(281, 29);
             label3.TabIndex = 2;
@@ -76,7 +76,7 @@
             label4.AutoSize = true;
             label4.BackColor = SystemColors.ControlLight;
             label4.Font = new Font("Comic Sans MS", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(93, 311);
+            label4.Location = new Point(93, 328);
             label4.Name = "label4";
             label4.Size = new Size(224, 25);
             label4.TabIndex = 3;
@@ -96,9 +96,11 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(143, 44);
+            pictureBox1.Image = Properties.Resources.photo_2024_10_05_22_24_52;
+            pictureBox1.Location = new Point(152, 7);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(125, 105);
+            pictureBox1.Size = new Size(115, 164);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             // 
@@ -117,6 +119,7 @@
             Controls.Add(label1);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "info";
             Text = "درباره ما";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

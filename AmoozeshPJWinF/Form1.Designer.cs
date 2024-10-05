@@ -824,7 +824,6 @@
             infobot.FlatAppearance.BorderSize = 0;
             infobot.FlatStyle = FlatStyle.Flat;
             infobot.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 178);
-            infobot.Image = Properties.Resources.info25;
             infobot.Location = new Point(15, 2);
             infobot.Name = "infobot";
             infobot.RightToLeft = RightToLeft.Yes;
@@ -921,6 +920,7 @@
             Controls.Add(button5);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "صفحه اصلی";
             Load += Form1_Load;

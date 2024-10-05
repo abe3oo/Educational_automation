@@ -643,6 +643,7 @@
             Controls.Add(panel1);
             Controls.Add(panelsame);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AddUserForm";
             Text = "افزودن کاربر";
             Load += AddUserForm_Load;

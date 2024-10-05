@@ -906,7 +906,6 @@
             bedebot.FlatAppearance.BorderSize = 0;
             bedebot.FlatStyle = FlatStyle.Flat;
             bedebot.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
-            bedebot.Image = Properties.Resources.bede25;
             bedebot.ImageAlign = ContentAlignment.MiddleRight;
             bedebot.Location = new Point(342, 9);
             bedebot.Name = "bedebot";
@@ -924,7 +923,6 @@
             bestabot.FlatAppearance.BorderSize = 0;
             bestabot.FlatStyle = FlatStyle.Flat;
             bestabot.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
-            bestabot.Image = Properties.Resources.besta25;
             bestabot.ImageAlign = ContentAlignment.MiddleRight;
             bestabot.Location = new Point(342, 48);
             bestabot.Name = "bestabot";
@@ -952,7 +950,6 @@
             userbot.FlatAppearance.BorderSize = 0;
             userbot.FlatStyle = FlatStyle.Flat;
             userbot.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
-            userbot.Image = Properties.Resources.teachercolor;
             userbot.Location = new Point(678, 4);
             userbot.Name = "userbot";
             userbot.Size = new Size(94, 86);
@@ -968,7 +965,6 @@
             balancebot.FlatAppearance.BorderSize = 0;
             balancebot.FlatStyle = FlatStyle.Flat;
             balancebot.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
-            balancebot.Image = Properties.Resources.money40;
             balancebot.Location = new Point(472, 3);
             balancebot.Name = "balancebot";
             balancebot.Size = new Size(97, 86);
@@ -983,7 +979,6 @@
             classbot.FlatAppearance.BorderSize = 0;
             classbot.FlatStyle = FlatStyle.Flat;
             classbot.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
-            classbot.Image = Properties.Resources.classroom40;
             classbot.Location = new Point(575, 4);
             classbot.Name = "classbot";
             classbot.Size = new Size(97, 86);
@@ -1007,6 +1002,7 @@
             Controls.Add(balanceradiobot);
             Controls.Add(userradioButton);
             Controls.Add(filterbalancecombo);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "showForm";
             Text = "نمایش";
             Load += showForm_Load;

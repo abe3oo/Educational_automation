@@ -272,7 +272,6 @@ namespace AmoozeshPJWinF
             // classidpictureBox
             // 
             classidpictureBox.Anchor = AnchorStyles.Left;
-            classidpictureBox.Image = Properties.Resources.barcode25;
             classidpictureBox.Location = new Point(209, 40);
             classidpictureBox.Name = "classidpictureBox";
             classidpictureBox.Size = new Size(29, 28);
@@ -307,7 +306,6 @@ namespace AmoozeshPJWinF
             // classnamepictureBox
             // 
             classnamepictureBox.Anchor = AnchorStyles.Left;
-            classnamepictureBox.Image = Properties.Resources.class25;
             classnamepictureBox.Location = new Point(209, 3);
             classnamepictureBox.Name = "classnamepictureBox";
             classnamepictureBox.Size = new Size(29, 29);
@@ -334,7 +332,6 @@ namespace AmoozeshPJWinF
             // 
             // studentnamepictureBox
             // 
-            studentnamepictureBox.Image = Properties.Resources.name25;
             studentnamepictureBox.Location = new Point(202, 3);
             studentnamepictureBox.Name = "studentnamepictureBox";
             studentnamepictureBox.Size = new Size(29, 28);
@@ -344,7 +341,6 @@ namespace AmoozeshPJWinF
             // studentidpictureBox
             // 
             studentidpictureBox.Anchor = AnchorStyles.Left;
-            studentidpictureBox.Image = Properties.Resources.id25;
             studentidpictureBox.Location = new Point(202, 37);
             studentidpictureBox.Name = "studentidpictureBox";
             studentidpictureBox.Size = new Size(29, 32);
@@ -432,6 +428,7 @@ namespace AmoozeshPJWinF
             Controls.Add(whatsappGP);
             Controls.Add(date);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             Name = "enrollmentForm";
             Text = "ثبت نام";

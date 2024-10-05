@@ -384,7 +384,6 @@ namespace AmoozeshPJWinF
             // namepictureBox
             // 
             namepictureBox.BackColor = Color.Transparent;
-            namepictureBox.Image = Properties.Resources.name25;
             namepictureBox.Location = new Point(256, 3);
             namepictureBox.Name = "namepictureBox";
             namepictureBox.Size = new Size(24, 31);
@@ -394,7 +393,6 @@ namespace AmoozeshPJWinF
             // idpictureBox
             // 
             idpictureBox.BackColor = Color.Transparent;
-            idpictureBox.Image = Properties.Resources.id25;
             idpictureBox.Location = new Point(256, 40);
             idpictureBox.Name = "idpictureBox";
             idpictureBox.Size = new Size(24, 30);
@@ -434,7 +432,6 @@ namespace AmoozeshPJWinF
             pardakhtbot.FlatAppearance.BorderSize = 0;
             pardakhtbot.FlatStyle = FlatStyle.Flat;
             pardakhtbot.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
-            pardakhtbot.Image = Properties.Resources.moneyup60;
             pardakhtbot.Location = new Point(490, 3);
             pardakhtbot.Name = "pardakhtbot";
             pardakhtbot.Size = new Size(94, 113);
@@ -450,7 +447,6 @@ namespace AmoozeshPJWinF
             daryaftbot.FlatAppearance.BorderSize = 0;
             daryaftbot.FlatStyle = FlatStyle.Flat;
             daryaftbot.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold);
-            daryaftbot.Image = Properties.Resources.moneydown60;
             daryaftbot.Location = new Point(397, 3);
             daryaftbot.Name = "daryaftbot";
             daryaftbot.Size = new Size(94, 109);
@@ -489,6 +485,7 @@ namespace AmoozeshPJWinF
             Controls.Add(term);
             Controls.Add(amount);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             Name = "payWindow";
             Text = "پرداخت";
