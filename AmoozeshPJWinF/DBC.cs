@@ -30,7 +30,7 @@ namespace AmoozeshPJWinF
         }
         public string ReadDbConfigFromIni(string filePath)
         {
-
+            
             try
             {
                 var parser = new FileIniDataParser();
@@ -49,7 +49,28 @@ namespace AmoozeshPJWinF
                 MessageBox.Show("خطا در خواندن فایل کانفیگ !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
-            
+        }
+        public database readDBconfigfromIni2(string filePath)
+        {
+            try
+            {
+                database d1 = new database();
+                var parser = new FileIniDataParser();
+                IniData data = parser.ReadFile(filePath);
+                d1.host = data["Database"]["Host"];
+
+                d1.port = Convert.ToString(int.Parse(data["Database"]["Port"]));
+                d1.user = data["Database"]["Username"];
+                d1.password = data["Database"]["Password"];
+                d1.databaseName = data["Database"]["Database"];
+
+                return d1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("خطا در خواندن فایل کانفیگ !!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
         }
         public void clear_textbox(TextBox t1)
         {

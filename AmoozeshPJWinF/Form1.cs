@@ -752,5 +752,11 @@ namespace AmoozeshPJWinF
             info f1 = new info();
             f1.ShowDialog();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Setting f1 = new Setting();
+            f1.ShowDialog();
+        }
     }
 }

@@ -94,6 +94,7 @@
             panel2 = new Panel();
             panelcolorselect = new Panel();
             panel1 = new Panel();
+            button6 = new Button();
             infobot = new Button();
             panel3 = new Panel();
             panel4 = new Panel();
@@ -812,6 +813,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(227, 231, 240);
+            panel1.Controls.Add(button6);
             panel1.Controls.Add(infobot);
             panel1.Dock = DockStyle.Bottom;
             panel1.Location = new Point(0, 486);
@@ -819,17 +821,29 @@
             panel1.Size = new Size(121, 37);
             panel1.TabIndex = 48;
             // 
+            // button6
+            // 
+            button6.FlatAppearance.BorderSize = 0;
+            button6.FlatStyle = FlatStyle.Flat;
+            button6.Location = new Point(5, 3);
+            button6.Name = "button6";
+            button6.Size = new Size(60, 33);
+            button6.TabIndex = 59;
+            button6.Text = "set";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
             // infobot
             // 
             infobot.FlatAppearance.BorderSize = 0;
             infobot.FlatStyle = FlatStyle.Flat;
             infobot.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 178);
-            infobot.Location = new Point(15, 2);
+            infobot.Image = Properties.Resources.info25;
+            infobot.Location = new Point(71, 2);
             infobot.Name = "infobot";
             infobot.RightToLeft = RightToLeft.Yes;
-            infobot.Size = new Size(93, 30);
+            infobot.Size = new Size(44, 32);
             infobot.TabIndex = 59;
-            infobot.Text = "درباره ما";
             infobot.TextImageRelation = TextImageRelation.ImageBeforeText;
             infobot.UseVisualStyleBackColor = true;
             infobot.Click += infobot_Click;
@@ -1008,5 +1022,6 @@
         private Panel panel1;
         private Button infobot;
         private Panel panelcolorselect;
+        private Button button6;
     }
 }
