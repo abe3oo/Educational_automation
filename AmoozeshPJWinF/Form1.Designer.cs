@@ -825,11 +825,11 @@
             // 
             button6.FlatAppearance.BorderSize = 0;
             button6.FlatStyle = FlatStyle.Flat;
-            button6.Location = new Point(5, 3);
+            button6.Image = Properties.Resources.backup25;
+            button6.Location = new Point(5, 1);
             button6.Name = "button6";
-            button6.Size = new Size(60, 33);
+            button6.Size = new Size(55, 33);
             button6.TabIndex = 59;
-            button6.Text = "set";
             button6.UseVisualStyleBackColor = true;
             button6.Click += button6_Click;
             // 
@@ -839,10 +839,10 @@
             infobot.FlatStyle = FlatStyle.Flat;
             infobot.Font = new Font("B Nazanin", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 178);
             infobot.Image = Properties.Resources.info25;
-            infobot.Location = new Point(71, 2);
+            infobot.Location = new Point(66, 2);
             infobot.Name = "infobot";
             infobot.RightToLeft = RightToLeft.Yes;
-            infobot.Size = new Size(44, 32);
+            infobot.Size = new Size(56, 32);
             infobot.TabIndex = 59;
             infobot.TextImageRelation = TextImageRelation.ImageBeforeText;
             infobot.UseVisualStyleBackColor = true;

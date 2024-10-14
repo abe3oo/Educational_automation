@@ -63,6 +63,16 @@ namespace AmoozeshPJWinF.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap backup25 {
+            get {
+                object obj = ResourceManager.GetObject("backup25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap barcode25 {
             get {
                 object obj = ResourceManager.GetObject("barcode25", resourceCulture);
@@ -116,6 +126,26 @@ namespace AmoozeshPJWinF.Properties {
         public static System.Drawing.Bitmap down_money_40 {
             get {
                 object obj = ResourceManager.GetObject("down_money_40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap file20 {
+            get {
+                object obj = ResourceManager.GetObject("file20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap files20 {
+            get {
+                object obj = ResourceManager.GetObject("files20", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
