@@ -58,7 +58,7 @@
             label2.Name = "label2";
             label2.Size = new Size(132, 25);
             label2.TabIndex = 1;
-            label2.Text = "v1.0.7f105c13";
+            label2.Text = "v1.0.aea10228";
             // 
             // label3
             // 
