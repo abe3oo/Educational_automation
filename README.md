@@ -1,7 +1,3 @@
-Thank you for providing the project details! Based on your description, here’s a draft for your README file. You can adjust or add any details that better reflect your project.
-
----
-
 # Educational Automation Project
 
 ### Description
