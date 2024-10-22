@@ -91,7 +91,3 @@ Before running the project, make sure to configure the `dbconfig.ini` file with 
 ## Acknowledgments
 
 Special thanks to the creators of PostgreSQL and the Windows Forms team for providing the tools that made this project possible.
-
----
-
-You can customize this template by adding more details, updating sections, or adding images/screenshots. Let me know if you'd like to make any changes or add something specific!
